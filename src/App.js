@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Calendar from './components/Calendar.jsx';
 import './App.css';
+
+const divStyle = {
+  width: '50%',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  display: 'block',
+  float: 'none'
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div style={divStyle}>
+        <Calendar></Calendar>
       </div>
     );
   }
