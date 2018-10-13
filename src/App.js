@@ -3,6 +3,7 @@ import CalendarWrapper from './components/Calendar/CalendarWrapper.jsx';
 
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from './components/Navbar.jsx';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
