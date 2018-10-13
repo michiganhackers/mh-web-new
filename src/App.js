@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from './components/Navbar.jsx';
 
-// TODO: Add the components these routes map to
-// TODO: Add a navbar
+/* 
+TODO: Add the components these routes map to
+EX:             <Route path="/events" component={Calendar} />
+after having imported the Calendar component
+*/
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>Navbar goes here</div>
         <Router>
-          <div>
+          <React.Fragment>
+            <Navbar/>
             <Route exact path="/"/>
             <Route path="/events"/>
             <Route path="/faq"/>
-          </div>
+          </React.Fragment>
         </Router>
       </div>
     );
