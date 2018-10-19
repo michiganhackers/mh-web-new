@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Calendar from './components/Calendar.jsx';
+
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const divStyle = {
   width: '50%',
