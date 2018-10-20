@@ -10,13 +10,13 @@ const Wrapper = styled.div`
     right: 0;
     paddingTop: 15px
     paddingBottom: 15px
-    zIndex: 100;
-
+    z-index: 100;
     display: flex;
     height: 80px;
     alignItems: center;
     justify-content: space-between;
     background: rgb(241,93,36);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 `;
 
 const FlexWrapper = styled.div`
