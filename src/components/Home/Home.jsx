@@ -1,63 +1,88 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import leftPhotoURL from "../../assets/sample-photo.jpg";
+import rightPhotoURL from "../../assets/sample-photo.jpg";
 import logoOrange from "../../assets/logo-orange.png";
+import "../../utility/fonts.css";
 import styled from 'styled-components';
+import HomeLayoutOuter from "../HomeLayoutOuter/HomeLayoutOuter.jsx";
 import devices from '../../utility/MediaQueries.js';
-
-const Outer = styled.div`
-  width: 100%;
-  margin-top: 80px;
-  height: calc(100vh - 80px);
-  align-items: center;
-`
-
-const Left = styled.div`
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  padding-left: 3em;
-  height: calc(100vh - 80px);
-  width: calc(67vw - 3em);
-  ${devices.small`
-    width: 100vw;
-  `}
-  color: rgb(241,93,36);
-  left: 0;
-  overflow: scroll;
-`
-
-const Right = styled.div`
-  background-image: url(${leftPhotoURL});
-  width: 33vw;
-  height: calc(100vh - 80px);
-  position: absolute;
-  right: 0;
-  padding: 0;
-  margin: 0;
-
-  ${devices.small`
-    display: none;
-  `}
-`
-
-const LogoImage = styled.img`
-  width: auto;
-  height: 40%;
-  margin-left: -4.5vh;
-  margin-top: 4em;
-  display: block;
-`
 
 const LeftInner = styled.div`
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  ${devices.small`
+    display: block;
+  `}
+  justify-content: space-around;
+  flex-wrap: nowrap;
   text-align: left;
   margin: 0 0 4vh 0;
   padding: 0;
   width: 100%;
   overflow: scroll;
+`
+
+const LeftInnerCol = styled.div`
+  margin-top: 2.5em;
+  width: 50%;
+  ${devices.small`
+    width: 100%;
+  `}
+`
+
+const HomeContentH1 = styled.h1`
+  margin: 0.25em 0;
+  width: 80%;
+  display: block;
+`
+
+const HomeContentH2 = styled.h2`
+  margin: 0;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-family: "Roboto Condensed", "Roboto", Helvetica, Arial, sans-serif;
+  width: 80%;
+  display: block;
+`
+
+const HomeContentP = styled.p`
+  margin: 0.5em 0;
+  width: 80%;
+  display: block;
+`
+
+const HomepageUpper = styled.div`
+  width: 90%;
+  margin-left: calc(-3em + 5%);
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  ${devices.small`
+    display: block;
+  `}
+`
+
+const MissionStatement = styled.p`
+  width: 70%;
+  height: auto;
+  line-height: 1.2;
+  text-align: left;
+  color: rgb(241,93,36);
+  border-left: rgb(241, 93, 36) 5px solid;
+  padding-left: 10px;
+`
+
+const MissionStatementTitle = styled.h1`
+  font-size: 2.5em
+  margin: 0 0 0.25em 0;
+  font-family: "Roboto Condensed", "Roboto", Helvetica, Arial, sans-serif;
+`
+
+const LogoImage = styled.img`
+  width: 20%;
+  height: auto;
+  display: block;
 `
 
 const RectangleDividerOuter = styled.div`
@@ -72,30 +97,29 @@ const RectangleDivider = styled.div`
   display: block;
 `
 
-const textStyle = {
-  margin: "0.5em 0",
-  width: '75%',
-  display: 'block'
-}
-
 class Home extends Component {
   render() {
-    return (<Outer>
-      <Left>
-        <LogoImage src={logoOrange} />
-        <RectangleDividerOuter>
-          <RectangleDivider/>
-        </RectangleDividerOuter>
-        <LeftInner>
-          <h1 style={textStyle}>Lorem Ipsum</h1>
-          <p style={textStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p style={textStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p style={textStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </LeftInner>
-      </Left>
-      <Right>
-      </Right>
-    </Outer>);
+    return (
+      <React.Fragment>
+        <HomeLayoutOuter showLogo rightURL={rightPhotoURL}>
+          <HomepageUpper>
+            <LogoImage src={logoOrange} />
+            <MissionStatement><MissionStatementTitle>MICHIGAN HACKERS</MissionStatementTitle>We are a community for computer scientists at the University of Michigan. We exist to promote problem-solving with technology and to engage students with the technologies used in companies today. Michigan Hackers are people who are passionate about working on personal projects as well as contributing to the world of open source software.</MissionStatement>
+          </HomepageUpper>
+          <LeftInner>
+            <LeftInnerCol>
+              <HomeContentH1>Hack Nights</HomeContentH1>
+              <HomeContentH2>Thursdays 7-10pm • 1005 EECS</HomeContentH2>
+              <HomeContentP>A time to talk with other Hackers to learn, teach, chat, and build in a casual environment. Usually started off with a short “Lightning Talk” by members of the computer science community. Recent talks include one by UM’s EECS professor J. Alex Halderman on election hacking, and one by UM alum and Facebook engineer, Mayank Patke, on how to write fast algorithms in Haskell.</HomeContentP>
+            </LeftInnerCol>
+            <LeftInnerCol>
+              <HomeContentH1>Even More</HomeContentH1>
+              <HomeContentP>We host a variety of other events, such as company tech talks, resume workshops, and social events with other groups on campus. You can check out a full list of events on our calendar. All events on the calendar are open to everyone - feel free to stop by!<br></br><br></br>Have any other questions or want to join our mailing list? Head to the FAQ for more information!</HomeContentP>
+            </LeftInnerCol>
+          </LeftInner>
+        </HomeLayoutOuter>
+      </React.Fragment>
+    );
   }
 }
 
