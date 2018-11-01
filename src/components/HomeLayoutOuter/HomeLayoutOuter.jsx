@@ -7,29 +7,25 @@ import devices from '../../utility/MediaQueries.js';
 const Outer = styled.div`
   width: 100%;
   margin-top: 80px;
-  height: calc(100vh - 80px);
   align-items: center;
 `
 
 const Left = styled.div`
   position: absolute;
   background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding-left: 3em;
-  height: calc(100vh - 80px);
   width: calc(67vw - 3em);
   ${devices.small`
     width: 100vw;
   `}
   color: rgb(241,93,36);
   left: 0;
-  overflow: scroll;
 `
 
 const Right = styled.div`
   width: 33vw;
   height: calc(100vh - 80px);
-  position: absolute;
+  position: fixed;
   right: 0;
   padding: 0;
   margin: 0;
