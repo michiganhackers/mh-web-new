@@ -15,7 +15,7 @@ const divStyle = {
 class App extends Component {
   render() {
     return (
-      <div style={divStyle}>
+      <div>
         <Calendar></Calendar>
       </div>
     );
