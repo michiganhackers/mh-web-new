@@ -12,11 +12,16 @@ const divStyle = {
   float: 'none'
 }
 
+const CalendarStyle = {
+  color: '#ef5b2e',
+  textColor: 'white'
+}
+
 class App extends Component {
   render() {
     return (
       <div>
-        <Calendar></Calendar>
+        <Calendar style={CalendarStyle}></Calendar>
       </div>
     );
   }

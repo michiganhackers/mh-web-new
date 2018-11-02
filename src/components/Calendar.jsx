@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import axios from 'axios';
 
+import Tooltip from './Tooltip.jsx';
+
 const CALENDAR_ID = '8n8u58ssric1hmm84jvkvl9d68@group.calendar.google.com';
 const API_KEY = 'AIzaSyD-UNSznwGRDtLZqizxTM1ku-9YS0DZkcQ';
 
@@ -13,7 +15,10 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {events: []};
+    this.state = {events: [], tooltipHidden: true};
+    this.getCalendarEvents = this.getCalendarEvents.bind(this);
+    this.setTooltipTrueState = this.setTooltipStateTrue.bind(this);
+    this.setTooltipFalseState = this.setTooltipStateFalse.bind(this);
   }
 
   componentDidMount() {
@@ -32,19 +37,17 @@ class Calendar extends React.Component {
           if (items[i].status === "cancelled") {
             continue;
           }
-          if ("dateTime" in items[i].start) {
-            events.push({
-              id: items[i].id,
-              title: items[i].summary,
-              start: items[i].start.dateTime
-            });
-          } else {
-            events.push({
-              id: items[i].id,
-              title: items[i].summary,
-              start: items[i].start.date
-            });
-          }
+
+          let event = {
+            id: items[i].id,
+            title: items[i].summary,
+            url: items[i].htmlLink,
+            description: items[i].description,
+            start: items[i].start.dateTime || items[i].start.date,
+            end: items[i].end.dateTime || items[i].end.date
+          };
+
+          events.push(event);
         }
 
         this.setState({
@@ -56,9 +59,21 @@ class Calendar extends React.Component {
       });
   }
 
+  setTooltipStateTrue() {
+    this.setState({
+      tooltipHidden: true,
+    });
+  }
+
+  setTooltipStateFalse() {
+    this.setState({
+      tooltipHidden: false
+    });
+  }
+
   render() {
     return (
-      <div id="example-component">
+      <div>
         <FullCalendar
           height= {"auto"}
           header = {{
@@ -70,7 +85,24 @@ class Calendar extends React.Component {
           navLinks= {true} // can click day/week names to navigate views
           eventLimit= {3} // allow "more" link when too many events
           events = {this.state.events}
+          eventColor = {this.props.style.color}
+          eventTextColor = {this.props.style.textColor}
+          eventClick = {
+            function(event) {
+              if (event.url) {
+                window.open(event.url);
+                return false;
+              }
+            }
+          }
+          eventMouseover = {
+            this.setTooltipStateFalse.bind(this)
+          }
+          eventMouseout = {
+            this.setTooltipStateTrue.bind(this)
+          }
           />
+        <Tooltip hidden={this.state.tooltipHidden} />
       </div>
     );
   }
