@@ -15,10 +15,9 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {events: [], tooltipHidden: true};
+    this.state = {events: [], tooltipHidden: true, mouseLocation: [0, 0], eventClicked: null};
     this.getCalendarEvents = this.getCalendarEvents.bind(this);
-    this.setTooltipTrueState = this.setTooltipStateTrue.bind(this);
-    this.setTooltipFalseState = this.setTooltipStateFalse.bind(this);
+    this.handleEventClick = this.handleEventClick.bind(this);
   }
 
   componentDidMount() {
@@ -59,16 +58,19 @@ class Calendar extends React.Component {
       });
   }
 
-  setTooltipStateTrue() {
+  handleEventClick(event, jsEvent) {
     this.setState({
-      tooltipHidden: true,
+      mouseLocation: [jsEvent.pageX, jsEvent.pageY],
+      tooltipHidden: false,
+      eventClicked: event
     });
-  }
 
-  setTooltipStateFalse() {
-    this.setState({
-      tooltipHidden: false
-    });
+    return false;
+
+    /*if (event.url) {
+      window.open(event.url);
+      return false;
+    }*/
   }
 
   render() {
@@ -79,7 +81,7 @@ class Calendar extends React.Component {
           header = {{
             left: 'prev,next today',
             center: 'title',
-            right: 'month,basicWeek,basicDay'
+            right: 'month,basicWeek,listMonth'
           }}
           defaultDate={'2015-09-12'}
           navLinks= {true} // can click day/week names to navigate views
@@ -88,21 +90,10 @@ class Calendar extends React.Component {
           eventColor = {this.props.style.color}
           eventTextColor = {this.props.style.textColor}
           eventClick = {
-            function(event) {
-              if (event.url) {
-                window.open(event.url);
-                return false;
-              }
-            }
-          }
-          eventMouseover = {
-            this.setTooltipStateFalse.bind(this)
-          }
-          eventMouseout = {
-            this.setTooltipStateTrue.bind(this)
+            this.handleEventClick.bind(this)
           }
           />
-        <Tooltip hidden={this.state.tooltipHidden} />
+        <Tooltip eventClicked={this.state.eventClicked} location={this.state.mouseLocation} hidden={this.state.tooltipHidden} />
       </div>
     );
   }
