@@ -5,18 +5,15 @@ import logoUrl from '../assets/logo.png'; // webpack takes care of creating the 
 
 const Wrapper = styled.div`
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    paddingTop: 15px
-    paddingBottom: 15px
     z-index: 100;
     display: flex;
     height: 80px;
     alignItems: center;
     justify-content: space-between;
     background: rgb(241,93,36);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 `;
 
 const FlexWrapper = styled.div`
@@ -67,15 +64,18 @@ class Navbar extends Component {
     return (
       <Wrapper>
         <FlexWrapper>
-          <LogoNavLink to="/">
-            <Logo src={logoUrl} />
-          </LogoNavLink>
           <NavContainer>
             <HeaderNavLink to="/faq">
               faq
             </HeaderNavLink>
+            <HeaderNavLink to="/about">
+              about
+            </HeaderNavLink>
             <HeaderNavLink to="/events">
               calendar
+            </HeaderNavLink>
+            <HeaderNavLink to="/contact">
+              contact
             </HeaderNavLink>
           </NavContainer>
         </FlexWrapper>

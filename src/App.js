@@ -19,6 +19,8 @@ class App extends Component {
           <React.Fragment>
             {/*<Navbar/>
             <Route exact path="/" component={Home}/>*/}
+            <Navbar />
+            <Route exact path="/" component={Home}/>
             <Route path="/events" component={CalendarWrapper}/>
             <Route path="/faq"/>
           </React.Fragment>
