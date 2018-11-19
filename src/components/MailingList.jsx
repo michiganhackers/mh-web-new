@@ -31,22 +31,26 @@ class MailingList extends React.Component {
     }
 
     addEmailToList(e){
+        
         e.preventDefault();
 
         let secret_key = process.env.REACT_APP_MAILJET_SECRET;
         let public_key = process.env.REACT_APP_MAILJET_PUBLIC;
 
+        // let payload = `{
+        //     "Email": ${this.state.address},
+        //     "Action": "addnoforce"
+        // }`;
+
         // axios({
         //     method: 'post',
-        //     url: 'https://api.mailjet.com/v3/REST/contactslist/:id/managecontact',
+        //     headers: { 'content-type': 'text/plain' },
+        //     url: 'https://api.mailjet.com/v3/REST/contactslist/1/managecontact',
         //     auth: {
         //         username: public_key,
         //         password: secret_key
         //     },
-        //     data: {
-        //         "Email": this.state.address, 
-        //         "Action": "addnoforce"
-        //     }
+        //     data: payload
         //   }).then(res => {
         //         console.log(res);
         //         console.log(res.data);
