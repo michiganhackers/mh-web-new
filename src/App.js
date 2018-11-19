@@ -3,8 +3,6 @@ import CalendarWrapper from './components/Calendar/CalendarWrapper.jsx';
 
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from './components/Navbar.jsx';
-import SpecialNavbar from './components/SpecialNavbar.jsx';
 import Home from './components/Home/Home.jsx';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -12,6 +10,12 @@ import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-sol
 
 library.add(faListUl, faLink, faMapMarkerAlt, faClock);
 
+/*
+TODO: Add the components these routes map to
+EX:             <Route path="/events" component={Calendar} />
+after having imported the Calendar component
+*/
+// Make sure to use either <Navbar /> or <SpecialNavbar /> inside all routes
 class App extends Component {
   render() {
     return (

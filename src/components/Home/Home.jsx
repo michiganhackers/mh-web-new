@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import HomeLayoutOuter from "../HomeLayoutOuter/HomeLayoutOuter.jsx";
 import devices from '../../utility/MediaQueries.js';
 
+import SpecialNavbar from '../SpecialNavbar.jsx';
+
 import PolygonCanvas from '../PolygonCanvas.js';
 
 import logoUrl from '../../assets/logo-orange-cropped.png';
@@ -21,7 +23,7 @@ const MainText = styled.h1`
   font-family: "Roboto Condensed";
   font-weight: 900;
   line-height: 0.8;
-  margin: 0 2vw 2vw 2vw;
+  margin: 0 2vw 0 2vw;
   color: #fff;
   text-align: left;
   position: relative;
@@ -49,6 +51,7 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
+        <SpecialNavbar />
         <PolygonCanvas style={{width: '100%', height: '100%', position: 'absolute', transform: "scaleX(-1)"}}/>
         <HomeBackgroundOuter>
           <Logo src={logoUrl}/>
