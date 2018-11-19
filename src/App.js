@@ -4,6 +4,7 @@ import CalendarWrapper from './components/Calendar/CalendarWrapper.jsx';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from './components/Navbar.jsx';
+import SpecialNavbar from './components/SpecialNavbar.jsx';
 import Home from './components/Home/Home.jsx';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,8 +20,8 @@ class App extends Component {
           <React.Fragment>
             {/*<Navbar/>
             <Route exact path="/" component={Home}/>*/}
-            <Navbar />
-            <Route exact path="/" component={Home}/>
+            <SpecialNavbar />
+            <Route exact path="/" component={Home} />
             <Route path="/events" component={CalendarWrapper}/>
             <Route path="/faq"/>
           </React.Fragment>

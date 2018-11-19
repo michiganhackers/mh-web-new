@@ -15,13 +15,13 @@ const HomeBackgroundOuter = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 2vw;
 `
 
 const MainText = styled.h1`
   font-family: "Roboto Condensed";
   font-weight: 900;
   line-height: 0.8;
+  margin: 0 2vw 2vw 2vw;
   color: #fff;
   text-align: left;
   position: relative;
@@ -42,7 +42,7 @@ const Logo = styled.img`
     width: 20vw;
   `}
   height: auto;
-  margin: 0;
+  padding: 2vw;
 `
 
 class Home extends Component {

@@ -5,6 +5,7 @@ import logoUrl from '../assets/logo.png'; // webpack takes care of creating the 
 
 const Wrapper = styled.div`
     position: fixed;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: 100;
@@ -12,7 +13,8 @@ const Wrapper = styled.div`
     height: 80px;
     alignItems: center;
     justify-content: space-between;
-    background: rgb(241,93,36);
+    background: transparent;
+    font-size: 20px;
 `;
 
 const FlexWrapper = styled.div`
@@ -40,7 +42,7 @@ const NavContainer = styled.div`
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
     marginLeft: 0;
-    fontSize: 22px;
+    fontSize: 36px;
     padding: 2px 20px;
     color: white;
     text-decoration: none;
@@ -59,22 +61,9 @@ const LogoNavLink = styled(NavLink)`
 `;
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-
-    if(this.props.special) {
-      this.state = {
-        wrapperStyling: {backgroundColor: "transparent", bottom: 0, fontSize: "20px"}
-      }
-    } else {
-      this.state = {
-        wrapperStyling: {backgroundColor: "rgb(241,93,36)", top: 0}
-      }
-    }
-  }
   render() {
     return (
-      <Wrapper style={this.state.wrapperStyling}>
+      <Wrapper>
         <FlexWrapper>
           <NavContainer>
             <HeaderNavLink to="/faq">
