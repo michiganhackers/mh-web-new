@@ -4,6 +4,13 @@ import Calendar from './components/Calendar.jsx';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faListUl } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faListUl, faClock);
+
 const CalendarStyle = {
   color: '#ef5b2e',
   textColor: 'white'

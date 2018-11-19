@@ -8,9 +8,6 @@ import axios from 'axios';
 
 import Tooltip from './Tooltip.jsx';
 
-const CALENDAR_ID = '8n8u58ssric1hmm84jvkvl9d68@group.calendar.google.com';
-const API_KEY = 'AIzaSyD-UNSznwGRDtLZqizxTM1ku-9YS0DZkcQ';
-
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +22,9 @@ class Calendar extends React.Component {
   }
 
   getCalendarEvents() {
+    let CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
+    let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
+
     axios.get('https://www.googleapis.com/calendar/v3/calendars/' + CALENDAR_ID + '/events?key=' + API_KEY)
       .then(res => {
         let items = res.data.items;
