@@ -86,8 +86,8 @@ class Calendar extends React.Component {
           navLinks= {true} // can click day/week names to navigate views
           eventLimit= {3} // allow "more" link when too many events
           events = {this.state.events}
-          eventColor = {this.props.style.color}
-          eventTextColor = {this.props.style.textColor}
+          eventColor = {this.props.calendarStyle.color}
+          eventTextColor = {this.props.calendarStyle.textColor}
           eventClick = {
             this.handleEventClick.bind(this)
           }

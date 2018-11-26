@@ -12,18 +12,16 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faListUl, faClock);
 
-const CalendarWrapper = styled.div`
-  color: '#ef5b2e';
-  textColor: 'white';
-`;
+const CalendarStyle = {
+  color: '#ef5b2e',
+  textColor: 'white'
+};
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <CalendarWrapper>
-          <Calendar />
-        </CalendarWrapper>
+        <Calendar calendarStyle={CalendarStyle} />
       </React.Fragment>
     );
   }
