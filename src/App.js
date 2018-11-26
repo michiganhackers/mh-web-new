@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Calendar from './components/Calendar.jsx';
 
 import './App.css';
@@ -11,17 +12,19 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faListUl, faClock);
 
-const CalendarStyle = {
-  color: '#ef5b2e',
-  textColor: 'white'
-}
+const CalendarWrapper = styled.div`
+  color: '#ef5b2e';
+  textColor: 'white';
+`;
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Calendar style={CalendarStyle}></Calendar>
-      </div>
+      <React.Fragment>
+        <CalendarWrapper>
+          <Calendar />
+        </CalendarWrapper>
+      </React.Fragment>
     );
   }
 }

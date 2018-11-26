@@ -30,23 +30,22 @@ class Calendar extends React.Component {
         let items = res.data.items;
         let events = [];
 
-        for (var i = 0; i < items.length; i++) {
+        for (let item of items) {
           //console.log(items[i]);
 
-          if (items[i].status === "cancelled") {
-            continue;
+          if (item.status !== "cancelled") {
+
+            let event = {
+              id: item.id,
+              title: item.summary,
+              url: item.htmlLink,
+              description: item.description,
+              start: item.start.dateTime || item.start.date,
+              end: item.end.dateTime || item.end.date
+            };
+
+            events.push(event);
           }
-
-          let event = {
-            id: items[i].id,
-            title: items[i].summary,
-            url: items[i].htmlLink,
-            description: items[i].description,
-            start: items[i].start.dateTime || items[i].start.date,
-            end: items[i].end.dateTime || items[i].end.date
-          };
-
-          events.push(event);
         }
 
         this.setState({
@@ -75,7 +74,7 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <FullCalendar
           height= {"auto"}
           header = {{
@@ -94,7 +93,7 @@ class Calendar extends React.Component {
           }
           />
         <Tooltip eventClicked={this.state.eventClicked} location={this.state.mouseLocation} hidden={this.state.tooltipHidden} />
-      </div>
+      </React.Fragment>
     );
   }
 }
