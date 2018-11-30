@@ -3,10 +3,40 @@ import React from 'react';
 import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 
 import axios from 'axios';
 
 import Tooltip from './Tooltip.jsx';
+
+const getWidth = () => {
+  return window.innerWidth / 4 < 400 ? 400 : window.innerWidth / 4;
+}
+
+const getLeft = ({location}) => {
+  if (location) {
+    let left = location[0] - getWidth() / 2;
+    if (left < 10) { left = 10; }
+    if (left > window.innerWidth - getWidth()) { left = window.innerWidth - getWidth() - 10; }
+    return left;
+  }
+  return 0;
+}
+
+const getTop = ({location}) => {
+  if (location) {
+    return location[1] + 10;
+  }
+  return 0;
+}
+
+const TooltipWindow = styled(Tooltip)`
+  position: absolute;
+  left: ${getLeft}px;
+  top: ${getTop}px;
+  width: ${getWidth}px;
+  z-index: 1;
+`;
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -63,13 +93,7 @@ class Calendar extends React.Component {
       tooltipHidden: false,
       eventClicked: event
     });
-
     return false;
-
-    /*if (event.url) {
-      window.open(event.url);
-      return false;
-    }*/
   }
 
   render() {
@@ -92,7 +116,7 @@ class Calendar extends React.Component {
             this.handleEventClick.bind(this)
           }
           />
-        <Tooltip eventClicked={this.state.eventClicked} location={this.state.mouseLocation} hidden={this.state.tooltipHidden} />
+        <TooltipWindow location={this.state.mouseLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
       </React.Fragment>
     );
   }

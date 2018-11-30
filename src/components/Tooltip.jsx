@@ -1,86 +1,77 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const Wrapper = styled.div`
+  word-wrap: break-word;
+`;
+
+const TitleContainer = styled.div`
+  background-color: #ef5b2e;
+  color: white;
+  padding: 30px 20px 10px;
+`;
+
+const BodyContainer = styled.div`
+  overflow-wrap: break-word;
+  word-break: break-word;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #cccccc;
+  padding: 10px;
+`;
+
+const CalendarFieldContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 5px 10px 5px;
+`;
+
+const IconContainer = styled.div`
+  float: left;
+  flex: 1;
+  margin: 0px 5px;
+`;
+
+const CalendarTextContainer = styled.div`
+  flex: 10;
+  margin: 0px 5px;
+  font-size: 0.8rem;
+`;
 
 class Tooltip extends React.Component {
 
   render() {
-    const width = 400;
-
-    let top = this.props.location[1] + 10;
-    let left = this.props.location[0] - width / 2;
-    if (left < 10) { left = 10; }
-    if (left > window.innerWidth - width) { left = window.innerWidth - width - 10; }
-
-    const TooltipStyle = {
-      position: 'absolute',
-      top: top,
-      left: left,
-      width: width,
-      zIndex: 1
-    }
-
-    const TopTooltipStyle = {
-      wordWrap: 'break-word',
-      backgroundColor: '#ef5b2e',
-      color: 'white',
-      padding: '30px 20px 10px'
-    }
-
-    const BottomTooltipStyle = {
-      wordWrap: 'break-word',
-      overflowWrap: 'break-word',
-      wordBreak: 'break-word',
-      backgroundColor: 'white',
-      display: 'flex',
-      flexDirection: 'column',
-      border: '1px solid #cccccc',
-      padding: '10px'
-    }
-
-    const CalendarField = {
-      display: 'flex',
-      flexDirection: 'row',
-      flex: 1,
-      margin: '5px 10px 5px'
-    }
-
-    const Icon = {
-      float: 'left',
-      flex: 1,
-      margin: '0px 5px'
-    }
-
-    const CalendarFieldText = {
-      flex: 10,
-      margin: '0px 5px',
-      fontSize: '0.8rem'
-    }
-
     if (!this.props.hidden) {
       return (
-        <div style={TooltipStyle}>
-          <div style={TopTooltipStyle}>
+        <Wrapper className={this.props.className}>
+          <TitleContainer>
             <p>{this.props.eventClicked.title}</p>
-          </div>
-          <div style={BottomTooltipStyle}>
-            <div style={CalendarField}>
-              <div style={Icon}>
+          </TitleContainer>
+          <BodyContainer>
+
+            <CalendarFieldContainer>
+              <IconContainer>
                 <FontAwesomeIcon icon="list-ul" />
-              </div>
-              <div style={CalendarFieldText}>
+              </IconContainer>
+              <CalendarTextContainer>
                 <span>{this.props.eventClicked.description}</span>
-              </div>
-            </div>
-            <div style={CalendarField}>
-              <div style={Icon}>
+              </CalendarTextContainer>
+            </CalendarFieldContainer>
+
+            <CalendarFieldContainer>
+              <IconContainer>
                 <FontAwesomeIcon icon="clock" />
-              </div>
-              <div style={CalendarFieldText}>
+              </IconContainer>
+              <CalendarTextContainer>
                 <a href={this.props.eventClicked.url}>{this.props.eventClicked.url}</a>
-              </div>
-            </div>
-          </div>
-        </div>
+              </CalendarTextContainer>
+            </CalendarFieldContainer>
+
+          </BodyContainer>
+        </Wrapper>
       );
     } else {
       return null;
