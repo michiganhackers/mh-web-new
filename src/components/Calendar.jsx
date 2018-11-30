@@ -15,8 +15,7 @@ const getWidth = () => {
 
 const getLeft = ({location}) => {
   if (location) {
-    let left = location[0] - getWidth() / 2;
-    if (left < 10) { left = 10; }
+    let left = location[0];
     if (left > window.innerWidth - getWidth()) { left = window.innerWidth - getWidth() - 10; }
     return left;
   }
@@ -25,7 +24,7 @@ const getLeft = ({location}) => {
 
 const getTop = ({location}) => {
   if (location) {
-    return location[1] + 10;
+    return location[1];
   }
   return 0;
 }
@@ -42,7 +41,7 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {events: [], tooltipHidden: true, mouseLocation: [0, 0], eventClicked: null};
+    this.state = {events: [], tooltipHidden: true, eventLocation: [0, 0], eventClicked: null};
     this.getCalendarEvents = this.getCalendarEvents.bind(this);
     this.handleEventClick = this.handleEventClick.bind(this);
   }
@@ -88,8 +87,12 @@ class Calendar extends React.Component {
   }
 
   handleEventClick(event, jsEvent) {
+    let calendarEventEl = Array.from(document.getElementsByClassName("fc-day-grid-event")).filter(elt => elt.getAttribute("href") === event.url);
+
+    var rect = calendarEventEl[0].getBoundingClientRect();
+
     this.setState({
-      mouseLocation: [jsEvent.pageX, jsEvent.pageY],
+      eventLocation: [rect.right, rect.bottom],
       tooltipHidden: false,
       eventClicked: event
     });
@@ -116,7 +119,7 @@ class Calendar extends React.Component {
             this.handleEventClick.bind(this)
           }
           />
-        <TooltipWindow location={this.state.mouseLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
+        <TooltipWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
       </React.Fragment>
     );
   }
