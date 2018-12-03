@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 import axios from 'axios';
 
-import Tooltip from './Tooltip.jsx';
+import EventWindow from './EventWindow.jsx';
 
 const getWidth = () => {
   return window.innerWidth / 4 < 400 ? 400 : window.innerWidth / 4;
@@ -30,7 +30,7 @@ const getTop = ({location}) => {
   return 0;
 }
 
-const TooltipWindow = styled(Tooltip)`
+const CalendarEventWindow = styled(EventWindow)`
   position: absolute;
   left: ${getLeft}px;
   top: ${getTop}px;
@@ -128,7 +128,7 @@ class Calendar extends React.Component {
             center: 'title',
             right: 'customMonth,customWeek,listMonth'
           }}
-          defaultDate={Moment().add(this.state.dateOffset, this.state.dateContext)}
+          defaultDate={Moment([2015, 10, 15]).add(this.state.dateOffset, this.state.dateContext)} // default date set to November 15, 2015 for testing
           defaultView={this.getCalendarFormatName(this.state.dateContext)}
           navLinks= {true} // can click day/week names to navigate views
           eventLimit= {3} // allow "more" link when too many events
@@ -171,7 +171,7 @@ class Calendar extends React.Component {
             }
           }}
           />
-        <TooltipWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
+        <CalendarEventWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
       </React.Fragment>
     );
   }

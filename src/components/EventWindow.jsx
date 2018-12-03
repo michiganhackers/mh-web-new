@@ -11,10 +11,22 @@ const Wrapper = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  background-color: #ef5b2e;
+  background-color: #F15D24;
   color: white;
-  padding: 25px 20px 10px;
+  padding: 10px 20px 10px;
   font-size: 1.2rem;
+`;
+
+const ToolbarContainer = styled.div`
+  text-align: right;
+  overflow: hidden;
+`;
+
+const CalendarButton = styled.div`
+  transition: background-color,opacity 100ms linear;
+  height: 40px;
+  width: 40px;
+  float: right;
 `;
 
 const BodyContainer = styled.div`
@@ -46,13 +58,16 @@ const CalendarTextContainer = styled.div`
   font-size: 0.8rem;
 `;
 
-class Tooltip extends React.Component {
+class EventWindow extends React.Component {
 
   render() {
     if (!this.props.hidden) {
       return (
         <Wrapper className={this.props.className}>
           <TitleContainer>
+            <ToolbarContainer>
+              <CalendarButton>&#10005;</CalendarButton>
+            </ToolbarContainer>
             <p>{this.props.eventClicked.title}</p>
           </TitleContainer>
           <BodyContainer>
@@ -68,7 +83,7 @@ class Tooltip extends React.Component {
 
             <CalendarFieldContainer>
               <IconContainer>
-                <FontAwesomeIcon icon="clock" />
+                <FontAwesomeIcon icon="link" />
               </IconContainer>
               <CalendarTextContainer>
                 <a href={this.props.eventClicked.url}>{this.props.eventClicked.url}</a>
@@ -84,4 +99,4 @@ class Tooltip extends React.Component {
   }
 }
 
-export default Tooltip;
+export default EventWindow;
