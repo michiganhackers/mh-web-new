@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'moment';
 
 import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
@@ -15,8 +16,8 @@ const getWidth = () => {
 
 const getLeft = ({location}) => {
   if (location) {
-    let left = location[0];
-    if (left > window.innerWidth - getWidth()) { left = window.innerWidth - getWidth() - 10; }
+    let left = location.right + 10;
+    if (left > window.innerWidth - getWidth()) { left = location.left - getWidth() - 10; }
     return left;
   }
   return 0;
@@ -24,7 +25,7 @@ const getLeft = ({location}) => {
 
 const getTop = ({location}) => {
   if (location) {
-    return location[1];
+    return location.top;
   }
   return 0;
 }
@@ -41,8 +42,16 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {events: [], tooltipHidden: true, eventLocation: [0, 0], eventClicked: null};
+    this.state = {
+      events: [],
+      tooltipHidden: true,
+      eventLocation: {},
+      eventClicked: null,
+      dateOffset: 0,
+      dateContext: 'month'
+    };
     this.getCalendarEvents = this.getCalendarEvents.bind(this);
+    this.getCalendarFormatName = this.getCalendarFormatName.bind(this);
     this.handleEventClick = this.handleEventClick.bind(this);
   }
 
@@ -83,20 +92,30 @@ class Calendar extends React.Component {
       })
       .catch(error => {
         console.log(error);
+        // TODO ADD ERROR HANDLING
       });
   }
 
   handleEventClick(event, jsEvent) {
     let calendarEventEl = Array.from(document.getElementsByClassName("fc-day-grid-event")).filter(elt => elt.getAttribute("href") === event.url);
 
-    var rect = calendarEventEl[0].getBoundingClientRect();
+    let rect = calendarEventEl[0].getBoundingClientRect();
 
     this.setState({
-      eventLocation: [rect.right, rect.bottom],
+      eventLocation: rect,
       tooltipHidden: false,
       eventClicked: event
     });
     return false;
+  }
+
+  getCalendarFormatName(offsetName) {
+    if (offsetName === "month") {
+      return "month";
+    }
+    else if (offsetName === "week") {
+      return "basicWeek";
+    }
   }
 
   render() {
@@ -105,11 +124,12 @@ class Calendar extends React.Component {
         <FullCalendar
           height= {"auto"}
           header = {{
-            left: 'prev,next today',
+            left: 'customPrev,customNext customToday',
             center: 'title',
-            right: 'month,basicWeek,listMonth'
+            right: 'customMonth,customWeek,listMonth'
           }}
-          defaultDate={'2015-09-12'}
+          defaultDate={Moment().add(this.state.dateOffset, this.state.dateContext)}
+          defaultView={this.getCalendarFormatName(this.state.dateContext)}
           navLinks= {true} // can click day/week names to navigate views
           eventLimit= {3} // allow "more" link when too many events
           events = {this.state.events}
@@ -118,6 +138,38 @@ class Calendar extends React.Component {
           eventClick = {
             this.handleEventClick.bind(this)
           }
+          customButtons = {{
+            customNext: {
+              text: '>',
+              click: () => {
+                this.setState({dateOffset: this.state.dateOffset+1});
+              }
+            },
+            customPrev: {
+              text: '<',
+              click: () => {
+                this.setState({dateOffset: this.state.dateOffset-1});
+              }
+            },
+            customToday: {
+              text: 'today',
+              click: () => {
+                this.setState({dateOffset: 0});
+              }
+            },
+            customMonth: {
+              text: 'month',
+              click: () => {
+                this.setState({dateContext: 'month', dateOffset: 0});
+              }
+            },
+            customWeek: {
+              text: 'week',
+              click: () => {
+                this.setState({dateContext: 'week', dateOffset: 0});
+              }
+            }
+          }}
           />
         <TooltipWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
       </React.Fragment>

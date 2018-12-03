@@ -4,12 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Wrapper = styled.div`
   word-wrap: break-word;
+  -webkit-box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 `;
 
 const TitleContainer = styled.div`
   background-color: #ef5b2e;
   color: white;
-  padding: 30px 20px 10px;
+  padding: 25px 20px 10px;
+  font-size: 1.2rem;
 `;
 
 const BodyContainer = styled.div`
