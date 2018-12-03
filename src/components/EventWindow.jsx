@@ -13,20 +13,47 @@ const Wrapper = styled.div`
 const TitleContainer = styled.div`
   background-color: #F15D24;
   color: white;
-  padding: 10px 20px 10px;
   font-size: 1.2rem;
 `;
 
+const Title = styled.p`
+  padding: 0px 20px 15px;
+  margin-bottom: 0px;
+`;
+
 const ToolbarContainer = styled.div`
-  text-align: right;
   overflow: hidden;
+  padding: 10px 10px 10px;
 `;
 
 const CalendarButton = styled.div`
-  transition: background-color,opacity 100ms linear;
-  height: 40px;
-  width: 40px;
-  float: right;
+  & {
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 20px;
+    position: relative;
+  }
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    opacity: 0;
+    transition: all 0.2s;
+  }
+  &:hover:before {
+    opacity: 1;
+  }
 `;
 
 const BodyContainer = styled.div`
@@ -66,9 +93,12 @@ class EventWindow extends React.Component {
         <Wrapper className={this.props.className}>
           <TitleContainer>
             <ToolbarContainer>
-              <CalendarButton>&#10005;</CalendarButton>
+              <CalendarButton
+                onClick={this.props.closeWindow}>
+                &#10005;
+              </CalendarButton>
             </ToolbarContainer>
-            <p>{this.props.eventClicked.title}</p>
+            <Title>{this.props.eventClicked.title}</Title>
           </TitleContainer>
           <BodyContainer>
 

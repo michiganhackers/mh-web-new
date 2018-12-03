@@ -44,7 +44,7 @@ class Calendar extends React.Component {
 
     this.state = {
       events: [],
-      tooltipHidden: true,
+      eventHidden: true,
       eventLocation: {},
       eventClicked: null,
       dateOffset: 0,
@@ -53,6 +53,7 @@ class Calendar extends React.Component {
     this.getCalendarEvents = this.getCalendarEvents.bind(this);
     this.getCalendarFormatName = this.getCalendarFormatName.bind(this);
     this.handleEventClick = this.handleEventClick.bind(this);
+    this.closeEventWindow = this.closeEventWindow.bind(this);
   }
 
   componentDidMount() {
@@ -103,7 +104,7 @@ class Calendar extends React.Component {
 
     this.setState({
       eventLocation: rect,
-      tooltipHidden: false,
+      eventHidden: false,
       eventClicked: event
     });
     return false;
@@ -116,6 +117,10 @@ class Calendar extends React.Component {
     else if (offsetName === "week") {
       return "basicWeek";
     }
+  }
+
+  closeEventWindow() {
+    this.setState({eventHidden: true});
   }
 
   render() {
@@ -171,7 +176,7 @@ class Calendar extends React.Component {
             }
           }}
           />
-        <CalendarEventWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.tooltipHidden} />
+          <CalendarEventWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.eventHidden} closeWindow={this.closeEventWindow}/>
       </React.Fragment>
     );
   }

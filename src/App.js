@@ -5,10 +5,9 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faListUl } from '@fortawesome/free-solid-svg-icons';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faListUl, faLink } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faListUl, faClock);
+library.add(faListUl, faLink);
 
 const CalendarStyle = {
   color: '#F15D24',
