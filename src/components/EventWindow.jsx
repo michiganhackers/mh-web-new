@@ -108,8 +108,9 @@ class EventWindow extends React.Component {
           </TitleContainer>
           <BodyContainer>
 
+            <CalendarField icon="map-marker-alt" text={this.props.eventClicked.location} />
             <CalendarField icon="list-ul" text={this.props.eventClicked.description} />
-            <CalendarField icon="link" text={this.props.eventClicked.url} link={true} />
+            <CalendarField icon="link" text={this.props.eventClicked.url} link />
 
           </BodyContainer>
         </Wrapper>

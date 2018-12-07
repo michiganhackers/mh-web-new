@@ -70,7 +70,7 @@ class Calendar extends React.Component {
         let events = [];
 
         for (let item of items) {
-          //console.log(items[i]);
+          //console.log(item);
 
           if (item.status !== "cancelled") {
 
@@ -80,7 +80,8 @@ class Calendar extends React.Component {
               url: item.htmlLink,
               description: item.description,
               start: item.start.dateTime || item.start.date,
-              end: item.end.dateTime || item.end.date
+              end: item.end.dateTime || item.end.date,
+              location: item.location
             };
 
             events.push(event);
