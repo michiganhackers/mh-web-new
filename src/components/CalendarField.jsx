@@ -56,29 +56,29 @@ class CalendarField extends React.Component {
       let buffer = [];
 
       if (this.props.link) {
-        buffer.push(<a href="{this.props.text}">{this.props.text}</a>);
+        buffer.push(<a key="link" href={this.props.text}>{this.props.text}</a>);
       }
       else {
         if (this.state.small) {
           buffer.push(
-            <span>{this.props.text}</span>
+            <span key="regular">{this.props.text}</span>
           );
         }
         else if (!this.state.expanded) {
           buffer.push(
-            <React.Fragment>
+            <React.Fragment key="less">
               <span>{this.truncate(this.props.text) + '...'}</span>
               <br></br>
-              <a href="{() => false}" onClick={this.toggleExpanded}>See more</a>
+              <a href="#" onClick={this.toggleExpanded}>See more</a>
             </React.Fragment>
           );
         }
         else {
           buffer.push(
-            <React.Fragment>
+            <React.Fragment key="more">
               <span>{this.props.text}</span>
               <br></br>
-              <a href="{() => false}" onClick={this.toggleExpanded}>See less</a>
+              <a href="#" onClick={this.toggleExpanded}>See less</a>
             </React.Fragment>
           );
         }
