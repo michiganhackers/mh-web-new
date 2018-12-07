@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CalendarField from './CalendarField.jsx';
 
 const Wrapper = styled.div`
   word-wrap: break-word;
@@ -66,25 +66,6 @@ const BodyContainer = styled.div`
   padding: 10px;
 `;
 
-const CalendarFieldContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  margin: 5px 10px 5px;
-`;
-
-const IconContainer = styled.div`
-  float: left;
-  flex: 1;
-  margin: 0px 5px;
-`;
-
-const CalendarTextContainer = styled.div`
-  flex: 10;
-  margin: 0px 5px;
-  font-size: 0.8rem;
-`;
-
 class EventWindow extends React.Component {
 
   constructor(props) {
@@ -127,23 +108,8 @@ class EventWindow extends React.Component {
           </TitleContainer>
           <BodyContainer>
 
-            <CalendarFieldContainer>
-              <IconContainer>
-                <FontAwesomeIcon icon="list-ul" />
-              </IconContainer>
-              <CalendarTextContainer>
-                <span>{this.props.eventClicked.description}</span>
-              </CalendarTextContainer>
-            </CalendarFieldContainer>
-
-            <CalendarFieldContainer>
-              <IconContainer>
-                <FontAwesomeIcon icon="link" />
-              </IconContainer>
-              <CalendarTextContainer>
-                <a href={this.props.eventClicked.url}>{this.props.eventClicked.url}</a>
-              </CalendarTextContainer>
-            </CalendarFieldContainer>
+            <CalendarField icon="list-ul" text={this.props.eventClicked.description} />
+            <CalendarField icon="link" text={this.props.eventClicked.url} link={true} />
 
           </BodyContainer>
         </Wrapper>
