@@ -21,6 +21,8 @@ const CalendarTextContainer = styled.div`
   font-size: 0.8rem;
 `;
 
+const MAX_DESCRIPTION_WORDS = 40;
+
 class CalendarField extends React.Component {
 
   constructor(props) {
@@ -30,7 +32,7 @@ class CalendarField extends React.Component {
     this.toggleExpanded = this.toggleExpanded.bind(this);
 
     let small = this.props.text && this.props.text.trim() !== ""
-        && this.props.text.split(" ").length <= 40;
+        && this.props.text.split(" ").length <= MAX_DESCRIPTION_WORDS;
 
     this.state = {
       expanded: false,
@@ -85,7 +87,7 @@ class CalendarField extends React.Component {
       }
 
       return (
-        <CalendarFieldContainer>
+        <CalendarFieldContainer className={this.props.className}>
           <IconContainer>
             <FontAwesomeIcon icon={this.props.icon} />
           </IconContainer>

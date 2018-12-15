@@ -10,14 +10,18 @@ import axios from 'axios';
 
 import EventWindow from './EventWindow.jsx';
 
+const DEFAULT_EVENT_WINDOW_WIDTH = 400;
+const EVENT_WINDOW_H_OFFSET = 10;
+const EVENT_WINDOW_V_OFFSET = 0;
+
 const getWidth = () => {
-  return window.innerWidth / 4 < 400 ? 400 : window.innerWidth / 4;
+  return window.innerWidth / 4 < DEFAULT_EVENT_WINDOW_WIDTH ? DEFAULT_EVENT_WINDOW_WIDTH : window.innerWidth / 4;
 }
 
 const getLeft = ({location}) => {
   if (location) {
-    let left = location.right + 10;
-    if (left > window.innerWidth - getWidth()) { left = location.left - getWidth() - 10; }
+    let left = location.right + EVENT_WINDOW_H_OFFSET;
+    if (left > window.innerWidth - getWidth()) { left = location.left - getWidth() - EVENT_WINDOW_H_OFFSET; }
     return left;
   }
   return 0;
@@ -25,7 +29,7 @@ const getLeft = ({location}) => {
 
 const getTop = ({location}) => {
   if (location) {
-    return location.top;
+    return location.top - EVENT_WINDOW_V_OFFSET;
   }
   return 0;
 }
@@ -108,6 +112,10 @@ class Calendar extends React.Component {
       eventHidden: false,
       eventClicked: event
     });
+    console.log("T");
+
+    jsEvent.stopPropagation();
+
     return false;
   }
 
@@ -120,8 +128,10 @@ class Calendar extends React.Component {
     }
   }
 
-  closeEventWindow() {
-    this.setState({eventHidden: true});
+  closeEventWindow(event, context) {
+    //this.setState({eventHidden: true});
+    console.log("test");
+    setTimeout( () => this.setState({eventHidden: true}), 100);
   }
 
   render() {
@@ -141,9 +151,7 @@ class Calendar extends React.Component {
           events = {this.state.events}
           eventColor = {this.props.calendarStyle.color}
           eventTextColor = {this.props.calendarStyle.textColor}
-          eventClick = {
-            this.handleEventClick.bind(this)
-          }
+          eventClick = {this.handleEventClick}
           customButtons = {{
             customNext: {
               text: '>',

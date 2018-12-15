@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import CalendarField from './CalendarField.jsx';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const Wrapper = styled.div`
   word-wrap: break-word;
   -webkit-box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
@@ -35,7 +37,7 @@ const CalendarButton = styled.div`
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    margin-left: 20px;
+    margin-left: 5px;
     position: relative;
   }
   &:before {
@@ -73,24 +75,29 @@ class EventWindow extends React.Component {
 
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
+    this.openLink = this.openLink.bind(this);
   }
 
   setWrapperRef(node) {
     this.wrapperRef = node;
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.props.closeWindow();
+      this.props.closeWindow(event, this);
     }
+  }
+
+  openLink() {
+    window.open(this.props.eventClicked.url, '_blank');
   }
 
   render() {
@@ -103,6 +110,10 @@ class EventWindow extends React.Component {
                 onClick={this.props.closeWindow}>
                 &#10005;
               </CalendarButton>
+              <CalendarButton
+                onClick={this.openLink}>
+                <FontAwesomeIcon icon="link" />
+              </CalendarButton>
             </ToolbarContainer>
             <Title>{this.props.eventClicked.title}</Title>
           </TitleContainer>
@@ -110,7 +121,6 @@ class EventWindow extends React.Component {
 
             <CalendarField icon="map-marker-alt" text={this.props.eventClicked.location} />
             <CalendarField icon="list-ul" text={this.props.eventClicked.description} />
-            <CalendarField icon="link" text={this.props.eventClicked.url} link />
 
           </BodyContainer>
         </Wrapper>
