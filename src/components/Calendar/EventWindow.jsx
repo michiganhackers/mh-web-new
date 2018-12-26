@@ -119,6 +119,7 @@ class EventWindow extends React.Component {
           </TitleContainer>
           <BodyContainer>
 
+            <CalendarField icon="clock" text={this.props.eventClicked.start.toString()} />
             <CalendarField icon="map-marker-alt" text={this.props.eventClicked.location} />
             <CalendarField icon="list-ul" text={this.props.eventClicked.description} />
 

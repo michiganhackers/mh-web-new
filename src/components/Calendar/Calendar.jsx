@@ -107,6 +107,7 @@ class Calendar extends React.Component {
 
     let rect = calendarEventEl[0].getBoundingClientRect();
 
+    console.log(event);
     this.setState({
       eventLocation: rect,
       eventHidden: false,
@@ -114,7 +115,7 @@ class Calendar extends React.Component {
     });
     console.log("T");
 
-    jsEvent.stopPropagation();
+    //jsEvent.stopPropagation();
 
     return false;
   }
