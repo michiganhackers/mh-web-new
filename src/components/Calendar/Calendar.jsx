@@ -85,6 +85,7 @@ class Calendar extends React.Component {
               description: item.description,
               start: item.start.dateTime || item.start.date,
               end: item.end.dateTime || item.end.date,
+              hasTime: item.end.dateTime,
               location: item.location
             };
 

@@ -42,7 +42,7 @@ class CalendarField extends React.Component {
 
   truncate(text) {
     if (!this.state.small) {
-      return text.split(" ").slice(0, 40).join(" ");
+      return text.split(" ").slice(0, MAX_DESCRIPTION_WORDS).join(" ");
     }
     return text;
   }
