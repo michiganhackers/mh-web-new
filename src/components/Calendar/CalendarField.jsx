@@ -30,14 +30,28 @@ class CalendarField extends React.Component {
 
     this.truncate = this.truncate.bind(this);
     this.toggleExpanded = this.toggleExpanded.bind(this);
-
-    let small = this.props.text && this.props.text.trim() !== ""
-        && this.props.text.split(" ").length <= MAX_DESCRIPTION_WORDS;
+    this.update = this.update.bind(this);
 
     this.state = {
-      expanded: false,
-      small: small
-    };
+      small: false,
+      expanded: false
+    }
+  }
+
+  componentDidMount() {
+    this.update(this.props.text);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.text !== prevProps.text) {
+      this.update(this.props.text);
+    }
+  }
+
+  update(text) {
+    let small = text && text.trim() !== ""
+        && text.split(" ").length <= MAX_DESCRIPTION_WORDS;
+    this.setState({small: small, expanded: false});
   }
 
   truncate(text) {
@@ -54,6 +68,7 @@ class CalendarField extends React.Component {
   }
 
   render() {
+    console.log("rerender");
     if (this.props.text && this.props.text.trim() !== "") {
       let buffer = [];
 

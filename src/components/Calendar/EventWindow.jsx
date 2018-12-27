@@ -96,7 +96,7 @@ class EventWindow extends React.Component {
 
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.props.closeWindow(event, this);
+      this.props.closeWindow(event);
     }
   }
 

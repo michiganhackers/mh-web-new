@@ -99,7 +99,7 @@ class Calendar extends React.Component {
       })
       .catch(error => {
         console.log(error);
-        // TODO ADD ERROR HANDLING
+        console.log("Error: events could not be loaded");
       });
   }
 
@@ -108,15 +108,11 @@ class Calendar extends React.Component {
 
     let rect = calendarEventEl[0].getBoundingClientRect();
 
-    console.log(event);
     this.setState({
       eventLocation: rect,
       eventHidden: false,
       eventClicked: event
     });
-    console.log("T");
-
-    //jsEvent.stopPropagation();
 
     return false;
   }
@@ -130,10 +126,16 @@ class Calendar extends React.Component {
     }
   }
 
-  closeEventWindow(event, context) {
-    //this.setState({eventHidden: true});
-    console.log("test");
-    setTimeout( () => this.setState({eventHidden: true}), 100);
+  closeEventWindow(event) {
+    console.log(event);
+    if (event.target.className.includes("fc-title")) {
+      return;
+    }
+    if (event.target.className.includes("fc-button")) {
+      setTimeout(() => this.setState({eventHidden: true}), 200);
+      return;
+    }
+    this.setState({eventHidden: true});
   }
 
   render() {
