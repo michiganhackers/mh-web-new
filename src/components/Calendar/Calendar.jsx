@@ -12,16 +12,27 @@ import EventWindow from './EventWindow.jsx';
 
 const DEFAULT_EVENT_WINDOW_WIDTH = 400;
 const EVENT_WINDOW_H_OFFSET = 10;
-const EVENT_WINDOW_V_OFFSET = 0;
+const EVENT_WINDOW_V_OFFSET = 2;
 
 const getWidth = () => {
-  return window.innerWidth / 4 < DEFAULT_EVENT_WINDOW_WIDTH ? DEFAULT_EVENT_WINDOW_WIDTH : window.innerWidth / 4;
+  if (window.innerWidth / 4 < DEFAULT_EVENT_WINDOW_WIDTH) {
+    if (window.innerWidth < DEFAULT_EVENT_WINDOW_WIDTH) {
+      return window.innerWidth;
+    }
+    return DEFAULT_EVENT_WINDOW_WIDTH;
+  }
+  return window.innerWidth / 4;
 }
 
 const getLeft = ({location}) => {
   if (location) {
     let left = location.right + EVENT_WINDOW_H_OFFSET;
-    if (left > window.innerWidth - getWidth()) { left = location.left - getWidth() - EVENT_WINDOW_H_OFFSET; }
+    if (left > window.innerWidth - getWidth()) {
+      left = location.left - getWidth() - EVENT_WINDOW_H_OFFSET;
+      if (left < 0) {
+        left = (window.innerWidth - getWidth()) / 2;
+      }
+    }
     return left;
   }
   return 0;
@@ -29,6 +40,9 @@ const getLeft = ({location}) => {
 
 const getTop = ({location}) => {
   if (location) {
+    if (getWidth() === window.innerWidth || (location.right + EVENT_WINDOW_H_OFFSET > window.innerWidth - getWidth() && location.left - getWidth() - EVENT_WINDOW_H_OFFSET < 0)) {
+      return location.bottom + EVENT_WINDOW_V_OFFSET;
+    }
     return location.top - EVENT_WINDOW_V_OFFSET;
   }
   return 0;
@@ -128,7 +142,7 @@ class Calendar extends React.Component {
 
   closeEventWindow(event) {
     console.log(event);
-    if (event.target.className.includes("fc-title")) {
+    if (event.target.className.includes("fc-title") || event.target.className.includes("fc-time")) {
       return;
     }
     if (event.target.className.includes("fc-button")) {

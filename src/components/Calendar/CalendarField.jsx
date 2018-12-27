@@ -68,7 +68,6 @@ class CalendarField extends React.Component {
   }
 
   render() {
-    console.log("rerender");
     if (this.props.text && this.props.text.trim() !== "") {
       let buffer = [];
 
