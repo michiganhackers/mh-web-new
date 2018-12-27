@@ -5,7 +5,10 @@ import FSS from "../utility/geometryangle.min.js";
 class PolygonCanvas extends Component {
   componentDidMount() {
     this.$el = $(this.el);
-    $(this.$el).attr("style", "width: 100%; height: 100%; position: absolute");
+    let canvasHeight = this.props.height || "100%";
+    let canvasWidth = this.props.width || "100%";
+    let canvasHeader = this.props.header || "";
+    $(this.$el).attr("style", "width: "+ canvasWidth +"; height: " + canvasHeight + "; position: absolute");
     this.$el.Geometryangle({
 
     // handle transparent colors
@@ -15,15 +18,19 @@ class PolygonCanvas extends Component {
       height: 1.2,
 
       // How far should the mesh vary into z-space.
-      depth: 10,
+      depth: 15,
 
       // Number of columns for the mesh.
-      columns: 12,
+      rows: Math.round(canvasWidth.replace(/(^\d+)(.+$)/i,'$1')/
+                          canvasHeight.replace(/(^\d+)(.+$)/i,'$1')*10),
+
+      // Number of rows
+      columns: Math.round(canvasHeight.replace(/(^\d+)(.+$)/i,'$1')/
+                      canvasWidth.replace(/(^\d+)(.+$)/i,'$1')*10),
 
       columns_auto: false,
 
       // Number of rows for the mesh.
-      rows: 7,
 
       rows_auto: true,
       zoom: 1,

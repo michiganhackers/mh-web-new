@@ -4,7 +4,6 @@ import rightPhotoURL from "../../assets/sample-photo.jpg";
 import logoOrange from "../../assets/logo-orange.png";
 import "../../utility/fonts.css";
 import styled from 'styled-components';
-import HomeLayoutOuter from "../HomeLayoutOuter/HomeLayoutOuter.jsx";
 import devices from '../../utility/MediaQueries.js';
 
 import SpecialNavbar from '../SpecialNavbar.jsx';
@@ -17,6 +16,7 @@ const HomeBackgroundOuter = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
+  pointer-events: none;
 `
 
 const MainText = styled.h1`
