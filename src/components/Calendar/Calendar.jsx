@@ -120,15 +120,17 @@ class Calendar extends React.Component {
   handleEventClick(event, jsEvent) {
     let calendarEventEl = Array.from(document.getElementsByClassName("fc-day-grid-event")).filter(elt => elt.getAttribute("href") === event.url);
 
-    let rect = calendarEventEl[0].getBoundingClientRect();
+    if (calendarEventEl.length !== 0) {
+      let rect = calendarEventEl[0].getBoundingClientRect();
 
-    this.setState({
-      eventLocation: rect,
-      eventHidden: false,
-      eventClicked: event
-    });
+      this.setState({
+        eventLocation: rect,
+        eventHidden: false,
+        eventClicked: event
+      });
 
-    return false;
+      return false;
+    }
   }
 
   getCalendarFormatName(offsetName) {
@@ -141,7 +143,6 @@ class Calendar extends React.Component {
   }
 
   closeEventWindow(event) {
-    console.log(event);
     if (event.target.className.includes("fc-title") || event.target.className.includes("fc-time")) {
       return;
     }
