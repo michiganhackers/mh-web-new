@@ -34,30 +34,24 @@ class MailingList extends React.Component {
         
         e.preventDefault();
 
-        let secret_key = process.env.REACT_APP_MAILJET_SECRET;
-        let public_key = process.env.REACT_APP_MAILJET_PUBLIC;
+        let mh_backend = 'https://CHANGE_THIS_TO_DEPLOYED_LOCATION'
 
-        // let payload = `{
-        //     "Email": ${this.state.address},
-        //     "Action": "addnoforce"
-        // }`;
+        let payload = `{
+            "Email": ${this.state.address},
+        }`;
 
-        // axios({
-        //     method: 'post',
-        //     headers: { 'content-type': 'text/plain' },
-        //     url: 'https://api.mailjet.com/v3/REST/contactslist/1/managecontact',
-        //     auth: {
-        //         username: public_key,
-        //         password: secret_key
-        //     },
-        //     data: payload
-        //   }).then(res => {
-        //         console.log(res);
-        //         console.log(res.data);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     });
+        axios({
+            method: 'post',
+            headers: { 'content-type': 'application/json' },
+            url: mh_backend + '/v1/email/add',
+            data: payload
+          }).then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
         
         this.setState({
             address: ""
