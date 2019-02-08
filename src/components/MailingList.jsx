@@ -34,7 +34,7 @@ class MailingList extends React.Component {
         
         e.preventDefault();
 
-        let mh_backend = 'https://CHANGE_THIS_TO_DEPLOYED_LOCATION'
+        let mh_backend = 'https://michiganhackers-backend.herokuapp.com/'
 
         let payload = `{
             "Email": ${this.state.address},
