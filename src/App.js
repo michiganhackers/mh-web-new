@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
-import Calendar from './components/Calendar.jsx';
+import CalendarWrapper from './components/Calendar/CalendarWrapper.jsx';
 
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const divStyle = {
-  width: '50%',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  display: 'block',
-  float: 'none'
-}
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 
-const CalendarStyle = {
-  color: '#ef5b2e',
-  textColor: 'white'
-}
+library.add(faListUl, faLink, faMapMarkerAlt, faClock);
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Calendar style={CalendarStyle}></Calendar>
+      <div className="App">
+        <Router>
+          <React.Fragment>
+            {/*<Navbar/>
+            <Route exact path="/" component={Home}/>*/}
+            <Route path="/events" component={CalendarWrapper}/>
+            <Route path="/faq"/>
+          </React.Fragment>
+        </Router>
       </div>
     );
   }
