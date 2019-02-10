@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/Home/Home.jsx';
 import About from "./components/About/About.jsx";
 import Faq from "./components/Faq/Faq.jsx";
-import Calendar from "./components/Calendar/Calendar.jsx";
+import Events from "./components/Calendar/Events.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -18,7 +18,6 @@ library.add(faListUl, faLink, faMapMarkerAlt, faClock);
 TODO: Add the components these routes map to
 EX:             <Route path="/events" component={Calendar} />
 after having imported the Calendar component
-<Calendar style={CalendarStyle}></Calendar>
 */
 // Make sure to use either <Navbar /> or <SpecialNavbar /> inside all routes
 class App extends Component {
