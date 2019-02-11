@@ -60,15 +60,12 @@ const LogoNavLink = styled(NavLink)`
     padding: 2px 20px;
 `;
 
-class Navbar extends Component {
+class SpecialNavbar extends Component {
   render() {
     return (
       <Wrapper>
         <FlexWrapper>
           <NavContainer>
-            <HeaderNavLink to="/faq">
-              faq
-            </HeaderNavLink>
             <HeaderNavLink to="/about">
               about
             </HeaderNavLink>
@@ -85,4 +82,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default SpecialNavbar;

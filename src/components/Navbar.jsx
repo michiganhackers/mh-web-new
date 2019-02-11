@@ -71,9 +71,6 @@ class Navbar extends Component {
             <Logo src={logoUrl} />
           </LogoNavLink>
           <NavContainer>
-            <HeaderNavLink to="/faq">
-              faq
-            </HeaderNavLink>
             <HeaderNavLink to="/about">
               about
             </HeaderNavLink>

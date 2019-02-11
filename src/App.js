@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import CalendarWrapper from './components/Calendar/CalendarWrapper.jsx';
-
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/Home/Home.jsx';
 import About from "./components/About/About.jsx";
-import Faq from "./components/Faq/Faq.jsx";
 import Events from "./components/Calendar/Events.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 
@@ -28,10 +25,8 @@ class App extends Component {
           <React.Fragment>
             {/*<Navbar/>
             <Route exact path="/" component={Home}/>*/}
-            <SpecialNavbar />
             <Route exact path="/" component={Home} />
-            <Route path="/events" component={CalendarWrapper}/>
-            <Route path="/faq" component={Faq}/>
+            <Route path="/events" component={Events}/>
             <Route path="/about" component={About}/>
             <Route path="/contact" component={Contact}/>
           </React.Fragment>
