@@ -25,7 +25,7 @@ const FlexWrapper = styled.div`
     justify-content: space-between;
     height: 90%;
     width: calc(100% - 72px);
-    margin: 0 auto;
+    margin: 0;
 `;
 
 const Logo = styled.img`
@@ -37,7 +37,7 @@ const Logo = styled.img`
 
 const NavContainer = styled.div`
     display: flex;
-    alignItems: center;
+    alignItems: right;
     justify-content: flex-end;
 `;
 
@@ -45,7 +45,7 @@ const HeaderNavLink = styled(NavLink)`
     margin: auto;
     marginLeft: 0;
     fontSize: 22px;
-    padding: 2px 20px;
+    padding: 2px 10px;
     color: white;
     text-decoration: none;
     transition: all 0.3s;
@@ -57,9 +57,9 @@ const HeaderNavLink = styled(NavLink)`
 
 const LogoNavLink = styled(NavLink)`
     display: flex;
-    justify-content: flex-start;
+    justify-content: left;
     fontSize: 22px;
-    padding: 2px 20px;
+    padding: 2px 10px;
 `;
 
 class Navbar extends Component {
