@@ -15,7 +15,6 @@ const Header = styled.h1`
   ${devices.small`
     padding-top: 20%;
   `}
-  padding-top: 5%
   text-transform: uppercase;
   margin: 10vw 0 4vw 0;
 `
