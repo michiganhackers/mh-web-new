@@ -15,6 +15,10 @@ import TwitterLogo from '../../assets/twit.png'
 import GraingerLogo from '../../assets/grainger.png'
 import YelpLogo from '../../assets/yelp.png'
 
+const Logo = styled.img`
+  align: middle;
+`
+
 class Sponsors extends Component {
   render() {
     return (
@@ -23,10 +27,10 @@ class Sponsors extends Component {
             Our Top Sponsors
           </StaticH1>
           <div class="highsponsors">
-            <img src={GoogleLogo} /> <img src={C1Logo}/>
+            <Logo src={GoogleLogo} /> <Logo src={C1Logo}/>
           </div> 
           <div class="sponsors">
-            <img src={YelpLogo} /> <img src={GraingerLogo}/> <img src={TwitterLogo} />
+            <Logo src={YelpLogo} /> <Logo src={GraingerLogo}/> <Logo src={TwitterLogo} />
           </div>
         
           
