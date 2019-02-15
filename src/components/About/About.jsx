@@ -10,6 +10,11 @@ import MailingList from "../MailingList/MailingList.jsx"
 
 import Navbar from '../Navbar.jsx';
 
+const EventList = styled.ul`
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+`
 class About extends Component {
   render() {
     return (
@@ -28,7 +33,7 @@ class About extends Component {
           </StaticH1>
           <StaticP>
             Some events we've had in the past or are planning for the future include:
-            <ul>
+            <EventList>
               <li>Weekly Hack Nights</li>
               <li>Company Events</li>
               <li>Organizing groups to attend hackathons</li>
@@ -36,7 +41,7 @@ class About extends Component {
               <li>Cyebersecurity Capture The Flag competitions</li>
               <li>Resume Critiques</li>
               <li>Interview Prep</li>
-            </ul>
+            </EventList>
           </StaticP>
           <Sponsors/>
         </SubpageOuter>

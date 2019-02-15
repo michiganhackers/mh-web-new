@@ -4,11 +4,18 @@ body {
   font-family: sans-serif;
 }
 
+.sponsors{
+  text-align: center;
+  padding-bottom: 10%
+}
+.highsponsors {
+  text-align: center;
+}
 .sponsors img {
   max-height:100px; 
   width:auto; 
   padding: 10px; 
-  max-width: 100%
+  max-width: 100%;
 }
 
 .highsponsors img {
