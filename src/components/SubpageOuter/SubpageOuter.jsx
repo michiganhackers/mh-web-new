@@ -14,13 +14,12 @@ const Outer = styled.div`
 
 const Content = styled.div`
   width: 60%;
-  margin-left: 20%;
   ${devices.tablet`
     width: 90%;
-    margin-left: 10%;
   `}
   margin-top: 0;
   text-align: left;
+  margin: auto;
 `
 
 class SubpageOuter extends Component {

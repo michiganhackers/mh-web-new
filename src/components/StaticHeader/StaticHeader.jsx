@@ -11,8 +11,11 @@ const Header = styled.h1`
   color: #EE5E30;
   display: block;
   text-align: center;
-  font-size: 8vw;
-  padding: 0 20%;
+  font-size: 8vh;
+  ${devices.small`
+    padding-top: 20%;
+  `}
+  padding-top: 5%
   text-transform: uppercase;
   margin: 10vw 0 4vw 0;
 `
