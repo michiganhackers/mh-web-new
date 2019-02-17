@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import CalendarField from './CalendarField.jsx';
 
@@ -91,12 +92,13 @@ class EventWindow extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('mousedown', this.handleClickOutside, true);
   }
 
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.props.closeWindow(event);
+  handleClickOutside(e) {
+    let node = ReactDOM.findDOMNode(this)
+    if ( node && !node.contains(e.target)) {
+      this.props.closeWindow(e);
     }
   }
 
