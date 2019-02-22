@@ -5,11 +5,13 @@ import Home from './components/Home/Home.jsx';
 import About from "./components/About/About.jsx";
 import Events from "./components/Calendar/Events.jsx";
 import Contact from "./components/Contact/Contact.jsx";
+import FAQ from "./components/FAQ/FAQ.jsx";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faListUl, faLink, faMapMarkerAlt, faClock);
+library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
 /*
 TODO: Add the components these routes map to
@@ -29,6 +31,8 @@ class App extends Component {
             <Route path="/events" component={Events}/>
             <Route path="/about" component={About}/>
             <Route path="/contact" component={Contact}/>
+            <Route path="/faq" component={FAQ}/>
+            
           </React.Fragment>
         </Router>
       </div>
