@@ -43,6 +43,21 @@ class About extends Component {
               <li>Interview Prep</li>
             </EventList>
           </StaticP>
+          <StaticH1>
+            Other Relevant Links
+          </StaticH1>
+            <StaticP>
+            Look at the following links to get a feel of our culture, the organization structure, event vibes, how the different Core Teams work, how to get involved, access to free resources, and more.
+            <EventList>
+              <li><a href="https://docs.google.com/presentation/d/10kFMezm6QxJqWC2nevVtv0LxRy3ME_ZV8PdjtS4_2CU/edit#slide=id.p">Our Mass Meeting Slides</a></li>
+              <li><a href="https://docs.google.com/presentation/d/1ctHSblSXA9FiPauXlbR8ypy6dxF_zp4tH2ICU-_HKN0/edit">The Core Teams</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/13t39d5ou1FGmapBw2CxUsuo6OLtLENmbVQpotNGtCxM/edit#gid=0">Drop your LinkedIn</a></li>
+              <li><a href="https://docs.google.com/document/d/1wchq66lN9bDLcSSAxPEamBQYqBjUVjfJgcd9NqBc704/edit">Some CS Resources</a></li>
+              <li><a href="http://leccap.engin.umich.edu/leccap/site/7r31hdj317ufew776zq">Recordings</a></li>
+              <li><a href="https://drive.google.com/drive/u/0/folders/1qcobYgZCS1edagXJywzQ2ofEtGO99TOk">Photo Archive</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScQu45eXlpMcdodMqVjzdMq5xqyRBNauOqRnTfnFamhxnj6Wg/viewform?usp=sf_link">Absense Form</a></li>
+            </EventList>
+            </StaticP>
           <Sponsors/>
         </SubpageOuter>
       </React.Fragment>
