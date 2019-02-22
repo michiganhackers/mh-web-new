@@ -75,6 +75,9 @@ class SpecialNavbar extends Component {
             <HeaderNavLink to="/contact">
               contact
             </HeaderNavLink>
+            <HeaderNavLink to="/faq">
+              faq
+            </HeaderNavLink>
           </NavContainer>
         </FlexWrapper>
       </Wrapper>
