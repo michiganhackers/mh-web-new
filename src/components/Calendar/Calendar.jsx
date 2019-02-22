@@ -81,8 +81,9 @@ class Calendar extends React.Component {
   getCalendarEvents() {
     let CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
     let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
+    let CALENDAR_URL = process.env.REACT_APP_CALENDAR_API_URL;
 
-    axios.get('https://www.googleapis.com/calendar/v3/calendars/' + CALENDAR_ID + '/events?maxResults=2500&singleEvents=true&key=' + API_KEY)
+    axios.get(CALENDAR_URL + CALENDAR_ID + '/events?maxResults=2500&singleEvents=true&key=' + API_KEY)
       .then(res => {
         let items = res.data.items;
         let events = [];
@@ -164,7 +165,6 @@ class Calendar extends React.Component {
           defaultDate={Moment().add(this.state.dateOffset, this.state.dateContext)} // default date set to November 15, 2015 for testing
           defaultView={this.getCalendarFormatName(this.state.dateContext)}
           navLinks= {true} // can click day/week names to navigate views
-          eventLimit= {3} // allow "more" link when too many events
           events = {this.state.events}
           eventColor = {this.props.calendarStyle.color}
           eventTextColor = {this.props.calendarStyle.textColor}
