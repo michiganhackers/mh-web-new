@@ -24,19 +24,19 @@ class Contact extends Component {
           </StaticP>
 
           <StaticP>
-            <a href="fb.com/michiganhackers"><FontAwesomeIcon icon={["fab", "facebook"]} /> Follow us on Facebook!</a>
+            <a href="https://fb.com/michiganhackers" target="blank"><FontAwesomeIcon icon={["fab", "facebook"]} /> Follow us on Facebook!</a>
           </StaticP>
           <StaticP>
-            <a href="github.com/michiganhackers"><FontAwesomeIcon icon={["fab", "github"]} /> Check us out on GitHub!</a>
+            <a href="https://github.com/michiganhackers" target="blank"><FontAwesomeIcon icon={["fab", "github"]} /> Check us out on GitHub!</a>
           </StaticP>
           <StaticP>
-            <a href="github.com/michiganhackers"><FontAwesomeIcon icon={["fab", "twitter"]} /> Don't @ us on Twitter!</a>
+            <a href="https://twitter.com/michiganhackers" target="blank"><FontAwesomeIcon icon={["fab", "twitter"]} /> Don't @ us on Twitter!</a>
           </StaticP>
           <StaticP>
-            <a href="github.com/michiganhackers"><FontAwesomeIcon icon={["fab", "instagram"]} /> Check out recent pics of our club on Instagram!</a>
+            <a href="https://instagram.com/michiganhackers" target="blank"><FontAwesomeIcon icon={["fab", "instagram"]} /> Check out recent pics of our club on Instagram!</a>
           </StaticP>
           <StaticP>
-            <a href="github.com/michiganhackers"><FontAwesomeIcon icon={["fab", "slack"]} /> Join our Slack workspace!</a>
+            <a href="https://bit.ly/mhslack" target="blank"><FontAwesomeIcon icon={["fab", "slack"]} /> Join our Slack workspace!</a>
           </StaticP>
           <MailingList/>
         </SubpageOuter>
