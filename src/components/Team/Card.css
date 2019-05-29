@@ -1,0 +1,36 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    padding: 75px;
+    display: flex;
+    justify-content: space-between;  
+
+  }
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 10px -10px rgba(#7f8c8d, 1);
+
+}
+
+h2 {
+    padding: 10px; 
+}
+img {
+    border-radius: 100%;
+
+}
+  
+.title {
+    color: rgb(241,93,36);
+    font-size: 18px;
+}
+  
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+  
