@@ -33,9 +33,9 @@ class Team extends React.Component {
             Senior Advisors
           </StaticH1>
           <StaticP>
-          <MemberCard name="Connor Sverck" title="President" bio="I am Ben." />
-          <MemberCard name="Janet Vu" title="Vice President of Internal" bio="I am Alex." />
-          <MemberCard name="Erich Shan" title="Vice President of External" bio="I am Erich." />
+          <MemberCard name="Connor Sverck" title="Senior Advisor" bio="I am Ben." />
+          <MemberCard name="Janet Vu" title="Senior Advisor" bio="I am Alex." />
+          <MemberCard name="Trevor Sanderson" title="Senior Advisor" bio="I am Erich." />
           </StaticP>
           <StaticH1>
             Core Leadership
