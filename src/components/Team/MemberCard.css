@@ -1,9 +1,11 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 400px;
-    margin: auto;
     text-align: center;
+    flex: 0 1 24%;
     padding: 50px;
+    box-sizing: border-box;
+    margin: 1rem .25em;
   }
 
 .card:hover {
