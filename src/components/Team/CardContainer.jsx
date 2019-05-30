@@ -111,7 +111,7 @@ class CardContainer extends React.Component {
                             <MemberCard name="Junlin Mo" title="Data Structures and Interviews Director" bio="Hi, I'm Junlin." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Nicholas Knovalenko" title="Security Director" bio="Hi, I'm Nicholas." />
+                            <MemberCard name="Nicholas Konovalenko" title="Security Director" bio="Hi, I'm Nicholas." />
                         </div>
                     </section>
                 </div>
