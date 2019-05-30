@@ -1,0 +1,26 @@
+.cardContainerColumn {
+
+  float: left;
+  width: 30%;
+  padding: 10px 10px 10px 15px;
+}
+
+.cardContainerRow {
+    margin: 10 -5px;
+    padding: 100px;
+
+}
+
+.cardContainerRow::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .cardContainerColumn {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+}
