@@ -62,19 +62,13 @@ class CardContainer extends React.Component {
                 <div class="centered">
                     <section class="cards">
                         <div className="cardContainerColumn">
-                            <MemberCard name="Alex Dortzbach" title="Vice President of Internal" bio="Hi, I'm Alex. I like to party." />
+                            <MemberCard name="Janet Vu" title="Senior Advisor" bio="Hi, I'm Janet and I loveeee pokeemon." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Benjamin Carney" title="President" bio="Hi, I'm Ben. I like to dance" />
+                            <MemberCard name="Connor Svrcek" title="Senior Advisor" bio="Hi, I'm Connor and I have luscious locs." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Erich Shan" title="Vice President of External" bio="Hi, I'm Erich. I like good kush." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Phoebe Liang" title="Logistics" bio="Hi, I'm Phoebe. I like to go to Rick's." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Casper Hsu" title="Innovation" bio="Hi, I'm Casper. I am a pure Canadian." />
+                            <MemberCard name="Trevor Sanderson" title="Senior Advisor" bio="Hi, I'm Trevor and I like beer." />
                         </div>
                     </section>
                 </div>
@@ -90,40 +84,34 @@ class CardContainer extends React.Component {
                 <div class="centered">
                     <section class="cards">
                         <div className="cardContainerColumn">
-                            <MemberCard name="Alex Dortzbach" title="Vice President of Internal" bio="Hi, I'm Alex. I like to party." />
+                            <MemberCard name="Edward Huang" title="iOS Project Manager" bio="Hi, I'm Edward." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Benjamin Carney" title="President" bio="Hi, I'm Ben. I like to dance" />
+                            <MemberCard name="Thomas Smith" title="iOS Project Manager" bio="Hi, I'm Thomas." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Erich Shan" title="Vice President of External" bio="Hi, I'm Erich. I like good kush." />
+                            <MemberCard name="Vincent Nagel" title="Android Project Manager" bio="Hi, I'm Vincent" />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Phoebe Liang" title="Logistics" bio="Hi, I'm Phoebe. I like to go to Rick's." />
+                            <MemberCard name="Owain Kurt" title="Android Project Manager" bio="Hi, I'm Owain." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Casper Hsu" title="Innovation" bio="Hi, I'm Casper. I am a pure Canadian." />
+                            <MemberCard name="Edward Sun" title="React Native Project Manager" bio="Hi, I'm Edward." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Casper Hsu" title="Innovation" bio="Hi, I'm Casper. I am a pure Canadian." />
+                            <MemberCard name="Eric Lian" title="React Native Project Manager" bio="Hi, I'm Eric." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Alex Dortzbach" title="Vice President of Internal" bio="Hi, I'm Alex. I like to party." />
+                            <MemberCard name="Eashwar Mohan" title="Hacker Bootcamp Director" bio="Hi, I'm Eashwar." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Benjamin Carney" title="President" bio="Hi, I'm Ben. I like to dance" />
+                            <MemberCard name="Christopher Hafke" title="Web Project Manager" bio="Hi, Christopher." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Erich Shan" title="Vice President of External" bio="Hi, I'm Erich. I like good kush." />
+                            <MemberCard name="Junlin Mo" title="Data Structures and Interviews Director" bio="Hi, I'm Junlin." />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Phoebe Liang" title="Logistics" bio="Hi, I'm Phoebe. I like to go to Rick's." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Casper Hsu" title="Innovation" bio="Hi, I'm Casper. I am a pure Canadian." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Casper Hsu" title="Innovation" bio="Hi, I'm Casper. I am a pure Canadian." />
+                            <MemberCard name="Nicholas Knovalenko" title="Security Director" bio="Hi, I'm Nicholas." />
                         </div>
                     </section>
                 </div>
