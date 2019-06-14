@@ -16,6 +16,7 @@ class CardContainer extends React.Component {
 
     constructor(props){
         super(props);
+        const baseUrl = '../../assets/memberPhotos/';
     }
 
     render(){
@@ -26,41 +27,77 @@ class CardContainer extends React.Component {
                     Executive Team
                 </StaticH1>
                 <StaticP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </StaticP>
-                <div class="centered">
-                    <section class="cards">
+                <div className="centered">
+                    <section className="cards">
                         <div className="cardContainerColumn">
-                            <MemberCard name="Alex Dortzbach" title="Vice President of Internal" bio="Hi, I'm Alex. I like to party." />
+                            <MemberCard name="Alex Dortzbach" title="Vice President of Internal"
+                            bio="Hi, I'm Alex. I like to party."
+                            githubUrl=""
+                            instagramUrl=""
+                            linkedinUrl=""
+                            facebookUrl=""
+                            personalUrl=""
+                            imagePath=""  />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Benjamin Carney" title="President" bio="Hi, I'm Ben. I like to dance" />
+                            <MemberCard name="Benjamin Carney" title="President"
+                            bio="I can slam dunk. Okay, not really, but that would be sick."
+                            githubUrl="https://github.com/benjamincarney"
+                            instagramUrl=""
+                            linkedinUrl="https://www.linkedin.com/in/benjamincarney"
+                            facebookUrl=""
+                            personalUrl="https://benjamincarney.github.io/"
+                            imagePath='../../assets/memberPhotos/Ben.JPG'  />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Erich Shan" title="Vice President of External" bio="Hi, I'm Erich. I like good kush." />
+                            <MemberCard name="Erich Shan" title="Vice President of External"
+                            bio="Hi, I'm Alex. I like to party."
+                            githubUrl=""
+                            instagramUrl=""
+                            linkedinUrl=""
+                            facebookUrl=""
+                            personalUrl=""
+                            imagePath=""  />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Phoebe Liang" title="Logistics" bio="Hi, I'm Phoebe. I like to go to Rick's." />
+                            <MemberCard name="Phoebe Liang" title="Logistics"
+                            bio="Hi! I'm a sophomore majoring in Computer Science, with an interest in iOS development and software engineering. If I'm not coding then I'm probably cooking, because I love food and I'm always making something new! "
+                            githubUrl="https://github.com/pl98"
+                            instagramUrl="https://www.instagram.com/phoebeliang98/"
+                            linkedinUrl="https://www.linkedin.com/in/phoebeliang98/"
+                            facebookUrl="https://www.facebook.com/phoebe.n.liang"
+                            personalUrl=""
+                            imagePath='../../assets/memberPhotos/Ben.JPG'  />
                         </div>
                         <div className="cardContainerColumn">
-                            <MemberCard name="Casper Hsu" title="Innovation" bio="Hi, I'm Casper. I am a pure Canadian." />
+                            <MemberCard name="Casper Hsu" title="Innovation"
+                            bio="Hockey, Hockey, and did I mention Hockey?"
+                            githubUrl="https://github.com/casper-h"
+                            instagramUrl=""
+                            linkedinUrl="https://www.linkedin.com/in/casper-hsu-8922a9181/"
+                            facebookUrl=""
+                            personalUrl=""
+                            imagePath='../../assets/memberPhotos/Ben.JPG'  />
                         </div>
+
                     </section>
                 </div>
                 <StaticH1>
                     Senior Advisors
                 </StaticH1>
                 <StaticP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </StaticP>
-                <div class="centered">
-                    <section class="cards">
+                <div className="centered">
+                    <section className="cards">
                         <div className="cardContainerColumn">
                             <MemberCard name="Janet Vu" title="Senior Advisor" bio="Hi, I'm Janet and I loveeee pokeemon." />
                         </div>
@@ -76,13 +113,13 @@ class CardContainer extends React.Component {
                     Core Leadership
                 </StaticH1>
                 <StaticP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </StaticP>
-                <div class="centered">
-                    <section class="cards">
+                <div className="centered">
+                    <section className="cards">
                         <div className="cardContainerColumn">
                             <MemberCard name="Edward Huang" title="iOS Project Manager" bio="Hi, I'm Edward." />
                         </div>
