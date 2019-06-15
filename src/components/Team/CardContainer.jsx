@@ -220,7 +220,8 @@ class CardContainer extends React.Component {
                         facebookUrl=""
                         personalUrl="https://thomasebsmith.github.io/"
                         imagePath='../../assets/memberPhotos/Thomas.png'  />
-                    </div><div className="cardContainerColumn">
+                    </div>
+                    <div className="cardContainerColumn">
                         <MemberCard name="Owain Kurt" title="Android Project Manager"
                         bio=""
                         githubUrl=""
@@ -229,7 +230,8 @@ class CardContainer extends React.Component {
                         facebookUrl=""
                         personalUrl=""
                         imagePath=''  />
-                    </div><div className="cardContainerColumn">
+                    </div>
+                    <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Data Structures and Interview Director"
                         bio=""
                         githubUrl=""
@@ -238,7 +240,8 @@ class CardContainer extends React.Component {
                         facebookUrl=""
                         personalUrl=""
                         imagePath=''  />
-                    </div><div className="cardContainerColumn">
+                    </div>
+                    <div className="cardContainerColumn">
                         <MemberCard name="Edward Sun" title="React Native Project Manager"
                         bio=""
                         githubUrl=""
