@@ -18,7 +18,6 @@ class CardContainer extends React.Component {
 
     constructor(props){
         super(props);
-        const baseUrl = '../../assets/memberPhotos/';
     }
 
     render(){
@@ -54,7 +53,7 @@ class CardContainer extends React.Component {
                             linkedinUrl="https://www.linkedin.com/in/benjamincarney"
                             facebookUrl=""
                             personalUrl="https://benjamincarney.github.io/"
-                            imagePath='../../assets/memberPhotos/Ben.JPG'  />
+                            imagePath='src/assets/memberPhotos/Ben.JPG'  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Erich Shan" title="Vice President of External"
