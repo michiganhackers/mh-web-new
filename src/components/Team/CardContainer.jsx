@@ -7,6 +7,8 @@ import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import './CardContainer.css';
 import MemberCard from './MemberCard.jsx';
 import ben from '../../assets/memberPhotos/Ben.JPG';
+import phoebe from '../../assets/memberPhotos/Phoebe.jpg';
+import casper from '../../assets/memberPhotos/Casper.jpg';
 
 var cardStyle = {
     width:'100%'
@@ -36,7 +38,7 @@ class CardContainer extends React.Component {
                     <section className="cards">
                         <div className="cardContainerColumn">
                             <MemberCard name="Alex Dortzbach" title="Vice President of Internal"
-                            bio="Hi, I'm Alex. I like to party."
+                            bio=""
                             githubUrl=""
                             instagramUrl=""
                             linkedinUrl=""
@@ -56,7 +58,7 @@ class CardContainer extends React.Component {
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Erich Shan" title="Vice President of External"
-                            bio="Hi, I'm Alex. I like to party."
+                            bio=""
                             githubUrl=""
                             instagramUrl=""
                             linkedinUrl=""
@@ -72,7 +74,7 @@ class CardContainer extends React.Component {
                             linkedinUrl="https://www.linkedin.com/in/phoebeliang98/"
                             facebookUrl="https://www.facebook.com/phoebe.n.liang"
                             personalUrl=""
-                            imagePath='../../assets/memberPhotos/Ben.JPG'  />
+                            imagePath='../../assets/memberPhotos/phoebe.jpg'  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Casper Hsu" title="Innovation"
@@ -84,7 +86,6 @@ class CardContainer extends React.Component {
                             personalUrl=""
                             imagePath='../../assets/memberPhotos/Ben.JPG'  />
                         </div>
-
                     </section>
                 </div>
                 <StaticH1>
@@ -98,15 +99,36 @@ class CardContainer extends React.Component {
                 </StaticP>
                 <div className="centered">
                     <section className="cards">
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Janet Vu" title="Senior Advisor" bio="Hi, I'm Janet and I loveeee pokeemon." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Connor Svrcek" title="Senior Advisor" bio="Hi, I'm Connor and I have luscious locs." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Trevor Sanderson" title="Senior Advisor" bio="Hi, I'm Trevor and I like beer." />
-                        </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Janet Vu" title="Senior Advisor"
+                        bio=""
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl=""
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath=""  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Connor Svrcek" title="Senior Advisor"
+                        bio="Lover of dogs, movies, comics, and iOS"
+                        githubUrl="https://github.com/csvrcek"
+                        instagramUrl="https://www.instagram.com/cdids/"
+                        linkedinUrl="https://www.linkedin.com/in/connor-svrcek-aab07612b/"
+                        facebookUrl="https://www.facebook.com/connor.svrcek"
+                        personalUrl="https://connorsvrcek.com/"
+                        imagePath=''  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Trevor Sanderson" title="Senior Advisor"
+                        bio=""
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl=""
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath=''  />
+                    </div>
                     </section>
                 </div>
                 <StaticH1>
@@ -120,36 +142,113 @@ class CardContainer extends React.Component {
                 </StaticP>
                 <div className="centered">
                     <section className="cards">
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Edward Huang" title="iOS Project Manager" bio="Hi, I'm Edward." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Thomas Smith" title="iOS Project Manager" bio="Hi, I'm Thomas." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Vincent Nagel" title="Android Project Manager" bio="Hi, I'm Vincent" />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Owain Kurt" title="Android Project Manager" bio="Hi, I'm Owain." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Edward Sun" title="React Native Project Manager" bio="Hi, I'm Edward." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Eric Lian" title="React Native Project Manager" bio="Hi, I'm Eric." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Eashwar Mohan" title="Hacker Bootcamp Director" bio="Hi, I'm Eashwar." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Christopher Hafke" title="Web Project Manager" bio="Hi, Christopher." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Junlin Mo" title="Data Structures and Interviews Director" bio="Hi, I'm Junlin." />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Nicholas Konovalenko" title="Security Director" bio="Hi, I'm Nicholas." />
-                        </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Eashwar Mohan" title="Hacker Bootcamp Director"
+                        bio="Hi! I'm a senior studying computer science and a minor in music, focusing in video game audio. I'm passionate about music technology and CS education."
+                        githubUrl="https://github.com/eashwar"
+                        instagramUrl="https://www.instagram.com/_eashwar/"
+                        linkedinUrl="https://www.linkedin.com/in/eashw/"
+                        facebookUrl="https://www.facebook.com/eashmohan"
+                        personalUrl="https://eash.dev"
+                        imagePath='../../assets/memberPhotos/Eashwar.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Edward Huang" title="iOS Project Manager"
+                        bio="Hey I'm Edward and as an aspiring computer scientist, my main interests lie in software engineering and machine learning. When I'm not coding, I am probably watching football or basketball. "
+                        githubUrl="https://github.com/edward2018211"
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/edward-h-b4a147156/"
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath='../../assets/memberPhotos/EdwardH.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Christopher Hafke" title="Web Project Manager"
+                        bio="Hi, I'm Chris! I'm a junior studying computer science and math. Feel free to chat with me about web development (and how to get started with learning it), React, Redux, Golang, or anything math or algorithms related."
+                        githubUrl="https://github.com/christopherhafke"
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/christopher-hafke-8a1968148/"
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath='../../assets/memberPhotos/Chris.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Vincent Nagel" title="Android Project Manager"
+                        bio="I'm a senior studying computer science. I enjoy developing Android apps in my free time."
+                        githubUrl="https://github.com/vnagel"
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/vincentnagel/"
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath='../../assets/memberPhotos/Vincent.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Nicholas Konovalenko" title="Security Director"
+                        bio="Sophomore studying Computer Science at the University of Michigan's College of Engineering. Interested in security, artificial intelligence, and stocks."
+                        githubUrl="https://github.com/Nkonovalenko"
+                        instagramUrl="https://www.instagram.com/konic899/"
+                        linkedinUrl="https://www.linkedin.com/in/nicholas-konovalenko-2b3258171/"
+                        facebookUrl="https://www.facebook.com/nicholas.konovalenko"
+                        personalUrl="https://nickono.com"
+                        imagePath='../../assets/memberPhotos/Nick.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Eric Lian" title="React Native Project Manager"
+                        bio="Sophomore pursuing CSE degree. Engaged in mobile dev and machine learning."
+                        githubUrl="https://github.com/ericlian1"
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/ericlian419/"
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath='../../assets/memberPhotos/Eric.JPG'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Paul Carney" title="Hardware Project Manager"
+                        bio="I'm a computer engineering major with a focus on embedded systems. I also love skateboarding, playing drums and guitar, and animals."
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/paul-carney-07a273169/"
+                        facebookUrl="https://www.facebook.com/paul.carney.319?ref=bookmarks"
+                        personalUrl=""
+                        imagePath='../../assets/memberPhotos/Paul.jpeg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Thomas Smith" title="iOS Project Manager"
+                        bio="Hi! I'm Thomas. I'm a sophomore studying computer science. Besides computer programming, I like hiking, camping, and enjoying the outdoors."
+                        githubUrl="https://github.com/thomasebsmith/"
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/thomasebsmith/"
+                        facebookUrl=""
+                        personalUrl="https://thomasebsmith.github.io/"
+                        imagePath='../../assets/memberPhotos/Thomas.png'  />
+                    </div><div className="cardContainerColumn">
+                        <MemberCard name="Owain Kurt" title="Android Project Manager"
+                        bio=""
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl=""
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath=''  />
+                    </div><div className="cardContainerColumn">
+                        <MemberCard name="Junlin Mo" title="Data Structures and Interview Director"
+                        bio=""
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl=""
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath=''  />
+                    </div><div className="cardContainerColumn">
+                        <MemberCard name="Edward Sun" title="React Native Project Manager"
+                        bio=""
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl=""
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath=''  />
+                    </div>
                     </section>
                 </div>
             </React.Fragment>

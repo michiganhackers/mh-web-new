@@ -6,9 +6,7 @@ import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import devices from '../../utility/MediaQueries.js';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import './MemberCard.css';
-import ben from '../../assets/memberPhotos/Ben.JPG';
-import phoebe from '../../assets/memberPhotos/Phoebe.jpg';
-import casper from '../../assets/memberPhotos/Casper.jpg';
+
 
 
 var cardStyle = {
@@ -19,13 +17,18 @@ class MemberCard extends React.Component {
 
     constructor(props){
         super(props);
-
-
+        console.log(this.props.imagePath);
+        this.state = {
+          imagePath: this.props.imagePath,
+        }
     }
+
+
     render(){
+      console.log(this.state.imagePath);
         return(
             <div className="card">
-                <img src={ "" + this.props.imagePath } alt="Ben" style={cardStyle} className="border"></img>
+                <img src={ this.state.imagePath } alt="Ben" style={cardStyle} className="border"></img>
                 <h2>{this.props.name}</h2>
                  <p className="title">{this.props.title}</p>
                 <p>{this.props.bio}</p>
@@ -39,6 +42,7 @@ class MemberCard extends React.Component {
             </div>
         );
     }
+
 }
 
 export default MemberCard;
