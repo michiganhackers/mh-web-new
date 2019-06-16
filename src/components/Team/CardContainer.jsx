@@ -53,7 +53,7 @@ class CardContainer extends React.Component {
                             linkedinUrl="https://www.linkedin.com/in/benjamincarney"
                             facebookUrl=""
                             personalUrl="https://benjamincarney.github.io/"
-                            imagePath='src/assets/memberPhotos/Ben.JPG'  />
+                            imagePath='/memberPhotos/Ben.JPG'  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Erich Shan" title="Vice President of External"
@@ -73,7 +73,7 @@ class CardContainer extends React.Component {
                             linkedinUrl="https://www.linkedin.com/in/phoebeliang98/"
                             facebookUrl="https://www.facebook.com/phoebe.n.liang"
                             personalUrl=""
-                            imagePath='../../assets/memberPhotos/phoebe.jpg'  />
+                            imagePath='/memberPhotos/Phoebe.jpg'  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Casper Hsu" title="Innovation"
@@ -83,7 +83,7 @@ class CardContainer extends React.Component {
                             linkedinUrl="https://www.linkedin.com/in/casper-hsu-8922a9181/"
                             facebookUrl=""
                             personalUrl=""
-                            imagePath='../../assets/memberPhotos/Ben.JPG'  />
+                            imagePath='/memberPhotos/Casper.jpg'  />
                         </div>
                     </section>
                 </div>
@@ -116,7 +116,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/connor-svrcek-aab07612b/"
                         facebookUrl="https://www.facebook.com/connor.svrcek"
                         personalUrl="https://connorsvrcek.com/"
-                        imagePath=''  />
+                        imagePath='/memberPhotos/Casper.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
@@ -149,7 +149,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/eashw/"
                         facebookUrl="https://www.facebook.com/eashmohan"
                         personalUrl="https://eash.dev"
-                        imagePath='../../assets/memberPhotos/Eashwar.jpg'  />
+                        imagePath='/memberPhotos/Eashwar.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Edward Huang" title="iOS Project Manager"
@@ -159,7 +159,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/edward-h-b4a147156/"
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='../../assets/memberPhotos/EdwardH.jpg'  />
+                        imagePath='/memberPhotos/EdwardH.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Christopher Hafke" title="Web Project Manager"
@@ -169,7 +169,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/christopher-hafke-8a1968148/"
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='../../assets/memberPhotos/Chris.jpg'  />
+                        imagePath='/memberPhotos/Chris.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Vincent Nagel" title="Android Project Manager"
@@ -179,7 +179,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/vincentnagel/"
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='../../assets/memberPhotos/Vincent.jpg'  />
+                        imagePath='/memberPhotos/Vincent.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Nicholas Konovalenko" title="Security Director"
@@ -189,7 +189,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/nicholas-konovalenko-2b3258171/"
                         facebookUrl="https://www.facebook.com/nicholas.konovalenko"
                         personalUrl="https://nickono.com"
-                        imagePath='../../assets/memberPhotos/Nick.jpg'  />
+                        imagePath='/memberPhotos/Nick.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Eric Lian" title="React Native Project Manager"
@@ -199,7 +199,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/ericlian419/"
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='../../assets/memberPhotos/Eric.JPG'  />
+                        imagePath='/memberPhotos/Eric.JPG'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Paul Carney" title="Hardware Project Manager"
@@ -209,7 +209,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/paul-carney-07a273169/"
                         facebookUrl="https://www.facebook.com/paul.carney.319?ref=bookmarks"
                         personalUrl=""
-                        imagePath='../../assets/memberPhotos/Paul.jpeg'  />
+                        imagePath='/memberPhotos/Paul.jpeg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Thomas Smith" title="iOS Project Manager"
@@ -219,7 +219,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/thomasebsmith/"
                         facebookUrl=""
                         personalUrl="https://thomasebsmith.github.io/"
-                        imagePath='../../assets/memberPhotos/Thomas.png'  />
+                        imagePath='/memberPhotos/Thomas.png'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Owain Kurt" title="Android Project Manager"

@@ -25,10 +25,10 @@ class MemberCard extends React.Component {
 
 
     render(){
-      console.log(this.state.imagePath);
+      console.log(this.props.imagePath);
         return(
             <div className="card">
-                <img src={ this.state.imagePath } alt="leadership" style={cardStyle} className="border"></img>
+                <img src={ this.props.imagePath } alt="leadership" style={cardStyle} className="border"></img>
                 <h2>{this.props.name}</h2>
                  <p className="title">{this.props.title}</p>
                 <p>{this.props.bio}</p>
