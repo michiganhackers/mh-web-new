@@ -6,9 +6,6 @@ import devices from '../../utility/MediaQueries.js';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import './CardContainer.css';
 import MemberCard from './MemberCard.jsx';
-import ben from '../../assets/memberPhotos/Ben.JPG';
-import phoebe from '../../assets/memberPhotos/Phoebe.jpg';
-import casper from '../../assets/memberPhotos/Casper.jpg';
 
 var cardStyle = {
     width:'100%'
