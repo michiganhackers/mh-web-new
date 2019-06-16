@@ -116,7 +116,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/connor-svrcek-aab07612b/"
                         facebookUrl="https://www.facebook.com/connor.svrcek"
                         personalUrl="https://connorsvrcek.com/"
-                        imagePath='/memberPhotos/Casper.jpg'  />
+                        imagePath='/memberPhotos/Connor.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
