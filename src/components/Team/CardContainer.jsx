@@ -40,7 +40,7 @@ class CardContainer extends React.Component {
                             linkedinUrl=""
                             facebookUrl=""
                             personalUrl=""
-                            imagePath=""  />
+                            imagePath="/memberPhotos/Alex.JPG"  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Benjamin Carney" title="President"
@@ -60,7 +60,7 @@ class CardContainer extends React.Component {
                             linkedinUrl=""
                             facebookUrl=""
                             personalUrl=""
-                            imagePath=""  />
+                            imagePath="/memberPhotos/Erich.JPG"  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Phoebe Liang" title="Logistics"
