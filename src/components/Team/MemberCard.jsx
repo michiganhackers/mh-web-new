@@ -10,7 +10,7 @@ import './MemberCard.css';
 
 
 var cardStyle = {
-    width: '100%'
+  width: '100%'
 };
 
 class MemberCard extends React.Component {
