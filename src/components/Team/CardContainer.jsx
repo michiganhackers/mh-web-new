@@ -32,6 +32,16 @@ class CardContainer extends React.Component {
                 </StaticP>
                 <div className="centered">
                     <section className="cards">
+                      <div className="cardContainerColumn">
+                          <MemberCard name="Benjamin Carney" title="President"
+                          bio="I can slam dunk. Okay, not really, but that would be sick."
+                          githubUrl="https://github.com/benjamincarney"
+                          instagramUrl=""
+                          linkedinUrl="https://www.linkedin.com/in/benjamincarney"
+                          facebookUrl=""
+                          personalUrl="https://benjamincarney.github.io/"
+                          imagePath='/memberPhotos/Ben.JPG'  />
+                        </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Alex Dortzbach" title="Vice President of Internal"
                             bio=""
@@ -41,16 +51,6 @@ class CardContainer extends React.Component {
                             facebookUrl=""
                             personalUrl=""
                             imagePath="/memberPhotos/Alex.JPG"  />
-                        </div>
-                        <div className="cardContainerColumn">
-                            <MemberCard name="Benjamin Carney" title="President"
-                            bio="I can slam dunk. Okay, not really, but that would be sick."
-                            githubUrl="https://github.com/benjamincarney"
-                            instagramUrl=""
-                            linkedinUrl="https://www.linkedin.com/in/benjamincarney"
-                            facebookUrl=""
-                            personalUrl="https://benjamincarney.github.io/"
-                            imagePath='/memberPhotos/Ben.JPG'  />
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Erich Shan" title="Vice President of External"
@@ -103,7 +103,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath=""  />
+                        imagePath="/memberPhotos/Beary.PNG"  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Connor Svrcek" title="Senior Advisor"
@@ -123,7 +123,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath=''  />
+                        imagePath='/memberPhotos/Beary.PNG'  />
                     </div>
                     </section>
                 </div>
@@ -226,7 +226,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath=''  />
+                        imagePath='/memberPhotos/Beary.PNG'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Data Structures and Interview Director"
@@ -236,7 +236,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath=''  />
+                        imagePath='/memberPhotos/Beary.PNG'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Edward Sun" title="React Native Project Manager"
@@ -246,7 +246,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath=''  />
+                        imagePath='/memberPhotos/Beary.PNG'  />
                     </div>
                     </section>
                 </div>
