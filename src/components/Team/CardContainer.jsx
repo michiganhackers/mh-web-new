@@ -221,12 +221,12 @@ class CardContainer extends React.Component {
                     <div className="cardContainerColumn">
                         <MemberCard name="Owain Kurt" title="Android Project Manager"
                         bio=""
-                        githubUrl=""
+                        githubUrl="https://github.com/Glavon"
                         instagramUrl=""
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='/memberPhotos/Beary.PNG'  />
+                        imagePath='/memberPhotos/Owain.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Data Structures and Interview Director"
