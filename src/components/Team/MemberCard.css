@@ -6,8 +6,8 @@
     padding: 50px;
     box-sizing: border-box;
     margin: 1rem .25em;
-    border: 10px;
-    border-color: blue;
+
+
   }
 
 .card:hover {
@@ -43,4 +43,8 @@ a {
 .links{
     display: inline-block;
     color: rgb(241,93,36);
+}
+
+a:visited {
+  color: rgb(241,93,36);
 }
