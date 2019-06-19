@@ -17,12 +17,40 @@ class MemberCard extends React.Component {
 
     constructor(props){
         super(props);
-        console.log(this.props.imagePath);
         this.state = {
           imagePath: this.props.imagePath,
         }
     }
 
+    nonemptyUrls() {
+
+      let githubUrl = <a href={this.props.githubUrl}><i className="fa fa-github"></i></a>;
+      var instagramUrl = <a href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>;
+      let linkedinUrl = <a href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>;
+      let facebookUrl = <a href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>;
+      let personalUrl = <a href={this.props.personalUrl}><i className="fa fa-user"></i></a>;
+
+
+      var returnValue = [];
+      if(this.props.instagramUrl !== '') {
+        returnValue.push(<a href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
+      }
+      if(this.props.githubUrl !== ''){
+        returnValue.push(<a href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
+      }
+      if(this.props.linkedinUrl !== '') {
+        returnValue.push(<a href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>);
+      }
+      if(this.props.facebookUrl !== '') {
+        returnValue.push(<a href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>);
+      }
+      if(this.props.personalUrl !== '') {
+        returnValue.push(<a href={this.props.personalUrl}><i className="fa fa-user"></i></a>);
+      }
+
+      return returnValue;
+
+    }
 
     render(){
       console.log(this.props.imagePath);
@@ -33,11 +61,7 @@ class MemberCard extends React.Component {
                  <p className="title">{this.props.title}</p>
                 <p>{this.props.bio}</p>
                 <div className="links">
-                    <a href={this.props.githubUrl}><i className="fa fa-github"></i></a>
-                    <a href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>
-                    <a href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>
-                    <a href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>
-                    <a href={this.props.personalUrl}><i className="fa fa-user"></i></a>
+                  { this.nonemptyUrls() }
                 </div>
             </div>
         );

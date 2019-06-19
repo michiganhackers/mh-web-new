@@ -220,7 +220,7 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Owain Kurt" title="Android Project Manager"
-                        bio=""
+                        bio="Hi! I'm Owain. I'm a computer science major interested in Android development and I work for ITS for the University of Michigan."
                         githubUrl="https://github.com/Glavon"
                         instagramUrl=""
                         linkedinUrl=""
