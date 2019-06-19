@@ -45,6 +45,13 @@ a {
     color: rgb(241,93,36);
 }
 
-a:visited {
-  color: rgb(241,93,36);
+.iconLink {
+  text-decoration: none;
+  font-size: 30px;
+  color: rgb(241,93,36);;
+  padding: 10px;
+}
+
+.iconLink:visited {
+  color: rgb(51, 153, 255);
 }

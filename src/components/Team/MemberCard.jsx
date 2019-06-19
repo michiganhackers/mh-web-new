@@ -24,28 +24,22 @@ class MemberCard extends React.Component {
 
     nonemptyUrls() {
 
-      let githubUrl = <a href={this.props.githubUrl}><i className="fa fa-github"></i></a>;
-      var instagramUrl = <a href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>;
-      let linkedinUrl = <a href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>;
-      let facebookUrl = <a href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>;
-      let personalUrl = <a href={this.props.personalUrl}><i className="fa fa-user"></i></a>;
-
-
       var returnValue = [];
+      
       if(this.props.instagramUrl !== '') {
-        returnValue.push(<a href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
+        returnValue.push(<a className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
       }
       if(this.props.githubUrl !== ''){
-        returnValue.push(<a href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
+        returnValue.push(<a className="iconLink" href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
       }
       if(this.props.linkedinUrl !== '') {
-        returnValue.push(<a href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>);
+        returnValue.push(<a className="iconLink" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>);
       }
       if(this.props.facebookUrl !== '') {
-        returnValue.push(<a href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>);
+        returnValue.push(<a className="iconLink" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>);
       }
       if(this.props.personalUrl !== '') {
-        returnValue.push(<a href={this.props.personalUrl}><i className="fa fa-user"></i></a>);
+        returnValue.push(<a className="iconLink" href={this.props.personalUrl}><i className="fa fa-user"></i></a>);
       }
 
       return returnValue;
