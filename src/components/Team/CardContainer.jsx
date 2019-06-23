@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "../../utility/fonts.css";
-import styled from 'styled-components';
-import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import devices from '../../utility/MediaQueries.js';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import './CardContainer.css';
 import MemberCard from './MemberCard.jsx';
 
-var cardStyle = {
-    width:'100%'
-};
 
 class CardContainer extends React.Component {
 
@@ -34,7 +28,10 @@ class CardContainer extends React.Component {
                     <section className="cards">
                       <div className="cardContainerColumn">
                           <MemberCard name="Benjamin Carney" title="President"
-                          bio="I can slam dunk. Okay, not really, but that would be sick."
+                          majorGradYear="Computer Science 2020"
+                          job=""
+                          otherInvolvements=""
+                          interests=""
                           githubUrl="https://github.com/benjamincarney"
                           instagramUrl=""
                           linkedinUrl="https://www.linkedin.com/in/benjamincarney"
@@ -54,6 +51,10 @@ class CardContainer extends React.Component {
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Erich Shan" title="Vice President of External"
+                            majorGradYear="Computer Science 2020"
+                            job=""
+                            otherInvolvements=""
+                            interests=""
                             bio=""
                             githubUrl=""
                             instagramUrl=""
@@ -64,7 +65,10 @@ class CardContainer extends React.Component {
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Phoebe Liang" title="Logistics"
-                            bio="Hi! I'm a sophomore majoring in Computer Science, with an interest in iOS development and software engineering. If I'm not coding then I'm probably cooking, because I love food and I'm always making something new! "
+                            majorGradYear="Computer Science 2020"
+                            job=""
+                            otherInvolvements=""
+                            interests=""
                             githubUrl="https://github.com/pl98"
                             instagramUrl="https://www.instagram.com/phoebeliang98/"
                             linkedinUrl="https://www.linkedin.com/in/phoebeliang98/"
@@ -74,7 +78,10 @@ class CardContainer extends React.Component {
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Casper Hsu" title="Innovation"
-                            bio="Hockey, Hockey, and did I mention Hockey?"
+                            majorGradYear="Computer Science 2020"
+                            job=""
+                            otherInvolvements=""
+                            interests=""
                             githubUrl="https://github.com/casper-h"
                             instagramUrl=""
                             linkedinUrl="https://www.linkedin.com/in/casper-hsu-8922a9181/"
@@ -96,18 +103,24 @@ class CardContainer extends React.Component {
                 <div className="centered">
                     <section className="cards">
                     <div className="cardContainerColumn">
-                        <MemberCard name="Janet Vu" title="Senior Advisor"
-                        bio=""
-                        githubUrl=""
-                        instagramUrl=""
-                        linkedinUrl=""
-                        facebookUrl=""
-                        personalUrl=""
-                        imagePath="/memberPhotos/Beary.PNG"  />
+                        <MemberCard name="Janet Vu" title="Senior Advisor/Creative Director"
+                        majorGradYear="Computer Science 2021"
+                        job="Guide and support incoming executive board members! Also lead marketing online and in real life through graphic design and social media"
+                        otherInvolvements=" Privacy research in the School of Information, GEECS (marketing committee), VSA (kinda)"
+                        interests="Pokemon Go, thrifting, graphic design, hammocking, animals"
+                        githubUrl="https://github.com/jajanet"
+                        instagramUrl="http://instagram.com/veryjanet/"
+                        linkedinUrl="https://www.linkedin.com/in/janet-vu/"
+                        facebookUrl="https://www.facebook.com/jnetvu"
+                        personalUrl="https://me--janetvu.repl.co/"
+                        imagePath="/memberPhotos/Janet.JPG"  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Connor Svrcek" title="Senior Advisor"
-                        bio="Lover of dogs, movies, comics, and iOS"
+                        majorGradYear="Computer Science 2020"
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/csvrcek"
                         instagramUrl="https://www.instagram.com/cdids/"
                         linkedinUrl="https://www.linkedin.com/in/connor-svrcek-aab07612b/"
@@ -117,7 +130,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
-                        bio=""
+                        majorGradYear="Computer Science 2020"
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""
@@ -140,7 +156,10 @@ class CardContainer extends React.Component {
                     <section className="cards">
                     <div className="cardContainerColumn">
                         <MemberCard name="Eashwar Mohan" title="Hacker Bootcamp Director"
-                        bio="Hi! I'm a senior studying computer science and a minor in music, focusing in video game audio. I'm passionate about music technology and CS education."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/eashwar"
                         instagramUrl="https://www.instagram.com/_eashwar/"
                         linkedinUrl="https://www.linkedin.com/in/eashw/"
@@ -150,8 +169,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Edward Huang" title="iOS Project Manager"
-                        bio="Hey I'm Edward and as an aspiring computer scientist, my main interests lie in software engineering and machine learning. When I'm not coding, I am probably watching football or basketball. "
-                        githubUrl="https://github.com/edward2018211"
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/edward-h-b4a147156/"
                         facebookUrl=""
@@ -170,7 +191,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Vincent Nagel" title="Android Project Manager"
-                        bio="I'm a senior studying computer science. I enjoy developing Android apps in my free time."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/vnagel"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/vincentnagel/"
@@ -180,7 +204,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Nicholas Konovalenko" title="Security Director"
-                        bio="Sophomore studying Computer Science at the University of Michigan's College of Engineering. Interested in security, artificial intelligence, and stocks."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/Nkonovalenko"
                         instagramUrl="https://www.instagram.com/konic899/"
                         linkedinUrl="https://www.linkedin.com/in/nicholas-konovalenko-2b3258171/"
@@ -190,7 +217,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Eric Lian" title="React Native Project Manager"
-                        bio="Sophomore pursuing CSE degree. Engaged in mobile dev and machine learning."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/ericlian1"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/ericlian419/"
@@ -200,7 +230,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Paul Carney" title="Hardware Project Manager"
-                        bio="I'm a computer engineering major with a focus on embedded systems. I also love skateboarding, playing drums and guitar, and animals."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/paul-carney-07a273169/"
@@ -210,7 +243,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Thomas Smith" title="iOS Project Manager"
-                        bio="Hi! I'm Thomas. I'm a sophomore studying computer science. Besides computer programming, I like hiking, camping, and enjoying the outdoors."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/thomasebsmith/"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/thomasebsmith/"
@@ -220,7 +256,10 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Owain Kurt" title="Android Project Manager"
-                        bio="Hi! I'm Owain. I'm a computer science major interested in Android development and I work for ITS for the University of Michigan."
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl="https://github.com/Glavon"
                         instagramUrl=""
                         linkedinUrl=""
@@ -229,24 +268,30 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Owain.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Junlin Mo" title="Data Structures and Interview Director"
-                        bio=""
+                        <MemberCard name="Junlin Mo" title="Data Structures and Algorithms Director"
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='/memberPhotos/Beary.PNG'  />
+                        imagePath="/memberPhotos/Beary.PNG"  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Edward Sun" title="React Native Project Manager"
-                        bio=""
+                        majorGradYear=""
+                        job=""
+                        otherInvolvements=""
+                        interests=""
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='/memberPhotos/Beary.PNG'  />
+                        imagePath="/memberPhotos/Beary.PNG"  />
                     </div>
                     </section>
                 </div>

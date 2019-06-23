@@ -1,13 +1,11 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    max-width: 425px;
     text-align: center;
     flex: 0 1 24%;
     padding: 50px;
     box-sizing: border-box;
     margin: 1rem .25em;
-
-
   }
 
 .card:hover {
@@ -21,10 +19,8 @@ h2 {
     padding: 10px;
 }
 
-img {
+.border {
     border-radius: 100%;
-    border: 10px;
-    border-color: blue;
 
 }
 
