@@ -29,9 +29,9 @@ class CardContainer extends React.Component {
                       <div className="cardContainerColumn">
                           <MemberCard name="Benjamin Carney" title="President"
                           majorGradYear="Computer Science 2020"
-                          job=""
-                          otherInvolvements=""
-                          interests=""
+                          job="Dancer "
+                          otherInvolvements="Honestly I'm pretty set"
+                          interests="Nutrition and fitness, music"
                           githubUrl="https://github.com/benjamincarney"
                           instagramUrl=""
                           linkedinUrl="https://www.linkedin.com/in/benjamincarney"

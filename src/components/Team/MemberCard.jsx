@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
 import styled from 'styled-components';
@@ -27,19 +27,19 @@ class MemberCard extends React.Component {
       var returnValue = [];
       
       if(this.props.instagramUrl !== '') {
-        returnValue.push(<a className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
+        returnValue.push(<a key="insta"className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
       }
       if(this.props.githubUrl !== ''){
-        returnValue.push(<a className="iconLink" href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
+        returnValue.push(<a key="git" className="iconLink" href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
       }
       if(this.props.linkedinUrl !== '') {
-        returnValue.push(<a className="iconLink" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>);
+        returnValue.push(<a key="linked" className="iconLink" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>);
       }
       if(this.props.facebookUrl !== '') {
-        returnValue.push(<a className="iconLink" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>);
+        returnValue.push(<a key="fb" className="iconLink" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>);
       }
       if(this.props.personalUrl !== '') {
-        returnValue.push(<a className="iconLink" href={this.props.personalUrl}><i className="fa fa-user"></i></a>);
+        returnValue.push(<a key="personal" className="iconLink" href={this.props.personalUrl}><i className="fa fa-user"></i></a>);
       }
 
       return returnValue;
@@ -52,7 +52,23 @@ class MemberCard extends React.Component {
             <div className="card">
                 <img src={ this.props.imagePath } alt="leadership" style={cardStyle} className="border"></img>
                 <h2>{this.props.name}</h2>
-                 <p className="title">{this.props.title}</p>
+                <p className="title">{this.props.title}</p>
+                <div className="detailsCategoryContainer">
+                   <div className="detailsCategory">Major/Grad Year: </div>
+                   <div className="detailsCategoryDescription">{this.props.majorGradYear}</div>
+                </div>
+                <div className="detailsCategoryContainer">
+                   <div className="detailsCategory">Job: </div>
+                   <div className="detailsCategoryDescription">{this.props.job}</div>
+                </div>
+                <div className="detailsCategoryContainer">
+                   <div className="detailsCategory">Other involvements: </div>
+                   <div className="detailsCategoryDescription">{this.props.otherInvolvements}</div>
+                </div>
+                <div className="detailsCategoryContainer">
+                   <div className="detailsCategory">Interests: </div>
+                   <div className="detailsCategoryDescription">{this.props.interests}</div>
+                </div>
                 <p>{this.props.bio}</p>
                 <div className="links">
                   { this.nonemptyUrls() }
