@@ -54,20 +54,20 @@ class MemberCard extends React.Component {
                 <h2>{this.props.name}</h2>
                 <p className="title">{this.props.title}</p>
                 <div className="detailsCategoryContainer">
-                   <div className="detailsCategory">Major/Grad Year: </div>
-                   <div className="detailsCategoryDescription">{this.props.majorGradYear}</div>
+                   <div className="detailsCategory">Grad Year: </div>
+                   <div className="detailsCategoryDescription">{this.props.gradYear}</div>
                 </div>
                 <div className="detailsCategoryContainer">
                    <div className="detailsCategory">Job: </div>
                    <div className="detailsCategoryDescription">{this.props.job}</div>
                 </div>
                 <div className="detailsCategoryContainer">
-                   <div className="detailsCategory">Other involvements: </div>
-                   <div className="detailsCategoryDescription">{this.props.otherInvolvements}</div>
-                </div>
-                <div className="detailsCategoryContainer">
                    <div className="detailsCategory">Interests: </div>
                    <div className="detailsCategoryDescription">{this.props.interests}</div>
+                </div>
+                <div className="detailsCategoryContainer">
+                   <div className="detailsCategory">Fun fact: </div>
+                   <div className="detailsCategoryDescription">{this.props.funFact}</div>
                 </div>
                 <p>{this.props.bio}</p>
                 <div className="links">

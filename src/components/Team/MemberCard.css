@@ -1,7 +1,7 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 600px;
-    width: 450px;
+    width: 400px;
     height: 750px;
     text-align: center;
     flex: 0 1 24%;
@@ -67,8 +67,4 @@ a {
   font-size: 30px;
   color: rgb(241,93,36);;
   padding: 10px;
-}
-
-.iconLink:visited {
-  color: rgb(51, 153, 255);
 }
