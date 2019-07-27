@@ -18,20 +18,13 @@ class CardContainer extends React.Component {
                 <StaticH1>
                     Executive Team
                 </StaticH1>
-                <StaticP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </StaticP>
                 <div className="centered">
                     <section className="cards">
                       <div className="cardContainerColumn">
                           <MemberCard name="Benjamin Carney" title="President"
                             gradYear="2020"
-                            job=""
-                            interests="Nutrition, fitness, writing and recording music "
-                            funFact="I went skydiving this summer"
+                            interests="Fitness, nutrition, music"
+                            funFact="Voluntarily takes cold showers on a daily basis and only eats plants"
                             githubUrl="https://github.com/benjamincarney"
                             instagramUrl=""
                             linkedinUrl="https://www.linkedin.com/in/benjamincarney"
@@ -41,8 +34,7 @@ class CardContainer extends React.Component {
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Alex Dortzbach" title="Vice President of Internal"
-                            gradYear="2022"
-                            job=""
+                            gradYear="2022"              
                             interests=""
                             funFact=""
                             githubUrl=""
@@ -55,12 +47,11 @@ class CardContainer extends React.Component {
                         <div className="cardContainerColumn">
                             <MemberCard name="Erich Shan" title="Vice President of External"
                             gradYear="2021"
-                            job=""
-                            interests=""
-                            funFact=""
-                            githubUrl=""
+                            interests="Nature, sleeping"
+                            funFact="Once slept for 16 hours"
+                            githubUrl="https://github.com/erich23"
                             instagramUrl=""
-                            linkedinUrl=""
+                            linkedinUrl="https://www.linkedin.com/in/erich-shan-716208157/"
                             facebookUrl=""
                             personalUrl=""
                             imagePath="/memberPhotos/Erich.JPG"  />
@@ -68,22 +59,20 @@ class CardContainer extends React.Component {
                         <div className="cardContainerColumn">
                             <MemberCard name="Phoebe Liang" title="Logistics"
                             gradYear="2022"
-                            job=""
-                            interests=""
-                            funFact=""
+                            interests="Cooking, guitar, video games, traveling "
+                            funFact="Has lived in four different countries"
                             githubUrl="https://github.com/pl98"
                             instagramUrl="https://www.instagram.com/phoebeliang98/"
                             linkedinUrl="https://www.linkedin.com/in/phoebeliang98/"
                             facebookUrl="https://www.facebook.com/phoebe.n.liang"
                             personalUrl=""
-                            imagePath='/memberPhotos/Phoebe.jpg'  />
+                            imagePath='/memberPhotos/Phoebe.jpg'/>
                         </div>
                         <div className="cardContainerColumn">
                             <MemberCard name="Casper Hsu" title="Innovation"
-                            gradYear="2022"
-                            job=""
-                            interests=""
-                            funFact=""
+                            gradYear="2020"
+                            interests="Hockey, video games"
+                            funFact="Probably consumes way too much coffee for his own good"
                             githubUrl="https://github.com/casper-h"
                             instagramUrl=""
                             linkedinUrl="https://www.linkedin.com/in/casper-hsu-8922a9181/"
@@ -96,20 +85,13 @@ class CardContainer extends React.Component {
                 <StaticH1>
                     Senior Advisors
                 </StaticH1>
-                <StaticP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </StaticP>
                 <div className="centered">
                     <section className="cards">
                     <div className="cardContainerColumn">
-                        <MemberCard name="Janet Vu" title="Senior Advisor/Creative Director"
+                        <MemberCard name="Janet Vu" title="Senior Advisor, Creative Director"
                         gradYear="2021"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Pokemon, thrifting, PC games"
+                        funFact="Once won 20 pairs of free Crocs"
                         githubUrl="https://github.com/jajanet"
                         instagramUrl="http://instagram.com/veryjanet/"
                         linkedinUrl="https://www.linkedin.com/in/janet-vu/"
@@ -120,9 +102,8 @@ class CardContainer extends React.Component {
                     <div className="cardContainerColumn">
                         <MemberCard name="Connor Svrcek" title="Senior Advisor"
                         gradYear="2020"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Rap music, being stoked, tennis"
+                        funFact="Last name means “cricket” in Slovakian"
                         githubUrl="https://github.com/csvrcek"
                         instagramUrl="https://www.instagram.com/cdids/"
                         linkedinUrl="https://www.linkedin.com/in/connor-svrcek-aab07612b/"
@@ -132,10 +113,9 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
-                        gradYear="2020"
-                        job=""
-                        interests=""
-                        funFact=""
+                        gradYear="10101010"
+                        interests="Cat things, sleeping, eating, lounging around"
+                        funFact="Has had internships at Google, Facebook, and Amazon"
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""
@@ -148,20 +128,13 @@ class CardContainer extends React.Component {
                 <StaticH1>
                     Core Leadership
                 </StaticH1>
-                <StaticP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </StaticP>
                 <div className="centered">
                     <section className="cards">
                     <div className="cardContainerColumn">
                         <MemberCard name="Eashwar Mohan" title="Hacker Bootcamp Director"
                         gradYear="2020"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Video games, music, video game music"
+                        funFact="Lived with Chris over the summer and was paid to make Roblox memes"
                         githubUrl="https://github.com/eashwar"
                         instagramUrl="https://www.instagram.com/_eashwar/"
                         linkedinUrl="https://www.linkedin.com/in/eashw/"
@@ -170,23 +143,22 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Eashwar.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Edward Huang" title="iOS Project Manager"
+                        <MemberCard name="Edward Huang" title="iOS Lead Engineer"
                         gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Basketball, iOS dev, web dev, watching short documentaries"
+                        funFact="Doesn't like coffee and bubble tea"
+                        githubUrl="https://github.com/edward2018211"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/edward-h-b4a147156/"
                         facebookUrl=""
-                        personalUrl=""
+                        personalUrl="https://edward2018211.github.io/edwhuang.me/"
                         imagePath='/memberPhotos/EdwardH.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Christopher Hafke" title="Web Project Manager"
+                        <MemberCard name="Christopher Hafke" title="Web Lead Engineer"
                         gradYear="2021"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="React, math, tennis, video games, Golang"
+                        funFact="Lived with Eash over the summer and was paid to make Roblox memes"
                         githubUrl="https://github.com/christopherhafke"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/christopher-hafke-8a1968148/"
@@ -195,24 +167,22 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Chris.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Vincent Nagel" title="Android Project Manager"
+                        <MemberCard name="Vincent Nagel" title="Android Lead Engineer"
                         gradYear="2019"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Android development, biking, kayaking"
+                        funFact="Has gone skydiving"
                         githubUrl="https://github.com/vnagel"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/vincentnagel/"
-                        facebookUrl=""
+                        facebookUrl="https://www.facebook.com/profile.php?id=100000690746854"
                         personalUrl=""
                         imagePath='/memberPhotos/Vincent.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Nicholas Konovalenko" title="Security Director"
+                        <MemberCard name="Nicholas Konovalenko" title="Security Lead Engineer"
                         gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Stocks, video games, tennis"
+                        funFact="Won Division II at PanAmerican Intercollegiate Chess Championships on the UMich Team"
                         githubUrl="https://github.com/Nkonovalenko"
                         instagramUrl="https://www.instagram.com/konic899/"
                         linkedinUrl="https://www.linkedin.com/in/nicholas-konovalenko-2b3258171/"
@@ -221,24 +191,10 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Nick.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Eric Lian" title="React Native Project Manager"
+                        <MemberCard name="Paul Carney" title="Hardware Lead Engineer"
                         gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
-                        githubUrl="https://github.com/ericlian1"
-                        instagramUrl=""
-                        linkedinUrl="https://www.linkedin.com/in/ericlian419/"
-                        facebookUrl=""
-                        personalUrl=""
-                        imagePath='/memberPhotos/Eric.JPG'  />
-                    </div>
-                    <div className="cardContainerColumn">
-                        <MemberCard name="Paul Carney" title="Hardware Project Manager"
-                        gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Skateboarding, guitar, drums"
+                        funFact="Can kickflip over you"
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/paul-carney-07a273169/"
@@ -247,11 +203,10 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Paul.jpeg'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Thomas Smith" title="iOS Project Manager"
+                        <MemberCard name="Thomas Smith" title="iOS Lead Engineer"
                         gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
+                        interests="Backpacking, canoeing, board games"
+                        funFact="Walks 10+ miles every day"
                         githubUrl="https://github.com/thomasebsmith/"
                         instagramUrl=""
                         linkedinUrl="https://www.linkedin.com/in/thomasebsmith/"
@@ -260,12 +215,11 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Thomas.png'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Owain Kurt" title="Android Project Manager"
-                        gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
-                        githubUrl="https://github.com/Glavon"
+                        <MemberCard name="Owain Kurt" title="Android Lead Engineer"
+                        gradYear="10101010"
+                        interests="Cat things, sleeping, eating, lounging around"
+                        funFact="Has had internships at Google, Facebook, and Amazon"
+                        githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""
                         facebookUrl=""
@@ -273,10 +227,22 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Owain.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
+                        <MemberCard name="Eric Lian" title="React Native Lead Engineer"
+                        gradYear="10101010"
+                        interests="Cat things, sleeping, eating, lounging around"
+                        funFact="Has had internships at Google, Facebook, and Amazon"
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl=""
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath='/memberPhotos/Eric.JPG'  />
+                    </div>
+                    <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Data Structures and Algorithms Director"
-                        majorGradYear="2021"
-                        job=""
-                        interests=""
+                        gradYear="10101010"
+                        interests="Cat things, sleeping, eating, lounging around"
+                        funFact=""
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""
@@ -285,11 +251,10 @@ class CardContainer extends React.Component {
                         imagePath="/memberPhotos/Beary.PNG"  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Edward Sun" title="React Native Project Manager"
-                        gradYear="2022"
-                        job=""
-                        interests=""
-                        funFact=""
+                        <MemberCard name="Edward Sun" title="React Native Lead Engineer"
+                        gradYear="10101010"
+                        interests="Cat things, sleeping, eating, lounging around"
+                        funFact="Has had internships at Google, Facebook, and Amazon"
                         githubUrl=""
                         instagramUrl=""
                         linkedinUrl=""

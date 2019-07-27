@@ -50,16 +50,12 @@ class MemberCard extends React.Component {
       console.log(this.props.imagePath);
         return(
             <div className="card">
-                <img src={ this.props.imagePath } alt="leadership" style={cardStyle} className="border"></img>
+                <img src={ this.props.imagePath } alt="leadership" style={cardStyle} className="imageBorder"></img>
                 <h2>{this.props.name}</h2>
                 <p className="title">{this.props.title}</p>
                 <div className="detailsCategoryContainer">
                    <div className="detailsCategory">Grad Year: </div>
                    <div className="detailsCategoryDescription">{this.props.gradYear}</div>
-                </div>
-                <div className="detailsCategoryContainer">
-                   <div className="detailsCategory">Job: </div>
-                   <div className="detailsCategoryDescription">{this.props.job}</div>
                 </div>
                 <div className="detailsCategoryContainer">
                    <div className="detailsCategory">Interests: </div>

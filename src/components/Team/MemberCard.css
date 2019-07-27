@@ -19,13 +19,20 @@
 }
 
 h2 {
-    padding: 10px;
+    padding-top: 15px;
 }
 
-.border {
-    border-radius: 100%;
+.imageBorder {
+    height: 325px;
+    width: 200px;
+    display: block;
+    border-radius: 200px;
+    box-sizing: border-box;
+    background-color: #d15c19;;
+    border: 7px solid #d15c19;;
 
 }
+
 
 .title {
     color:rgb(241,93,36);
