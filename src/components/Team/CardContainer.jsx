@@ -224,7 +224,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='/memberPhotos/Owain.jpg'  />
+                        imagePath='/memberPhotos/Beary.PNG'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Eric Lian" title="React Native Lead Engineer"
@@ -236,7 +236,7 @@ class CardContainer extends React.Component {
                         linkedinUrl=""
                         facebookUrl=""
                         personalUrl=""
-                        imagePath='/memberPhotos/Eric.JPG'  />
+                        imagePath='/memberPhotos/Beary.PNG'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Data Structures and Algorithms Director"

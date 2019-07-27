@@ -1,14 +1,13 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 600px;
     width: 425px;
     height: 700px;
     text-align: center;
     flex: 0 1 24%;
     padding: 50px;
-    box-sizing: border-box;
-    margin: 1rem .25em;
-    border: 4px solid rgb(241,93,36);
+    box-sizing: border-box;;
+    align-content: center;
+    margin-bottom: 50px;
   }
 
 .card:hover {

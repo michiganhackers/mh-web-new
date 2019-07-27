@@ -2,5 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
  }
