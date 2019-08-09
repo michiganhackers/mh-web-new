@@ -23,8 +23,8 @@ class CardContainer extends React.Component {
                       <div className="cardContainerColumn">
                           <MemberCard name="Benjamin Carney" title="President"
                             gradYear="2020"
-                            interests="Fitness, nutrition, music"
-                            funFact="Voluntarily takes cold showers on a daily basis and only eats plants"
+                            interests="Fitness, trail running, nutrition, playing music"
+                            funFact="Voluntarily takes cold showers on a daily basis and only eats plants 🌱 "
                             githubUrl="https://github.com/benjamincarney"
                             instagramUrl=""
                             linkedinUrl="https://www.linkedin.com/in/benjamincarney"
@@ -35,11 +35,11 @@ class CardContainer extends React.Component {
                         <div className="cardContainerColumn">
                             <MemberCard name="Alex Dortzbach" title="Vice President of Internal"
                             gradYear="2022"              
-                            interests=""
-                            funFact=""
-                            githubUrl=""
+                            interests="Music, philosophy, Detroit, differences between regional dialects"
+                            funFact="Used to live in Germany"
+                            githubUrl="https://github.com/AlexDortzbach"
                             instagramUrl=""
-                            linkedinUrl=""
+                            linkedinUrl="https://www.linkedin.com/in/alexandra-dortzbach-b03b56172/"
                             facebookUrl=""
                             personalUrl=""
                             imagePath="/memberPhotos/Alex.JPG"  />
@@ -113,12 +113,12 @@ class CardContainer extends React.Component {
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
-                        gradYear="10101010"
-                        interests="Cat things, sleeping, eating, lounging around"
-                        funFact="Has had internships at Google, Facebook, and Amazon"
-                        githubUrl=""
+                        gradYear="2019"
+                        interests="Video games, fantasy football, rap music"
+                        funFact="Is not actually a cat as pictured"
+                        githubUrl="https://github.com/tjsande"
                         instagramUrl=""
-                        linkedinUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/trevor-sanderson-459028171/"
                         facebookUrl=""
                         personalUrl=""
                         imagePath='/memberPhotos/Beary.PNG'  />
@@ -215,6 +215,30 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Thomas.png'  />
                     </div>
                     <div className="cardContainerColumn">
+                        <MemberCard name="Eric Lian" title="React Native Lead Engineer"
+                        gradYear="2022"
+                        interests="Astronomy, Drawing, Music (guitar, piano), Filmmaking, Workout, Stocks, Video Games, cards & board games"
+                        funFact="Skipped kindergarden"
+                        githubUrl="https://github.com/ericlian1"
+                        instagramUrl="https://www.instagram.com/eric_lian_/"
+                        linkedinUrl="https://www.linkedin.com/in/ericlian419/"
+                        facebookUrl="https://www.facebook.com/EricLian123"
+                        personalUrl=""
+                        imagePath='/memberPhotos/Eric.JPG'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Junlin Mo" title="Interviewing Director"
+                        gradYear="2021"
+                        interests="Business, Music (piano, guitar, writing, singing), Cognition, Freerunning, Fitness, Video games"
+                        funFact="Started a few businesses, also an EECS 281 IA"
+                        githubUrl=""
+                        instagramUrl=""
+                        linkedinUrl="https://www.linkedin.com/in/junlin-mo/"
+                        facebookUrl=""
+                        personalUrl=""
+                        imagePath="/memberPhotos/Junlin.jpg"  />
+                    </div>
+                    <div className="cardContainerColumn">
                         <MemberCard name="Owain Kurt" title="Android Lead Engineer"
                         gradYear="10101010"
                         interests="Cat things, sleeping, eating, lounging around"
@@ -225,30 +249,6 @@ class CardContainer extends React.Component {
                         facebookUrl=""
                         personalUrl=""
                         imagePath='/memberPhotos/Beary.PNG'  />
-                    </div>
-                    <div className="cardContainerColumn">
-                        <MemberCard name="Eric Lian" title="React Native Lead Engineer"
-                        gradYear="10101010"
-                        interests="Cat things, sleeping, eating, lounging around"
-                        funFact="Has had internships at Google, Facebook, and Amazon"
-                        githubUrl=""
-                        instagramUrl=""
-                        linkedinUrl=""
-                        facebookUrl=""
-                        personalUrl=""
-                        imagePath='/memberPhotos/Beary.PNG'  />
-                    </div>
-                    <div className="cardContainerColumn">
-                        <MemberCard name="Junlin Mo" title="Data Structures and Algorithms Director"
-                        gradYear="10101010"
-                        interests="Cat things, sleeping, eating, lounging around"
-                        funFact=""
-                        githubUrl=""
-                        instagramUrl=""
-                        linkedinUrl=""
-                        facebookUrl=""
-                        personalUrl=""
-                        imagePath="/memberPhotos/Beary.PNG"  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Edward Sun" title="React Native Lead Engineer"
