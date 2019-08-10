@@ -7,7 +7,9 @@
     padding: 50px;
     box-sizing: border-box;;
     align-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 5%;
+    margin-right: 20px;
+
   }
 
 .card:hover {

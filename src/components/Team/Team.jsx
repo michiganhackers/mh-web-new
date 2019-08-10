@@ -5,18 +5,14 @@ import Navbar from '../Navbar.jsx';
 import CardContainer from './CardContainer.jsx';
 
 class Team extends React.Component {
-    constructor(props){
-        super(props);
-    
-    }
 
     render(){
         return(
         <React.Fragment>
         <Navbar />
         <SubpageOuter header="our team">
-          <CardContainer />
         </SubpageOuter>
+        <CardContainer />
         </React.Fragment>
 
         );

@@ -7,10 +7,6 @@ import MemberCard from './MemberCard.jsx';
 
 class CardContainer extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     render(){
         return(
             <React.Fragment>

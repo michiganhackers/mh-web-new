@@ -9,22 +9,15 @@ import './MemberCard.css';
 
 
 
-var cardStyle = {
+let cardStyle = {
   width: '100%'
 };
 
 class MemberCard extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-          imagePath: this.props.imagePath,
-        }
-    }
-
     nonemptyUrls() {
 
-      var returnValue = [];
+      let returnValue = [];
       
       if(this.props.instagramUrl !== '') {
         returnValue.push(<a key="insta"className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
@@ -47,7 +40,6 @@ class MemberCard extends React.Component {
     }
 
     render(){
-      console.log(this.props.imagePath);
         return(
             <div className="card">
                 <img src={ this.props.imagePath } alt="leadership" style={cardStyle} className="imageBorder"></img>
