@@ -19,10 +19,6 @@
 
 }
 
-h2 {
-    padding-top: 15px;
-}
-
 .imageBorder {
     height: 325px;
     width: 200px;
@@ -58,11 +54,11 @@ h2 {
     display: inline;
 
 }
-a {
-    text-decoration: none;
-    font-size: 30px;
-    color: rgb(241,93,36);;
-    padding: 10px;
+.iconLink {
+    text-decoration: none !important;
+    font-size: 30px !important;
+    color: rgb(241,93,36) !important;
+    padding: 10px !important;
 }
 
 .links{
@@ -70,9 +66,9 @@ a {
     color: rgb(241,93,36);
 }
 
-.iconLink {
+/* .iconLink {
   text-decoration: none;
   font-size: 30px;
   color: rgb(241,93,36);;
   padding: 10px;
-}
+} */
