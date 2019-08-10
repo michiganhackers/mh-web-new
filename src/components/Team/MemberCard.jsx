@@ -20,7 +20,7 @@ class MemberCard extends React.Component {
       let returnValue = [];
       
       if(this.props.instagramUrl !== '') {
-        returnValue.push(<a key="insta"className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
+        returnValue.push(<a key="insta" className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
       }
       if(this.props.githubUrl !== ''){
         returnValue.push(<a key="git" className="iconLink" href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
@@ -64,7 +64,14 @@ class MemberCard extends React.Component {
             </div>
         );
     }
+}
 
+MemberCard.defaultProps = {
+ instagramUrl: "",
+ githubUrl: "",
+ linkedinUrl: "",
+ facebookUrl: "",
+ personalUrl: ""
 }
 
 export default MemberCard;

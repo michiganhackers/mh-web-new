@@ -9,14 +9,12 @@
     align-content: center;
     margin-bottom: 5%;
     margin-right: 20px;
-
   }
 
 .card:hover {
     transform: translateY(-8px);
     --box-shadow-color: #d15c19;
     box-shadow: 0 10px 10px -10px var(--box-shadow-color);
-
 }
 
 .imageBorder {
@@ -27,9 +25,7 @@
     box-sizing: border-box;
     background-color: #d15c19;;
     border: 7px solid #d15c19;;
-
 }
-
 
 .title {
     color:rgb(241,93,36);
@@ -66,9 +62,3 @@
     color: rgb(241,93,36);
 }
 
-/* .iconLink {
-  text-decoration: none;
-  font-size: 30px;
-  color: rgb(241,93,36);;
-  padding: 10px;
-} */
