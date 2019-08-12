@@ -44,7 +44,7 @@ const NavContainer = styled.div`
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
     marginLeft: 0;
-    fontSize: 22px;
+    font-size: 22px;
     padding: 2px 10px;
     color: white;
     text-decoration: none;
@@ -73,6 +73,9 @@ class Navbar extends Component {
           <NavContainer>
             <HeaderNavLink to="/about">
               about
+            </HeaderNavLink>
+            <HeaderNavLink to="/team">
+              team
             </HeaderNavLink>
             <HeaderNavLink to="/events">
               calendar

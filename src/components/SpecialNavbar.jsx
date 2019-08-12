@@ -73,6 +73,9 @@ class SpecialNavbar extends Component {
             <HeaderNavLink to="/about">
               about
             </HeaderNavLink>
+            <HeaderNavLink to="/team">
+              team
+            </HeaderNavLink>
             <HeaderNavLink to="/events">
               calendar
             </HeaderNavLink>
