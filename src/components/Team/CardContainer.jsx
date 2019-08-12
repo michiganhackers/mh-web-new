@@ -95,15 +95,6 @@ class CardContainer extends React.Component {
                         personalUrl="https://connorsvrcek.com/"
                         imagePath='/memberPhotos/Connor.jpg'  />
                     </div>
-                    <div className="cardContainerColumn">
-                        <MemberCard name="Trevor Sanderson" title="Senior Advisor"
-                        gradYear="2019"
-                        interests="Video games, fantasy football, rap music"
-                        funFact="Is not actually a cat as pictured"
-                        githubUrl="https://github.com/tjsande"
-                        linkedinUrl="https://www.linkedin.com/in/trevor-sanderson-459028171/"
-                        imagePath='/memberPhotos/Beary.PNG'  />
-                    </div>
                     </section>
                 </div>
                 <StaticH1>
@@ -201,20 +192,6 @@ class CardContainer extends React.Component {
                         funFact="Started a few businesses, also an EECS 281 IA"
                         linkedinUrl="https://www.linkedin.com/in/junlin-mo/"
                         imagePath="/memberPhotos/Junlin.jpg"  />
-                    </div>
-                    <div className="cardContainerColumn">
-                        <MemberCard name="Owain Kurt" title="Android Lead Engineer"
-                        gradYear="10101010"
-                        interests="Cat things, sleeping, eating, lounging around"
-                        funFact="Has had internships at Google, Facebook, and Amazon"
-                        imagePath='/memberPhotos/Beary.PNG'  />
-                    </div>
-                    <div className="cardContainerColumn">
-                        <MemberCard name="Edward Sun" title="React Native Lead Engineer"
-                        gradYear="10101010"
-                        interests="Cat things, sleeping, eating, lounging around"
-                        funFact="Has had internships at Google, Facebook, and Amazon"
-                        imagePath="/memberPhotos/Beary.PNG"  />
                     </div>
                     </section>
                 </div>
