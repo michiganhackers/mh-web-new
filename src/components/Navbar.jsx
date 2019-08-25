@@ -45,15 +45,19 @@ const NavContainer = styled.div`
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
     marginLeft: 0;
+    font-size: 20px;
     ${devices.small`
       font-size: 18px;
     `}
     ${devices.tiny`
-      font-size: 16px;
+      font-size: 14px;
     `}
     padding: 2px 10px;
     ${devices.small`
       padding: 2px 6px;
+    `}
+    ${devices.tiny`
+      padding: 2px 4px;
     `}
     color: white;
     text-decoration: none;
