@@ -2,15 +2,22 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 425px;
-    height: 700px;
+    height: 725px;
     text-align: center;
     flex: 0 1 24%;
     padding: 50px;
     box-sizing: border-box;;
     align-content: center;
     margin-bottom: 5%;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
+  .memberName {
+
+    font-size: 35px;
+    margin-top: 10px;
+    font-weight: 500
+}
 
 .card:hover {
     transform: translateY(-8px);
