@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import devices from '../utility/MediaQueries.js';
 import logoUrl from '../assets/logo.png'; // webpack takes care of creating the appropriate path upon build. Prefer this to putting static assets in /public
 
 const Wrapper = styled.div`
@@ -44,8 +45,20 @@ const NavContainer = styled.div`
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
     marginLeft: 0;
-    font-size: 22px;
+    font-size: 20px;
+    ${devices.small`
+      font-size: 18px;
+    `}
+    ${devices.tiny`
+      font-size: 14px;
+    `}
     padding: 2px 10px;
+    ${devices.small`
+      padding: 2px 6px;
+    `}
+    ${devices.tiny`
+      padding: 2px 4px;
+    `}
     color: white;
     text-decoration: none;
     transition: all 0.3s;

@@ -12,7 +12,10 @@ const Wrapper = styled.div`
     z-index: 100;
     display: flex;
     height: 80px;
-    alignItems: center;
+    align-items: center;
+    ${devices.small`
+      align-items: center;
+    `}
     justify-content: space-between;
     background: transparent;
     font-size: 20px;
@@ -20,11 +23,19 @@ const Wrapper = styled.div`
 
 const FlexWrapper = styled.div`
     display: flex;
-    alignItems: center;
+    align-items: flex-start;
+    ${devices.small`
+      align-items: center;
+    `}
+    flex-direction: row;
     justify-content: space-between;
     height: 90%;
-    width: calc(100% - 72px);
     margin: 0 auto;
+    width: calc(100% - 72px);
+    ${devices.small`
+      width: auto;
+      flex-wrap: wrap;
+    `}
 `;
 
 const Logo = styled.img`
@@ -36,17 +47,23 @@ const Logo = styled.img`
 
 const NavContainer = styled.div`
     display: flex;
-    alignItems: center;
+    align-items: center;
     justify-content: flex-end;
 `;
 
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
     marginLeft: 0;
-    fontSize: 36px;
+    font-size: 22px;
+    ${devices.small`
+    font-size: 20px;
+    `}
+    ${devices.tiny`
+    font-size: 18px;
+    `}
     padding: 2px 20px;
     ${devices.small`
-      padding: 2px 10px;
+      padding: 2px 8px;
     `}
     color: white;
     text-decoration: none;
