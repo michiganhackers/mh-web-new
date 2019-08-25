@@ -67,7 +67,7 @@
 
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        width: 275px;
+        width: 290px;
         height: auto;
         text-align: center;
         flex: 0 1 24%;
@@ -79,8 +79,8 @@
       }
 
       .imageBorder {
-        height: 175px;
-        width: 200px;
+        height: 200px;
+        width: 250px;
         display: block;
         border-radius: 200px;
         box-sizing: border-box;
@@ -91,7 +91,7 @@
     .memberName {
 
         font-size: 20px;
-        margin-top: 5px;
+        margin-top: 10px;
         font-weight: 500
     }
     
