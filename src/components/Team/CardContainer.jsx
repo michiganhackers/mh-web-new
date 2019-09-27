@@ -191,7 +191,7 @@ class CardContainer extends React.Component {
                         funFact="Favorite color is red"
                         linkedinUrl="https://www.linkedin.com/in/esun/"
                         personalUrl="https://es2k.github.io"
-                        imagePath='/memberPhotos/Eric.JPG'  />
+                        imagePath='/memberPhotos/EdwardSun.JPG'  />
                     </div>
                     </section>
                     <StaticH1>
