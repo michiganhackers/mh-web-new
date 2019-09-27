@@ -39,7 +39,7 @@ class About extends Component {
               <li>Company Events</li>
               <li>Organizing groups to attend hackathons</li>
               <li>Lightning Talks</li>
-              <li>Cyebersecurity Capture The Flag competitions</li>
+              <li>Cybersecurity Capture The Flag competitions</li>
               <li>Resume Critiques</li>
               <li>Interview Prep</li>
             </EventList>
