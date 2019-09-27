@@ -29,11 +29,12 @@ class Sponsors extends Component {
             Our Top Sponsors
           </StaticH1>
           <div class="highsponsors">
-            <Logo src={GoogleLogo} /> <Logo src={C1Logo}/> <Logo src={SCM} />
+            <Logo src={GoogleLogo} /> <Logo src={C1Logo}/>
           </div> 
           <div class="sponsors">
-            <Logo src={GraingerLogo}/> <Logo src={TargetLogo} /> 
+            <Logo src={GraingerLogo}/> <Logo src={TargetLogo} /> <Logo src={SCM} />
           </div>
+          
         
           
       </React.Fragment>

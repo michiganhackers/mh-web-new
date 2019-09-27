@@ -50,7 +50,7 @@ class About extends Component {
             <StaticP>
             Look at the following links to get a feel of our culture, the organization structure, event vibes, how the different Core Teams work, how to get involved, access to free resources, and more.
             <EventList>
-              <li><a href="https://docs.google.com/presentation/d/10kFMezm6QxJqWC2nevVtv0LxRy3ME_ZV8PdjtS4_2CU/edit#slide=id.p">Our Mass Meeting Slides</a></li>
+              <li><a href="https://docs.google.com/presentation/d/122LR6C2yGpHYKe4mKHWFF98y6F8sV9Jh0dLnogiKnug/edit?usp=sharing">Our Mass Meeting Slides</a></li>
               <li><a href="https://docs.google.com/presentation/d/1ctHSblSXA9FiPauXlbR8ypy6dxF_zp4tH2ICU-_HKN0/edit">The Core Teams</a></li>
               <li><a href="https://docs.google.com/spreadsheets/d/13t39d5ou1FGmapBw2CxUsuo6OLtLENmbVQpotNGtCxM/edit#gid=0">Drop your LinkedIn</a></li>
               <li><a href="https://docs.google.com/document/d/1wchq66lN9bDLcSSAxPEamBQYqBjUVjfJgcd9NqBc704/edit">Some CS Resources</a></li>

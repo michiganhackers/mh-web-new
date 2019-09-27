@@ -227,6 +227,7 @@ class CardContainer extends React.Component {
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
                         gradYear="2019"
                         interests="Video Games, Fantasy Football, Rap music"
+                        funFact=""
                         githubUrl="https://github.com/tjsande"
                         linkedinUrl="https://www.linkedin.com/in/trevor-sanderson-459028171/"
                         imagePath='/memberPhotos/Trevor.png'  />
