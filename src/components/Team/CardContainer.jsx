@@ -94,6 +94,16 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/EdwardH.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
+                        <MemberCard name="Ibtida Bhuiyan" title="Independent Hacker Core Lead"
+                        gradYear="2021"
+                        interests="Travelling, volleyball, video games"
+                        funFact="Was born in Japan"
+                        githubUrl="https://github.com/ibhuiyan17"
+                        linkedinUrl="https://www.linkedin.com/in/ibtidabhuiyan/"
+                        personalUrl="http://ibtida.me/"
+                        imagePath='/memberPhotos/EdwardH.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
                         <MemberCard name="Christopher Hafke" title="Web Lead Engineer"
                         gradYear="2020"
                         interests="React, math, tennis, video games, Golang"
@@ -173,6 +183,15 @@ class CardContainer extends React.Component {
                         funFact="Started a few businesses, also an EECS 281 IA"
                         linkedinUrl="https://www.linkedin.com/in/junlin-mo/"
                         imagePath="/memberPhotos/Junlin.jpg"  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Edward Sun" title="React Native Lead Engineer"
+                        gradYear="2021"
+                        interests="Basketball, tennis, ping-pong, surfing"
+                        funFact="Favorite color is red"
+                        linkedinUrl="https://www.linkedin.com/in/esun/"
+                        personalUrl="https://es2k.github.io"
+                        imagePath='/memberPhotos/Eric.JPG'  />
                     </div>
                     </section>
                     <StaticH1>

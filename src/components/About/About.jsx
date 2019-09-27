@@ -56,7 +56,7 @@ class About extends Component {
               <li><a href="https://docs.google.com/document/d/1wchq66lN9bDLcSSAxPEamBQYqBjUVjfJgcd9NqBc704/edit">Some CS Resources</a></li>
               <li><a href="http://leccap.engin.umich.edu/leccap/site/7r31hdj317ufew776zq">Recordings</a></li>
               <li><a href="https://drive.google.com/drive/u/0/folders/1qcobYgZCS1edagXJywzQ2ofEtGO99TOk">Photo Archive</a></li>
-              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScQu45eXlpMcdodMqVjzdMq5xqyRBNauOqRnTfnFamhxnj6Wg/viewform?usp=sf_link">Absense Form</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScQu45eXlpMcdodMqVjzdMq5xqyRBNauOqRnTfnFamhxnj6Wg/viewform?usp=sf_link">Absence Form</a></li>
             </EventList>
             </StaticP>
           <Roster/>

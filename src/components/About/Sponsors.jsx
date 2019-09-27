@@ -14,6 +14,7 @@ import C1Logo from '../../assets/c1.png'
 import TwitterLogo from '../../assets/twit.png'
 import GraingerLogo from '../../assets/grainger.png'
 import YelpLogo from '../../assets/yelp.png'
+import TargetLogo from '../../assets/target.png'
 
 const Logo = styled.img`
   align: middle;
@@ -30,7 +31,7 @@ class Sponsors extends Component {
             <Logo src={GoogleLogo} /> <Logo src={C1Logo}/>
           </div> 
           <div class="sponsors">
-            <Logo src={YelpLogo} /> <Logo src={GraingerLogo}/> <Logo src={TwitterLogo} />
+            <Logo src={GraingerLogo}/> <Logo src={TargetLogo} />
           </div>
         
           
