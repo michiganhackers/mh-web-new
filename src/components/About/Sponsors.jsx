@@ -15,6 +15,7 @@ import TwitterLogo from '../../assets/twit.png'
 import GraingerLogo from '../../assets/grainger.png'
 import YelpLogo from '../../assets/yelp.png'
 import TargetLogo from '../../assets/target.png'
+import SCM from '../../assets/SCM.jpg'
 
 const Logo = styled.img`
   align: middle;
@@ -28,10 +29,10 @@ class Sponsors extends Component {
             Our Top Sponsors
           </StaticH1>
           <div class="highsponsors">
-            <Logo src={GoogleLogo} /> <Logo src={C1Logo}/>
+            <Logo src={GoogleLogo} /> <Logo src={C1Logo}/> <Logo src={SCM} />
           </div> 
           <div class="sponsors">
-            <Logo src={GraingerLogo}/> <Logo src={TargetLogo} />
+            <Logo src={GraingerLogo}/> <Logo src={TargetLogo} /> 
           </div>
         
           
