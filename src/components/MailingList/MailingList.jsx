@@ -46,8 +46,7 @@ class MailingList extends React.Component {
             url: mh_backend + '/v1/email/add',
             data: JSON.stringify(payload)
           }).then(res => {
-                console.log(res);
-                console.log(res.data);
+
             })
             .catch(error => {
                 console.log(error);

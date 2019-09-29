@@ -12,6 +12,7 @@ class CalendarWrapper extends Component {
       <React.Fragment>
         <Calendar calendarStyle={CalendarStyle} />
       </React.Fragment>
+      
     );
   }
 }
