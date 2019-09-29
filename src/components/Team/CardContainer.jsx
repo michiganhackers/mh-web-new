@@ -96,12 +96,12 @@ class CardContainer extends React.Component {
                     <div className="cardContainerColumn">
                         <MemberCard name="Ibtida Bhuiyan" title="Independent Hacker Core Lead"
                         gradYear="2021"
-                        interests="Travelling, volleyball, video games"
+                        interests="Traveling, volleyball, video games"
                         funFact="Was born in Japan"
                         githubUrl="https://github.com/ibhuiyan17"
                         linkedinUrl="https://www.linkedin.com/in/ibtidabhuiyan/"
                         personalUrl="http://ibtida.me/"
-                        imagePath='/memberPhotos/EdwardH.jpg'  />
+                        imagePath='/memberPhotos/Ibtida.jpg'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="Christopher Hafke" title="Web Lead Engineer"
@@ -179,7 +179,7 @@ class CardContainer extends React.Component {
                     <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Interviewing Director"
                         gradYear="2021"
-                        interests="Business, Music (piano, guitar, writing, singing), Cognition, Freerunning, Fitness, Video games"
+                        interests="Business, music (piano, guitar, writing, singing), brain computer interfacing, freerunning, fitness, video games"
                         funFact="Started a few businesses, also an EECS 281 IA"
                         linkedinUrl="https://www.linkedin.com/in/junlin-mo/"
                         imagePath="/memberPhotos/Junlin.jpg"  />
