@@ -4,3 +4,18 @@
     justify-content: center;
     width: 100%;
  }
+
+ .carouselContainer {
+     width: 45%;
+     height: auto;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ @media all and (min-width: 214px) and (max-width: 600px) {
+
+    .carouselContainer{
+        width: 90%;
+    }
+    
+  }

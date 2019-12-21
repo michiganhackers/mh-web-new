@@ -1,8 +1,24 @@
 import React from 'react';
 import "../../utility/fonts.css";
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import './CardContainer.css';
 import MemberCard from './MemberCard.jsx';
+import Roster from './Roster.jsx';
+
+import CoreTeam from '../../assets/CoreTeam.JPG'
+import Squad from '../../assets/Squad.JPG'
+import Bros from '../../assets/Bros.JPG'
+import PaintTheRockGroup from '../../assets/PaintTheRockGroup.JPG'
+import PaulBubble from '../../assets/PaulBubble.JPG'
+import JanetBubbles from '../../assets/JanetBubbles.JPG'
+import Escapade from '../../assets/Escapade.JPG'
+import ErichHands from '../../assets/ErichHands.JPG'
+import Smoothie from '../../assets/Smoothie.jpg'
+import NickSpeaking from '../../assets/NickSpeaking.JPG'
+import MichiganRock from '../../assets/MichiganRock.JPG'
+import SubpageOuter from '../SubpageOuter/SubpageOuter';
 
 
 class CardContainer extends React.Component {
@@ -11,6 +27,50 @@ class CardContainer extends React.Component {
         return(
             <React.Fragment>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+                <div className="carouselContainer">
+                    <Carousel autoplay>
+                        <div>
+                            <img src={CoreTeam} />
+                            <p className="legend">The entire 2019-2020 Core Team!</p>
+                        </div>
+                        <div>
+                            <img src={Squad} />
+                            <p className="legend">Festifall 2019</p>
+                        </div>
+                        <div>
+                            <img src={ErichHands} />
+                            <p className="legend">Paint the Rock 2019</p>
+                        </div>
+                        <div>
+                            <img src={Bros} />
+                            <p className="legend">Mass Meeting 2019</p>
+                        </div>
+                        <div>
+                            <img src={PaintTheRockGroup} />
+                            <p className="legend">Paint the Rock 2019</p>
+                        </div>
+                        <div>
+                            <img src={JanetBubbles} />
+                            <p className="legend">Hands up!</p>
+                        </div>
+                        <div>
+                            <img src={Escapade} />
+                            <p className="legend">Escapade 2019</p>
+                        </div>
+                        <div>
+                            <img src={Smoothie} />
+                            <p className="legend">Smoothie Party 2019</p>
+                        </div>
+                        <div>
+                            <img src={PaulBubble} />
+                            <p className="legend">Paul being introspective</p>
+                        </div>
+                        <div>
+                            <img src={MichiganRock} />
+                            <p className="legend">Paint the Rock 2019</p>
+                        </div>
+                    </Carousel>
+                </div>
                 <StaticH1>
                     Executive Team
                 </StaticH1>
@@ -166,17 +226,6 @@ class CardContainer extends React.Component {
                         imagePath='/memberPhotos/Thomas.png'  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Eric Lian" title="React Native Lead Engineer"
-                        gradYear="2022"
-                        interests="Astronomy, Drawing, Music (guitar, piano), Filmmaking, Workout, Stocks, Video Games, cards & board games"
-                        funFact="Skipped kindergarden"
-                        githubUrl="https://github.com/ericlian1"
-                        instagramUrl="https://www.instagram.com/eric_lian_/"
-                        linkedinUrl="https://www.linkedin.com/in/ericlian419/"
-                        facebookUrl="https://www.facebook.com/EricLian123"
-                        imagePath='/memberPhotos/Eric.JPG'  />
-                    </div>
-                    <div className="cardContainerColumn">
                         <MemberCard name="Junlin Mo" title="Interviewing Director"
                         gradYear="2021"
                         interests="Business, music (piano, guitar, writing, singing), brain computer interfacing, freerunning, fitness, video games"
@@ -185,16 +234,28 @@ class CardContainer extends React.Component {
                         imagePath="/memberPhotos/Junlin.jpg"  />
                     </div>
                     <div className="cardContainerColumn">
-                        <MemberCard name="Edward Sun" title="React Native Lead Engineer"
+                        <MemberCard name="Ryan Khzouz" title="Android Lead Engineer"
                         gradYear="2021"
-                        interests="Basketball, tennis, ping-pong, surfing"
-                        funFact="Favorite color is red"
-                        linkedinUrl="https://www.linkedin.com/in/esun/"
-                        personalUrl="https://es2k.github.io"
-                        imagePath='/memberPhotos/EdwardSun.JPG'  />
+                        interests="Basketball, video games"
+                        funFact="Has an identical twin"
+                        linkedinUrl="https://www.linkedin.com/in/ryankhzouz/"
+                        personalUrl="https://github.com/rckhzouz"
+                        imagePath='/memberPhotos/Placeholder.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="David Wang" title="Android Lead Engineer"
+                        gradYear="2022"
+                        interests="Reading, the 2019 NBA champion Toronto Raptors, hip hop/classical music"
+                        funFact="Is French Canadian"
+                        githubUrl="https://github.com/davidjrwang"
+                        linkedinUrl="https://www.linkedin.com/in/davidjrwang"
+                        imagePath='/memberPhotos/David.jpg'  />
                     </div>
                     </section>
-                    <StaticH1>
+                <SubpageOuter>
+                    <Roster />
+                </SubpageOuter>
+                <StaticH1>
                     Senior Advisors
                 </StaticH1>
                 <div className="centered">

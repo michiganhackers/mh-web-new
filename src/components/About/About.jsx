@@ -6,7 +6,6 @@ import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import devices from '../../utility/MediaQueries.js';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import Sponsors from "./Sponsors.jsx"
-import Roster from "./Roster.jsx"
 import MailingList from "../MailingList/MailingList.jsx"
 
 import Navbar from '../Navbar.jsx';
@@ -60,7 +59,6 @@ class About extends Component {
               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScQu45eXlpMcdodMqVjzdMq5xqyRBNauOqRnTfnFamhxnj6Wg/viewform?usp=sf_link">Absence Form</a></li>
             </EventList>
             </StaticP>
-          <Roster/>
           <Sponsors/>
         </SubpageOuter>
       </React.Fragment>
