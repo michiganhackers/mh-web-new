@@ -28,10 +28,10 @@ class Sponsors extends Component {
           <StaticH1>
             Our Top Sponsors
           </StaticH1>
-          <div class="highsponsors">
+          <div className="highsponsors">
             <Logo src={GoogleLogo} /> <Logo src={C1Logo}/>
           </div> 
-          <div class="sponsors">
+          <div className="sponsors">
             <Logo src={GraingerLogo}/> <Logo src={TargetLogo} /> <Logo src={SCM} />
           </div>
           
