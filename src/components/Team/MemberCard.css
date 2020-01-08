@@ -1,20 +1,23 @@
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 425px;
-    height: 725px;
+    width: 300px;
+    height: 500px;
     text-align: center;
     flex: 0 1 24%;
     padding: 50px;
+    padding-top: 20px;
     box-sizing: border-box;;
     align-content: center;
     margin-bottom: 5%;
     margin-left: 5px;
     margin-right: 5px;
+    font-size: 13px;
+    font: comic-sans;
   }
   .memberName {
 
-    font-size: 35px;
+    font-size: 20px;
     margin-top: 10px;
     font-weight: 500
 }
@@ -26,7 +29,7 @@
 }
 
 .imageBorder {
-    height: 325px;
+    height: 200px;
     width: 200px;
     display: block;
     border-radius: 200px;
@@ -37,7 +40,7 @@
 
 .title {
     color:rgb(241,93,36);
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
 }
 
@@ -60,7 +63,7 @@
 }
 .iconLink {
     text-decoration: none !important;
-    font-size: 30px !important;
+    font-size: 19px !important;
     color: rgb(241,93,36) !important;
     padding: 10px !important;
 }
