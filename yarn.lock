@@ -8043,7 +8043,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8275,6 +8275,13 @@ react-dom@^16.5.2:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
+react-easy-swipe@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/react-easy-swipe/-/react-easy-swipe-0.0.16.tgz#5a3d949a8f975d05be92a818254315d1318a81ea"
+  integrity sha1-Wj2Umo+XXQW+kqgYJUMV0TGKgeo=
+  dependencies:
+    prop-types "^15.5.8"
+
 react-error-overlay@^5.1.4:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
@@ -8289,6 +8296,15 @@ react-moment@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.8.4.tgz#18eb59e1541c8b216353e23c21e9db50e42e2edb"
   integrity sha512-QhI19OcfhiAn60/O6bMR0w8ApXrPFCjv6+eV0I/P9/AswzjgEAx4L7VxMBCpS/jrythLa12Q9v88req+ys4YpA==
+
+react-responsive-carousel@^3.1.51:
+  version "3.1.51"
+  resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.1.51.tgz#f1913530b32e8fe7b484c77051571800b4ab535f"
+  integrity sha512-hb74s8Cj9g3ppNxQeDwsIekTp2EOFO2MdmYXKIqjFS3oMHQE9Fg1lKn4j5tiIhAQAKQlNgy6hfqeS2aIO/Sicg==
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.5.8"
+    react-easy-swipe "^0.0.16"
 
 react-router-dom@^4.3.1:
   version "4.3.1"
