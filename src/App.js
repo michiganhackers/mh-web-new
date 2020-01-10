@@ -12,6 +12,8 @@ import FAQ from "./components/FAQ/FAQ.jsx";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
+import AttendanceForm from "./components/AttendanceForm/AttendanceForm";
+import Attendance from "./components/AttendanceForm/Attendance";
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
@@ -34,7 +36,8 @@ class App extends Component {
             <Route path="/about" component={About}/>
             <Route path="/team" component={Team}/>
             <Route path="/contact" component={Contact}/>
-            <Route path="/faq" component={FAQ}/>     
+            <Route path="/faq" component={FAQ}/>
+            <Route path="/attendance" component={Attendance}/>
           </React.Fragment>
         </Router>
       </div>

@@ -102,6 +102,9 @@ class SpecialNavbar extends Component {
             <HeaderNavLink to="/faq">
               faq
             </HeaderNavLink>
+            <HeaderNavLink to="/attendance">
+                attendance
+            </HeaderNavLink>
           </NavContainer>
         </FlexWrapper>
       </Wrapper>
