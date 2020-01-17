@@ -15,6 +15,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-moment": "^0.8.4",
+    "react-native-geolocation-service": "^3.1.0",
     "react-responsive-carousel": "^3.1.51",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.1",
