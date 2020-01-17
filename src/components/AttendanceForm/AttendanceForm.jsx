@@ -150,7 +150,7 @@ class AttendanceForm extends React.Component {
 				}
 			>
 				<StaticP>
-					Input the attendance code after signing in using your google account
+					Input the attendance code after signing in using your Google account,
 					or sign in using your location.
 				</StaticP>
 				{this.state.is_in_location ? (
