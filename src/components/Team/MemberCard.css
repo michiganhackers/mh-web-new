@@ -1,145 +1,131 @@
-
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 300px;
-    height: 500px;
-    text-align: center;
-    flex: 0 1 24%;
-    padding: 50px;
-    padding-top: 20px;
-    box-sizing: border-box;;
-    align-content: center;
-    margin-bottom: 5%;
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 13px;
-    font: comic-sans;
-  }
-  .memberName {
-
-    font-size: 20px;
-    margin-top: 10px;
-    font-weight: 500
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 300px;
+	height: 500px;
+	text-align: center;
+	flex: 0 1 24%;
+	padding: 50px;
+	padding-top: 20px;
+	box-sizing: border-box;
+	align-content: center;
+	margin-bottom: 5%;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 13px;
+	font: comic-sans;
+}
+.memberName {
+	font-size: 20px;
+	margin-top: 10px;
+	font-weight: 500;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    --box-shadow-color: #d15c19;
-    box-shadow: 0 10px 10px -10px var(--box-shadow-color);
+	transform: translateY(-8px);
+	--box-shadow-color: #d15c19;
+	box-shadow: 0 10px 10px -10px var(--box-shadow-color);
 }
 
 .imageBorder {
-    height: 200px;
-    width: 200px;
-    display: block;
-    border-radius: 200px;
-    box-sizing: border-box;
-    background-color: #d15c19;;
-    border: 7px solid #d15c19;;
+	height: 200px;
+	width: 200px;
+	display: block;
+	border-radius: 200px;
+	box-sizing: border-box;
+	background-color: #d15c19;
+	border: 7px solid #d15c19;
 }
 
 .title {
-    color:rgb(241,93,36);
-    font-size: 15px;
-    font-weight: 600;
+	color: rgb(241, 93, 36);
+	font-size: 15px;
+	font-weight: 600;
 }
 
-.detailsCategoryContainer{
-
-    color: black;
-    text-align: left;
-
+.detailsCategoryContainer {
+	color: black;
+	text-align: left;
 }
 
 .detailsCategory {
-    color:rgb(241,93,36);
-    display: inline;
+	color: rgb(241, 93, 36);
+	display: inline;
 }
 
 .detailsCategoryDescription {
-
-    display: inline;
-
+	display: inline;
 }
 .iconLink {
-    text-decoration: none !important;
-    font-size: 19px !important;
-    color: rgb(241,93,36) !important;
-    padding: 10px !important;
+	text-decoration: none !important;
+	font-size: 19px !important;
+	color: rgb(241, 93, 36) !important;
+	padding: 10px !important;
 }
 
-.links{
-    display: inline-block;
-    color: rgb(241,93,36);
+.links {
+	display: inline-block;
+	color: rgb(241, 93, 36);
 }
 
 @media all and (min-width: 214px) and (max-width: 600px) {
+	.card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		width: 290px;
+		height: auto;
+		text-align: center;
+		flex: 0 1 24%;
+		box-sizing: border-box;
+		align-content: center;
+		margin-bottom: 5%;
+		margin-right: 0px;
+		font-size: 14px;
+	}
 
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        width: 290px;
-        height: auto;
-        text-align: center;
-        flex: 0 1 24%;
-        box-sizing: border-box;;
-        align-content: center;
-        margin-bottom: 5%;
-        margin-right: 0px;
-        font-size: 14px;
-      }
+	.imageBorder {
+		height: 190px;
+		width: 250px;
+		display: block;
+		border-radius: 200px;
+		box-sizing: border-box;
+		background-color: #d15c19;
+		border: 7px solid #d15c19;
+	}
 
-      .imageBorder {
-        height: 190px;
-        width: 250px;
-        display: block;
-        border-radius: 200px;
-        box-sizing: border-box;
-        background-color: #d15c19;
-        border: 7px solid #d15c19;
-    }
+	.memberName {
+		font-size: 20px;
+		margin-top: 10px;
+		font-weight: 500;
+	}
 
-    .memberName {
+	.title {
+		color: rgb(241, 93, 36);
+		font-size: 15px;
+		font-weight: 600;
+	}
 
-        font-size: 20px;
-        margin-top: 10px;
-        font-weight: 500
-    }
-    
-    .title {
-        color:rgb(241,93,36);
-        font-size: 15px;
-        font-weight: 600;
-    }
-    
-    .detailsCategoryContainer{
-    
-        color: black;
-        text-align: left;
-    
-    }
-    
-    .detailsCategory {
-        color:rgb(241,93,36);
-        display: inline;
-    }
-    
-    .detailsCategoryDescription {
-    
-        display: inline;
-    
-    }
-    .iconLink {
-        text-decoration: none !important;
-        font-size: 20px !important;
-        color: rgb(241,93,36) !important;
-        padding: 10px !important;
-    }
-    
-    .links{
-        display: inline-block;
-        color: rgb(241,93,36);
-        width: 100%;
-    }
-    
-  }
+	.detailsCategoryContainer {
+		color: black;
+		text-align: left;
+	}
 
+	.detailsCategory {
+		color: rgb(241, 93, 36);
+		display: inline;
+	}
+
+	.detailsCategoryDescription {
+		display: inline;
+	}
+	.iconLink {
+		text-decoration: none !important;
+		font-size: 20px !important;
+		color: rgb(241, 93, 36) !important;
+		padding: 10px !important;
+	}
+
+	.links {
+		display: inline-block;
+		color: rgb(241, 93, 36);
+		width: 100%;
+	}
+}
