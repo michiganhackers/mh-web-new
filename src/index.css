@@ -1,31 +1,30 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
 }
 
-.sponsors{
-  text-align: center;
-  padding-bottom: 10%
+.sponsors {
+	text-align: center;
+	padding-bottom: 10%;
 }
 .highsponsors {
-  text-align: center;
+	text-align: center;
 }
 .sponsors img {
-  max-height:100px; 
-  width:auto; 
-  padding: 10px; 
-  max-width: 100%;
+	max-height: 100px;
+	width: auto;
+	padding: 10px;
+	max-width: 100%;
 }
 
 .highsponsors img {
-  max-height:170px; 
-  width:auto; 
-  padding: 10px; 
-  max-width: 100%
+	max-height: 170px;
+	width: auto;
+	padding: 10px;
+	max-width: 100%;
 }
 
-
 .fc {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }

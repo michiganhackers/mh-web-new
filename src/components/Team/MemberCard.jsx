@@ -1,72 +1,95 @@
-import React from 'react';
+import React from "react";
+
 import "../../utility/fonts.css";
-import './MemberCard.css';
-
-
+import "./MemberCard.css";
 
 let cardStyle = {
-  width: '100%'
+	width: "100%"
 };
 
 class MemberCard extends React.Component {
+	nonemptyUrls() {
+		let returnValue = [];
 
-    nonemptyUrls() {
+		if (this.props.instagramUrl !== "") {
+			returnValue.push(
+				<a key="insta" className="iconLink" href={this.props.instagramUrl}>
+					<i className="fa fa-instagram"></i>
+				</a>
+			);
+		}
+		if (this.props.githubUrl !== "") {
+			returnValue.push(
+				<a key="git" className="iconLink" href={this.props.githubUrl}>
+					<i className="fa fa-github"></i>
+				</a>
+			);
+		}
+		if (this.props.linkedinUrl !== "") {
+			returnValue.push(
+				<a key="linked" className="iconLink" href={this.props.linkedinUrl}>
+					<i className="fa fa-linkedin"></i>
+				</a>
+			);
+		}
+		if (this.props.facebookUrl !== "") {
+			returnValue.push(
+				<a key="fb" className="iconLink" href={this.props.facebookUrl}>
+					<i className="fa fa-facebook"></i>
+				</a>
+			);
+		}
+		if (this.props.personalUrl !== "") {
+			returnValue.push(
+				<a key="personal" className="iconLink" href={this.props.personalUrl}>
+					<i className="fa fa-user"></i>
+				</a>
+			);
+		}
 
-      let returnValue = [];
-      
-      if(this.props.instagramUrl !== '') {
-        returnValue.push(<a key="insta" className="iconLink" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></a>);
-      }
-      if(this.props.githubUrl !== ''){
-        returnValue.push(<a key="git" className="iconLink" href={this.props.githubUrl}><i className="fa fa-github"></i></a>);
-      }
-      if(this.props.linkedinUrl !== '') {
-        returnValue.push(<a key="linked" className="iconLink" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></a>);
-      }
-      if(this.props.facebookUrl !== '') {
-        returnValue.push(<a key="fb" className="iconLink" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></a>);
-      }
-      if(this.props.personalUrl !== '') {
-        returnValue.push(<a key="personal" className="iconLink" href={this.props.personalUrl}><i className="fa fa-user"></i></a>);
-      }
+		return returnValue;
+	}
 
-      return returnValue;
-
-    }
-
-    render(){
-        return(
-            <div className="card">
-                <img src={ this.props.imagePath } alt="leadership" style={cardStyle} className="imageBorder"></img>
-                <h2 className="memberName">{this.props.name}</h2>
-                <p className="title">{this.props.title}</p>
-                <div className="detailsCategoryContainer">
-                   <div className="detailsCategory">Grad Year: </div>
-                   <div className="detailsCategoryDescription">{this.props.gradYear}</div>
-                </div>
-                <div className="detailsCategoryContainer">
-                   <div className="detailsCategory">Interests: </div>
-                   <div className="detailsCategoryDescription">{this.props.interests}</div>
-                </div>
-                <div className="detailsCategoryContainer">
-                   <div className="detailsCategory">Fun fact: </div>
-                   <div className="detailsCategoryDescription">{this.props.funFact}</div>
-                </div>
-                <p>{this.props.bio}</p>
-                <div className="links">
-                  { this.nonemptyUrls() }
-                </div>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div className="card">
+				<img
+					src={this.props.imagePath}
+					alt="leadership"
+					style={cardStyle}
+					className="imageBorder"
+				></img>
+				<h2 className="memberName">{this.props.name}</h2>
+				<p className="title">{this.props.title}</p>
+				<div className="detailsCategoryContainer">
+					<div className="detailsCategory">Grad Year: </div>
+					<div className="detailsCategoryDescription">
+						{this.props.gradYear}
+					</div>
+				</div>
+				<div className="detailsCategoryContainer">
+					<div className="detailsCategory">Interests: </div>
+					<div className="detailsCategoryDescription">
+						{this.props.interests}
+					</div>
+				</div>
+				<div className="detailsCategoryContainer">
+					<div className="detailsCategory">Fun fact: </div>
+					<div className="detailsCategoryDescription">{this.props.funFact}</div>
+				</div>
+				<p>{this.props.bio}</p>
+				<div className="links">{this.nonemptyUrls()}</div>
+			</div>
+		);
+	}
 }
 
 MemberCard.defaultProps = {
- instagramUrl: "",
- githubUrl: "",
- linkedinUrl: "",
- facebookUrl: "",
- personalUrl: ""
-}
+	instagramUrl: "",
+	githubUrl: "",
+	linkedinUrl: "",
+	facebookUrl: "",
+	personalUrl: ""
+};
 
 export default MemberCard;
