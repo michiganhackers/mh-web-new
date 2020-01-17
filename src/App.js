@@ -8,11 +8,9 @@ import Events from "./components/Calendar/Events.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import FAQ from "./components/FAQ/FAQ.jsx";
 
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
-import AttendanceForm from "./components/AttendanceForm/AttendanceForm";
 import Attendance from "./components/AttendanceForm/Attendance";
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);

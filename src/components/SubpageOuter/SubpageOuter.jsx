@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import logoOrange from "../../assets/logo-orange.png";
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
 

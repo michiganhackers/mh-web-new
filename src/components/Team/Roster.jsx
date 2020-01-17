@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
 import "../../index.css"
 import {StaticH1} from "../../utility/ContentStyles.js";
@@ -37,7 +36,7 @@ class Roster extends Component {
   constructRoster(rowData){
     let people = [];
     for (let row of rowData){
-      if ( row.values[0].length == 0 || !row.values[0].userEnteredValue) break;
+      if ( row.values[0].length === 0 || !row.values[0].userEnteredValue) break;
       people.push(this.createPerson(row));
     }
     return people;

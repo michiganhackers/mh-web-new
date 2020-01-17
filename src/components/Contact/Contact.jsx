@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
 import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
+import { StaticP } from "../../utility/ContentStyles.js";
 import MailingList from '../MailingList/MailingList.jsx'
 import Navbar from '../Navbar.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
