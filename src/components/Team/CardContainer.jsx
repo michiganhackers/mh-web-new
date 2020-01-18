@@ -239,8 +239,8 @@ class CardContainer extends React.Component {
                         interests="Basketball, video games"
                         funFact="Has an identical twin"
                         linkedinUrl="https://www.linkedin.com/in/ryankhzouz/"
-                        personalUrl="https://github.com/rckhzouz"
-                        imagePath='/memberPhotos/Placeholder.jpg'  />
+                        githubUrl="https://github.com/rckhzouz"
+                        imagePath='/memberPhotos/Ryan.png'  />
                     </div>
                     <div className="cardContainerColumn">
                         <MemberCard name="David Wang" title="Android Lead Engineer"
@@ -250,6 +250,33 @@ class CardContainer extends React.Component {
                         githubUrl="https://github.com/davidjrwang"
                         linkedinUrl="https://www.linkedin.com/in/davidjrwang"
                         imagePath='/memberPhotos/David.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Nikhil Surya Dwibhashyam" title="Open-Source Contribution Lead Engineer"
+                        gradYear="2021"
+                        interests="Reading, philosophy, learning and creating languages, piano, biking"
+                        funFact="Have eight pairs of exactly the same clothes that I wear every day"
+                        githubUrl="https://github.com/SpockTheLogical7"
+                        personalUrl="https://nikhilsd.com/"
+                        imagePath='/memberPhotos/Nikhil.png'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Yaman Qalieh" title="Open-Source Contribution Lead Engineer"
+                        gradYear="2022"
+                        interests="Emacs, scripting, learning languages, history"
+                        funFact="Memorized every national flag"
+                        githubUrl="https://github.com/yamanq"
+                        personalUrl="https://blog.yaman.qalieh.com/"
+                        imagePath='/memberPhotos/Yaman.jpg'  />
+                    </div>
+                    <div className="cardContainerColumn">
+                        <MemberCard name="Roman Khzouz" title="Alexa Lead Engineer"
+                        gradYear="2021"
+                        interests="Reading, video games, basketball"
+                        funFact="Has an identical twin"
+                        githubUrl="https://github.com/rkhzouz"
+                        linkedinUrl="https://www.linkedin.com/in/roman-khzouz/"
+                        imagePath='/memberPhotos/Roman.jpg'  />
                     </div>
                     </section>
                 <SubpageOuter>

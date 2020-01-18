@@ -2,7 +2,7 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 300px;
-    height: 500px;
+    height: 525px;
     text-align: center;
     flex: 0 1 24%;
     padding: 50px;
@@ -17,7 +17,7 @@
   }
   .memberName {
 
-    font-size: 20px;
+    font-size: 19px;
     margin-top: 10px;
     font-weight: 500
 }
@@ -40,7 +40,7 @@
 
 .title {
     color:rgb(241,93,36);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
 }
 
