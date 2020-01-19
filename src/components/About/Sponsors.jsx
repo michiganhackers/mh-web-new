@@ -17,9 +17,30 @@ import YelpLogo from '../../assets/yelp.png'
 import TargetLogo from '../../assets/target.png'
 import SCM from '../../assets/SCM.jpg'
 
-const Logo = styled.img`
+const HighLogo = styled.img`
   align: middle;
-`
+  max-height: 170px; 
+  width: auto; 
+  padding: 10px; 
+  max-width: 100%
+`;
+
+const LowLogo = styled.img`
+  align: middle;
+  max-height: 100px; 
+  width: auto; 
+  padding: 10px;  
+  max-width: 100%;
+`;
+
+const HighSponsors = styled.div`
+  text-align: center;
+`;
+
+const LowSponsors = styled.div`
+  text-align: center;
+  padding-bottom: 10%;
+`;
 
 class Sponsors extends Component {
   render() {
@@ -28,15 +49,12 @@ class Sponsors extends Component {
           <StaticH1>
             Our Top Sponsors
           </StaticH1>
-          <div className="highsponsors">
-            <Logo src={GoogleLogo} /> <Logo src={C1Logo}/>
-          </div> 
-          <div className="sponsors">
-            <Logo src={GraingerLogo}/> <Logo src={TargetLogo} /> <Logo src={SCM} />
-          </div>
-          
-        
-          
+          <HighSponsors>
+            <HighLogo src={GoogleLogo}/> <HighLogo src={C1Logo}/>
+          </HighSponsors> 
+          <LowSponsors>
+            <LowLogo src={GraingerLogo}/> <LowLogo src={TargetLogo}/> <LowLogo src={SCM}/>
+          </LowSponsors>
       </React.Fragment>
     );
   }

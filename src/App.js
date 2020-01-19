@@ -24,7 +24,7 @@ after having imported the Calendar component
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Router>
           <React.Fragment>
             {/*<Navbar/>
