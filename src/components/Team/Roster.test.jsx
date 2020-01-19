@@ -12,10 +12,7 @@ it("can talk to Google calendar", () => {
         CELL_RANGES +
         "&key=" +
         API_KEY;
-    let people = [];
-    axios
-        .get(REQUEST_URL)
-
+        
     return expect(axios
         .get(REQUEST_URL)).resolves.not.toThrow();
 });
