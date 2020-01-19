@@ -32,10 +32,12 @@ const CarouselContainer = styled.div`
 `;
 
 const Legend = styled.p`
-    width: 45%;
-    height: auto;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 48px;
 `;
 
 class CardContainer extends React.Component {
@@ -48,43 +50,43 @@ class CardContainer extends React.Component {
                     <Carousel autoplay>
                         <div>
                             <img src={CoreTeam} />
-                            <Legend>The entire 2019-2020 Core Team!</Legend>
+                            <Legend className="legend">The entire 2019-2020 Core Team!</Legend>
                         </div>
                         <div>
                             <img src={Squad} />
-                            <Legend>Festifall 2019</Legend>
+                            <Legend className="legend">Festifall 2019</Legend>
                         </div>
                         <div>
                             <img src={ErichHands} />
-                            <Legend>Paint the Rock 2019</Legend>
+                            <Legend className="legend">Paint the Rock 2019</Legend>
                         </div>
                         <div>
                             <img src={Bros} />
-                            <Legend>Mass Meeting 2019</Legend>
+                            <Legend className="legend">Mass Meeting 2019</Legend>
                         </div>
                         <div>
                             <img src={PaintTheRockGroup} />
-                            <Legend>Paint the Rock 2019</Legend>
+                            <Legend className="legend">Paint the Rock 2019</Legend>
                         </div>
                         <div>
                             <img src={JanetBubbles} />
-                            <Legend>Hands up!</Legend>
+                            <Legend className="legend">Hands up!</Legend>
                         </div>
                         <div>
                             <img src={Escapade} />
-                            <Legend>Escapade 2019</Legend>
+                            <Legend className="legend">Escapade 2019</Legend>
                         </div>
                         <div>
                             <img src={Smoothie} />
-                            <Legend>Smoothie Party 2019</Legend>
+                            <Legend className="legend">Smoothie Party 2019</Legend>
                         </div>
                         <div>
                             <img src={PaulBubble} />
-                            <Legend>Paul being introspective</Legend>
+                            <Legend className="legend">Paul being introspective</Legend>
                         </div>
                         <div>
                             <img src={MichiganRock} />
-                            <Legend>Paint the Rock 2019</Legend>
+                            <Legend className="legend">Paint the Rock 2019</Legend>
                         </div>
                     </Carousel>
                 </CarouselContainer>

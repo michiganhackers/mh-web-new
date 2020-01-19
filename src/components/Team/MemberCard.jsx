@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
-import styled from 'styled-components';
 import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import devices from '../../utility/MediaQueries.js';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import './MemberCard.css';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const specificResponsiveness = (...args) => css`@media all and (min-width: 214px) and (max-width: 600px) {${css(...args)};}`;
 
@@ -24,7 +23,6 @@ const Leadership = styled.img`
   width: 100%;
   ${specificResponsiveness`
     height: 190px;
-    width: 250px;
     display: block;
     border-radius: 200px;
     box-sizing: border-box;
