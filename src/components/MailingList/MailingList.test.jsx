@@ -5,6 +5,7 @@ import axios from "axios";
 it("can issue a non-404-ing request to the backend", () => {
 	let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
     let payload = {};
+    // An empty payload is a confirmed noop on the Mailjet side.
     return axios({
         method: "post",
         headers: { "content-type": "application/json" },
