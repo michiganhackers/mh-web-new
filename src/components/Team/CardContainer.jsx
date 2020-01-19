@@ -21,6 +21,13 @@ import NickSpeaking from '../../assets/NickSpeaking.JPG'
 import MichiganRock from '../../assets/MichiganRock.JPG'
 import SubpageOuter from '../SubpageOuter/SubpageOuter';
 
+const Cards = styled.section`
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+`;
+
 const CarouselContainer = styled.div`
     width: 45%;
     height: auto;
@@ -93,8 +100,8 @@ class CardContainer extends React.Component {
                 <StaticH1>
                     Executive Team
                 </StaticH1>
-                <div className="centered">
-                    <section className="cards">
+                <div>
+                    <Cards>
                       <div>
                           <MemberCard name="Benjamin Carney" title="President"
                             gradYear="2020"
@@ -143,13 +150,13 @@ class CardContainer extends React.Component {
                             linkedinUrl="https://www.linkedin.com/in/casper-hsu-8922a9181/"
                             imagePath='/memberPhotos/Casper.jpg'  />
                         </div>
-                    </section>
+                    </Cards>
                 </div>
                 <StaticH1>
                     Core Leadership
                 </StaticH1>
-                <div className="centered">
-                    <section className="cards">
+                <div>
+                    <Cards>
                     <div>
                         <MemberCard name="Eashwar Mohan" title="Hacker Bootcamp Director"
                         gradYear="2020"
@@ -297,15 +304,15 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/roman-khzouz/"
                         imagePath='/memberPhotos/Roman.jpg'  />
                     </div>
-                    </section>
+                    </Cards>
                 <SubpageOuter>
                     <Roster />
                 </SubpageOuter>
                 <StaticH1>
                     Senior Advisors
                 </StaticH1>
-                <div className="centered">
-                    <section className="cards">
+                <div>
+                    <Cards>
                     <div>
                         <MemberCard name="Janet Vu" title="Senior Advisor"
                         gradYear="2021"
@@ -339,7 +346,7 @@ class CardContainer extends React.Component {
                         linkedinUrl="https://www.linkedin.com/in/trevor-sanderson-459028171/"
                         imagePath='/memberPhotos/Trevor.png'  />
                     </div>
-                    </section>
+                    </Cards>
                 </div>
                 </div>
             </React.Fragment>
