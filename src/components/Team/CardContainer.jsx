@@ -3,7 +3,6 @@ import "../../utility/fonts.css";
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import './CardContainer.css';
 import MemberCard from './MemberCard.jsx';
 import Roster from './Roster.jsx';
 import styled from 'styled-components';
