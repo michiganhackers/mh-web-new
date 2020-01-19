@@ -38,8 +38,6 @@ const Legend = styled.p`
     margin-right: auto;
 `;
 
-const CardContainerColumn = 
-
 class CardContainer extends React.Component {
 
     render(){
