@@ -8,10 +8,6 @@ import styled, { css } from 'styled-components';
 
 const specificResponsiveness = (...args) => css`@media all and (min-width: 214px) and (max-width: 600px) {${css(...args)};}`;
 
-let cardStyle = {
-  width: '100%'
-};
-
 const Leadership = styled.img`
   height: 200px;
   display: block;
