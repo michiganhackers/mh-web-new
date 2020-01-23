@@ -1,11 +1,111 @@
 import React from "react";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
-import "./MemberCard.css";
+import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
+import devices from "../../utility/MediaQueries.js";
+import { StaticP, StaticH1 } from "../../utility/ContentStyles.js";
+import styled, { css } from "styled-components";
 
-let cardStyle = {
-	width: "100%"
-};
+const specificResponsiveness = (...args) =>
+	css`
+		@media all and (min-width: 214px) and (max-width: 600px) {
+			${css(...args)};
+		}
+	`;
+
+const Leadership = styled.img`
+	height: 200px;
+	display: block;
+	border-radius: 200px;
+	box-sizing: border-box;
+	background-color: #d15c19;
+	border: 7px solid #d15c19;
+	width: 100%;
+	${specificResponsiveness`
+    height: 190px;
+    display: block;
+    border-radius: 200px;
+    box-sizing: border-box;
+    background-color: #d15c19;
+    border: 7px solid #d15c19;
+  `}
+`;
+
+const Card = styled.div`
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 300px;
+	height: 525px;
+	text-align: center;
+	flex: 0 1 24%;
+	padding: 50px;
+	padding-top: 20px;
+	box-sizing: border-box;
+	align-content: center;
+	margin-bottom: 5%;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 13px;
+	font: comic-sans;
+	${specificResponsiveness`
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 290px;
+    height: auto;
+    text-align: center;
+    flex: 0 1 24%;
+    box-sizing: border-box;;
+    align-content: center;
+    margin-bottom: 5%;
+    margin-right: 0px;
+    font-size: 14px;
+  `}
+`;
+
+const MemberName = styled.h2`
+	font-size: 19px;
+	margin-top: 10px;
+	font-weight: 500;
+	${specificResponsiveness`
+    font-size: 20px;
+  `}
+`;
+
+const Title = styled.p`
+	color: rgb(241, 93, 36);
+	font-size: 14px;
+	font-weight: 600;
+	${specificResponsiveness`
+    font-size: 15px;
+  `}
+`;
+
+const DetailsCategoryContainer = styled.div`
+	color: black;
+	text-align: left;
+`;
+
+const DetailsCategory = styled.div`
+	color: rgb(241, 93, 36);
+	display: inline;
+`;
+
+const DetailsCategoryDescription = styled.div`
+	display: inline;
+`;
+
+const IconLink = styled.a`
+	text-decoration: none !important;
+	font-size: 19px !important;
+	color: rgb(241, 93, 36) !important;
+	padding: 10px !important;
+`;
+
+const Links = styled.div`
+	display: inline-block;
+	color: rgb(241, 93, 36);
+	${specificResponsiveness`
+    width: 100%;
+  `}
+`;
 
 class MemberCard extends React.Component {
 	nonemptyUrls() {
@@ -13,37 +113,37 @@ class MemberCard extends React.Component {
 
 		if (this.props.instagramUrl !== "") {
 			returnValue.push(
-				<a key="insta" className="iconLink" href={this.props.instagramUrl}>
+				<IconLink key="insta" href={this.props.instagramUrl}>
 					<i className="fa fa-instagram"></i>
-				</a>
+				</IconLink>
 			);
 		}
 		if (this.props.githubUrl !== "") {
 			returnValue.push(
-				<a key="git" className="iconLink" href={this.props.githubUrl}>
+				<IconLink key="git" href={this.props.githubUrl}>
 					<i className="fa fa-github"></i>
-				</a>
+				</IconLink>
 			);
 		}
 		if (this.props.linkedinUrl !== "") {
 			returnValue.push(
-				<a key="linked" className="iconLink" href={this.props.linkedinUrl}>
+				<IconLink key="linked" href={this.props.linkedinUrl}>
 					<i className="fa fa-linkedin"></i>
-				</a>
+				</IconLink>
 			);
 		}
 		if (this.props.facebookUrl !== "") {
 			returnValue.push(
-				<a key="fb" className="iconLink" href={this.props.facebookUrl}>
+				<IconLink key="fb" href={this.props.facebookUrl}>
 					<i className="fa fa-facebook"></i>
-				</a>
+				</IconLink>
 			);
 		}
 		if (this.props.personalUrl !== "") {
 			returnValue.push(
-				<a key="personal" className="iconLink" href={this.props.personalUrl}>
+				<IconLink key="personal" href={this.props.personalUrl}>
 					<i className="fa fa-user"></i>
-				</a>
+				</IconLink>
 			);
 		}
 
@@ -52,34 +152,31 @@ class MemberCard extends React.Component {
 
 	render() {
 		return (
-			<div className="card">
-				<img
-					src={this.props.imagePath}
-					alt="leadership"
-					style={cardStyle}
-					className="imageBorder"
-				></img>
-				<h2 className="memberName">{this.props.name}</h2>
-				<p className="title">{this.props.title}</p>
-				<div className="detailsCategoryContainer">
-					<div className="detailsCategory">Grad Year: </div>
-					<div className="detailsCategoryDescription">
+			<Card>
+				<Leadership src={this.props.imagePath} alt="leadership" />
+				<MemberName>{this.props.name}</MemberName>
+				<Title>{this.props.title}</Title>
+				<DetailsCategoryContainer>
+					<DetailsCategory>Grad Year: </DetailsCategory>
+					<DetailsCategoryDescription>
 						{this.props.gradYear}
-					</div>
-				</div>
-				<div className="detailsCategoryContainer">
-					<div className="detailsCategory">Interests: </div>
-					<div className="detailsCategoryDescription">
+					</DetailsCategoryDescription>
+				</DetailsCategoryContainer>
+				<DetailsCategoryContainer>
+					<DetailsCategory>Interests: </DetailsCategory>
+					<DetailsCategoryDescription>
 						{this.props.interests}
-					</div>
-				</div>
-				<div className="detailsCategoryContainer">
-					<div className="detailsCategory">Fun fact: </div>
-					<div className="detailsCategoryDescription">{this.props.funFact}</div>
-				</div>
+					</DetailsCategoryDescription>
+				</DetailsCategoryContainer>
+				<DetailsCategoryContainer>
+					<DetailsCategory>Fun fact: </DetailsCategory>
+					<DetailsCategoryDescription>
+						{this.props.funFact}
+					</DetailsCategoryDescription>
+				</DetailsCategoryContainer>
 				<p>{this.props.bio}</p>
-				<div className="links">{this.nonemptyUrls()}</div>
-			</div>
+				<Links>{this.nonemptyUrls()}</Links>
+			</Card>
 		);
 	}
 }

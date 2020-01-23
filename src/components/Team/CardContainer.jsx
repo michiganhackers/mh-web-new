@@ -3,9 +3,9 @@ import "../../utility/fonts.css";
 import { StaticH1 } from "../../utility/ContentStyles.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "./CardContainer.css";
 import MemberCard from "./MemberCard.jsx";
 import Roster from "./Roster.jsx";
+import styled from "styled-components";
 
 import CoreTeam from "../../assets/CoreTeam.JPG";
 import Squad from "../../assets/Squad.JPG";
@@ -16,8 +16,35 @@ import JanetBubbles from "../../assets/JanetBubbles.JPG";
 import Escapade from "../../assets/Escapade.JPG";
 import ErichHands from "../../assets/ErichHands.JPG";
 import Smoothie from "../../assets/Smoothie.jpg";
+import NickSpeaking from "../../assets/NickSpeaking.JPG";
 import MichiganRock from "../../assets/MichiganRock.JPG";
 import SubpageOuter from "../SubpageOuter/SubpageOuter";
+
+const Cards = styled.section`
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+`;
+
+const CarouselContainer = styled.div`
+	width: 45%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	@media all and (min-width: 214px) and (max-width: 600px) {
+		width: 90%;
+	}
+`;
+
+const Legend = styled.p`
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
+	color: white;
+	font-size: 48px;
+`;
 
 class CardContainer extends React.Component {
 	render() {
@@ -27,54 +54,56 @@ class CardContainer extends React.Component {
 					rel="stylesheet"
 					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 				></link>
-				<div className="carouselContainer">
+				<CarouselContainer>
 					<Carousel autoplay>
 						<div>
-							<img alt="Core Team" src={CoreTeam} />
-							<p className="legend">The entire 2019-2020 Core Team!</p>
+							<img src={CoreTeam} />
+							<Legend className="legend">
+								The entire 2019-2020 Core Team!
+							</Legend>
 						</div>
 						<div>
-							<img alt="Festifall 2019" src={Squad} />
-							<p className="legend">Festifall 2019</p>
+							<img src={Squad} />
+							<Legend className="legend">Festifall 2019</Legend>
 						</div>
 						<div>
-							<img alt="Paint the Rock" src={ErichHands} />
-							<p className="legend">Paint the Rock 2019</p>
+							<img src={ErichHands} />
+							<Legend className="legend">Paint the Rock 2019</Legend>
 						</div>
 						<div>
-							<img alt="Mass Meeting" src={Bros} />
-							<p className="legend">Mass Meeting 2019</p>
+							<img src={Bros} />
+							<Legend className="legend">Mass Meeting 2019</Legend>
 						</div>
 						<div>
-							<img alt="Paint the Rock" src={PaintTheRockGroup} />
-							<p className="legend">Paint the Rock 2019</p>
+							<img src={PaintTheRockGroup} />
+							<Legend className="legend">Paint the Rock 2019</Legend>
 						</div>
 						<div>
-							<img alt="Bubbles" src={JanetBubbles} />
-							<p className="legend">Hands up!</p>
+							<img src={JanetBubbles} />
+							<Legend className="legend">Hands up!</Legend>
 						</div>
 						<div>
-							<img alt="Escapade" src={Escapade} />
-							<p className="legend">Escapade 2019</p>
+							<img src={Escapade} />
+							<Legend className="legend">Escapade 2019</Legend>
 						</div>
 						<div>
-							<img alt="Smootie Party" src={Smoothie} />
-							<p className="legend">Smoothie Party 2019</p>
+							<img src={Smoothie} />
+							<Legend className="legend">Smoothie Party 2019</Legend>
 						</div>
 						<div>
-							<img alt="Paul introspection" src={PaulBubble} />
-							<p className="legend">Paul being introspective</p>
+							<img src={PaulBubble} />
+							<Legend className="legend">Paul being introspective</Legend>
 						</div>
 						<div>
-							<img alt="Paint the Rock" src={MichiganRock} />
-							<p className="legend">Paint the Rock 2019</p>
+							<img src={MichiganRock} />
+							<Legend className="legend">Paint the Rock 2019</Legend>
 						</div>
 					</Carousel>
-				</div>
+				</CarouselContainer>
 				<StaticH1>Executive Team</StaticH1>
-				<div className="centered">
-					<section className="cards">
-						<div className="cardContainerColumn">
+				<div>
+					<Cards>
+						<div>
 							<MemberCard
 								name="Benjamin Carney"
 								title="President"
@@ -87,7 +116,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Ben.JPG"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Alex Dortzbach"
 								title="Vice President of Member Experience"
@@ -99,7 +128,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Alex.JPG"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Erich Shan"
 								title="Vice President of External"
@@ -111,7 +140,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Erich.JPG"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Phoebe Liang"
 								title="Vice President of Logistics"
@@ -125,7 +154,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Phoebe.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Casper Hsu"
 								title="Vice President of Innovation"
@@ -137,12 +166,12 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Casper.jpg"
 							/>
 						</div>
-					</section>
+					</Cards>
 				</div>
 				<StaticH1>Core Leadership</StaticH1>
-				<div className="centered">
-					<section className="cards">
-						<div className="cardContainerColumn">
+				<div>
+					<Cards>
+						<div>
 							<MemberCard
 								name="Eashwar Mohan"
 								title="Hacker Bootcamp Director"
@@ -157,7 +186,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Eashwar.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Edward Huang"
 								title="iOS Lead Engineer"
@@ -170,7 +199,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/EdwardH.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Ibtida Bhuiyan"
 								title="Independent Hacker Core Lead"
@@ -183,7 +212,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Ibtida.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Christopher Hafke"
 								title="Web Lead Engineer"
@@ -195,7 +224,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Chris.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Vincent Nagel"
 								title="Android Lead Engineer"
@@ -208,7 +237,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Vincent.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Nicholas Konovalenko"
 								title="Security Lead Engineer"
@@ -223,7 +252,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Nick.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Paul Carney"
 								title="Embedded Systems Lead Engineer"
@@ -235,7 +264,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Paul.jpeg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Janet Vu"
 								title="Creative Director"
@@ -250,7 +279,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Janet.JPG"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Thomas Smith"
 								title="iOS Lead Engineer"
@@ -263,7 +292,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Thomas.png"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Junlin Mo"
 								title="Interviewing Director"
@@ -274,7 +303,7 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/Junlin.jpg"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="Ryan Khzouz"
 								title="Android Lead Engineer"
@@ -282,11 +311,11 @@ class CardContainer extends React.Component {
 								interests="Basketball, video games"
 								funFact="Has an identical twin"
 								linkedinUrl="https://www.linkedin.com/in/ryankhzouz/"
-								personalUrl="https://github.com/rckhzouz"
-								imagePath="/memberPhotos/Placeholder.jpg"
+								githubUrl="https://github.com/rckhzouz"
+								imagePath="/memberPhotos/Ryan.png"
 							/>
 						</div>
-						<div className="cardContainerColumn">
+						<div>
 							<MemberCard
 								name="David Wang"
 								title="Android Lead Engineer"
@@ -298,14 +327,50 @@ class CardContainer extends React.Component {
 								imagePath="/memberPhotos/David.jpg"
 							/>
 						</div>
-					</section>
+						<div>
+							<MemberCard
+								name="Nikhil Surya Dwibhashyam"
+								title="Open-Source Contribution Lead Engineer"
+								gradYear="2021"
+								interests="Reading, philosophy, learning and creating languages, piano, biking"
+								funFact="Have eight pairs of exactly the same clothes that I wear every day"
+								githubUrl="https://github.com/SpockTheLogical7"
+								personalUrl="https://nikhilsd.com/"
+								imagePath="/memberPhotos/Nikhil.png"
+							/>
+						</div>
+						<div>
+							<MemberCard
+								name="Yaman Qalieh"
+								title="Open-Source Contribution Lead Engineer"
+								gradYear="2022"
+								interests="Emacs, scripting, learning languages, history"
+								funFact="Memorized every national flag"
+								githubUrl="https://github.com/yamanq"
+								personalUrl="https://blog.yaman.qalieh.com/"
+								imagePath="/memberPhotos/Yaman.jpg"
+							/>
+						</div>
+						<div>
+							<MemberCard
+								name="Roman Khzouz"
+								title="Alexa Lead Engineer"
+								gradYear="2021"
+								interests="Reading, video games, basketball"
+								funFact="Has an identical twin"
+								githubUrl="https://github.com/rkhzouz"
+								linkedinUrl="https://www.linkedin.com/in/roman-khzouz/"
+								imagePath="/memberPhotos/Roman.jpg"
+							/>
+						</div>
+					</Cards>
 					<SubpageOuter>
 						<Roster />
 					</SubpageOuter>
 					<StaticH1>Senior Advisors</StaticH1>
-					<div className="centered">
-						<section className="cards">
-							<div className="cardContainerColumn">
+					<div>
+						<Cards>
+							<div>
 								<MemberCard
 									name="Janet Vu"
 									title="Senior Advisor"
@@ -320,7 +385,7 @@ class CardContainer extends React.Component {
 									imagePath="/memberPhotos/Janet.JPG"
 								/>
 							</div>
-							<div className="cardContainerColumn">
+							<div>
 								<MemberCard
 									name="Connor Svrcek"
 									title="Senior Advisor"
@@ -335,7 +400,7 @@ class CardContainer extends React.Component {
 									imagePath="/memberPhotos/Connor.jpg"
 								/>
 							</div>
-							<div className="cardContainerColumn">
+							<div>
 								<MemberCard
 									name="Trevor Sanderson"
 									title="Senior Advisor"
@@ -347,7 +412,7 @@ class CardContainer extends React.Component {
 									imagePath="/memberPhotos/Trevor.png"
 								/>
 							</div>
-						</section>
+						</Cards>
 					</div>
 				</div>
 			</React.Fragment>
