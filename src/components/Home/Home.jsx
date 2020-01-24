@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import rightPhotoURL from "../../assets/sample-photo.jpg";
-import logoOrange from "../../assets/logo-orange.png";
 import "../../utility/fonts.css";
 import styled from "styled-components";
 import devices from "../../utility/MediaQueries.js";
@@ -48,28 +45,28 @@ const Logo = styled.img`
 `;
 
 class Home extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <SpecialNavbar />
-        <PolygonCanvas
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            transform: "scaleX(-1)"
-          }}
-        />
-        <HomeBackgroundOuter>
-          <Logo src={logoUrl} />
-          <MainText>
-            a community of individuals who enjoy expressing creativity through
-            technology.
-          </MainText>
-        </HomeBackgroundOuter>
-      </React.Fragment>
-    );
-  }
+	render() {
+		return (
+			<React.Fragment>
+				<SpecialNavbar />
+				<PolygonCanvas
+					style={{
+						width: "100%",
+						height: "100%",
+						position: "absolute",
+						transform: "scaleX(-1)"
+					}}
+				/>
+				<HomeBackgroundOuter>
+					<Logo src={logoUrl} />
+					<MainText>
+						a community of individuals who enjoy expressing creativity through
+						technology.
+					</MainText>
+				</HomeBackgroundOuter>
+			</React.Fragment>
+		);
+	}
 }
 
 export default Home;
