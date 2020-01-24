@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Attendance from "./components/AttendanceForm/Attendance";
 
+
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
 /*
@@ -44,6 +45,7 @@ class App extends Component {
 			</div>
 		);
 	}
+
 }
 
 export default App;
