@@ -48,24 +48,25 @@ class AttendanceForm extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.sendCode = this.sendCode.bind(this);
 		this.processLocationSignIn = this.processLocationSignIn.bind(this);
+		this.checkInLocation = this.checkInLocation.bind(this);
+		this.getLocation = this.getLocation.bind(this);
 	}
 
 	componentDidMount(props) {
-		this.setState({
-			userLocation: navigator.geolocation.getCurrentPosition(position => {
-				const { latitude, longitude } = position.coords;
-				this.setState({
-					location: { lat: latitude, lng: longitude }
-				});
-			})
+		this.getLocation();
+	}
+
+	getLocation() {
+		navigator.geolocation.getCurrentPosition(position => {
+			console.log(position);
+			const { latitude, longitude } = position.coords;
+			this.setState({
+				location: { lat: latitude, lng: longitude }
+			}, this.checkInLocation);
 		});
 	}
 
-	processLocationSignIn(e) {
-		e.preventDefault();
-
-		let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
-
+	checkInLocation() {
 		if (
 			this.state.location.lat > NC_BOTTOM_LAT &&
 			this.state.location.lat < NC_TOP_LAT &&
@@ -89,6 +90,14 @@ class AttendanceForm extends React.Component {
 				is_in_location: true
 			});
 		}
+	}
+
+	processLocationSignIn(e) {
+		e.preventDefault();
+
+		let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
+
+
 		//handle location not working here
 		if (!this.state.is_in_location) return;
 
@@ -118,7 +127,7 @@ class AttendanceForm extends React.Component {
 		let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
 
 		let payload = {
-			code: this.state.address,
+			code: this.state.code,
 			uniqname: this.state.uniqname
 		};
 		axios({
@@ -146,7 +155,7 @@ class AttendanceForm extends React.Component {
 		return (
 			<EmailForm
 				onSubmit={
-					this.state.location.lat ? this.processLocationSignIn : this.sendCode
+					this.state.is_in_location ? this.processLocationSignIn : this.sendCode
 				}
 			>
 				<StaticP>
@@ -155,12 +164,12 @@ class AttendanceForm extends React.Component {
 				</StaticP>
 				{this.state.is_in_location ? (
 					<StaticP>You are in the location area</StaticP>
-				) : null}
-				{this.state.location.lat ? (
+				) : this.state.location.lat ? <StaticP>You are not in the location area</StaticP> : null}
+				{this.state.is_in_location && !this.state.submitted ? (
 					<CodeSubmitButton type="submit" value="Submit your location" />
 				) : null}
-				{this.state.submitted ? <StaticP>Signed in!</StaticP> : null}
-				{this.state.location.lat ? null : (
+				{this.state.submitted ? <StaticP>Submitted!</StaticP> : null}
+				{this.state.is_in_location || this.state.submitted ? null : (
 					<CodeInputBox
 						type=""
 						value={this.state.code}
@@ -168,7 +177,7 @@ class AttendanceForm extends React.Component {
 						placeholder="Enter Code..."
 					/>
 				)}
-				{this.state.location.lat ? null : (
+				{this.state.is_in_location || this.state.submitted ? null : (
 					<CodeSubmitButton type="submit" value="Submit" />
 				)}
 			</EmailForm>
