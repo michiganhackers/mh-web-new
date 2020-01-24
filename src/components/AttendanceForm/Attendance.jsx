@@ -10,6 +10,7 @@ class Attendance extends Component {
 			<React.Fragment>
 				<Navbar />
 				<SubpageOuter header="attendance">
+					<StaticP>Here is the attendance page for all of you</StaticP>
 					<AttendanceForm />
 				</SubpageOuter>
 			</React.Fragment>
