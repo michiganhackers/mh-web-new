@@ -10,7 +10,6 @@ const NOT_JSON_AND_OK = "NOT_JSON_AND_OK";
 const NOT_JSON_AND_NOT_OK = "NOT_JSON_AND_NOT_OK";
 const JSON_AND_NOT_OK = "JSON_AND_NOT_OK";
 
-// TODO: implement
 function getHeaders() {
     return {
         'Accept': 'application/json',
