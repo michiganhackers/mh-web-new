@@ -25,7 +25,7 @@ export default class Url {
     }
 
     queryStrings(object) {
-        this.url += Object.keys(object).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(object[key])).join('&');
+        this.url += "?" + Object.keys(object).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(object[key])).join('&');
         return this;
     }
 
