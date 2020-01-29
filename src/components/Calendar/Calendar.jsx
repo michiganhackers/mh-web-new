@@ -5,8 +5,8 @@ import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-
-import axios from 'axios';
+import { Get } from '../../utility/api';
+import Url, { CALENDAR_URL } from '../../utility/url';
 
 import EventWindow from './EventWindow.jsx';
 
@@ -79,13 +79,16 @@ class Calendar extends React.Component {
   }
 
   getCalendarEvents() {
-    let CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
     let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
-    let CALENDAR_URL = process.env.REACT_APP_CALENDAR_API_URL;
 
-    axios.get(CALENDAR_URL + CALENDAR_ID + '/events?maxResults=2500&singleEvents=true&key=' + API_KEY)
+    Get(new Url(CALENDAR_URL).path("events").queryStrings({
+      maxResults: 2500,
+      singleEvents: true,
+      key: API_KEY,
+    }))
       .then(res => {
-        let items = res.data.items;
+        console.log(res);
+        let items = res.json.items;
         let events = [];
 
         for (let item of items) {
