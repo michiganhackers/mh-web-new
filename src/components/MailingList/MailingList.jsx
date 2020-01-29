@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
-import { Post, Get } from '../../utility/api';
+import { Post } from '../../utility/api';
 import Url, { MH_BACKEND_URL } from '../../utility/url';
 
 const EmailForm = styled.form`
@@ -40,8 +39,8 @@ class MailingList extends React.Component {
         let payload = {
             Email: this.state.address
         };
-        Get(new Url(MH_BACKEND_URL).path("v1").path("email").path("add"), payload)
-            .then(json => console.log(json));
+        Post(new Url(MH_BACKEND_URL).path("v1").path("email").path("add"), payload)
+            .then(res => console.log(res.json));
         
         this.setState({
             address: "",
