@@ -9,6 +9,7 @@ it('renders without crashing', () => {
     mount(<MailingList />);
 });
 
+// TODO: better unit testing here and pretty much everywhere else.
 it('can talk to the backend', () => {
     return expect(Get(new Url(MH_BACKEND_URL).path("v1").path("email").path("health"))).resolves.not.toThrow();
 });
