@@ -113,8 +113,8 @@ class Calendar extends React.Component {
           events: events
         })
       })
-      .catch(error => {
-        console.log(error);
+      .catch(res => {
+        console.log(res.error);
         console.log("Error: events could not be loaded");
       });
   }
@@ -208,6 +208,13 @@ class Calendar extends React.Component {
           <CalendarEventWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.eventHidden} closeWindow={this.closeEventWindow}/>
       </React.Fragment>
     );
+  }
+}
+
+Calendar.defaultProps = {
+  calendarStyle: {
+    color: '#F15D24',
+    textColor: 'white'
   }
 }
 

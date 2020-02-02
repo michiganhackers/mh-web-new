@@ -58,8 +58,8 @@ class Roster extends Component {
           data: people
         });
       })
-      .catch(error => {
-        console.log(error)
+      .catch(res => {
+        console.log(res.error);
       })
   }
   render() {

@@ -30,7 +30,7 @@ function fetcher(url, options) {
                     return response.json();
                 }
                 else {
-                    return Promise.reject({ response, status: response.status, reason: NOT_JSON_AND_OK });
+                    return null;
                 }
             }
             else {
@@ -51,13 +51,13 @@ function fetcher(url, options) {
         .catch(error => {
             switch (error.reason) {
                 case NOT_JSON_AND_OK:
-                    return { json: null, error };
+                    return Promise.reject({ json: null, error });
                 case NOT_JSON_AND_NOT_OK:
-                    return { json: null, error };
+                    return Promise.reject({ json: null, error });
                 case JSON_AND_NOT_OK:
-                    return { json: error.json, error };
+                    return Promise.reject({ json: error.json, error });
                 default: 
-                    return { json: null, error };
+                    return Promise.reject({ json: null, error });
             }
         });
 }

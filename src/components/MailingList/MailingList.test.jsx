@@ -1,8 +1,14 @@
-import axios from "axios";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MailingList from './MailingList';
+import { mount } from 'enzyme';
+import { Get } from '../../utility/api';
+import Url, { MH_BACKEND_URL } from '../../utility/url';
 
-// NOTE: this test does NOT consitute a thorough test of the MailingList.
-// It simply ensures that the proper environment variables are installed.
-it("can verify end-to-end networking with Mailjet", () => {
-    let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
-    return expect(axios.get(mh_backend + "/v1/email/health")).resolves.not.toThrow();
+it('renders without crashing', () => {
+    mount(<MailingList />);
+});
+
+it('can talk to the backend', () => {
+    return expect(Get(new Url(MH_BACKEND_URL).path("v1").path("email").path("health"))).resolves.not.toThrow();
 });

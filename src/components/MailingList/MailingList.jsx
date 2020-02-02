@@ -33,12 +33,14 @@ class MailingList extends React.Component {
     }
 
     addEmailToList(e){
-        
         e.preventDefault();
-
+        console.log("got here");
         let payload = {
             Email: this.state.address
         };
+        /**
+         * TODO: refactor when merging with attendance branch, which adds better email error handling.
+         */
         Post(new Url(MH_BACKEND_URL).path("v1").path("email").path("add"), payload)
             .then(res => console.log(res.json));
         
@@ -53,6 +55,7 @@ class MailingList extends React.Component {
     }
 
     render(){
+        console.log("rendering");
         return(
             <EmailForm onSubmit={this.addEmailToList}>
                 <StaticP>
