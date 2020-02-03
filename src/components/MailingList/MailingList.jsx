@@ -23,6 +23,8 @@ const EmailSubmitButton = styled.input`
     margin-top: 10px;
 `
 
+export const addEmailFetch = payload => Post(new Url(MH_BACKEND_URL).path("v1").path("email").path("add"), payload);
+
 class MailingList extends React.Component {
     constructor(props){
         super(props);
@@ -34,15 +36,14 @@ class MailingList extends React.Component {
 
     addEmailToList(e){
         e.preventDefault();
-        console.log("got here");
-        let payload = {
+
+        const payload = {
             Email: this.state.address
         };
         /**
          * TODO: refactor when merging with attendance branch, which adds better email error handling.
          */
-        Post(new Url(MH_BACKEND_URL).path("v1").path("email").path("add"), payload)
-            .then(res => console.log(res.json));
+        addEmailFetch(payload);
         
         this.setState({
             address: "",

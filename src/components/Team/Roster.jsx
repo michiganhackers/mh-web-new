@@ -16,6 +16,15 @@ const TableDiv = styled.div`
   margin: auto
 `
 
+const API_KEY = process.env.REACT_APP_ROSTER_API_KEY;
+const CELL_RANGES = "Sheet1!A1:B150"
+const rosterFetch = () => Get(new Url(ROSTER_URL).queryStrings({
+  includeGridData: true,
+  ranges: CELL_RANGES,
+  key: API_KEY,
+}))
+
+
 class Roster extends Component {
   constructor(props){
       super(props)
@@ -44,16 +53,9 @@ class Roster extends Component {
     return people;
   }
   getRoster(){
-    const API_KEY = process.env.REACT_APP_ROSTER_API_KEY;
-    const CELL_RANGES = "Sheet1!A1:B150"
-    let people = [];
-    Get(new Url(ROSTER_URL).queryStrings({
-      includeGridData: true,
-      ranges: CELL_RANGES,
-      key: API_KEY,
-    }))
+    rosterFetch()
       .then(res => {
-        people = this.constructRoster(res.json.sheets[0].data[0].rowData.slice(1));
+        const people = this.constructRoster(res.json.sheets[0].data[0].rowData.slice(1));
         this.setState({
           data: people
         });

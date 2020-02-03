@@ -48,6 +48,12 @@ const getTop = ({location}) => {
   return 0;
 }
 
+export const calendarFetch = () => Get(new Url(CALENDAR_URL).path("events").queryStrings({
+  maxResults: 2500,
+  singleEvents: true,
+  key: process.env.REACT_APP_CALENDAR_API_KEY,
+}));
+
 const CalendarEventWindow = styled(EventWindow)`
   position: absolute;
   left: ${getLeft}px;
@@ -66,7 +72,8 @@ class Calendar extends React.Component {
       eventLocation: {},
       eventClicked: null,
       dateOffset: 0,
-      dateContext: 'month'
+      dateContext: 'month',
+      error: null,
     };
     this.getCalendarEvents = this.getCalendarEvents.bind(this);
     this.getCalendarFormatName = this.getCalendarFormatName.bind(this);
@@ -79,13 +86,7 @@ class Calendar extends React.Component {
   }
 
   getCalendarEvents() {
-    let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
-
-    Get(new Url(CALENDAR_URL).path("events").queryStrings({
-      maxResults: 2500,
-      singleEvents: true,
-      key: API_KEY,
-    }))
+    calendarFetch()
       .then(res => {
         console.log(res);
         let items = res.json.items;
@@ -110,10 +111,14 @@ class Calendar extends React.Component {
         }
 
         this.setState({
-          events: events
+          events: events,
+          error: null,
         })
       })
       .catch(res => {
+        this.setState({
+          error: res.error
+        })
         console.log(res.error);
         console.log("Error: events could not be loaded");
       });
