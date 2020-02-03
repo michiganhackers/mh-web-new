@@ -1,7 +1,7 @@
-import Roster from './Roster'
+import App from './App';
 import React from 'react';
 import { mount } from 'enzyme';
 
 it('renders without crashing', () => {
-	mount(<Roster />);
+	const calendar = mount(<App />);
 });
