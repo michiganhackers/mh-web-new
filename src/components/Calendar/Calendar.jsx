@@ -88,7 +88,6 @@ class Calendar extends React.Component {
   getCalendarEvents() {
     calendarFetch()
       .then(res => {
-        console.log(res);
         let items = res.json.items;
         let events = [];
 
@@ -119,7 +118,6 @@ class Calendar extends React.Component {
         this.setState({
           error: res.error
         })
-        console.log(res.error);
         console.log("Error: events could not be loaded");
       });
   }
