@@ -18,7 +18,7 @@ const TableDiv = styled.div`
 
 const API_KEY = process.env.REACT_APP_ROSTER_API_KEY;
 const CELL_RANGES = "Sheet1!A1:B150"
-const rosterFetch = () => Get(new Url(ROSTER_URL).queryStrings({
+export const rosterFetch = () => Get(new Url(ROSTER_URL).queryStrings({
   includeGridData: true,
   ranges: CELL_RANGES,
   key: API_KEY,
