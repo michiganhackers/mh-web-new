@@ -56,7 +56,6 @@ class MailingList extends React.Component {
     }
 
     render(){
-        console.log("rendering");
         return(
             <EmailForm onSubmit={this.addEmailToList}>
                 <StaticP>
