@@ -1,11 +1,11 @@
-import Calendar, { calendarFetch } from './Calendar'
+import Calendar from './Calendar';
+import { calendarFetch } from './CalendarFetch';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
 
 it('fetches correctly', () => {
 	return expect(calendarFetch()).resolves.not.toThrow();
-})
+});
 
 it('renders without crashing', () => {
 	const calendar = mount(<Calendar />);

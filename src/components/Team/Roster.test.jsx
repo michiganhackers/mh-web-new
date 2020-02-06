@@ -1,4 +1,5 @@
-import Roster, { rosterFetch } from './Roster'
+import Roster from './Roster';
+import { rosterFetch } from './RosterFetch';
 import React from 'react';
 import { mount } from 'enzyme';
 

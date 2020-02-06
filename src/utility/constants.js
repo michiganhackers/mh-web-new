@@ -5,7 +5,7 @@
 export const URLS = Object.freeze({
     MH_BACKEND: process.env.REACT_APP_MH_BACKEND_URL,
     CALENDAR: process.env.REACT_APP_CALENDAR_API_URL + process.env.REACT_APP_CALENDAR_ID,
-    ROSTER = process.env.REACT_APP_ROSTER_API_URL + process.env.REACT_APP_ROSTER_ID,
+    ROSTER: process.env.REACT_APP_ROSTER_API_URL + process.env.REACT_APP_ROSTER_ID,
 });
 
 export const API_KEYS = Object.freeze({

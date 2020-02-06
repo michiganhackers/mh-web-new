@@ -4,4 +4,4 @@ import { Post, Get } from '../../utility/api';
 
 export const addEmailFetch = payload => Post(new Url(URLS.MH_BACKEND).path("v1").path("email").path("add"), payload);
 
-export const healthFetch = () => Get(new Url(MH_BACKEND_URL).path("v1").path("email").path("health"));
+export const healthFetch = () => Get(new Url(URLS.MH_BACKEND).path("v1").path("email").path("health"));

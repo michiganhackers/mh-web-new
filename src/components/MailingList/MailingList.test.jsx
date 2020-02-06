@@ -1,5 +1,5 @@
 import React from 'react';
-import MailingList, { addEmailFetch } from './MailingList';
+import MailingList from './MailingList';
 import { mount } from 'enzyme';
 import { healthFetch } from './MailingListFetch';
 
