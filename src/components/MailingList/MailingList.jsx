@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
-import { Post } from '../../utility/api';
-import Url, { MH_BACKEND_URL } from '../../utility/url';
+import { addEmailFetch } from './MailingListFetch';
 
 const EmailForm = styled.form`
     text-align: center;
@@ -22,8 +21,6 @@ const EmailSubmitButton = styled.input`
     min-width: 50px;
     margin-top: 10px;
 `
-
-export const addEmailFetch = payload => Post(new Url(MH_BACKEND_URL).path("v1").path("email").path("add"), payload);
 
 class MailingList extends React.Component {
     constructor(props){

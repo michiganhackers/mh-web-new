@@ -6,8 +6,7 @@ import {StaticH1} from "../../utility/ContentStyles.js";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import styled from 'styled-components';
-import { Get } from '../../utility/api';
-import Url, { ROSTER_URL } from '../../utility/url';
+import { rosterFetch } from './RosterFetch';
 
 const TableDiv = styled.div`
   display: flex;
@@ -15,15 +14,6 @@ const TableDiv = styled.div`
   align-items: center;
   margin: auto
 `
-
-const API_KEY = process.env.REACT_APP_ROSTER_API_KEY;
-const CELL_RANGES = "Sheet1!A1:B150"
-export const rosterFetch = () => Get(new Url(ROSTER_URL).queryStrings({
-  includeGridData: true,
-  ranges: CELL_RANGES,
-  key: API_KEY,
-}))
-
 
 class Roster extends Component {
   constructor(props){

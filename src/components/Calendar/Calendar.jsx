@@ -5,8 +5,7 @@ import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-import { Get } from '../../utility/api';
-import Url, { CALENDAR_URL } from '../../utility/url';
+import { calendarFetch } from './CalendarFetch';
 
 import EventWindow from './EventWindow.jsx';
 
@@ -47,12 +46,6 @@ const getTop = ({location}) => {
   }
   return 0;
 }
-
-export const calendarFetch = () => Get(new Url(CALENDAR_URL).path("events").queryStrings({
-  maxResults: 2500,
-  singleEvents: true,
-  key: process.env.REACT_APP_CALENDAR_API_KEY,
-}));
 
 const CalendarEventWindow = styled(EventWindow)`
   position: absolute;
