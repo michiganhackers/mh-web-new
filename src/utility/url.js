@@ -1,8 +1,4 @@
 
-export const MH_BACKEND_URL = process.env.REACT_APP_MH_BACKEND_URL
-export const CALENDAR_URL = process.env.REACT_APP_CALENDAR_API_URL + process.env.REACT_APP_CALENDAR_ID;
-export const ROSTER_URL = process.env.REACT_APP_ROSTER_API_URL + process.env.REACT_APP_ROSTER_ID;
-
 export default class Url {
     // Takes in base URL
     constructor(baseUrl) {
