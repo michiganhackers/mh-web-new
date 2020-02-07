@@ -8,23 +8,12 @@ import Events from "./components/Calendar/Events.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import FAQ from "./components/FAQ/FAQ.jsx";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import {
-	faListUl,
-	faLink,
-	faMapMarkerAlt,
-	faClock
-} from "@fortawesome/free-solid-svg-icons";
-import Attendance from "./components/AttendanceForm/Attendance";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
-/*
-TODO: Add the components these routes map to
-EX:             <Route path="/events" component={Calendar} />
-after having imported the Calendar component
-*/
 // Make sure to use either <Navbar /> or <SpecialNavbar /> inside all routes
 class App extends Component {
 	render() {

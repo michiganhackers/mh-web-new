@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import axios from "axios";
-import { StaticP } from "../../utility/ContentStyles.js";
+import React from 'react';
+import styled from 'styled-components';
+import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
+import { addEmailFetch } from './MailingListFetch';
 
 const EmailForm = styled.form`
 	text-align: center;
@@ -32,37 +32,22 @@ class MailingList extends React.Component {
 		this.renderSuccessOrFailure = this.renderSuccessOrFailure.bind(this);
 	}
 
-	addEmailToList(e) {
-		e.preventDefault();
+    addEmailToList(e){
+        e.preventDefault();
 
-		let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
-
-		let payload = {
-			Email: this.state.address
-		};
-		axios({
-			method: "post",
-			headers: { "content-type": "application/json" },
-			url: mh_backend + "/v1/email/add",
-			data: JSON.stringify(payload)
-		})
-			.then(res => {
-				this.setState({
-					error: null,
-					submitted: true,
-					address: ""
-				});
-			})
-			.catch(error => {
-				this.setState({
-					error
-				});
-			});
-	}
-
-	handleChange(event) {
-		this.setState({ address: event.target.value });
-	}
+        const payload = {
+            Email: this.state.address
+        };
+        /**
+         * TODO: refactor when merging with attendance branch, which adds better email error handling.
+         */
+        addEmailFetch(payload);
+        
+        this.setState({
+            address: "",
+            submitted: true
+        })
+    }
 
 	renderSuccessOrFailure() {
 		if (this.state.error) {

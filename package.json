@@ -30,7 +30,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2"
   },
   "browserslist": [
     ">0.2%",

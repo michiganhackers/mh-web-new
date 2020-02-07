@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "../../utility/fonts.css";
-import styled from "styled-components";
-import devices from "../../utility/MediaQueries.js";
+import styled from 'styled-components';
+import devices from '../../utility/MediaQueries.js';
+import $ from 'jquery';
 
 import SpecialNavbar from "../SpecialNavbar.jsx";
 
@@ -45,25 +46,24 @@ const Logo = styled.img`
 `;
 
 class Home extends Component {
+
+	componentDidMount() {
+		$("body").css("overflow", "hidden");
+	}
+
+	componentWillUnmount() {
+		$("body").css("overflow", "initial");
+	}
+
 	render() {
 		return (
 			<React.Fragment>
-				<SpecialNavbar />
-				<PolygonCanvas
-					style={{
-						width: "100%",
-						height: "100%",
-						position: "absolute",
-						transform: "scaleX(-1)"
-					}}
-				/>
-				<HomeBackgroundOuter>
-					<Logo src={logoUrl} />
-					<MainText>
-						a community of individuals who enjoy expressing creativity through
-						technology.
-					</MainText>
-				</HomeBackgroundOuter>
+			<SpecialNavbar />
+			<PolygonCanvas style={{width: '100%', height: '100%', position: 'absolute', transform: "scaleX(-1)"}}/>
+			<HomeBackgroundOuter>
+				<Logo src={logoUrl}/>
+				<MainText>a community of individuals who enjoy expressing creativity through technology.</MainText>
+			</HomeBackgroundOuter>
 			</React.Fragment>
 		);
 	}

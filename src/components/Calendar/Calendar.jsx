@@ -1,12 +1,10 @@
 import React from "react";
 import Moment from "moment";
-
-import FullCalendar from "fullcalendar-reactwrapper";
-import "fullcalendar-reactwrapper/dist/css/fullcalendar.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import styled from "styled-components";
-
-import axios from "axios";
+import FullCalendar from 'fullcalendar-reactwrapper';
+import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
+import { calendarFetch } from './CalendarFetch';
 
 import EventWindow from "./EventWindow.jsx";
 
@@ -62,172 +60,162 @@ const CalendarEventWindow = styled(EventWindow)`
 `;
 
 class Calendar extends React.Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			events: [],
-			eventHidden: true,
-			eventLocation: {},
-			eventClicked: null,
-			dateOffset: 0,
-			dateContext: "month"
-		};
-		this.getCalendarEvents = this.getCalendarEvents.bind(this);
-		this.getCalendarFormatName = this.getCalendarFormatName.bind(this);
-		this.handleEventClick = this.handleEventClick.bind(this);
-		this.closeEventWindow = this.closeEventWindow.bind(this);
-	}
+    this.state = {
+      events: [],
+      eventHidden: true,
+      eventLocation: {},
+      eventClicked: null,
+      dateOffset: 0,
+      dateContext: 'month',
+      error: null,
+    };
+    this.getCalendarEvents = this.getCalendarEvents.bind(this);
+    this.getCalendarFormatName = this.getCalendarFormatName.bind(this);
+    this.handleEventClick = this.handleEventClick.bind(this);
+    this.closeEventWindow = this.closeEventWindow.bind(this);
+  }
 
-	componentDidMount() {
-		this.getCalendarEvents();
-	}
+  componentDidMount() {
+    this.getCalendarEvents();
+  }
 
-	getCalendarEvents() {
-		let CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
-		let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
-		let CALENDAR_URL = process.env.REACT_APP_CALENDAR_API_URL;
+  getCalendarEvents() {
+    calendarFetch()
+      .then(res => {
+        let items = res.json.items;
+        let events = [];
 
-		axios
-			.get(
-				CALENDAR_URL +
-					CALENDAR_ID +
-					"/events?maxResults=2500&singleEvents=true&key=" +
-					API_KEY
-			)
-			.then(res => {
-				let items = res.data.items;
-				let events = [];
+        for (let item of items) {
+          if (item.status !== "cancelled") {
 
-				for (let item of items) {
-					if (item.status !== "cancelled") {
-						let event = {
-							id: item.id,
-							title: item.summary,
-							url: item.htmlLink,
-							description: item.description,
-							start: item.start.dateTime || item.start.date,
-							end: item.end.dateTime || item.end.date,
-							hasTime: item.end.dateTime,
-							location: item.location
-						};
+            let event = {
+              id: item.id,
+              title: item.summary,
+              url: item.htmlLink,
+              description: item.description,
+              start: item.start.dateTime || item.start.date,
+              end: item.end.dateTime || item.end.date,
+              hasTime: item.end.dateTime,
+              location: item.location
+            };
 
-						events.push(event);
-					}
-				}
+            events.push(event);
+          }
+        }
 
-				this.setState({
-					events: events
-				});
-			})
-			.catch(error => {
-				console.log(error);
-				console.log("Error: events could not be loaded");
-			});
-	}
+        this.setState({
+          events: events,
+          error: null,
+        })
+      })
+      .catch(res => {
+        this.setState({
+          error: res.error
+        })
+        console.log("Error: events could not be loaded");
+      });
+  }
 
-	handleEventClick(event, jsEvent) {
-		let calendarEventEl = Array.from(
-			document.getElementsByClassName("fc-day-grid-event")
-		).filter(elt => elt.getAttribute("href") === event.url);
+  handleEventClick(event, jsEvent) {
+    let calendarEventEl = Array.from(document.getElementsByClassName("fc-day-grid-event")).filter(elt => elt.getAttribute("href") === event.url);
 
-		if (calendarEventEl.length !== 0) {
-			let rect = calendarEventEl[0].getBoundingClientRect();
+    if (calendarEventEl.length !== 0) {
+      let rect = calendarEventEl[0].getBoundingClientRect();
 
-			this.setState({
-				eventLocation: rect,
-				eventHidden: false,
-				eventClicked: event
-			});
+      this.setState({
+        eventLocation: rect,
+        eventHidden: false,
+        eventClicked: event
+      });
 
-			return false;
-		}
-	}
+      return false;
+    }
+  }
 
-	getCalendarFormatName(offsetName) {
-		if (offsetName === "month") {
-			return "month";
-		} else if (offsetName === "week") {
-			return "basicWeek";
-		}
-	}
+  getCalendarFormatName(offsetName) {
+    if (offsetName === "month") {
+      return "month";
+    }
+    else if (offsetName === "week") {
+      return "basicWeek";
+    }
+  }
 
-	closeEventWindow(event) {
-		if (
-			event.target.className.includes("fc-title") ||
-			event.target.className.includes("fc-time")
-		) {
-			return;
-		}
-		if (event.target.className.includes("fc-button")) {
-			setTimeout(() => this.setState({ eventHidden: true }), 200);
-			return;
-		}
-		this.setState({ eventHidden: true });
-	}
+  closeEventWindow(event) {
+    if (event.target.className.includes("fc-title") || event.target.className.includes("fc-time")) {
+      return;
+    }
+    if (event.target.className.includes("fc-button")) {
+      setTimeout(() => this.setState({eventHidden: true}), 200);
+      return;
+    }
+    this.setState({eventHidden: true});
+  }
 
-	render() {
-		return (
-			<React.Fragment>
-				<FullCalendar
-					height={"auto"}
-					header={{
-						left: "customPrev,customNext customToday",
-						center: "title",
-						right: "customMonth,customWeek,listMonth"
-					}}
-					defaultDate={Moment().add(
-						this.state.dateOffset,
-						this.state.dateContext
-					)} // default date set to November 15, 2015 for testing
-					defaultView={this.getCalendarFormatName(this.state.dateContext)}
-					navLinks={true} // can click day/week names to navigate views
-					events={this.state.events}
-					eventColor={this.props.calendarStyle.color}
-					eventTextColor={this.props.calendarStyle.textColor}
-					eventClick={this.handleEventClick}
-					customButtons={{
-						customNext: {
-							text: ">",
-							click: () => {
-								this.setState({ dateOffset: this.state.dateOffset + 1 });
-							}
-						},
-						customPrev: {
-							text: "<",
-							click: () => {
-								this.setState({ dateOffset: this.state.dateOffset - 1 });
-							}
-						},
-						customToday: {
-							text: "today",
-							click: () => {
-								this.setState({ dateOffset: 0 });
-							}
-						},
-						customMonth: {
-							text: "month",
-							click: () => {
-								this.setState({ dateContext: "month", dateOffset: 0 });
-							}
-						},
-						customWeek: {
-							text: "week",
-							click: () => {
-								this.setState({ dateContext: "week", dateOffset: 0 });
-							}
-						}
-					}}
-				/>
-				<CalendarEventWindow
-					location={this.state.eventLocation}
-					eventClicked={this.state.eventClicked}
-					hidden={this.state.eventHidden}
-					closeWindow={this.closeEventWindow}
-				/>
-			</React.Fragment>
-		);
-	}
+  render() {
+    return (
+      <React.Fragment>
+        <FullCalendar
+          height= {"auto"}
+          header = {{
+            left: 'customPrev,customNext customToday',
+            center: 'title',
+            right: 'customMonth,customWeek,listMonth'
+          }}
+          defaultDate={Moment().add(this.state.dateOffset, this.state.dateContext)} // default date set to November 15, 2015 for testing
+          defaultView={this.getCalendarFormatName(this.state.dateContext)}
+          navLinks= {true} // can click day/week names to navigate views
+          events = {this.state.events}
+          eventColor = {this.props.calendarStyle.color}
+          eventTextColor = {this.props.calendarStyle.textColor}
+          eventClick = {this.handleEventClick}
+          customButtons = {{
+            customNext: {
+              text: '>',
+              click: () => {
+                this.setState({dateOffset: this.state.dateOffset+1});
+              }
+            },
+            customPrev: {
+              text: '<',
+              click: () => {
+                this.setState({dateOffset: this.state.dateOffset-1});
+              }
+            },
+            customToday: {
+              text: 'today',
+              click: () => {
+                this.setState({dateOffset: 0});
+              }
+            },
+            customMonth: {
+              text: 'month',
+              click: () => {
+                this.setState({dateContext: 'month', dateOffset: 0});
+              }
+            },
+            customWeek: {
+              text: 'week',
+              click: () => {
+                this.setState({dateContext: 'week', dateOffset: 0});
+              }
+            }
+          }}
+          />
+          <CalendarEventWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.eventHidden} closeWindow={this.closeEventWindow}/>
+      </React.Fragment>
+    );
+  }
+}
+
+Calendar.defaultProps = {
+  calendarStyle: {
+    color: '#F15D24',
+    textColor: 'white'
+  }
 }
 
 export default Calendar;
