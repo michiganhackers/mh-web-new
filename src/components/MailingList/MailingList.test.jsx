@@ -1,8 +1,13 @@
-import axios from "axios";
+import React from 'react';
+import MailingList from './MailingList';
+import { mount } from 'enzyme';
+import { healthFetch } from './MailingListFetch';
 
-// NOTE: this test does NOT consitute a thorough test of the MailingList.
-// It simply ensures that the proper environment variables are installed.
-it("can verify end-to-end networking with Mailjet", () => {
-    let mh_backend = process.env.REACT_APP_MH_BACKEND_URL;
-    return expect(axios.get(mh_backend + "/v1/email/health")).resolves.not.toThrow();
+it('renders without crashing', () => {
+    mount(<MailingList />);
+});
+
+// TODO: better unit testing here and pretty much everywhere else.
+it('can talk to the backend', () => {
+    return expect(healthFetch()).resolves.not.toThrow();
 });

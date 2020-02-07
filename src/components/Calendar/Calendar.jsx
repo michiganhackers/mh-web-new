@@ -5,8 +5,7 @@ import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-
-import axios from 'axios';
+import { calendarFetch } from './CalendarFetch';
 
 import EventWindow from './EventWindow.jsx';
 
@@ -66,7 +65,8 @@ class Calendar extends React.Component {
       eventLocation: {},
       eventClicked: null,
       dateOffset: 0,
-      dateContext: 'month'
+      dateContext: 'month',
+      error: null,
     };
     this.getCalendarEvents = this.getCalendarEvents.bind(this);
     this.getCalendarFormatName = this.getCalendarFormatName.bind(this);
@@ -79,13 +79,9 @@ class Calendar extends React.Component {
   }
 
   getCalendarEvents() {
-    let CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
-    let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
-    let CALENDAR_URL = process.env.REACT_APP_CALENDAR_API_URL;
-
-    axios.get(CALENDAR_URL + CALENDAR_ID + '/events?maxResults=2500&singleEvents=true&key=' + API_KEY)
+    calendarFetch()
       .then(res => {
-        let items = res.data.items;
+        let items = res.json.items;
         let events = [];
 
         for (let item of items) {
@@ -107,11 +103,14 @@ class Calendar extends React.Component {
         }
 
         this.setState({
-          events: events
+          events: events,
+          error: null,
         })
       })
-      .catch(error => {
-        console.log(error);
+      .catch(res => {
+        this.setState({
+          error: res.error
+        })
         console.log("Error: events could not be loaded");
       });
   }
@@ -205,6 +204,13 @@ class Calendar extends React.Component {
           <CalendarEventWindow location={this.state.eventLocation} eventClicked={this.state.eventClicked} hidden={this.state.eventHidden} closeWindow={this.closeEventWindow}/>
       </React.Fragment>
     );
+  }
+}
+
+Calendar.defaultProps = {
+  calendarStyle: {
+    color: '#F15D24',
+    textColor: 'white'
   }
 }
 

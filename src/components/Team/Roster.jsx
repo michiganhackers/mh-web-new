@@ -5,8 +5,8 @@ import "../../index.css"
 import {StaticH1} from "../../utility/ContentStyles.js";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import axios from 'axios';
 import styled from 'styled-components';
+import { rosterFetch } from './RosterFetch';
 
 const TableDiv = styled.div`
   display: flex;
@@ -43,22 +43,16 @@ class Roster extends Component {
     return people;
   }
   getRoster(){
-    let ROSTER_ID = process.env.REACT_APP_ROSTER_ID;
-    let API_KEY = process.env.REACT_APP_ROSTER_API_KEY;
-    let ROSTER_URL = process.env.REACT_APP_ROSTER_API_URL;
-    let CELL_RANGES = "Sheet1!A1:B150"
-    let REQUEST_URL = ROSTER_URL + ROSTER_ID + "?includeGridData=true&ranges=" + CELL_RANGES + "&key=" + API_KEY;
-    let people = []
-    axios.get(REQUEST_URL)
-        .then(res => {
-            people = this.constructRoster(res.data.sheets[0].data[0].rowData.slice(1));
-            this.setState({
-              data: people
-            });
-          }
-        ).catch(error => {
-            console.log(error)
-        })
+    rosterFetch()
+      .then(res => {
+        const people = this.constructRoster(res.json.sheets[0].data[0].rowData.slice(1));
+        this.setState({
+          data: people
+        });
+      })
+      .catch(res => {
+        console.log(res.error);
+      })
   }
   render() {
     return ( !this.state.data ? null :
