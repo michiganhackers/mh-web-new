@@ -7,14 +7,18 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {logged_in: false};
         this.responseGoogle = this.responseGoogle.bind(this);
         this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
     }
 
     responseGoogle(response) {
+        this.state.logged_in = true;
+        console.log(this.state.logged_in);
+        console.log(response);
         let uniqname = response.profileObj.email.split("@")[0];
         console.log(this.props);
-        this.props.updateFunction(uniqname, response.accessToken);
+        this.props.updateFunction(uniqname, response.accessToken, response.profileObj.imageUrl);
     }
 
     responseGoogleFailure(response) {
@@ -26,7 +30,7 @@ class Login extends Component {
             <React.Fragment>
                 <GoogleLogin
                     clientId={CLIENT_ID}
-                    buttonText="Login"
+                    buttonText={this.state.logged_in ? "Logged In" : "Login with Google"}
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogleFailure}
                     cookiePolicy={"single_host_origin"}

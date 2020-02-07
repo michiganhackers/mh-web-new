@@ -92,48 +92,6 @@ class AttendanceForm extends React.Component {
 		}
 	}
 
-	getCalendarEvents() {
-		let CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
-		let API_KEY = process.env.REACT_APP_CALENDAR_API_KEY;
-		let CALENDAR_URL = process.env.REACT_APP_CALENDAR_API_URL;
-
-		axios
-			.get(
-				CALENDAR_URL +
-				CALENDAR_ID +
-				"/events?maxResults=2500&singleEvents=true&key=" +
-				API_KEY
-			)
-			.then(res => {
-				let items = res.data.items;
-				let events = [];
-
-				for (let item of items) {
-					if (item.status !== "cancelled") {
-						let event = {
-							id: item.id,
-							title: item.summary,
-							url: item.htmlLink,
-							description: item.description,
-							start: item.start.dateTime || item.start.date,
-							end: item.end.dateTime || item.end.date,
-							hasTime: item.end.dateTime,
-							location: item.location
-						};
-
-						events.push(event);
-					}
-				}
-
-				this.setState({
-					events: events
-				});
-			})
-			.catch(error => {
-				console.log(error);
-				console.log("Error: events could not be loaded");
-			});
-	}
 
 	processLocationSignIn(e) {
 		e.preventDefault();
@@ -145,6 +103,7 @@ class AttendanceForm extends React.Component {
 		if (!this.state.is_in_location) return;
 
 		let uniqnameAndToken = this.props.getUniqnameToken();
+		if (!uniqnameAndToken.uniqname) return;
 		let payload = {
 			uniqname: uniqnameAndToken.uniqname,
 			token: uniqnameAndToken.token

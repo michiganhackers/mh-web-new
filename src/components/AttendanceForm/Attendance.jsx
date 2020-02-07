@@ -12,16 +12,17 @@ class Attendance extends Component {
 		super(props);
 		this.state = {
 			uniqname: null,
-			token: null
+			token: null,
+			image_url: null
 		};
 
 		this.updateGoogleLoginInfo = this.updateGoogleLoginInfo.bind(this);
 		this.getUniqnameToken = this.getUniqnameToken.bind(this);
 	}
 
-	updateGoogleLoginInfo(uniqname, token) {
-		this.state.uniqname = uniqname;
-		this.state.token = token;
+	updateGoogleLoginInfo(uniqname, token, image_url) {
+		this.setState({uniqname: uniqname, token: token, image_url: image_url});
+		console.log(this.state);
 	}
 
 	getUniqnameToken() {
@@ -34,7 +35,8 @@ class Attendance extends Component {
 			<React.Fragment>
 				<Navbar />
 				<SubpageOuter header="attendance">
-					<Login updateFunction={this.updateGoogleLoginInfo}/>
+					{!this.state.uniqname ? <Login style="float: center" updateFunction={this.updateGoogleLoginInfo}/> : null}
+					{this.state.uniqname ? <img src={this.state.image_url} width="50" height="50"></img> : null}
 					<AttendanceForm getUniqnameToken={this.getUniqnameToken}/>
 				</SubpageOuter>
 			</React.Fragment>
