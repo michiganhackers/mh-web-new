@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import styled from "styled-components";
 import axios from "axios";
 import { StaticP } from "../../utility/ContentStyles.js";
+import {addAttendanceFetch} from "./AttendanceFormFetch";
 
 const EmailForm = styled.form`
 	text-align: center;
@@ -105,20 +106,21 @@ class AttendanceForm extends React.Component {
 		let uniqnameAndToken = this.props.getUniqnameToken();
 		if (!uniqnameAndToken.uniqname) return;
 		let payload = {
+			code_needed: false,
 			uniqname: uniqnameAndToken.uniqname,
 			token: uniqnameAndToken.token
 		};
 
-		axios({
-			method: "post",
-			headers: { "content-type": "application/json" },
-			url: mh_backend + "/v1/",
-			data: JSON.stringify(payload)
-		})
-			.then(res => {})
-			.catch(error => {
-				console.log(error);
-			});
+		addAttendanceFetch(payload).then(res => {
+			this.setState({
+				error: null,
+				submitted: true,
+				code: ""
+			})
+		}).catch(error => {
+				this.setState({error})
+			}
+		);
 
 		this.setState({
 			submitted: true
@@ -132,20 +134,22 @@ class AttendanceForm extends React.Component {
 
 		let uniqnameAndToken = this.props.getUniqnameToken();
 		let payload = {
+			code_needed: true,
 			code: this.state.code,
 			uniqname: uniqnameAndToken.uniqname,
 			token: uniqnameAndToken.token
 		};
-		axios({
-			method: "post",
-			headers: { "content-type": "application/json" },
-			url: mh_backend + "/v1/",
-			data: JSON.stringify(payload)
-		})
-			.then(res => {})
-			.catch(error => {
-				console.log(error);
-			});
+
+		addAttendanceFetch(payload).then(res => {
+			this.setState({
+				error: null,
+				submitted: true,
+				code: ""
+			})
+		}).catch(error => {
+				this.setState({error})
+			}
+		);
 
 		this.setState({
 			code: "",

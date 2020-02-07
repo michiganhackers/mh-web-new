@@ -41,7 +41,17 @@ class MailingList extends React.Component {
         /**
          * TODO: refactor when merging with attendance branch, which adds better email error handling.
          */
-        addEmailFetch(payload);
+        addEmailFetch(payload).then(res => {
+        	this.setState({
+				error: null,
+				submitted: true,
+				address: ""
+        	})
+		}).catch(error => {
+			this.setState({error})
+			}
+
+		);
         
         this.setState({
             address: "",
@@ -62,6 +72,10 @@ class MailingList extends React.Component {
 			return <StaticP> Successfully Added! </StaticP>;
 		}
 		return null;
+	}
+
+	handleChange(event) {
+		this.setState({ address: event.target.value });
 	}
 
 	render() {

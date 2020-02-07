@@ -7,6 +7,7 @@ import Team from "./components/Team/Team.jsx";
 import Events from "./components/Calendar/Events.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import FAQ from "./components/FAQ/FAQ.jsx";
+import Attendance from "./components/AttendanceForm/Attendance";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
