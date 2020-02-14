@@ -1,18 +1,12 @@
-import axios from "axios";
+import Roster from './Roster';
+import { rosterFetch } from './RosterFetch';
+import React from 'react';
+import { mount } from 'enzyme';
 
-it("can talk to Google calendar", () => {
-    let ROSTER_ID = process.env.REACT_APP_ROSTER_ID;
-    let API_KEY = process.env.REACT_APP_ROSTER_API_KEY;
-    let ROSTER_URL = process.env.REACT_APP_ROSTER_API_URL;
-    let CELL_RANGES = "Sheet1!A1:B150";
-    let REQUEST_URL =
-        ROSTER_URL +
-        ROSTER_ID +
-        "?includeGridData=true&ranges=" +
-        CELL_RANGES +
-        "&key=" +
-        API_KEY;
-        
-    return expect(axios
-        .get(REQUEST_URL)).resolves.not.toThrow();
+it('renders without crashing', () => {
+	mount(<Roster />);
 });
+
+it('fetches correctly', () => {
+	return expect(rosterFetch()).resolves.not.toThrow();
+})
