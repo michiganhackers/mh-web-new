@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import logoOrange from "../../assets/logo-orange.png";
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
 
@@ -17,20 +15,20 @@ const Header = styled.h1`
   `}
   text-transform: uppercase;
   margin: 10vw 0 4vw 0;
-`
+`;
 
 const HeaderOuter = styled.div``;
 
 class StaticHeader extends Component {
-  render() {
-    return (
-      <HeaderOuter>
-          <Header>
-            {this.props.children}
-          </Header>
-      </HeaderOuter>
-    );
-  }
+    render() {
+        return (
+            <HeaderOuter>
+                <Header>
+                    {this.props.children}
+                </Header>
+            </HeaderOuter>
+        );
+    }
 }
 
 export default StaticHeader;

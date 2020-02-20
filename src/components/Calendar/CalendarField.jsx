@@ -25,96 +25,96 @@ const MAX_DESCRIPTION_WORDS = 40;
 
 class CalendarField extends React.Component {
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.truncate = this.truncate.bind(this);
-    this.toggleExpanded = this.toggleExpanded.bind(this);
-    this.update = this.update.bind(this);
+        this.truncate = this.truncate.bind(this);
+        this.toggleExpanded = this.toggleExpanded.bind(this);
+        this.update = this.update.bind(this);
 
-    this.state = {
-      small: false,
-      expanded: false
+        this.state = {
+            small: false,
+            expanded: false
+        };
     }
-  }
 
-  componentDidMount() {
-    this.update(this.props.text);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.text !== prevProps.text) {
-      this.update(this.props.text);
+    componentDidMount() {
+        this.update(this.props.text);
     }
-  }
 
-  update(text) {
-    let small = text && text.trim() !== ""
-        && text.split(" ").length <= MAX_DESCRIPTION_WORDS;
-    this.setState({small: small, expanded: false});
-  }
-
-  truncate(text) {
-    if (!this.state.small) {
-      return text.split(" ").slice(0, MAX_DESCRIPTION_WORDS).join(" ");
-    }
-    return text;
-  }
-
-  toggleExpanded() {
-    this.setState({
-      expanded: !this.state.expanded
-    });
-  }
-
-  render() {
-    if (this.props.text && this.props.text.trim() !== "") {
-      let buffer = [];
-
-      if (this.props.link) {
-        buffer.push(<a key="link" href={this.props.text}>{this.props.text}</a>);
-      }
-      else {
-        if (this.state.small) {
-          buffer.push(
-            <span key="regular">{this.props.text}</span>
-          );
+    componentDidUpdate(prevProps) {
+        if (this.props.text !== prevProps.text) {
+            this.update(this.props.text);
         }
-        else if (!this.state.expanded) {
-          buffer.push(
-            <React.Fragment key="less">
-              <span>{this.truncate(this.props.text) + '...'}</span>
-              <br></br>
-              <a href="#" onClick={this.toggleExpanded}>See more</a>
-            </React.Fragment>
-          );
+    }
+
+    update(text) {
+        const small = text && text.trim() !== ""
+        && text.split(" ").length <= MAX_DESCRIPTION_WORDS;
+        this.setState({ small: small, expanded: false });
+    }
+
+    truncate(text) {
+        if (!this.state.small) {
+            return text.split(" ").slice(0, MAX_DESCRIPTION_WORDS).join(" ");
+        }
+        return text;
+    }
+
+    toggleExpanded() {
+        this.setState({
+            expanded: !this.state.expanded
+        });
+    }
+
+    render() {
+        if (this.props.text && this.props.text.trim() !== "") {
+            const buffer = [];
+
+            if (this.props.link) {
+                buffer.push(<a key="link" href={this.props.text}>{this.props.text}</a>);
+            }
+            else {
+                if (this.state.small) {
+                    buffer.push(
+                        <span key="regular">{this.props.text}</span>
+                    );
+                }
+                else if (!this.state.expanded) {
+                    buffer.push(
+                        <React.Fragment key="less">
+                            <span>{this.truncate(this.props.text) + '...'}</span>
+                            <br></br>
+                            <a href="#" onClick={this.toggleExpanded}>See more</a>
+                        </React.Fragment>
+                    );
+                }
+                else {
+                    buffer.push(
+                        <React.Fragment key="more">
+                            <span>{this.props.text}</span>
+                            <br></br>
+                            <a href="#" onClick={this.toggleExpanded}>See less</a>
+                        </React.Fragment>
+                    );
+                }
+            }
+
+            return (
+                <CalendarFieldContainer className={this.props.className}>
+                    <IconContainer>
+                        <FontAwesomeIcon icon={this.props.icon} />
+                    </IconContainer>
+                    <CalendarTextContainer>
+                        {buffer}
+                    </CalendarTextContainer>
+                </CalendarFieldContainer>
+            );
         }
         else {
-          buffer.push(
-            <React.Fragment key="more">
-              <span>{this.props.text}</span>
-              <br></br>
-              <a href="#" onClick={this.toggleExpanded}>See less</a>
-            </React.Fragment>
-          );
+            return null;
         }
-      }
-
-      return (
-        <CalendarFieldContainer className={this.props.className}>
-          <IconContainer>
-            <FontAwesomeIcon icon={this.props.icon} />
-          </IconContainer>
-          <CalendarTextContainer>
-            {buffer}
-          </CalendarTextContainer>
-        </CalendarFieldContainer>
-      );
     }
-    else {
-      return null;
-    }
-  }
 }
 
 export default CalendarField;

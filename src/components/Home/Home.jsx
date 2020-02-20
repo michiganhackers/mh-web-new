@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import rightPhotoURL from "../../assets/sample-photo.jpg";
-import logoOrange from "../../assets/logo-orange.png";
 import "../../utility/fonts.css";
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
@@ -18,7 +15,7 @@ const HomeBackgroundOuter = styled.div`
   height: 100vh;
   width: 100%;
   pointer-events: none;
-`
+`;
 
 const MainText = styled.h1`
   font-family: "Roboto Condensed";
@@ -36,7 +33,7 @@ const MainText = styled.h1`
     font-size: 10vw;
   `}
   text-transform: uppercase;
-`
+`;
 
 const Logo = styled.img`
   display: block;
@@ -46,30 +43,35 @@ const Logo = styled.img`
   `}
   height: auto;
   padding: 2vw;
-`
+`;
 
 class Home extends Component {
 
-	componentDidMount() {
-		$("body").css("overflow", "hidden");
-	}
+    componentDidMount() {
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+        });
+        $("body").css("overflow", "hidden");
+    }
 
-	componentWillUnmount() {
-		$("body").css("overflow", "initial");
-	}
+    componentWillUnmount() {
+        $("body").css("overflow", "initial");
+    }
 
-	render() {
-		return (
-			<React.Fragment>
-			<SpecialNavbar />
-			<PolygonCanvas style={{width: '100%', height: '100%', position: 'absolute', transform: "scaleX(-1)"}}/>
-			<HomeBackgroundOuter>
-				<Logo src={logoUrl}/>
-				<MainText>a community of individuals who enjoy expressing creativity through technology.</MainText>
-			</HomeBackgroundOuter>
-			</React.Fragment>
-		);
-	}
+    render() {
+        return (
+            <React.Fragment>
+                <SpecialNavbar />
+                <PolygonCanvas style={{ width: '100%', height: '100%', position: 'absolute', transform: "scaleX(-1)" }}/>
+                <HomeBackgroundOuter>
+                    <Logo src={logoUrl}/>
+                    <MainText>a community of individuals who enjoy expressing creativity through technology.</MainText>
+                </HomeBackgroundOuter>
+            </React.Fragment>
+        );
+    }
 }
 
 export default Home;

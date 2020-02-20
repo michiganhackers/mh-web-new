@@ -1,3 +1,45 @@
 {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+          "createClass": "createReactClass",
+          "pragma": "React",
+          "version": "detect"
+        }
+    },
+    "globals": {
+        "process": "readonly",
+        "fetch": "readonly",
+        "document": "readonly",
+        "Promise": "readonly",
+        "it": "readonly",
+        "expect": "readonly",
+        "console": "readonly",
+        "window": "readonly",
+        "setTimeout": "readonly"
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "rules": {
+        "semi": ["error", "always"],
+        "no-eval": ["error"],
+        "prefer-const": ["error", {
+            "destructuring": "any",
+            "ignoreReadBeforeAssign": false
+        }],
+        "react/no-find-dom-node": "off",
+        "no-console": "off",
+        "no-unused-vars": ["error"],
+        "jsx-quotes": ["error", "prefer-double"],
+        "no-var": "error",
+        "react/prop-types": 0,
+        "indent": ["error", 4],
+        "no-multiple-empty-lines": "error",
+        "array-bracket-spacing": ["error", "always"],
+        "object-curly-spacing": ["error", "always"]
+    }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import devices from '../utility/MediaQueries.js';
-import logoUrl from '../assets/logo.png'; // webpack takes care of creating the appropriate path upon build. Prefer this to putting static assets in /public
 
 const Wrapper = styled.div`
     position: fixed;
@@ -38,13 +37,6 @@ const FlexWrapper = styled.div`
     `}
 `;
 
-const Logo = styled.img`
-    margin: auto;
-    height: 50px;
-    display: block;
-    paddingBottom: 5px;
-`;
-
 const NavContainer = styled.div`
     display: flex;
     align-items: center;
@@ -74,39 +66,32 @@ const HeaderNavLink = styled(NavLink)`
     }
 `;
 
-const LogoNavLink = styled(NavLink)`
-    display: flex;
-    justify-content: flex-start;
-    fontSize: 22px;
-    padding: 2px 20px;
-`;
-
 class SpecialNavbar extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <FlexWrapper>
-          <NavContainer>
-            <HeaderNavLink to="/about">
-              about
-            </HeaderNavLink>
-            <HeaderNavLink to="/team">
-              team
-            </HeaderNavLink>
-            <HeaderNavLink to="/events">
-              calendar
-            </HeaderNavLink>
-            <HeaderNavLink to="/contact">
-              contact
-            </HeaderNavLink>
-            <HeaderNavLink to="/faq">
-              faq
-            </HeaderNavLink>
-          </NavContainer>
-        </FlexWrapper>
-      </Wrapper>
-    );
-  }
+    render() {
+        return (
+            <Wrapper>
+                <FlexWrapper>
+                    <NavContainer>
+                        <HeaderNavLink to="/about">
+                        about
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/team">
+                        team
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/events">
+                        calendar
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/contact">
+                        contact
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/faq">
+                        faq
+                        </HeaderNavLink>
+                    </NavContainer>
+                </FlexWrapper>
+            </Wrapper>
+        );
+    }
 }
 
 export default SpecialNavbar;
