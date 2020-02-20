@@ -7,7 +7,7 @@ import Roster from './Roster.jsx';
 
 class Team extends React.Component {
 
-    render(){
+    render() {
         return(
         <React.Fragment>
         <Navbar />

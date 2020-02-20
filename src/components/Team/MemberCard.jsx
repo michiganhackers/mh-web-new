@@ -108,27 +108,27 @@ class MemberCard extends React.Component {
 
       let returnValue = [];
       
-      if(this.props.instagramUrl !== '') {
-        returnValue.push(<IconLink key="insta" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></IconLink>);
-      }
-      if(this.props.githubUrl !== ''){
-        returnValue.push(<IconLink key="git" href={this.props.githubUrl}><i className="fa fa-github"></i></IconLink>);
-      }
-      if(this.props.linkedinUrl !== '') {
-        returnValue.push(<IconLink key="linked" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></IconLink>);
-      }
-      if(this.props.facebookUrl !== '') {
-        returnValue.push(<IconLink key="fb" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></IconLink>);
-      }
-      if(this.props.personalUrl !== '') {
-        returnValue.push(<IconLink key="personal" href={this.props.personalUrl}><i className="fa fa-user"></i></IconLink>);
-      }
+        if(this.props.instagramUrl !== '') {
+            returnValue.push(<IconLink key="insta" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></IconLink>);
+        }
+        if(this.props.githubUrl !== '') {
+            returnValue.push(<IconLink key="git" href={this.props.githubUrl}><i className="fa fa-github"></i></IconLink>);
+        }
+        if(this.props.linkedinUrl !== '') {
+            returnValue.push(<IconLink key="linked" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></IconLink>);
+        }
+        if(this.props.facebookUrl !== '') {
+            returnValue.push(<IconLink key="fb" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></IconLink>);
+        }
+        if(this.props.personalUrl !== '') {
+            returnValue.push(<IconLink key="personal" href={this.props.personalUrl}><i className="fa fa-user"></i></IconLink>);
+        }
 
-      return returnValue;
+        return returnValue;
 
     }
 
-    render(){
+    render() {
         return(
             <Card>
                 <Leadership src={ this.props.imagePath } alt="leadership" />

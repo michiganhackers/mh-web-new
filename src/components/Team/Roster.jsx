@@ -16,33 +16,33 @@ const TableDiv = styled.div`
 `
 
 class Roster extends Component {
-  constructor(props){
-      super(props)
-      this.getRoster = this.getRoster.bind(this);
-      this.createPerson = this.createPerson.bind(this);
-      this.constructRoster = this.constructRoster.bind(this);
-      this.state = {
-        data: null
-      }
-  }
+    constructor(props) {
+        super(props);
+        this.getRoster = this.getRoster.bind(this);
+        this.createPerson = this.createPerson.bind(this);
+        this.constructRoster = this.constructRoster.bind(this);
+        this.state = {
+            data: null
+        };
+    }
     componentDidMount() {
         this.getRoster();
     }
-    createPerson(row){
+    createPerson(row) {
         return {
             name: row.values[0].effectiveValue.stringValue,
             team: row.values[1].effectiveValue.stringValue,
         };
     }
-    constructRoster(rowData){
+    constructRoster(rowData) {
         const people = [];
-        for (const row of rowData){
-            if ( row.values[0].length === 0 || !row.values[0].userEnteredValue) break;
+        for (const row of rowData) {
+            if ( row.values[0].length === 0 || !row.values[0].userEnteredValue) {break;}
             people.push(this.createPerson(row));
         }
         return people;
     }
-    getRoster(){
+    getRoster() {
         rosterFetch()
             .then(res => {
                 const people = this.constructRoster(res.json.sheets[0].data[0].rowData.slice(1));

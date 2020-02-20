@@ -68,7 +68,7 @@ function fetcher(url, options) {
         })
         .then(json => {
             // Response was good and we successfully unmarshalled
-            if (goodJSON) return makeResponseData(savedResponse, json, null);
+            if (goodJSON) {return makeResponseData(savedResponse, json, null);}
             return Promise.reject({ json, reason: JSON_AND_NOT_OK });
         })
         .catch(error => {

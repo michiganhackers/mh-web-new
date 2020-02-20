@@ -42,6 +42,8 @@
         "array-bracket-spacing": ["error", "always"],
         "object-curly-spacing": ["error", "always"],
         "no-duplicate-imports": "error",
-        "no-useless-constructor": "error"
+        "no-useless-constructor": "error",
+        "curly": "error",
+        "space-before-blocks": ["error", "always"]
     }
 }

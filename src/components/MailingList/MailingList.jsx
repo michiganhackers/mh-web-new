@@ -23,15 +23,15 @@ const EmailSubmitButton = styled.input`
 `
 
 class MailingList extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state =  {address: '', submitted: false};
+        this.state = { address: '', submitted: false };
 
         this.handleChange = this.handleChange.bind(this);
         this.addEmailToList = this.addEmailToList.bind(this);
     }
 
-    addEmailToList(e){
+    addEmailToList(e) {
         e.preventDefault();
 
         const payload = {
@@ -52,7 +52,7 @@ class MailingList extends React.Component {
         this.setState({address: event.target.value});
     }
 
-    render(){
+    render() {
         return(
             <EmailForm onSubmit={this.addEmailToList}>
                 <StaticP>
