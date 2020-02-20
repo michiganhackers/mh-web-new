@@ -11,4 +11,6 @@ and get going!
 
 To run tests, run `yarn test`.
 
+To lint (i.e. check for style, etc.), run `yarn lint`, and to lint and automatically repair some issues, run `yarn lint-fix`.
+
 To run tests and create a build (i.e.for the purpose of deployment), run `yarn build`.
