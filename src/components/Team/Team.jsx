@@ -3,16 +3,18 @@ import "../../utility/fonts.css";
 import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import Navbar from '../Navbar.jsx';
 import CardContainer from './CardContainer.jsx';
+import Roster from './Roster.jsx';
 
 class Team extends React.Component {
 
     render(){
         return(
-            <React.Fragment>
-                <Navbar/>
-                <SubpageOuter header="our team"/>
-                <CardContainer/>
-            </React.Fragment>
+        <React.Fragment>
+        <Navbar />
+        <SubpageOuter header="our team">
+        </SubpageOuter>
+        <CardContainer />
+        </React.Fragment>
 
         );
     }

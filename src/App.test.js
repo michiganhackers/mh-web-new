@@ -3,5 +3,5 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 it('renders without crashing', () => {
-    mount(<App />);
+	const calendar = mount(<App />);
 });

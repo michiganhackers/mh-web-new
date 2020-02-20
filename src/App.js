@@ -9,29 +9,29 @@ import Contact from "./components/Contact/Contact.jsx";
 import FAQ from "./components/FAQ/FAQ.jsx";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
 // Make sure to use either <Navbar /> or <SpecialNavbar /> inside all routes
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Router>
-                    <React.Fragment>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/events" component={Events}/>
-                        <Route path="/about" component={About}/>
-                        <Route path="/team" component={Team}/>
-                        <Route path="/contact" component={Contact}/>
-                        <Route path="/faq" component={FAQ}/>     
-                    </React.Fragment>
-                </Router>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Router>
+          <React.Fragment>
+            <Route exact path="/" component={Home} />
+            <Route path="/events" component={Events}/>
+            <Route path="/about" component={About}/>
+            <Route path="/team" component={Team}/>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/faq" component={FAQ}/>     
+          </React.Fragment>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
