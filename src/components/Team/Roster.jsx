@@ -35,8 +35,8 @@ class Roster extends Component {
     }
     constructRoster(rowData) {
         const people = [];
-        for (const row of rowData){
-            if ( row.values[0].length === 0 || !row.values[0].userEnteredValue) break;
+        for (const row of rowData) {
+            if ( row.values[0].length === 0 || !row.values[0].userEnteredValue) {break;}
             people.push(this.createPerson(row));
         }
         return people;
