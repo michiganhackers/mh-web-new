@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
 
@@ -31,11 +31,11 @@ const Content = styled.div`
   }
 } */
 
-const SubpageOuter = () => (
-  <Outer>
-    <StaticHeader>{this.props.header}</StaticHeader>
-    <Content>{this.props.children}</Content>
-  </Outer>
+const SubpageOuter = (props) => (
+    <Outer>
+        <StaticHeader>{props.header}</StaticHeader>
+        <Content>{props.children}</Content>
+    </Outer>
 );
 
 export default SubpageOuter;

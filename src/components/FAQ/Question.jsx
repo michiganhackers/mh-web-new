@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "../../utility/fonts.css";
 import "../../index.css";
 import { StaticP, StaticH1 } from "../../utility/ContentStyles.js";
@@ -14,10 +14,10 @@ import { StaticP, StaticH1 } from "../../utility/ContentStyles.js";
     }
 } */
 
-const Question = () => (
+const Question = (props) => (
     <React.Fragment>
-        <StaticH1>Q: {this.props.question}</StaticH1>
-        <StaticP>{this.props.answer}</StaticP>
+        <StaticH1>Q: {props.question}</StaticH1>
+        <StaticP>{props.answer}</StaticP>
     </React.Fragment>
 );
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import devices from '../utility/MediaQueries.js';
@@ -95,27 +95,27 @@ const HeaderNavLink = styled(NavLink)`
 } */
 
 const SpecialNavbar = () => (
-  <Wrapper>
-    <FlexWrapper>
-      <NavContainer>
-        <HeaderNavLink to="/about">
+    <Wrapper>
+        <FlexWrapper>
+            <NavContainer>
+                <HeaderNavLink to="/about">
           about
-                        </HeaderNavLink>
-        <HeaderNavLink to="/team">
+                </HeaderNavLink>
+                <HeaderNavLink to="/team">
           team
-                        </HeaderNavLink>
-        <HeaderNavLink to="/events">
+                </HeaderNavLink>
+                <HeaderNavLink to="/events">
           calendar
-                        </HeaderNavLink>
-        <HeaderNavLink to="/contact">
+                </HeaderNavLink>
+                <HeaderNavLink to="/contact">
           contact
-                        </HeaderNavLink>
-        <HeaderNavLink to="/faq">
+                </HeaderNavLink>
+                <HeaderNavLink to="/faq">
           faq
-                        </HeaderNavLink>
-      </NavContainer>
-    </FlexWrapper>
-  </Wrapper>
+                </HeaderNavLink>
+            </NavContainer>
+        </FlexWrapper>
+    </Wrapper>
 );
 
 export default SpecialNavbar;

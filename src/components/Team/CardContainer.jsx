@@ -400,7 +400,7 @@ const CardContainer = () => (
         </CarouselContainer>
         <StaticH1>
             Executive Team
-                </StaticH1>
+        </StaticH1>
         <div>
             <Cards>
                 <div>
@@ -455,7 +455,7 @@ const CardContainer = () => (
         </div>
         <StaticH1>
             Core Leadership
-                </StaticH1>
+        </StaticH1>
         <div>
             <Cards>
                 <div>
@@ -611,7 +611,7 @@ const CardContainer = () => (
             </SubpageOuter>
             <StaticH1>
                 Senior Advisors
-                    </StaticH1>
+            </StaticH1>
             <div>
                 <Cards>
                     <div>

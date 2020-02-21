@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import devices from '../utility/MediaQueries.js';
@@ -115,19 +115,19 @@ const Navbar = () => (
             <NavContainer>
                 <HeaderNavLink to="/about">
                     about
-                        </HeaderNavLink>
+                </HeaderNavLink>
                 <HeaderNavLink to="/team">
                     team
-                        </HeaderNavLink>
+                </HeaderNavLink>
                 <HeaderNavLink to="/events">
                     calendar
-                        </HeaderNavLink>
+                </HeaderNavLink>
                 <HeaderNavLink to="/contact">
                     contact
-                        </HeaderNavLink>
+                </HeaderNavLink>
                 <HeaderNavLink to="/faq">
                     faq
-                        </HeaderNavLink>
+                </HeaderNavLink>
             </NavContainer>
         </FlexWrapper>
     </Wrapper>

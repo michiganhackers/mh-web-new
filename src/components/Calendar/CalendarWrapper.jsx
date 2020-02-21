@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Calendar from './Calendar.jsx';
 
 const CalendarStyle = {

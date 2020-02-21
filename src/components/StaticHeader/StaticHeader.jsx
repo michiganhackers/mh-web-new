@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
 
@@ -31,10 +31,10 @@ const HeaderOuter = styled.div``;
     }
 } */
 
-const StaticHeader = () => (
+const StaticHeader = (props) => (
     <HeaderOuter>
         <Header>
-            {this.props.children}
+            {props.children}
         </Header>
     </HeaderOuter>
 );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "../../utility/fonts.css";
 import "../../index.css";
 import styled from 'styled-components';
@@ -36,17 +36,17 @@ const LowSponsors = styled.div`
 `;
 
 const Sponsors = () => (
-  <React.Fragment>
-    <StaticH1>
+    <React.Fragment>
+        <StaticH1>
       Our Top Sponsors
-                </StaticH1>
-    <HighSponsors>
-      <HighLogo src={GoogleLogo} /> <HighLogo src={C1Logo} />
-    </HighSponsors>
-    <LowSponsors>
-      <LowLogo src={GraingerLogo} /> <LowLogo src={TargetLogo} /> <LowLogo src={SCM} />
-    </LowSponsors>
-  </React.Fragment>
+        </StaticH1>
+        <HighSponsors>
+            <HighLogo src={GoogleLogo} /> <HighLogo src={C1Logo} />
+        </HighSponsors>
+        <LowSponsors>
+            <LowLogo src={GraingerLogo} /> <LowLogo src={TargetLogo} /> <LowLogo src={SCM} />
+        </LowSponsors>
+    </React.Fragment>
 );
 
 export default Sponsors;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "../../utility/fonts.css";
 import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import Calendar from "./Calendar.jsx";
