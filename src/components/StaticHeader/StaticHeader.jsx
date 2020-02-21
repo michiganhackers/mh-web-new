@@ -19,7 +19,7 @@ const Header = styled.h1`
 
 const HeaderOuter = styled.div``;
 
-class StaticHeader extends Component {
+/* class StaticHeader extends Component {
     render() {
         return (
             <HeaderOuter>
@@ -29,6 +29,14 @@ class StaticHeader extends Component {
             </HeaderOuter>
         );
     }
-}
+} */
+
+const StaticHeader = () => (
+    <HeaderOuter>
+        <Header>
+            {this.props.children}
+        </Header>
+    </HeaderOuter>
+);
 
 export default StaticHeader;

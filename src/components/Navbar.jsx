@@ -75,7 +75,7 @@ const LogoNavLink = styled(NavLink)`
     padding: 2px 10px;
 `;
 
-class Navbar extends Component {
+/* class Navbar extends Component {
     render() {
         return (
             <Wrapper>
@@ -85,25 +85,52 @@ class Navbar extends Component {
                     </LogoNavLink>
                     <NavContainer>
                         <HeaderNavLink to="/about">
-              about
+                            about
                         </HeaderNavLink>
                         <HeaderNavLink to="/team">
-              team
+                            team
                         </HeaderNavLink>
                         <HeaderNavLink to="/events">
-              calendar
+                            calendar
                         </HeaderNavLink>
                         <HeaderNavLink to="/contact">
-              contact
+                            contact
                         </HeaderNavLink>
                         <HeaderNavLink to="/faq">
-              faq
+                            faq
                         </HeaderNavLink>
                     </NavContainer>
                 </FlexWrapper>
             </Wrapper>
         );
     }
-}
+} */
+
+const Navbar = () => (
+    <Wrapper>
+        <FlexWrapper>
+            <LogoNavLink to="/">
+                <Logo src={logoUrl} />
+            </LogoNavLink>
+            <NavContainer>
+                <HeaderNavLink to="/about">
+                    about
+                        </HeaderNavLink>
+                <HeaderNavLink to="/team">
+                    team
+                        </HeaderNavLink>
+                <HeaderNavLink to="/events">
+                    calendar
+                        </HeaderNavLink>
+                <HeaderNavLink to="/contact">
+                    contact
+                        </HeaderNavLink>
+                <HeaderNavLink to="/faq">
+                    faq
+                        </HeaderNavLink>
+            </NavContainer>
+        </FlexWrapper>
+    </Wrapper>
+);
 
 export default Navbar;

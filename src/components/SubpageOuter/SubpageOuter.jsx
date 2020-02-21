@@ -20,15 +20,22 @@ const Content = styled.div`
   margin: auto;
 `;
 
-class SubpageOuter extends Component {
-    render() {
-        return (
-            <Outer>
-                <StaticHeader>{this.props.header}</StaticHeader>
-                <Content>{this.props.children}</Content>
-            </Outer>
-        );
-    }
-}
+/* class SubpageOuter extends Component {
+  render() {
+    return (
+      <Outer>
+        <StaticHeader>{this.props.header}</StaticHeader>
+        <Content>{this.props.children}</Content>
+      </Outer>
+    );
+  }
+} */
+
+const SubpageOuter = () => (
+  <Outer>
+    <StaticHeader>{this.props.header}</StaticHeader>
+    <Content>{this.props.children}</Content>
+  </Outer>
+);
 
 export default SubpageOuter;

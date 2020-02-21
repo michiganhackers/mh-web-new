@@ -66,32 +66,56 @@ const HeaderNavLink = styled(NavLink)`
     }
 `;
 
-class SpecialNavbar extends Component {
-    render() {
-        return (
-            <Wrapper>
-                <FlexWrapper>
-                    <NavContainer>
-                        <HeaderNavLink to="/about">
+/* class SpecialNavbar extends Component {
+  render() {
+    return (
+      <Wrapper>
+        <FlexWrapper>
+          <NavContainer>
+            <HeaderNavLink to="/about">
               about
                         </HeaderNavLink>
-                        <HeaderNavLink to="/team">
+            <HeaderNavLink to="/team">
               team
                         </HeaderNavLink>
-                        <HeaderNavLink to="/events">
+            <HeaderNavLink to="/events">
               calendar
                         </HeaderNavLink>
-                        <HeaderNavLink to="/contact">
+            <HeaderNavLink to="/contact">
               contact
                         </HeaderNavLink>
-                        <HeaderNavLink to="/faq">
+            <HeaderNavLink to="/faq">
               faq
                         </HeaderNavLink>
-                    </NavContainer>
-                </FlexWrapper>
-            </Wrapper>
-        );
-    }
-}
+          </NavContainer>
+        </FlexWrapper>
+      </Wrapper>
+    );
+  }
+} */
+
+const SpecialNavbar = () => (
+  <Wrapper>
+    <FlexWrapper>
+      <NavContainer>
+        <HeaderNavLink to="/about">
+          about
+                        </HeaderNavLink>
+        <HeaderNavLink to="/team">
+          team
+                        </HeaderNavLink>
+        <HeaderNavLink to="/events">
+          calendar
+                        </HeaderNavLink>
+        <HeaderNavLink to="/contact">
+          contact
+                        </HeaderNavLink>
+        <HeaderNavLink to="/faq">
+          faq
+                        </HeaderNavLink>
+      </NavContainer>
+    </FlexWrapper>
+  </Wrapper>
+);
 
 export default SpecialNavbar;
