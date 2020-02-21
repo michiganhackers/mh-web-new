@@ -15,7 +15,7 @@ export default class Url {
 
     // Adds on a path parameter (e.g. in localhost:8080/review/5, "5"). Also adds on a leading slash.
     pathParameter(id) {
-        if (typeof(id) !== "string") id = toString(id);
+        if (typeof(id) !== "string") {id = toString(id);}
         this.url += '/' + encodeURIComponent(id);
         return this;
     }

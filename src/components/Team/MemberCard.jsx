@@ -1,9 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
-import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import devices from '../../utility/MediaQueries.js';
-import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import styled, { css } from 'styled-components';
 
 const specificResponsiveness = (...args) => css`@media all and (min-width: 214px) and (max-width: 600px) {${css(...args)};}`;
@@ -106,49 +102,49 @@ class MemberCard extends React.Component {
 
     nonemptyUrls() {
 
-      let returnValue = [];
+        const returnValue = [];
       
-      if(this.props.instagramUrl !== '') {
-        returnValue.push(<IconLink key="insta" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></IconLink>);
-      }
-      if(this.props.githubUrl !== ''){
-        returnValue.push(<IconLink key="git" href={this.props.githubUrl}><i className="fa fa-github"></i></IconLink>);
-      }
-      if(this.props.linkedinUrl !== '') {
-        returnValue.push(<IconLink key="linked" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></IconLink>);
-      }
-      if(this.props.facebookUrl !== '') {
-        returnValue.push(<IconLink key="fb" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></IconLink>);
-      }
-      if(this.props.personalUrl !== '') {
-        returnValue.push(<IconLink key="personal" href={this.props.personalUrl}><i className="fa fa-user"></i></IconLink>);
-      }
+        if(this.props.instagramUrl !== '') {
+            returnValue.push(<IconLink key="insta" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></IconLink>);
+        }
+        if(this.props.githubUrl !== '') {
+            returnValue.push(<IconLink key="git" href={this.props.githubUrl}><i className="fa fa-github"></i></IconLink>);
+        }
+        if(this.props.linkedinUrl !== '') {
+            returnValue.push(<IconLink key="linked" href={this.props.linkedinUrl}><i className="fa fa-linkedin"></i></IconLink>);
+        }
+        if(this.props.facebookUrl !== '') {
+            returnValue.push(<IconLink key="fb" href={this.props.facebookUrl}><i className="fa fa-facebook"></i></IconLink>);
+        }
+        if(this.props.personalUrl !== '') {
+            returnValue.push(<IconLink key="personal" href={this.props.personalUrl}><i className="fa fa-user"></i></IconLink>);
+        }
 
-      return returnValue;
+        return returnValue;
 
     }
 
-    render(){
+    render() {
         return(
             <Card>
                 <Leadership src={ this.props.imagePath } alt="leadership" />
                 <MemberName>{this.props.name}</MemberName>
                 <Title>{this.props.title}</Title>
                 <DetailsCategoryContainer>
-                   <DetailsCategory>Grad Year: </DetailsCategory>
-                   <DetailsCategoryDescription>{this.props.gradYear}</DetailsCategoryDescription>
+                    <DetailsCategory>Grad Year: </DetailsCategory>
+                    <DetailsCategoryDescription>{this.props.gradYear}</DetailsCategoryDescription>
                 </DetailsCategoryContainer>
                 <DetailsCategoryContainer>
-                   <DetailsCategory>Interests: </DetailsCategory>
-                   <DetailsCategoryDescription>{this.props.interests}</DetailsCategoryDescription>
+                    <DetailsCategory>Interests: </DetailsCategory>
+                    <DetailsCategoryDescription>{this.props.interests}</DetailsCategoryDescription>
                 </DetailsCategoryContainer>
                 <DetailsCategoryContainer>
-                   <DetailsCategory>Fun fact: </DetailsCategory>
-                   <DetailsCategoryDescription>{this.props.funFact}</DetailsCategoryDescription>
+                    <DetailsCategory>Fun fact: </DetailsCategory>
+                    <DetailsCategoryDescription>{this.props.funFact}</DetailsCategoryDescription>
                 </DetailsCategoryContainer>
                 <p>{this.props.bio}</p>
                 <Links>
-                  { this.nonemptyUrls() }
+                    { this.nonemptyUrls() }
                 </Links>
             </Card>
         );
@@ -156,11 +152,11 @@ class MemberCard extends React.Component {
 }
 
 MemberCard.defaultProps = {
- instagramUrl: "",
- githubUrl: "",
- linkedinUrl: "",
- facebookUrl: "",
- personalUrl: ""
-}
+    instagramUrl: "",
+    githubUrl: "",
+    linkedinUrl: "",
+    facebookUrl: "",
+    personalUrl: ""
+};
 
 export default MemberCard;
