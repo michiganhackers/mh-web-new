@@ -35,8 +35,8 @@ class Attendance extends Component {
 			<React.Fragment>
 				<Navbar />
 				<SubpageOuter header="attendance">
-					{!this.state.uniqname ? <Login style="float: center" updateFunction={this.updateGoogleLoginInfo}/> : null}
-					{this.state.uniqname ? <img src={this.state.image_url} width="50" height="50"></img> : null}
+					{!this.state.uniqname ? <Login style={{"margin-left": "auto", "margin-right": "auto", "display": "block"}} updateFunction={this.updateGoogleLoginInfo}/> : null}
+					{this.state.uniqname ? <img style={{"margin-left": "auto", "margin-right": "auto", "display": "block"}} src={this.state.image_url} width="50" height="50"></img> : null}
 					<AttendanceForm getUniqnameToken={this.getUniqnameToken}/>
 				</SubpageOuter>
 			</React.Fragment>

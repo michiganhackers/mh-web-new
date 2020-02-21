@@ -29,6 +29,7 @@ class Login extends Component {
         return (
             <React.Fragment>
                 <GoogleLogin
+                    style={{"margin-left": "auto", "margin-right": "auto", "display": "block"}}
                     clientId={CLIENT_ID}
                     buttonText={this.state.logged_in ? "Logged In" : "Login with Google"}
                     onSuccess={this.responseGoogle}

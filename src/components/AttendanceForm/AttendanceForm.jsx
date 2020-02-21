@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { StaticP } from "../../utility/ContentStyles.js";
 import {addAttendanceFetch} from "./AttendanceFormFetch";
+import {calendarFetch} from "../Calendar/CalendarFetch";
 
 const EmailForm = styled.form`
 	text-align: center;
@@ -24,17 +25,15 @@ const CodeSubmitButton = styled.input`
 	margin-top: 10px;
 `;
 
-// North Campus
-const NC_LEFT_LONG = -83.718946;
-const NC_RIGHT_LONG = -83.708453;
-const NC_TOP_LAT = 42.293946;
-const NC_BOTTOM_LAT = 42.287679;
+const LOCATION_MAPPINGS = {
+	"eecs": {lat: 42.293091, lng: -83.714445},
+	"cool": {lat: 42.290613, lng: -83.713708},
+	"bbb": {lat: 42.292938, lng: -83.716167},
+	"techarb": {lat: 42.280180, lng: -83.742521},
+};
 
-// TechArb
-const TA_LEFT_LONG = -83.743043;
-const TA_RIGHT_LONG = -83.742018;
-const TA_TOP_LAT = 42.280322;
-const TA_BOTTOM_LAT = 42.279035;
+//this is the distance that the distance formula returns
+const MAX_DISTANCE = 0.005;
 
 class AttendanceForm extends React.Component {
 	constructor(props) {
@@ -44,6 +43,9 @@ class AttendanceForm extends React.Component {
 			submitted: false,
 			location: { lat: null, lng: null },
 			is_in_location: false,
+			location_signon_enabled: false,
+			location_mapping: "",
+			events: []
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -51,10 +53,12 @@ class AttendanceForm extends React.Component {
 		this.processLocationSignIn = this.processLocationSignIn.bind(this);
 		this.checkInLocation = this.checkInLocation.bind(this);
 		this.getLocation = this.getLocation.bind(this);
+		this.getCalendarEvents = this.getCalendarEvents.bind(this);
+		this.getMeetingLocation = this.getMeetingLocation.bind(this);
 	}
 
 	componentDidMount(props) {
-		this.getLocation();
+		this.getCalendarEvents();
 	}
 
 	getLocation() {
@@ -67,30 +71,88 @@ class AttendanceForm extends React.Component {
 		});
 	}
 
+	getMeetingLocation() {
+		let reg = new RegExp("[a-z]+");
+		for (const event of this.state.events) {
+			if (event.hasTime) {
+				let start_datetime = new Date(event.start);
+				let end_datetime = new Date(event.end);
+				let now = new Date();
+				if (now >= start_datetime && now <= end_datetime) {
+					//get the first item in the location that looks like an acronym
+					let acronym = reg.exec(event.location.toLowerCase())[0];
+					if (Object.keys(LOCATION_MAPPINGS).find(item => acronym === item)) {
+						this.setState({location_mapping: acronym, location_signon_enabled: true})
+					}
+				}
+			} else {
+				//in this case, the event.start/end is a date object
+				let now = new Date();
+				let start_date = new Date(event.start);
+				let end_date = new Date(event.end);
+				if (now >= start_date && now <= end_date) {
+					//get the first item in the location that looks like an acronym
+					let acronym = reg.exec(event.location.toLowerCase())[0];
+					if (Object.keys(LOCATION_MAPPINGS).find(item => acronym === item)) {
+						this.setState({location_mapping: acronym, location_signon_enabled: true})
+					}
+				}
+			}
+		}
+		this.getLocation();
+	}
+
 	checkInLocation() {
-		if (
-			this.state.location.lat > NC_BOTTOM_LAT &&
-			this.state.location.lat < NC_TOP_LAT &&
-			this.state.location.lng > NC_LEFT_LONG &&
-			this.state.location.lng < NC_RIGHT_LONG
-		) {
-			// user is inside north campus fence
-			this.setState({
-				is_in_location: true
-			});
+
+		if (!this.state.location_signon_enabled) {
+			return;
 		}
 
-		if (
-			this.state.location.lat > TA_BOTTOM_LAT &&
-			this.state.location.lat < TA_TOP_LAT &&
-			this.state.location.lng > TA_LEFT_LONG &&
-			this.state.location.lng < TA_RIGHT_LONG
-		) {
-			// user is inside TechArb
-			this.setState({
-				is_in_location: true
-			});
+		let distance_from_meeting = Math.sqrt((LOCATION_MAPPINGS[this.state.location_mapping].lat - this.state.location.lat)**2
+			+ (LOCATION_MAPPINGS[this.state.location_mapping].lng - this.state.location.lng)**2);
+
+		console.log(`distance = ${distance_from_meeting}`);
+		if (distance_from_meeting <= MAX_DISTANCE) {
+			this.setState({is_in_location: true});
 		}
+	}
+
+	getCalendarEvents() {
+		calendarFetch()
+			.then(res => {
+				let items = res.json.items;
+				let events = [];
+
+				for (let item of items) {
+					//we only want to include confirmed events, not tentative or canceled ones
+					if (item.status === "confirmed") {
+
+						let event = {
+							id: item.id,
+							title: item.summary,
+							url: item.htmlLink,
+							description: item.description,
+							start: item.start.dateTime || item.start.date,
+							end: item.end.dateTime || item.end.date,
+							hasTime: item.end.dateTime,
+							location: item.location
+						};
+
+						events.push(event);
+					}
+				}
+				//check the calendar for the event happening today and update the meeting location
+				this.setState({
+					events: events,
+					error: null,
+				}, this.getMeetingLocation)
+			})
+			.catch(res => {
+				this.setState({
+					error: res.error
+				});
+				console.log("Error: events could not be loaded");
+			});
 	}
 
 
@@ -172,6 +234,7 @@ class AttendanceForm extends React.Component {
 					Input the attendance code after signing in using your Google account,
 					or sign in using your location.
 				</StaticP>
+				{!this.state.location_signon_enabled ? <StaticP>Location sign-in is not available</StaticP> : null}
 				{this.state.is_in_location ? (
 					<StaticP>You are in the location area</StaticP>
 				) : this.state.location.lat ? <StaticP>You are not in the location area</StaticP> : null}
