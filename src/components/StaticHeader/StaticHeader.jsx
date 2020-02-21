@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
 
@@ -19,16 +19,12 @@ const Header = styled.h1`
 
 const HeaderOuter = styled.div``;
 
-class StaticHeader extends Component {
-    render() {
-        return (
-            <HeaderOuter>
-                <Header>
-                    {this.props.children}
-                </Header>
-            </HeaderOuter>
-        );
-    }
-}
+const StaticHeader = (props) => (
+    <HeaderOuter>
+        <Header>
+            {props.children}
+        </Header>
+    </HeaderOuter>
+);
 
 export default StaticHeader;

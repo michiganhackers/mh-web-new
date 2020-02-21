@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Calendar from './Calendar.jsx';
 
 const CalendarStyle = {
@@ -6,15 +6,10 @@ const CalendarStyle = {
     textColor: 'white'
 };
 
-class CalendarWrapper extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <Calendar calendarStyle={CalendarStyle} />
-            </React.Fragment>
-      
-        );
-    }
-}
+const CalendarWrapper = () => (
+    <React.Fragment>
+        <Calendar calendarStyle={CalendarStyle} />
+    </React.Fragment>
+);
 
 export default CalendarWrapper;

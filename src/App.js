@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/Home/Home.jsx';
@@ -14,24 +14,19 @@ import { faListUl, faLink, faMapMarkerAlt, faClock } from '@fortawesome/free-sol
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
-// Make sure to use either <Navbar /> or <SpecialNavbar /> inside all routes
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <Router>
-                    <React.Fragment>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/events" component={Events}/>
-                        <Route path="/about" component={About}/>
-                        <Route path="/team" component={Team}/>
-                        <Route path="/contact" component={Contact}/>
-                        <Route path="/faq" component={FAQ}/>     
-                    </React.Fragment>
-                </Router>
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div>
+        <Router>
+            <React.Fragment>
+                <Route exact path="/" component={Home} />
+                <Route path="/events" component={Events} />
+                <Route path="/about" component={About} />
+                <Route path="/team" component={Team} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/faq" component={FAQ} />
+            </React.Fragment>
+        </Router>
+    </div>
+);
 
 export default App;
