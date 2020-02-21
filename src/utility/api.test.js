@@ -1,5 +1,5 @@
 import { Get } from './api';
-import Url from './url'
+import Url from './url';
 
 const NONSENSE_URL = "asldfjaslkdfj.afi/asflasljlkjlijljmnxhauserhlidf";
 const GOOD_URL = "google.com";

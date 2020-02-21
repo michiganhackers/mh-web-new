@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
-import "../../index.css"
-import {StaticH1} from "../../utility/ContentStyles.js";
+import "../../index.css";
+import { StaticH1 } from "../../utility/ContentStyles.js";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import styled from 'styled-components';
@@ -13,7 +12,7 @@ const TableDiv = styled.div`
   justify-content: center;
   align-items: center;
   margin: auto
-`
+`;
 
 class Roster extends Component {
     constructor(props) {
@@ -59,32 +58,32 @@ class Roster extends Component {
             <React.Fragment>
                 <StaticH1>
             Our Core Team
-          </StaticH1>
-          <TableDiv>
-            <ReactTable
-              data={this.state.data}
-              columns={[
-                {
-                  Header: "Name",
-                  accessor: "name"
-                },
-                {
-                  Header: "Core Team",
-                  accessor: "team"
-                }
-              ]}
-              defaultPageSize={60}
-              style={{
-                height: "400px", // This will force the table body to overflow and scroll, since there is not enough room
-                width: "500px",
-              }}
-              className = "-striped -highlight"
-            />
-          </TableDiv>
+                </StaticH1>
+                <TableDiv>
+                    <ReactTable
+                        data={this.state.data}
+                        columns={[
+                            {
+                                Header: "Name",
+                                accessor: "name"
+                            },
+                            {
+                                Header: "Core Team",
+                                accessor: "team"
+                            }
+                        ]}
+                        defaultPageSize={60}
+                        style={{
+                            height: "400px", // This will force the table body to overflow and scroll, since there is not enough room
+                            width: "500px",
+                        }}
+                        className = "-striped -highlight"
+                    />
+                </TableDiv>
           
-      </React.Fragment>
-    );
-  }
+            </React.Fragment>
+        );
+    }
 }
 
 export default Roster;

@@ -76,34 +76,34 @@ const LogoNavLink = styled(NavLink)`
 `;
 
 class Navbar extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <FlexWrapper>
-          <LogoNavLink to="/">
-            <Logo src={logoUrl} />
-          </LogoNavLink>
-          <NavContainer>
-            <HeaderNavLink to="/about">
+    render() {
+        return (
+            <Wrapper>
+                <FlexWrapper>
+                    <LogoNavLink to="/">
+                        <Logo src={logoUrl} />
+                    </LogoNavLink>
+                    <NavContainer>
+                        <HeaderNavLink to="/about">
               about
-            </HeaderNavLink>
-            <HeaderNavLink to="/team">
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/team">
               team
-            </HeaderNavLink>
-            <HeaderNavLink to="/events">
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/events">
               calendar
-            </HeaderNavLink>
-            <HeaderNavLink to="/contact">
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/contact">
               contact
-            </HeaderNavLink>
-            <HeaderNavLink to="/faq">
+                        </HeaderNavLink>
+                        <HeaderNavLink to="/faq">
               faq
-            </HeaderNavLink>
-          </NavContainer>
-        </FlexWrapper>
-      </Wrapper>
-    );
-  }
+                        </HeaderNavLink>
+                    </NavContainer>
+                </FlexWrapper>
+            </Wrapper>
+        );
+    }
 }
 
 export default Navbar;

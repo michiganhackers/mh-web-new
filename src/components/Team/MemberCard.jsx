@@ -1,9 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../../utility/fonts.css";
-import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import devices from '../../utility/MediaQueries.js';
-import {StaticP, StaticH1} from "../../utility/ContentStyles.js";
 import styled, { css } from 'styled-components';
 
 const specificResponsiveness = (...args) => css`@media all and (min-width: 214px) and (max-width: 600px) {${css(...args)};}`;
@@ -106,7 +102,7 @@ class MemberCard extends React.Component {
 
     nonemptyUrls() {
 
-      let returnValue = [];
+        const returnValue = [];
       
         if(this.props.instagramUrl !== '') {
             returnValue.push(<IconLink key="insta" href={this.props.instagramUrl}><i className="fa fa-instagram"></i></IconLink>);
@@ -135,20 +131,20 @@ class MemberCard extends React.Component {
                 <MemberName>{this.props.name}</MemberName>
                 <Title>{this.props.title}</Title>
                 <DetailsCategoryContainer>
-                   <DetailsCategory>Grad Year: </DetailsCategory>
-                   <DetailsCategoryDescription>{this.props.gradYear}</DetailsCategoryDescription>
+                    <DetailsCategory>Grad Year: </DetailsCategory>
+                    <DetailsCategoryDescription>{this.props.gradYear}</DetailsCategoryDescription>
                 </DetailsCategoryContainer>
                 <DetailsCategoryContainer>
-                   <DetailsCategory>Interests: </DetailsCategory>
-                   <DetailsCategoryDescription>{this.props.interests}</DetailsCategoryDescription>
+                    <DetailsCategory>Interests: </DetailsCategory>
+                    <DetailsCategoryDescription>{this.props.interests}</DetailsCategoryDescription>
                 </DetailsCategoryContainer>
                 <DetailsCategoryContainer>
-                   <DetailsCategory>Fun fact: </DetailsCategory>
-                   <DetailsCategoryDescription>{this.props.funFact}</DetailsCategoryDescription>
+                    <DetailsCategory>Fun fact: </DetailsCategory>
+                    <DetailsCategoryDescription>{this.props.funFact}</DetailsCategoryDescription>
                 </DetailsCategoryContainer>
                 <p>{this.props.bio}</p>
                 <Links>
-                  { this.nonemptyUrls() }
+                    { this.nonemptyUrls() }
                 </Links>
             </Card>
         );
@@ -156,11 +152,11 @@ class MemberCard extends React.Component {
 }
 
 MemberCard.defaultProps = {
- instagramUrl: "",
- githubUrl: "",
- linkedinUrl: "",
- facebookUrl: "",
- personalUrl: ""
-}
+    instagramUrl: "",
+    githubUrl: "",
+    linkedinUrl: "",
+    facebookUrl: "",
+    personalUrl: ""
+};
 
 export default MemberCard;

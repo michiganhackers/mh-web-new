@@ -69,96 +69,96 @@ const BodyContainer = styled.div`
   padding: 10px;
 `;
 
-const DATE_FORMAT = "dddd, MMMM D"
-const TIME_FORMAT = "h:mma"
+const DATE_FORMAT = "dddd, MMMM D";
+const TIME_FORMAT = "h:mma";
 
 class EventWindow extends React.Component {
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.openLink = this.openLink.bind(this);
-    this.formatDateTime = this.formatDateTime.bind(this);
-  }
-
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside, true);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside, true);
-  }
-
-  handleClickOutside(e) {
-    let node = ReactDOM.findDOMNode(this)
-    if ( node && !node.contains(e.target)) {
-      this.props.closeWindow(e);
-    }
-  }
-
-  openLink() {
-    window.open(this.props.eventClicked.url, '_blank');
-  }
-
-  formatDateTime(start, end, hasTime) {
-    let startDate = start.format(DATE_FORMAT);
-    let endDate;
-    if (end) {
-      endDate = end.format(DATE_FORMAT);
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+        this.openLink = this.openLink.bind(this);
+        this.formatDateTime = this.formatDateTime.bind(this);
     }
 
-    if (hasTime) {
-      if (!endDate) {
-        return startDate + ', ' + start.format(TIME_FORMAT);
-      }
-      if (startDate !== endDate) {
-        return startDate + ', ' + start.format(TIME_FORMAT) + ' - ' + endDate + ', ' + end.format(TIME_FORMAT);
-      }
-      return startDate + ', ' + start.format(TIME_FORMAT) + ' - ' + end.format(TIME_FORMAT);
+    setWrapperRef(node) {
+        this.wrapperRef = node;
     }
-    if (endDate && startDate !== endDate) {
-      return startDate + ' - ' + endDate;
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside, true);
     }
-    return startDate;
 
-  }
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside, true);
+    }
 
-  render() {
-    if (!this.props.hidden) {
-      return (
-        <Wrapper className={this.props.className} ref={this.setWrapperRef}>
-          <TitleContainer>
-            <ToolbarContainer>
-              <CalendarButton
-                onClick={this.props.closeWindow}>
+    handleClickOutside(e) {
+        const node = ReactDOM.findDOMNode(this);
+        if ( node && !node.contains(e.target)) {
+            this.props.closeWindow(e);
+        }
+    }
+
+    openLink() {
+        window.open(this.props.eventClicked.url, '_blank');
+    }
+
+    formatDateTime(start, end, hasTime) {
+        const startDate = start.format(DATE_FORMAT);
+        let endDate;
+        if (end) {
+            endDate = end.format(DATE_FORMAT);
+        }
+
+        if (hasTime) {
+            if (!endDate) {
+                return startDate + ', ' + start.format(TIME_FORMAT);
+            }
+            if (startDate !== endDate) {
+                return startDate + ', ' + start.format(TIME_FORMAT) + ' - ' + endDate + ', ' + end.format(TIME_FORMAT);
+            }
+            return startDate + ', ' + start.format(TIME_FORMAT) + ' - ' + end.format(TIME_FORMAT);
+        }
+        if (endDate && startDate !== endDate) {
+            return startDate + ' - ' + endDate;
+        }
+        return startDate;
+
+    }
+
+    render() {
+        if (!this.props.hidden) {
+            return (
+                <Wrapper className={this.props.className} ref={this.setWrapperRef}>
+                    <TitleContainer>
+                        <ToolbarContainer>
+                            <CalendarButton
+                                onClick={this.props.closeWindow}>
                 &#10005;
-              </CalendarButton>
-              <CalendarButton
-                onClick={this.openLink}>
-                <FontAwesomeIcon icon="link" />
-              </CalendarButton>
-            </ToolbarContainer>
-            <Title>{this.props.eventClicked.title}</Title>
-          </TitleContainer>
-          <BodyContainer>
+                            </CalendarButton>
+                            <CalendarButton
+                                onClick={this.openLink}>
+                                <FontAwesomeIcon icon="link" />
+                            </CalendarButton>
+                        </ToolbarContainer>
+                        <Title>{this.props.eventClicked.title}</Title>
+                    </TitleContainer>
+                    <BodyContainer>
 
-            <CalendarField icon="clock" text={this.formatDateTime(this.props.eventClicked.start, this.props.eventClicked.end, this.props.eventClicked.hasTime)} />
-            <CalendarField icon="map-marker-alt" text={this.props.eventClicked.location} />
-            <CalendarField icon="list-ul" text={this.props.eventClicked.description} />
+                        <CalendarField icon="clock" text={this.formatDateTime(this.props.eventClicked.start, this.props.eventClicked.end, this.props.eventClicked.hasTime)} />
+                        <CalendarField icon="map-marker-alt" text={this.props.eventClicked.location} />
+                        <CalendarField icon="list-ul" text={this.props.eventClicked.description} />
 
-          </BodyContainer>
-        </Wrapper>
-      );
-    } else {
-      return null;
+                    </BodyContainer>
+                </Wrapper>
+            );
+        } else {
+            return null;
+        }
     }
-  }
 }
 
 export default EventWindow;

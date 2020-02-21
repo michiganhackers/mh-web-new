@@ -17,7 +17,7 @@ const REQUEST_VERBS = Object.freeze({
     PUT: "PUT",
     POST: "POST",
     DELETE: "DELETE",
-})
+});
 
 const NOT_JSON_AND_OK = "NOT_JSON_AND_OK";
 const NOT_JSON_AND_NOT_OK = "NOT_JSON_AND_NOT_OK";
@@ -28,14 +28,14 @@ function makeResponseData(response, json, error) {
         response,
         json,
         error
-    }
+    };
 }
 
 function getHeaders() {
     return {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-    }
+    };
 }
 
 // Helper function, wraps around fetch
@@ -62,7 +62,7 @@ function fetcher(url, options) {
                     return response.json();
                 }
                 else {
-                    return Promise.reject({ response, status: response.status, reason: NOT_JSON_AND_NOT_OK});
+                    return Promise.reject({ response, status: response.status, reason: NOT_JSON_AND_NOT_OK });
                 }
             }
         })
@@ -73,14 +73,14 @@ function fetcher(url, options) {
         })
         .catch(error => {
             switch (error.reason) {
-                case NOT_JSON_AND_OK:
-                    return Promise.reject(makeResponseData(savedResponse, null, error));
-                case NOT_JSON_AND_NOT_OK:
-                    return Promise.reject(makeResponseData(savedResponse, null, error));
-                case JSON_AND_NOT_OK:
-                    return Promise.reject(makeResponseData(savedResponse, error.json, error));
-                default: 
-                    return Promise.reject(makeResponseData(savedResponse, null, error));
+            case NOT_JSON_AND_OK:
+                return Promise.reject(makeResponseData(savedResponse, null, error));
+            case NOT_JSON_AND_NOT_OK:
+                return Promise.reject(makeResponseData(savedResponse, null, error));
+            case JSON_AND_NOT_OK:
+                return Promise.reject(makeResponseData(savedResponse, error.json, error));
+            default: 
+                return Promise.reject(makeResponseData(savedResponse, null, error));
             }
         });
 }
@@ -127,7 +127,7 @@ export function Post(url, body) {
     const options = {
         method: REQUEST_VERBS.POST,
         headers: getHeaders()
-    }
+    };
     if (body) {
         options.body = JSON.stringify(body);
     }
@@ -145,7 +145,7 @@ export function Delete(url, body) {
     const options = {
         method: REQUEST_VERBS.DELETE,
         headers: getHeaders()
-    }
+    };
     if (body) {
         options.body = JSON.stringify(body);
     }

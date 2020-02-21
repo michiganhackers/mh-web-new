@@ -4,9 +4,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 it('fetches correctly', () => {
-	return expect(calendarFetch()).resolves.not.toThrow();
+    return expect(calendarFetch()).resolves.not.toThrow();
 });
 
 it('renders without crashing', () => {
-	const calendar = mount(<Calendar />);
+    mount(<Calendar />);
 });
