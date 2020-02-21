@@ -20,17 +20,6 @@ const Content = styled.div`
   margin: auto;
 `;
 
-/* class SubpageOuter extends Component {
-  render() {
-    return (
-      <Outer>
-        <StaticHeader>{this.props.header}</StaticHeader>
-        <Content>{this.props.children}</Content>
-      </Outer>
-    );
-  }
-} */
-
 const SubpageOuter = (props) => (
     <Outer>
         <StaticHeader>{props.header}</StaticHeader>

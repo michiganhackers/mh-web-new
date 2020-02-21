@@ -6,18 +6,6 @@ const CalendarStyle = {
     textColor: 'white'
 };
 
-/* class CalendarWrapper extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <Calendar calendarStyle={CalendarStyle} />
-            </React.Fragment>
-
-        );
-    }
-} */
-
-// should this be ... = (props) => ... ? props isnt used
 const CalendarWrapper = () => (
     <React.Fragment>
         <Calendar calendarStyle={CalendarStyle} />

@@ -75,37 +75,6 @@ const LogoNavLink = styled(NavLink)`
     padding: 2px 10px;
 `;
 
-/* class Navbar extends Component {
-    render() {
-        return (
-            <Wrapper>
-                <FlexWrapper>
-                    <LogoNavLink to="/">
-                        <Logo src={logoUrl} />
-                    </LogoNavLink>
-                    <NavContainer>
-                        <HeaderNavLink to="/about">
-                            about
-                        </HeaderNavLink>
-                        <HeaderNavLink to="/team">
-                            team
-                        </HeaderNavLink>
-                        <HeaderNavLink to="/events">
-                            calendar
-                        </HeaderNavLink>
-                        <HeaderNavLink to="/contact">
-                            contact
-                        </HeaderNavLink>
-                        <HeaderNavLink to="/faq">
-                            faq
-                        </HeaderNavLink>
-                    </NavContainer>
-                </FlexWrapper>
-            </Wrapper>
-        );
-    }
-} */
-
 const Navbar = () => (
     <Wrapper>
         <FlexWrapper>

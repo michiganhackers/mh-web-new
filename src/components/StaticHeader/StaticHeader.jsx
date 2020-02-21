@@ -19,18 +19,6 @@ const Header = styled.h1`
 
 const HeaderOuter = styled.div``;
 
-/* class StaticHeader extends Component {
-    render() {
-        return (
-            <HeaderOuter>
-                <Header>
-                    {this.props.children}
-                </Header>
-            </HeaderOuter>
-        );
-    }
-} */
-
 const StaticHeader = (props) => (
     <HeaderOuter>
         <Header>

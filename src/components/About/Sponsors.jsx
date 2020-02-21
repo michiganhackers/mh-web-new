@@ -38,7 +38,7 @@ const LowSponsors = styled.div`
 const Sponsors = () => (
     <React.Fragment>
         <StaticH1>
-      Our Top Sponsors
+            Our Top Sponsors
         </StaticH1>
         <HighSponsors>
             <HighLogo src={GoogleLogo} /> <HighLogo src={C1Logo} />
