@@ -19,6 +19,29 @@ import Smoothie from '../../assets/Smoothie.jpg';
 import MichiganRock from '../../assets/MichiganRock.JPG';
 import SubpageOuter from '../SubpageOuter/SubpageOuter';
 
+import Ben from "../../assets/Ben.JPG";
+import Alex from "../../assets/Alex.JPG";
+import Erich from "../../assets/Erich.JPG";
+import Phoebe from "../../assets/Phoebe.jpg";
+import Casper from "../../assets/Casper.jpg";
+import Eashwar from "../../assets/Eashwar.jpg";
+import EdwardH from "../../assets/EdwardH.jpg";
+import Ibtida from "../../assets/Ibtida.jpg";
+import Chris from "../../assets/Chris.jpg";
+import Vincent from "../../assets/Vincent.jpg";
+import Nick from "../../assets/Nick.jpg";
+import Paul from "../../assets/Paul.jpeg";
+import Janet from "../../assets/Janet.JPG";
+import Thomas from "../../assets/Thomas.png";
+import Junlin from "../../assets/Junlin.jpg";
+import Ryan from "../../assets/Ryan.png";
+import David from "../../assets/David.jpg";
+import Nikhil from "../../assets/Nikhil.png";
+import Yaman from "../../assets/Yaman.jpg";
+import Roman from "../../assets/Roman.jpg";
+import Connor from "../../assets/Connor.jpg";
+import Trevor from "../../assets/Trevor.png";
+
 const Cards = styled.section`
     display: inline-flex;
     flex-wrap: wrap;
@@ -105,7 +128,7 @@ const CardContainer = () => (
                         githubUrl="https://github.com/benjamincarney"
                         linkedinUrl="https://www.linkedin.com/in/benjamincarney"
                         personalUrl="https://benjamincarney.github.io/"
-                        imagePath="/memberPhotos/Ben.JPG" />
+                        imagePath={Ben} />
                 </div>
                 <div>
                     <MemberCard name="Alex Dortzbach" title="Vice President of Member Experience"
@@ -114,7 +137,7 @@ const CardContainer = () => (
                         funFact="Used to live in Germany"
                         githubUrl="https://github.com/AlexDortzbach"
                         linkedinUrl="https://www.linkedin.com/in/alexandra-dortzbach-b03b56172/"
-                        imagePath="/memberPhotos/Alex.JPG" />
+                        imagePath={Alex} />
                 </div>
                 <div>
                     <MemberCard name="Erich Shan" title="Vice President of External"
@@ -123,7 +146,7 @@ const CardContainer = () => (
                         funFact="Once slept for 16 hours"
                         githubUrl="https://github.com/erich23"
                         linkedinUrl="https://www.linkedin.com/in/erich-shan-716208157/"
-                        imagePath="/memberPhotos/Erich.JPG" />
+                        imagePath={Erich} />
                 </div>
                 <div>
                     <MemberCard name="Phoebe Liang" title="Vice President of Logistics"
@@ -134,7 +157,7 @@ const CardContainer = () => (
                         instagramUrl="https://www.instagram.com/phoebeliang98/"
                         linkedinUrl="https://www.linkedin.com/in/phoebeliang98/"
                         facebookUrl="https://www.facebook.com/phoebe.n.liang"
-                        imagePath="/memberPhotos/Phoebe.jpg" />
+                        imagePath={Phoebe} />
                 </div>
                 <div>
                     <MemberCard name="Casper Hsu" title="Vice President of Innovation"
@@ -143,7 +166,7 @@ const CardContainer = () => (
                         funFact="Probably consumes way too much coffee for his own good"
                         githubUrl="https://github.com/casper-h"
                         linkedinUrl="https://www.linkedin.com/in/casper-hsu-8922a9181/"
-                        imagePath="/memberPhotos/Casper.jpg" />
+                        imagePath={Casper} />
                 </div>
             </Cards>
         </div>
@@ -162,7 +185,7 @@ const CardContainer = () => (
                         linkedinUrl="https://www.linkedin.com/in/eashw/"
                         facebookUrl="https://www.facebook.com/eashmohan"
                         personalUrl="https://eash.dev"
-                        imagePath="/memberPhotos/Eashwar.jpg" />
+                        imagePath={Eashwar} />
                 </div>
                 <div>
                     <MemberCard name="Edward Huang" title="iOS Lead Engineer"
@@ -172,7 +195,7 @@ const CardContainer = () => (
                         githubUrl="https://github.com/edward2018211"
                         linkedinUrl="https://www.linkedin.com/in/edward-h-b4a147156/"
                         personalUrl="https://edward2018211.github.io/edwhuang.me/"
-                        imagePath="/memberPhotos/EdwardH.jpg" />
+                        imagePath={EdwardH} />
                 </div>
                 <div >
                     <MemberCard name="Ibtida Bhuiyan" title="Independent Hacker Core Lead"
@@ -182,7 +205,7 @@ const CardContainer = () => (
                         githubUrl="https://github.com/ibhuiyan17"
                         linkedinUrl="https://www.linkedin.com/in/ibtidabhuiyan/"
                         personalUrl="http://ibtida.me/"
-                        imagePath="/memberPhotos/Ibtida.jpg" />
+                        imagePath={Ibtida} />
                 </div>
                 <div>
                     <MemberCard name="Christopher Hafke" title="Web Lead Engineer"
@@ -191,7 +214,7 @@ const CardContainer = () => (
                         funFact="Lived with Eash over the summer and was paid to make Roblox memes"
                         githubUrl="https://github.com/christopherhafke"
                         linkedinUrl="https://www.linkedin.com/in/christopher-hafke-8a1968148/"
-                        imagePath="/memberPhotos/Chris.jpg" />
+                        imagePath={Chris} />
                 </div>
                 <div>
                     <MemberCard name="Vincent Nagel" title="Android Lead Engineer"
@@ -201,7 +224,7 @@ const CardContainer = () => (
                         githubUrl="https://github.com/vnagel"
                         linkedinUrl="https://www.linkedin.com/in/vincentnagel/"
                         facebookUrl="https://www.facebook.com/profile.php?id=100000690746854"
-                        imagePath="/memberPhotos/Vincent.jpg" />
+                        imagePath={Vincent} />
                 </div>
                 <div >
                     <MemberCard name="Nicholas Konovalenko" title="Security Lead Engineer"
@@ -213,7 +236,7 @@ const CardContainer = () => (
                         linkedinUrl="https://www.linkedin.com/in/nicholas-konovalenko-2b3258171/"
                         facebookUrl="https://www.facebook.com/nicholas.konovalenko"
                         personalUrl="https://nickono.com"
-                        imagePath="/memberPhotos/Nick.jpg" />
+                        imagePath={Nick} />
                 </div>
                 <div>
                     <MemberCard name="Paul Carney" title="Embedded Systems Lead Engineer"
@@ -222,7 +245,7 @@ const CardContainer = () => (
                         funFact="Can kickflip over you"
                         linkedinUrl="https://www.linkedin.com/in/paul-carney-07a273169/"
                         facebookUrl="https://www.facebook.com/paul.carney.319?ref=bookmarks"
-                        imagePath="/memberPhotos/Paul.jpeg" />
+                        imagePath={Paul} />
                 </div>
                 <div>
                     <MemberCard name="Janet Vu" title="Creative Director"
@@ -234,7 +257,7 @@ const CardContainer = () => (
                         linkedinUrl="https://www.linkedin.com/in/janet-vu/"
                         facebookUrl="https://www.facebook.com/jnetvu"
                         personalUrl="https://me--janetvu.repl.co/"
-                        imagePath="/memberPhotos/Janet.JPG" />
+                        imagePath={Janet} />
                 </div>
                 <div>
                     <MemberCard name="Thomas Smith" title="iOS Lead Engineer"
@@ -244,7 +267,7 @@ const CardContainer = () => (
                         githubUrl="https://github.com/thomasebsmith/"
                         linkedinUrl="https://www.linkedin.com/in/thomasebsmith/"
                         personalUrl="https://thomasebsmith.github.io/"
-                        imagePath="/memberPhotos/Thomas.png" />
+                        imagePath={Thomas} />
                 </div>
                 <div>
                     <MemberCard name="Junlin Mo" title="Interviewing Director"
@@ -252,7 +275,7 @@ const CardContainer = () => (
                         interests="Business, music (piano, guitar, writing, singing), brain computer interfacing, freerunning, fitness, video games"
                         funFact="Started a few businesses, also an EECS 281 IA"
                         linkedinUrl="https://www.linkedin.com/in/junlin-mo/"
-                        imagePath="/memberPhotos/Junlin.jpg" />
+                        imagePath={Junlin} />
                 </div>
                 <div>
                     <MemberCard name="Ryan Khzouz" title="Android Lead Engineer"
@@ -261,7 +284,7 @@ const CardContainer = () => (
                         funFact="Has an identical twin"
                         linkedinUrl="https://www.linkedin.com/in/ryankhzouz/"
                         githubUrl="https://github.com/rckhzouz"
-                        imagePath="/memberPhotos/Ryan.png" />
+                        imagePath={Ryan} />
                 </div>
                 <div>
                     <MemberCard name="David Wang" title="Android Lead Engineer"
@@ -270,7 +293,7 @@ const CardContainer = () => (
                         funFact="Is French Canadian"
                         githubUrl="https://github.com/davidjrwang"
                         linkedinUrl="https://www.linkedin.com/in/davidjrwang"
-                        imagePath="/memberPhotos/David.jpg" />
+                        imagePath={David} />
                 </div>
                 <div>
                     <MemberCard name="Nikhil Surya Dwibhashyam" title="Open-Source Contribution Lead Engineer"
@@ -279,7 +302,7 @@ const CardContainer = () => (
                         funFact="Have eight pairs of exactly the same clothes that I wear every day"
                         githubUrl="https://github.com/SpockTheLogical7"
                         personalUrl="https://nikhilsd.com/"
-                        imagePath="/memberPhotos/Nikhil.png" />
+                        imagePath={Nikhil} />
                 </div>
                 <div>
                     <MemberCard name="Yaman Qalieh" title="Open-Source Contribution Lead Engineer"
@@ -288,7 +311,7 @@ const CardContainer = () => (
                         funFact="Memorized every national flag"
                         githubUrl="https://github.com/yamanq"
                         personalUrl="https://blog.yaman.qalieh.com/"
-                        imagePath="/memberPhotos/Yaman.jpg" />
+                        imagePath={Yaman} />
                 </div>
                 <div>
                     <MemberCard name="Roman Khzouz" title="Alexa Lead Engineer"
@@ -297,7 +320,7 @@ const CardContainer = () => (
                         funFact="Has an identical twin"
                         githubUrl="https://github.com/rkhzouz"
                         linkedinUrl="https://www.linkedin.com/in/roman-khzouz/"
-                        imagePath="/memberPhotos/Roman.jpg" />
+                        imagePath={Roman} />
                 </div>
             </Cards>
             <SubpageOuter>
@@ -318,7 +341,7 @@ const CardContainer = () => (
                             linkedinUrl="https://www.linkedin.com/in/janet-vu/"
                             facebookUrl="https://www.facebook.com/jnetvu"
                             personalUrl="https://me--janetvu.repl.co/"
-                            imagePath="/memberPhotos/Janet.JPG" />
+                            imagePath={Janet} />
                     </div>
                     <div>
                         <MemberCard name="Connor Svrcek" title="Senior Advisor"
@@ -330,7 +353,7 @@ const CardContainer = () => (
                             linkedinUrl="https://www.linkedin.com/in/connor-svrcek-aab07612b/"
                             facebookUrl="https://www.facebook.com/connor.svrcek"
                             personalUrl="https://connorsvrcek.com/"
-                            imagePath="/memberPhotos/Connor.jpg" />
+                            imagePath={Connor} />
                     </div>
                     <div>
                         <MemberCard name="Trevor Sanderson" title="Senior Advisor"
@@ -339,7 +362,7 @@ const CardContainer = () => (
                             funFact=""
                             githubUrl="https://github.com/tjsande"
                             linkedinUrl="https://www.linkedin.com/in/trevor-sanderson-459028171/"
-                            imagePath="/memberPhotos/Trevor.png" />
+                            imagePath={Trevor} />
                     </div>
                 </Cards>
             </div>
