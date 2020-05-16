@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { calendarFetch } from './CalendarFetch';
 
 import EventWindow from './EventWindow.jsx';
+import PropTypes from 'prop-types';
 
 const DEFAULT_EVENT_WINDOW_WIDTH = 400;
 const EVENT_WINDOW_H_OFFSET = 10;
@@ -212,6 +213,10 @@ Calendar.defaultProps = {
         color: '#F15D24',
         textColor: 'white'
     }
+};
+
+Calendar.propTypes = {
+    calendarStyle: PropTypes.objectOf(PropTypes.string)
 };
 
 export default Calendar;

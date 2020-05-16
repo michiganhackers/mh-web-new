@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
+import PropTypes from 'prop-types';
 
 const Header = styled.h1`
   font-family: "Roboto Condensed";
@@ -26,5 +27,13 @@ const StaticHeader = (props) => (
         </Header>
     </HeaderOuter>
 );
+
+StaticHeader.defaultProps = {
+    children: ""
+};
+
+StaticHeader.propTypes = {
+    children: PropTypes.string
+};
 
 export default StaticHeader;

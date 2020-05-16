@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import devices from '../../utility/MediaQueries.js';
 
 import StaticHeader from "../StaticHeader/StaticHeader.jsx";
+import PropTypes from 'prop-types';
 
 const Outer = styled.div`
   width: 100%;
@@ -26,5 +27,13 @@ const SubpageOuter = (props) => (
         <Content>{props.children}</Content>
     </Outer>
 );
+
+SubpageOuter.defaultProps = {
+    header: ""
+}
+
+SubpageOuter.propTypes = {
+    header: PropTypes.string
+}
 
 export default SubpageOuter;
