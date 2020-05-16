@@ -30,10 +30,10 @@ const SubpageOuter = (props) => (
 
 SubpageOuter.defaultProps = {
     header: ""
-}
+};
 
 SubpageOuter.propTypes = {
     header: PropTypes.string
-}
+};
 
 export default SubpageOuter;
