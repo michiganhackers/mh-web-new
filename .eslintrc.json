@@ -21,7 +21,8 @@
         "expect": "readonly",
         "console": "readonly",
         "window": "readonly",
-        "setTimeout": "readonly"
+        "setTimeout": "readonly",
+        "gapi": "readonly"
     },
     "extends": ["eslint:recommended", "plugin:react/recommended"],
     "rules": {
