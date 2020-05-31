@@ -1,9 +1,23 @@
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [ $branch != dev ]
+then
+    while true; do
+    read -p "You're not on branch dev. Are you sure you want to proceed? [y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit 1;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
+fi
+echo Linting...
 yarn lint
 if [ $? -ne 0 ]
 then
     echo "Lint failed. Aborting."
     exit 1
 fi
+echo Building...
 yarn build
 if [ $? -ne 0 ]
 then
@@ -12,6 +26,8 @@ then
 fi
 echo Build finished.
 echo Preparing to configure AWS credentials. Get these from someone with access to AWS IAM.
+echo They will likely need to create a new access key. An IAM user with the relevant permissions already exists.
+echo "Contact the web team for more details."
 echo Leave \'Default region name\' and \'Default output format\' blank.
 aws configure
 echo Current contents of bucket:
