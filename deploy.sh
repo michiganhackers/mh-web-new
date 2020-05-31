@@ -41,11 +41,16 @@ while true; do
         * ) echo "Please answer y or n.";;
     esac
 done
-echo "Synchronizing backup folder..."; 
+echo "Deleting old backup folder...";
+aws s3 rm s3://michiganhackers.org/backup --recursive
+echo "Copying old contents into backup folder..."
 aws s3 sync s3://michiganhackers.org s3://michiganhackers.org/backup --exclude "backup"
+echo "Deleting old contents..."
+aws s3 rm s3://michiganhackers.org --recursive --exclude "backup/*"
 echo "Synchronizing s3 bucket with local build folder..."
 aws s3 sync build s3://michiganhackers.org
 echo "Creating CloudFront invalidation..."
 aws cloudfront create-invalidation --distribution-id E35WT0YDK4WYA0 --paths "/*"
 echo "Done!"
+
 
