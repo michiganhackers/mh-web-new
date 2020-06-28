@@ -34,7 +34,7 @@ const Contact = () => (
                 <a href="https://instagram.com/michiganhackers" target="blank"><FontAwesomeIcon icon={[ "fab", "instagram" ]} /> Check out recent pics of our club on Instagram!</a>
             </StaticP>
             <StaticP>
-                <a href="https://bit.ly/mhslack" target="blank"><FontAwesomeIcon icon={[ "fab", "slack" ]} /> Join our Slack workspace!</a>
+                <a href="https://bit.ly/slackmh" target="blank"><FontAwesomeIcon icon={[ "fab", "slack" ]} /> Join our Slack workspace!</a>
             </StaticP>
             <MailingList />
         </SubpageOuter>
