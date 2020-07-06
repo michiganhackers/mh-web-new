@@ -1,6 +1,7 @@
 import React from 'react';
 import "../../utility/fonts.css";
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 const specificResponsiveness = (...args) => css`@media all and (min-width: 214px) and (max-width: 600px) {${css(...args)};}`;
 
@@ -157,6 +158,14 @@ MemberCard.defaultProps = {
     linkedinUrl: "",
     facebookUrl: "",
     personalUrl: ""
+};
+
+MemberCard.propTypes = {
+    instagramUrl: PropTypes.string,
+    githubUrl: PropTypes.string,
+    linkedinUrl: PropTypes.string,
+    facebookUrl: PropTypes.string,
+    personalUrl: PropTypes.string,
 };
 
 export default MemberCard;

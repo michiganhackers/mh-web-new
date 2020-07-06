@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 const CalendarFieldContainer = styled.div`
   display: flex;
@@ -116,5 +117,19 @@ class CalendarField extends React.Component {
         }
     }
 }
+
+CalendarField.defaultProps = {
+    text: "",
+    link: "",
+    className: "",
+    icon: "clock"
+};
+
+CalendarField.propTypes = {
+    text: PropTypes.string,
+    link: PropTypes.string,
+    className: PropTypes.string,
+    icon: PropTypes.string
+};
 
 export default CalendarField;

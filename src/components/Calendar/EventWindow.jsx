@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CalendarField from './CalendarField.jsx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   word-wrap: break-word;
@@ -160,5 +161,35 @@ class EventWindow extends React.Component {
         }
     }
 }
+
+EventWindow.defaultProps = {
+    closeWindow: () => {},
+    eventClicked: {
+        url: "",
+        title: "",
+        start: new Date('January 1, 1970 00:00:00'),
+        end: new Date('January 1, 1970 00:00:00'),
+        hasTime: false,
+        location: "",
+        description: ""
+    },
+    hidden: true,
+    className: ""
+};
+
+EventWindow.propTypes = {
+    closeWindow: PropTypes.func,
+    eventClicked: PropTypes.shape({
+        url: PropTypes.string,
+        title: PropTypes.string,
+        start: PropTypes.instanceOf(Date),
+        end: PropTypes.instanceOf(Date),
+        hasTime: PropTypes.bool,
+        location: PropTypes.string,
+        description: PropTypes.string
+    }),
+    hidden: PropTypes.bool,
+    className: PropTypes.string
+};
 
 export default EventWindow;
