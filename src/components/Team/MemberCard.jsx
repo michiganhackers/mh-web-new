@@ -128,7 +128,7 @@ class MemberCard extends React.Component {
     render() {
         return(
             <Card>
-                <Leadership src={ this.props.imagePath } alt="leadership" />
+                <Leadership src={this.props.imageUrl} alt="leadership" />
                 <MemberName>{this.props.name}</MemberName>
                 <Title>{this.props.title}</Title>
                 <DetailsCategoryContainer>
