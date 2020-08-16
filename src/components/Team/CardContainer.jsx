@@ -4,7 +4,6 @@ import { StaticH1 } from "../../utility/ContentStyles.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import MemberCard from './MemberCard.jsx';
-import Roster from './Roster.jsx';
 import styled from 'styled-components';
 
 import CoreTeam from '../../assets/CoreTeam.JPG';
@@ -58,7 +57,7 @@ const LEADERSHIP_FIELD_TO_COL = {
     instagramUrl: 10,
     imageUrl: 11,
     display: 12
-}
+};
 
 class CardContainer extends React.Component {
 
@@ -67,7 +66,7 @@ class CardContainer extends React.Component {
         this.state = {
             leadership: [],
             categories: []
-        }
+        };
         this.getLeadership = this.getLeadership.bind(this);
     }
 
@@ -78,24 +77,24 @@ class CardContainer extends React.Component {
         };
          
         gapi.client.sheets.spreadsheets.values.get(params)
-        .then(response => {
-            const categories = [];
-            // Do a pass to find the categories. Categories must be nonempty.
-            response.result.values.forEach((row, index) => {
-                if (row[0] === "CATEGORY") {
-                    categories.push({
-                        name: row[1],
-                        startIndex: index
-                    })
-                }
+            .then(response => {
+                const categories = [];
+                // Do a pass to find the categories. Categories must be nonempty.
+                response.result.values.forEach((row, index) => {
+                    if (row[0] === "CATEGORY") {
+                        categories.push({
+                            name: row[1],
+                            startIndex: index
+                        });
+                    }
+                });
+                this.setState({
+                    categories,
+                    leadership: response.result.values
+                });
+            }, error => {
+                console.log("error: " + error.result.error.message);
             });
-            this.setState({
-                categories,
-                leadership: response.result.values
-            })
-        }, error => {
-            console.log("error: " + error.result.error.message);
-        });
     }
 
     componentDidMount() {
@@ -108,102 +107,102 @@ class CardContainer extends React.Component {
                 gapi.client.init({
                     apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
                     scope: "https://www.googleapis.com/auth/spreadsheets", 
-                    discoveryDocs : ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+                    discoveryDocs : [ "https://sheets.googleapis.com/$discovery/rest?version=v4" ],
                 }).then(this.getLeadership);
             });
-        }
+        };
     }
 
     render() {
         return (
-        <React.Fragment>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-            <CarouselContainer>
-                <Carousel autoplay>
-                    <div>
-                        <img src={CoreTeam} />
-                        <Legend className="legend">The entire 2019-2020 Core Team!</Legend>
-                    </div>
-                    <div>
-                        <img src={Squad} />
-                        <Legend className="legend">Festifall 2019</Legend>
-                    </div>
-                    <div>
-                        <img src={ErichHands} />
-                        <Legend className="legend">Paint the Rock 2019</Legend>
-                    </div>
-                    <div>
-                        <img src={Bros} />
-                        <Legend className="legend">Mass Meeting 2019</Legend>
-                    </div>
-                    <div>
-                        <img src={PaintTheRockGroup} />
-                        <Legend className="legend">Paint the Rock 2019</Legend>
-                    </div>
-                    <div>
-                        <img src={JanetBubbles} />
-                        <Legend className="legend">Hands up!</Legend>
-                    </div>
-                    <div>
-                        <img src={Escapade} />
-                        <Legend className="legend">Escapade 2019</Legend>
-                    </div>
-                    <div>
-                        <img src={Smoothie} />
-                        <Legend className="legend">Smoothie Party 2019</Legend>
-                    </div>
-                    <div>
-                        <img src={PaulBubble} />
-                        <Legend className="legend">Paul being introspective</Legend>
-                    </div>
-                    <div>
-                        <img src={MichiganRock} />
-                        <Legend className="legend">Paint the Rock 2019</Legend>
-                    </div>
-                </Carousel>
-            </CarouselContainer>
-            {this.state.categories.map((category, index) => (
-                <div key={index}>
-                    <StaticH1>
-                        {category.name}
-                    </StaticH1>
-                    <div>
-                        <Cards>
-                            {(() => {
-                                const leadersInCategory = [];
-                                const nextCategoryStart = (index === this.state.categories.length - 1) ?
-                                    this.state.leadership.length - 1 :
-                                    this.state.categories[index + 1].startIndex;
-                                for (let i = category.startIndex + 1; i < nextCategoryStart; ++i) {
-                                    leadersInCategory.push(i);
-                                }
-                                return leadersInCategory.map(index => {
-                                    const row = this.state.leadership[index];
-                                    if (row[0] === "") return null; // empty row
-                                    if (row[LEADERSHIP_FIELD_TO_COL["display"]] !== "Y") {
-                                        return null;
+            <React.Fragment>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+                <CarouselContainer>
+                    <Carousel autoplay>
+                        <div>
+                            <img src={CoreTeam} />
+                            <Legend className="legend">The entire 2019-2020 Core Team!</Legend>
+                        </div>
+                        <div>
+                            <img src={Squad} />
+                            <Legend className="legend">Festifall 2019</Legend>
+                        </div>
+                        <div>
+                            <img src={ErichHands} />
+                            <Legend className="legend">Paint the Rock 2019</Legend>
+                        </div>
+                        <div>
+                            <img src={Bros} />
+                            <Legend className="legend">Mass Meeting 2019</Legend>
+                        </div>
+                        <div>
+                            <img src={PaintTheRockGroup} />
+                            <Legend className="legend">Paint the Rock 2019</Legend>
+                        </div>
+                        <div>
+                            <img src={JanetBubbles} />
+                            <Legend className="legend">Hands up!</Legend>
+                        </div>
+                        <div>
+                            <img src={Escapade} />
+                            <Legend className="legend">Escapade 2019</Legend>
+                        </div>
+                        <div>
+                            <img src={Smoothie} />
+                            <Legend className="legend">Smoothie Party 2019</Legend>
+                        </div>
+                        <div>
+                            <img src={PaulBubble} />
+                            <Legend className="legend">Paul being introspective</Legend>
+                        </div>
+                        <div>
+                            <img src={MichiganRock} />
+                            <Legend className="legend">Paint the Rock 2019</Legend>
+                        </div>
+                    </Carousel>
+                </CarouselContainer>
+                {this.state.categories.map((category, index) => (
+                    <div key={index}>
+                        <StaticH1>
+                            {category.name}
+                        </StaticH1>
+                        <div>
+                            <Cards>
+                                {(() => {
+                                    const leadersInCategory = [];
+                                    const nextCategoryStart = (index === this.state.categories.length - 1) ?
+                                        this.state.leadership.length - 1 :
+                                        this.state.categories[index + 1].startIndex;
+                                    for (let i = category.startIndex + 1; i < nextCategoryStart; ++i) {
+                                        leadersInCategory.push(i);
                                     }
-                                    const props = {};
-                                    for (const item in LEADERSHIP_FIELD_TO_COL) {
-                                        if (row[LEADERSHIP_FIELD_TO_COL[item]] !== "") {
-                                            props[item] = row[LEADERSHIP_FIELD_TO_COL[item]];
+                                    return leadersInCategory.map(index => {
+                                        const row = this.state.leadership[index];
+                                        if (row[0] === "") {return null;} // empty row
+                                        if (row[LEADERSHIP_FIELD_TO_COL["display"]] !== "Y") {
+                                            return null;
                                         }
-                                    }
-                                    return (
-                                        <div key={index}>
-                                            <MemberCard {...props}/>
-                                        </div>
-                                    )
-                                })
-                            })()}
-                        </Cards>
+                                        const props = {};
+                                        for (const item in LEADERSHIP_FIELD_TO_COL) {
+                                            if (row[LEADERSHIP_FIELD_TO_COL[item]] !== "") {
+                                                props[item] = row[LEADERSHIP_FIELD_TO_COL[item]];
+                                            }
+                                        }
+                                        return (
+                                            <div key={index}>
+                                                <MemberCard {...props}/>
+                                            </div>
+                                        );
+                                    });
+                                })()}
+                            </Cards>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </React.Fragment>
-        )
+                ))}
+            </React.Fragment>
+        );
     }
 
-};
+}
 
 export default CardContainer;
