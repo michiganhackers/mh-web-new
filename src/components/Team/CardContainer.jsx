@@ -171,7 +171,7 @@ class CardContainer extends React.Component {
                                 {(() => {
                                     const leadersInCategory = [];
                                     const nextCategoryStart = (index === this.state.categories.length - 1) ?
-                                        this.state.leadership.length - 1 :
+                                        this.state.leadership.length :
                                         this.state.categories[index + 1].startIndex;
                                     for (let i = category.startIndex + 1; i < nextCategoryStart; ++i) {
                                         leadersInCategory.push(i);
