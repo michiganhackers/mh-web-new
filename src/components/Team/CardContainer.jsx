@@ -121,7 +121,7 @@ class CardContainer extends React.Component {
                     <Carousel autoplay>
                         <div>
                             <img src={CoreTeam} />
-                            <Legend className="legend">The entire 2019-2020 Core Team!</Legend>
+                            <Legend className="legend">The entire 2019-2020 Team!</Legend>
                         </div>
                         <div>
                             <img src={Squad} />
