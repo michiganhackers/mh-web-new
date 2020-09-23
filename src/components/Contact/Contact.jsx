@@ -11,7 +11,7 @@ const Contact = () => (
         <Navbar />
         <SubpageOuter header="contact">
             <StaticP>
-                Feel free to ask any questions or connect with us through any of our social media platforms or email. Join our slack, check out our calendar (right above), and get our emails for the latest updates! Like our Facebook page to see event highlights, curated photos, and news :) You can find our most frequently asked questions here.
+                Feel free to ask any questions or connect with us through any of our social media platforms or email. Join our Slack, check out our calendar, and get our emails for the latest updates! Like our Facebook page to see event highlights, curated photos, and news!
             </StaticP>
             <StaticP>
                 <a href="mailto:michiganhackers@umich.edu">michiganhackers@umich.edu</a>

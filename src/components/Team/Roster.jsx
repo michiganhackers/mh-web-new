@@ -57,7 +57,7 @@ class Roster extends Component {
         return ( !this.state.data ? null :
             <React.Fragment>
                 <StaticH1>
-            Our Core Team
+            Our Team
                 </StaticH1>
                 <TableDiv>
                     <ReactTable
@@ -68,7 +68,7 @@ class Roster extends Component {
                                 accessor: "name"
                             },
                             {
-                                Header: "Core Team",
+                                Header: "Team",
                                 accessor: "team"
                             }
                         ]}
