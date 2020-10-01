@@ -102,7 +102,6 @@ class CardContainer extends React.Component {
         gapiScript.src = 'https://apis.google.com/js/api.js?onload=onGapiLoad';
         document.body.appendChild(gapiScript);
         window.onGapiLoad = () => {
-            /*global gapi */
             gapi.load("client", () => {
                 gapi.client.init({
                     apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
