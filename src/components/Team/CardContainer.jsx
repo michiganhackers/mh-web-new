@@ -16,6 +16,7 @@ import Escapade from '../../assets/Escapade.JPG';
 import ErichHands from '../../assets/ErichHands.JPG';
 import Smoothie from '../../assets/Smoothie.jpg';
 import MichiganRock from '../../assets/MichiganRock.JPG';
+import ImageCarousel from "./ImageCarousel";
 
 const Cards = styled.section`
     display: inline-flex;
@@ -65,7 +66,19 @@ class CardContainer extends React.Component {
         super();
         this.state = {
             leadership: [],
-            categories: []
+            categories: [],
+            images: [
+                { url: CoreTeam, description: "The entire 2019-2020 Team!" },
+                { url: Squad, description: "Festifall 2019" },
+                { url: ErichHands, description: "Paint the Rock 2019" },
+                { url: Bros, description: "Mass Meeting 2019" },
+                { url: PaintTheRockGroup, description: "Paint the Rock 2019" },
+                { url: JanetBubbles, description: "Hands up!" },
+                { url: Escapade, description: "Escapade 2019" },
+                { url: Smoothie, description: "Smoothie Party 2019" },
+                { url: PaulBubble, description: "Paul being introspective" },
+                { url: MichiganRock, description: "Paint the Rock 2019" },
+            ],
         };
         this.getLeadership = this.getLeadership.bind(this);
     }
@@ -75,7 +88,9 @@ class CardContainer extends React.Component {
             spreadsheetId: process.env.REACT_APP_LEADERSHIP_ID,
             range: "Sheet1!A1:AA998",
         };
-         
+        // for me, eslint likes to stop compilation unless I inline this, even
+        //  if it's in the config file
+        /*global gapi:readonly*/
         gapi.client.sheets.spreadsheets.values.get(params)
             .then(response => {
                 const categories = [];
@@ -102,6 +117,7 @@ class CardContainer extends React.Component {
         gapiScript.src = 'https://apis.google.com/js/api.js?onload=onGapiLoad';
         document.body.appendChild(gapiScript);
         window.onGapiLoad = () => {
+            /*global gapi:readonly*/
             gapi.load("client", () => {
                 gapi.client.init({
                     apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -115,51 +131,11 @@ class CardContainer extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-                <CarouselContainer>
-                    <Carousel autoplay>
-                        <div>
-                            <img src={CoreTeam} />
-                            <Legend className="legend">The entire 2019-2020 Team!</Legend>
-                        </div>
-                        <div>
-                            <img src={Squad} />
-                            <Legend className="legend">Festifall 2019</Legend>
-                        </div>
-                        <div>
-                            <img src={ErichHands} />
-                            <Legend className="legend">Paint the Rock 2019</Legend>
-                        </div>
-                        <div>
-                            <img src={Bros} />
-                            <Legend className="legend">Mass Meeting 2019</Legend>
-                        </div>
-                        <div>
-                            <img src={PaintTheRockGroup} />
-                            <Legend className="legend">Paint the Rock 2019</Legend>
-                        </div>
-                        <div>
-                            <img src={JanetBubbles} />
-                            <Legend className="legend">Hands up!</Legend>
-                        </div>
-                        <div>
-                            <img src={Escapade} />
-                            <Legend className="legend">Escapade 2019</Legend>
-                        </div>
-                        <div>
-                            <img src={Smoothie} />
-                            <Legend className="legend">Smoothie Party 2019</Legend>
-                        </div>
-                        <div>
-                            <img src={PaulBubble} />
-                            <Legend className="legend">Paul being introspective</Legend>
-                        </div>
-                        <div>
-                            <img src={MichiganRock} />
-                            <Legend className="legend">Paint the Rock 2019</Legend>
-                        </div>
-                    </Carousel>
-                </CarouselContainer>
+                <link
+                    rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                />
+                <ImageCarousel images={this.state.images}/>
                 {this.state.categories.map((category, index) => (
                     <div key={index}>
                         <StaticH1>
