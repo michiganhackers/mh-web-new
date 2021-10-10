@@ -37,6 +37,8 @@ const Contact = () => (
                 <a href="https://bit.ly/slackmh" target="blank"><FontAwesomeIcon icon={[ "fab", "slack" ]} /> Join our Slack workspace!</a>
             </StaticP>
             <MailingList />
+            {/* MailingList looks terrible pressed up against the bottom*/}
+            <div style={{ "margin-bottom": "100px" }}/>
         </SubpageOuter>
     </React.Fragment>
 );
