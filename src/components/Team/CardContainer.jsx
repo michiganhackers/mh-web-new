@@ -2,7 +2,6 @@ import React from 'react';
 import "../../utility/fonts.css";
 import { StaticH1 } from "../../utility/ContentStyles.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
 import MemberCard from './MemberCard.jsx';
 import styled from 'styled-components';
 
@@ -23,25 +22,6 @@ const Cards = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-`;
-
-const CarouselContainer = styled.div`
-    width: 45%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    @media all and (min-width: 214px) and (max-width: 600px) {
-        width: 90%;
-    }
-`;
-
-const Legend = styled.p`
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-    color: white;
-    font-size: 48px;
 `;
 
 const LEADERSHIP_FIELD_TO_COL = {
