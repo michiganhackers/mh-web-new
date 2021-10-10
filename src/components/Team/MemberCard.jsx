@@ -8,6 +8,7 @@ const specificResponsiveness = (...args) => css`@media all and (min-width: 214px
 const Leadership = styled.img`
   height: 200px;
   display: block;
+  object-fit: cover;
   border-radius: 200px;
   box-sizing: border-box;
   background-color: #d15c19;;
