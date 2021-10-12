@@ -15,6 +15,9 @@ import Escapade from '../../assets/Escapade.JPG';
 import ErichHands from '../../assets/ErichHands.JPG';
 import Smoothie from '../../assets/Smoothie.jpg';
 import MichiganRock from '../../assets/MichiganRock.JPG';
+import MassMeeting2021 from '../../assets/MassMeeting2021.jpg';
+import Festifall2021 from '../../assets/Festifall2021.jpg';
+import Festifall2021_1 from '../../assets/Festifall2021_1.jpg';
 import ImageCarousel from "./ImageCarousel";
 
 const Cards = styled.section`
@@ -48,6 +51,9 @@ class CardContainer extends React.Component {
             leadership: [],
             categories: [],
             images: [
+                { url: MassMeeting2021, description: "Mass Meeting 2021" },
+                { url: Festifall2021, description: "Our Festifall 2021 booth" },
+                { url: Festifall2021_1, description: "Team leads at our Festifall 2021 booth" },
                 { url: CoreTeam, description: "The entire 2019-2020 Team!" },
                 { url: Squad, description: "Festifall 2019" },
                 { url: ErichHands, description: "Paint the Rock 2019" },
