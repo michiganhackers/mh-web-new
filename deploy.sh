@@ -1,3 +1,9 @@
+# Before deployment:
+# 1. Obtain the .env api keys from a previous lead
+# 2. Install the awscli package
+# 3. Create a new IAM access key for yourself on AWS. Exec will provide the credentials
+# 4. Follow the instructions in this script
+
 branch=$(git rev-parse --abbrev-ref HEAD)
 if [ $branch != dev ]
 then
@@ -32,6 +38,11 @@ echo Leave \'Default region name\' and \'Default output format\' blank.
 aws configure
 echo Current contents of bucket:
 aws s3 ls s3://michiganhackers.org
+if [ $? -ne 0]
+then
+    echo "Could not connect to AWS. Check your credentials."
+    exit 1
+fi
 echo Preparing to synchronizing build.
 while true; do
     read -p "Are you sure you want to deploy? This cannot be undone. [y/n]" yn
