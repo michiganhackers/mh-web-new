@@ -37,8 +37,8 @@ echo "Contact the web team for more details."
 echo Leave \'Default region name\' and \'Default output format\' blank.
 aws configure
 echo Current contents of bucket:
-aws s3 ls s3://michiganhackers.org
-if [ $? -ne 0]
+aws s3 ls s3://michhackers.com
+if [ $? -ne 0 ]
 then
     echo "Could not connect to AWS. Check your credentials."
     exit 1
@@ -53,15 +53,15 @@ while true; do
     esac
 done
 echo "Deleting old backup folder...";
-aws s3 rm s3://michiganhackers.org/backup --recursive
+aws s3 rm s3://michhackers.com/backup --recursive
 echo "Copying old contents into backup folder..."
-aws s3 sync s3://michiganhackers.org s3://michiganhackers.org/backup --exclude "backup"
+aws s3 sync s3://michhackers.com s3://michhackers.com/backup --exclude "backup"
 echo "Deleting old contents..."
-aws s3 rm s3://michiganhackers.org --recursive --exclude "backup/*"
+aws s3 rm s3://michhackers.com --recursive --exclude "backup/*"
 echo "Synchronizing s3 bucket with local build folder..."
-aws s3 sync build s3://michiganhackers.org
+aws s3 sync build s3://michhackers.com
 echo "Creating CloudFront invalidation..."
-aws cloudfront create-invalidation --distribution-id E35WT0YDK4WYA0 --paths "/*"
+aws cloudfront create-invalidation --distribution-id E3CA3DGYHE1YW2 --paths "/*"
 echo "Done!"
 
 
