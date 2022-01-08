@@ -17,8 +17,6 @@
         "fetch": "readonly",
         "document": "readonly",
         "Promise": "readonly",
-        "it": "readonly",
-        "expect": "readonly",
         "console": "readonly",
         "window": "readonly",
         "setTimeout": "readonly",
@@ -46,5 +44,10 @@
         "no-useless-constructor": "error",
         "curly": "error",
         "space-before-blocks": ["error", "always"]
+    },
+    "env": {
+        //TODO: replace with below for react 17
+//        "jest/globals": true
+        "jest": true
     }
 }
