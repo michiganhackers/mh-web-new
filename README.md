@@ -1,5 +1,5 @@
 # Michigan Hackers Website
-#### michiganhackers.org
+#### michhackers.com
 
 Welcome to the Michigan Hackers website! This site requires that you install the latest stable version of Node.
 
