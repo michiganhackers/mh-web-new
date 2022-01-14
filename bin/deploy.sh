@@ -31,9 +31,19 @@ then
     exit 1
 fi
 echo Build finished.
+
+# verify that the lead pictures are included
+LEADERSHIP_IMAGES=public/leadership/
+$L
+if [ ! -d $LEADERSHIP_IMAGES]
+then
+    echo "Lead information is missing."
+    exit 1
+fi
+
 echo Preparing to configure AWS credentials. Get these from someone with access to AWS IAM.
 echo They will likely need to create a new access key. An IAM user with the relevant permissions already exists.
-echo "Contact the web team for more details."
+echo Contact the web team for more details.
 echo Leave \'Default region name\' and \'Default output format\' blank.
 aws configure
 echo Current contents of bucket:
@@ -63,5 +73,3 @@ aws s3 sync build s3://michhackers.com
 echo "Creating CloudFront invalidation..."
 aws cloudfront create-invalidation --distribution-id E3CA3DGYHE1YW2 --paths "/*"
 echo "Done!"
-
-

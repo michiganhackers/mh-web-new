@@ -1,0 +1,293 @@
+{
+    "Executive Team": [
+        {
+            "name": "Yatharth Chhabra",
+            "uniqname": "ychhabra",
+            "title": "Vice President of External Affairs",
+            "gradYear": "2022",
+            "interests": "Taekwondo, ultimate frisbee, cricket, memes, fingerstyle guitar",
+            "funFact": "Fingertips are dead from playing fingerstyle guitar",
+            "linkedinUrl": "http://www.linkedin.com/in/yatharth-chhabra",
+            "githubUrl": "https://github.com/yatharthchhabra",
+            "imageUrl": "leadership/ychhabra.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Luc Corriveau",
+            "uniqname": "luccorr",
+            "title": "President",
+            "gradYear": "2022",
+            "interests": "Camping, video games, learning useless skills",
+            "funFact": "Loves to play the bongos",
+            "linkedinUrl": "https://www.linkedin.com/in/luc-corriveau-053a561ab/",
+            "imageUrl": "leadership/luccorr.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Nikhil Surya Dwibhashyam",
+            "uniqname": "nikhilsd",
+            "title": "Vice President of Internal Affairs",
+            "gradYear": "2022",
+            "interests": "Sanskrit poetry, piano, biking",
+            "funFact": "Lives on a farm",
+            "linkedinUrl": "https://www.linkedin.com/in/nikhilsd/",
+            "personalUrl": "https://nikhilsd.com/",
+            "imageUrl": "leadership/nikhilsd.png",
+            "display": "Y"
+        }
+    ],
+    "Leadership": [
+        {
+            "name": "Rajas Gupta",
+            "uniqname": "rajasg",
+            "title": "Machine Learning Team Lead",
+            "gradYear": "2022",
+            "interests": "Tennis, table tennis, guitar, nature trails, siestas",
+            "funFact": "Can never find where's Waldo",
+            "display": "Y"
+        },
+        {
+            "name": "Keshav Gurushankar",
+            "uniqname": "keshavg",
+            "title": "Web Team Lead",
+            "gradYear": "2023",
+            "interests": "Cooking/Baking, coffee, taekwondo ",
+            "funFact": "Dangerously high caffeine tolerance",
+            "linkedinUrl": "https://www.linkedin.com/in/keshav-gurushankar/",
+            "githubUrl": "https://github.com/kgurushankar",
+            "imageUrl": "leadership/keshavg.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Andrew Scheffer",
+            "uniqname": "drewskis",
+            "title": "iOS Team Lead",
+            "gradYear": "2024",
+            "interests": "Bonsai taming, ukulele, ham radio",
+            "funFact": "Drinks apple juice out of wine glasses",
+            "linkedinUrl": "https://www.linkedin.com/in/andrew-scheffer-b5bb091b2/",
+            "githubUrl": "https://github.com/schefferac2020",
+            "imageUrl": "leadership/drewskis.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Abhik Mazumder",
+            "uniqname": "abhikmaz",
+            "title": "Interviewing Team Lead",
+            "gradYear": "2023",
+            "interests": "Soccer, basketball, JavaScript, going out, anime (not a weeb)",
+            "funFact": "Sucks at 5/5 sports he plays",
+            "linkedinUrl": "https://www.linkedin.com/in/abhikmaz/",
+            "githubUrl": "https://github.com/abhiktech",
+            "instagramUrl": "https://www.instagram.com/abhik.mazumder/",
+            "imageUrl": "leadership/abhikmaz.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Aryan Seth",
+            "uniqname": "aryans",
+            "title": "Embedded Systems Lead",
+            "gradYear": "2023",
+            "interests": "Running, video games, building emulators, cars",
+            "funFact": "Can do a J-turn in a car",
+            "linkedinUrl": "https://www.linkedin.com/in/aryan-seth/",
+            "githubUrl": "https://github.com/aryanseth26",
+            "imageUrl": "leadership/aryans.png",
+            "display": "Y"
+        },
+        {
+            "name": "Yaman Qalieh",
+            "uniqname": "yamanq",
+            "title": "Open-Source Development Lead",
+            "gradYear": "2022",
+            "interests": "Self-hosting, scripting, languages",
+            "funFact": "Uses Arch Linux",
+            "githubUrl": "https://github.com/yamanq/",
+            "imageUrl": "leadership/yamanq.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Ondrej Kovarik",
+            "uniqname": "ondrejk",
+            "title": "Web Team Lead",
+            "gradYear": "2023",
+            "interests": "Reading, cooking, volleyball, piccolo/flute, parkour",
+            "funFact": "Has 3 citizenships",
+            "imageUrl": "leadership/ondrejk.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Justin Hutchins",
+            "uniqname": "jushutch",
+            "title": "Security Team Lead",
+            "gradYear": "2022",
+            "interests": "Music, Latin, camping, video games",
+            "funFact": "His middle name is Time",
+            "linkedinUrl": "https://www.linkedin.com/in/jushutch/",
+            "githubUrl": "https://github.com/jushutch",
+            "personalUrl": "https://jushutch.com/",
+            "imageUrl": "leadership/jushutch.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Anisha Aggarwal",
+            "uniqname": "anishaag",
+            "title": "Security Team Lead",
+            "gradYear": "2024",
+            "interests": "Piano, volleyball, dancing",
+            "funFact": "Has traveled to 6 countries",
+            "linkedinUrl": "www.linkedin.com/in/anisha-aggarwal-06b2281b4",
+            "imageUrl": "leadership/anishaag.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Frank Wang",
+            "uniqname": "frnkwang",
+            "title": "Android Team Lead",
+            "gradYear": "2024",
+            "interests": "Violin, classical music/EDM, soccer, Smash Bros, taking long walks",
+            "funFact": "Composes in his free time",
+            "linkedinUrl": "https://www.linkedin.com/in/frank-wang-b68a411b6/",
+            "githubUrl": "https://github.com/frnkwang",
+            "instagramUrl": "https://www.instagram.com/frank_wang09/",
+            "imageUrl": "leadership/frnkwang.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Caleb Gifford",
+            "uniqname": "calebgif",
+            "title": "Android Team Lead",
+            "gradYear": "2023",
+            "interests": "Running, reading, biking, video games",
+            "funFact": "Can play the organ",
+            "githubUrl": "https://github.com/calebgif",
+            "imageUrl": "leadership/calebgif.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Jaewoo Kim",
+            "uniqname": "kjae",
+            "title": "Machine Learning Game AI Lead",
+            "gradYear": "2023",
+            "interests": "Soccer, volleyball, violin, video games, working out",
+            "funFact": "Came from Korea 7 years ago",
+            "linkedinUrl": "www.linkedin.com/in/jaewoo-kim-95a8581b6",
+            "imageUrl": "leadership/kjae.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Jonah Ableman",
+            "uniqname": "jableman",
+            "title": "Marketing Team Lead",
+            "gradYear": "2024",
+            "interests": "Music, skateboarding, gaming, guitar, reading",
+            "funFact": "Has broken only two bones, both his pinkies",
+            "linkedinUrl": "https://www.linkedin.com/in/jonah-ableman-2b3842169/",
+            "githubUrl": "https://github.com/Jableman19",
+            "imageUrl": "leadership/jableman.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Thomas Smith",
+            "uniqname": "thsm",
+            "title": "iOS Team Lead",
+            "gradYear": "2021",
+            "interests": "Backpacking, canoeing, board games",
+            "funFact": "Walks 10+ miles every day",
+            "linkedinUrl": "https://www.linkedin.com/in/thomasebsmith/",
+            "githubUrl": "https://github.com/thomasebsmith",
+            "personalUrl": "https://thomasebsmith.github.io",
+            "imageUrl": "leadership/thsm.png",
+            "display": "Y"
+        },
+        {
+            "name": "Adam Gunn",
+            "uniqname": "asgunn",
+            "title": "Web Team Lead",
+            "gradYear": "2024",
+            "interests": "Water polo, web dev, movies, music, exploring new places",
+            "funFact": "Has 2 cats",
+            "linkedinUrl": "https://www.linkedin.com/in/a-gunn/",
+            "githubUrl": "https://github.com/adamgunn",
+            "imageUrl": "leadership/asgunn.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Viroshan Narayan",
+            "uniqname": "vnaray",
+            "title": "Interviewing Team Lead",
+            "gradYear": "2023",
+            "interests": "Biking, basketball, movies, ping pong, cars",
+            "funFact": "Prefers driving manual",
+            "linkedinUrl": "https://www.linkedin.com/in/viroshan-narayan",
+            "githubUrl": "https://github.com/ViroNaray",
+            "imageUrl": "leadership/vnaray.png",
+            "display": "Y"
+        }
+    ],
+    "Senior Advisors": [
+        {
+            "name": "Peter Wu",
+            "uniqname": "weirongw",
+            "title": "Senior Advisor",
+            "gradYear": "2023",
+            "interests": "Reading, design, running, cooking, magic",
+            "funFact": "Can run a 4:50 mile",
+            "linkedinUrl": "https://www.linkedin.com/in/weirongw/",
+            "githubUrl": "https://github.com/weirongw23",
+            "facebookUrl": "https://www.facebook.com/profile.php?id=100007462180089",
+            "instagramUrl": "https://www.instagram.com/weirongw/saved/",
+            "imageUrl": "leadership/weirongw.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Nicholas Konovalenko",
+            "uniqname": "nkono",
+            "title": "Senior Advisor",
+            "gradYear": "2021",
+            "interests": "Competitive chess, trading stocks, kayaking",
+            "funFact": "Completed all of Google FooBar",
+            "linkedinUrl": "https://www.linkedin.com/in/nicholas-konovalenko-2b3258171/",
+            "githubUrl": "https://github.com/Nkonovalenko",
+            "personalUrl": "https://nickono.com",
+            "instagramUrl": "https://www.instagram.com/konic899",
+            "imageUrl": "leadership/nkono.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "David Wang",
+            "uniqname": "daviwang",
+            "title": "Senior Advisor",
+            "gradYear": "2021",
+            "interests": "Reading, the 2019 NBA championship Toronto Raptors, hip-hop/classical music",
+            "funFact": "Is French Canadian",
+            "linkedinUrl": "https://www.linkedin.com/in/davidjrwang/",
+            "imageUrl": "leadership/daviwang.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Angela Li",
+            "uniqname": "angelai",
+            "title": "Senior Advisor",
+            "gradYear": "2023",
+            "interests": "Painting, animal crossing, step dancing",
+            "funFact": "Is birthday twins with Peter Parker",
+            "linkedinUrl": "https://www.linkedin.com/in/ilangela/",
+            "instagramUrl": "https://www.instagram.com/anglilo/",
+            "imageUrl": "leadership/angelai.jpg",
+            "display": "Y"
+        },
+        {
+            "name": "Ethan Butcher",
+            "uniqname": "ebutch",
+            "title": "Senior Advisor",
+            "gradYear": "2021",
+            "interests": "Photoshop, investing, E-SK8, hockey, guitar",
+            "funFact": "Ran from bulls in Pamplona, Spain",
+            "linkedinUrl": "https://www.linkedin.com/in/ethan-butcher-91361412b/",
+            "instagramUrl": "https://www.instagram.com/ebutch99/",
+            "imageUrl": "leadership/ebutch.png",
+            "display": "Y"
+        }
+    ]
+}

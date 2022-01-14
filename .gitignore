@@ -24,3 +24,9 @@ yarn-error.log*
 
 # IDE files
 .idea/
+
+# Build Files
+#   Lead photos
+/public/leadership/
+#   Lead Personal Info
+/src/leadership.json

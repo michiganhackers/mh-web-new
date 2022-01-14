@@ -20,28 +20,15 @@ import Festifall2021 from '../../assets/Festifall2021.jpg';
 import Festifall2021_1 from '../../assets/Festifall2021_1.jpg';
 import ImageCarousel from "./ImageCarousel";
 
+// we may want to switch this to using a global variable so the whole json can be updated by itself using public/
+import leadership from "leadership.json";
+
 const Cards = styled.section`
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
 `;
-
-const LEADERSHIP_FIELD_TO_COL = {
-    name: 0,
-    uniqname: 1,
-    title: 2,
-    gradYear: 3,
-    interests: 4,
-    funFact: 5,
-    linkedinUrl: 6,
-    githubUrl: 7,
-    personalUrl: 8,
-    facebookUrl: 9,
-    instagramUrl: 10,
-    imageUrl: 11,
-    display: 12
-};
 
 class CardContainer extends React.Component {
 
@@ -66,52 +53,6 @@ class CardContainer extends React.Component {
                 { url: MichiganRock, description: "Paint the Rock 2019" },
             ],
         };
-        this.getLeadership = this.getLeadership.bind(this);
-    }
-
-    getLeadership() {
-        const params = {
-            spreadsheetId: process.env.REACT_APP_LEADERSHIP_ID,
-            range: "Sheet1!A1:AA998",
-        };
-        // for me, eslint likes to stop compilation unless I inline this, even
-        //  if it's in the config file
-        /*global gapi:readonly*/
-        gapi.client.sheets.spreadsheets.values.get(params)
-            .then(response => {
-                const categories = [];
-                // Do a pass to find the categories. Categories must be nonempty.
-                response.result.values.forEach((row, index) => {
-                    if (row[0] === "CATEGORY") {
-                        categories.push({
-                            name: row[1],
-                            startIndex: index
-                        });
-                    }
-                });
-                this.setState({
-                    categories,
-                    leadership: response.result.values
-                });
-            }, error => {
-                console.log("error: " + error.result.error.message);
-            });
-    }
-
-    componentDidMount() {
-        const gapiScript = document.createElement('script');
-        gapiScript.src = 'https://apis.google.com/js/api.js?onload=onGapiLoad';
-        document.body.appendChild(gapiScript);
-        window.onGapiLoad = () => {
-            /*global gapi:readonly*/
-            gapi.load("client", () => {
-                gapi.client.init({
-                    apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
-                    scope: "https://www.googleapis.com/auth/spreadsheets", 
-                    discoveryDocs : [ "https://sheets.googleapis.com/$discovery/rest?version=v4" ],
-                }).then(this.getLeadership);
-            });
-        };
     }
 
     render() {
@@ -122,40 +63,19 @@ class CardContainer extends React.Component {
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
                 <ImageCarousel images={this.state.images}/>
-                {this.state.categories.map((category, index) => (
+                {Object.keys(leadership).map((category, index) => (
                     <div key={index}>
                         <StaticH1>
-                            {category.name}
+                            {category}
                         </StaticH1>
                         <div>
                             <Cards>
-                                {(() => {
-                                    const leadersInCategory = [];
-                                    const nextCategoryStart = (index === this.state.categories.length - 1) ?
-                                        this.state.leadership.length :
-                                        this.state.categories[index + 1].startIndex;
-                                    for (let i = category.startIndex + 1; i < nextCategoryStart; ++i) {
-                                        leadersInCategory.push(i);
-                                    }
-                                    return leadersInCategory.map(index => {
-                                        const row = this.state.leadership[index];
-                                        if (row[0] === "") {return null;} // empty row
-                                        if (row[LEADERSHIP_FIELD_TO_COL["display"]] !== "Y") {
-                                            return null;
-                                        }
-                                        const props = {};
-                                        for (const item in LEADERSHIP_FIELD_TO_COL) {
-                                            if (row[LEADERSHIP_FIELD_TO_COL[item]] !== "") {
-                                                props[item] = row[LEADERSHIP_FIELD_TO_COL[item]];
-                                            }
-                                        }
-                                        return (
-                                            <div key={index}>
-                                                <MemberCard {...props}/>
-                                            </div>
-                                        );
-                                    });
-                                })()}
+                                {leadership[category].map((lead, index) => (
+                                    <div key={index}>
+                                        <MemberCard {...lead} imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`} />
+                                    </div>
+
+                                ))}
                             </Cards>
                         </div>
                     </div>

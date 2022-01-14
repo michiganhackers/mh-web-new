@@ -129,7 +129,7 @@ class MemberCard extends React.Component {
     render() {
         return(
             <Card>
-                <Leadership src={this.props.imageUrl} alt="leadership" />
+                <Leadership src={this.props.imageUrl} alt="leadership" loading="lazy" />
                 <MemberName>{this.props.name}</MemberName>
                 <Title>{this.props.title}</Title>
                 <DetailsCategoryContainer>

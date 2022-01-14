@@ -38,7 +38,10 @@ const ImageCarousel = (props) => {
                 {
                     images.map((image) => (
                         <div key={image.url}>
-                            <img src={image.url} alt={image.description}/>
+                            {/*TODO: we should find a way to make this lazy
+                                This may entail straight up creating a custom carousel
+                            */}
+                            <img src={image.url} alt={image.description} loading={"lazy"}/>
                             <Legend className="legend">{image.description}</Legend>
                         </div>
                     ))
