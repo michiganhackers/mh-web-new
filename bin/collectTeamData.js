@@ -135,10 +135,12 @@ client.spreadsheets.values.get({
         }
 
     });
-    console.log(`${imagePromises.length} images saved`);
-    console.log(`${imagePromises.length - Object.keys(personData).reduce((sum, category) => sum + personData[category].length, 0)} images missing`);
     Promise.all(imagePromises).then(
-        () => writeFile(DATA_FILE, JSON.stringify(personData, undefined, 4))
+        () => {
+            console.log(`${imagePromises.length} images saved`);
+            console.log(`${imagePromises.length - Object.keys(personData).reduce((sum, category) => sum + personData[category].length, 0)} images missing`);
+            return writeFile(DATA_FILE, JSON.stringify(personData, undefined, 4));
+        }
     ).catch(err => {
         console.error("Failed to write to json file");
         console.error(err);

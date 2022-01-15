@@ -8,7 +8,7 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 if [ $branch != dev ]
 then
     while true; do
-    read -p "You're not on branch dev. Are you sure you want to proceed? [y/n]" yn
+    read -p "You're not on branch dev. Are you sure you want to proceed? [y/n]: " yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit 1;;
