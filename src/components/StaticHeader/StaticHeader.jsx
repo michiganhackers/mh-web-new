@@ -13,9 +13,12 @@ const Header = styled.h1`
   font-size: 8vh;
   ${devices.small`
     padding-top: 20%;
+    padding-top: 16px;
   `}
   text-transform: uppercase;
-  margin: 10vw 0 4vw 0;
+  //margin: 10vw 0 4vw 0;
+  // 16px looks fine. I think it's fine to leave at a fixed size
+  padding-top: 16px;
 `;
 
 const HeaderOuter = styled.div``;
