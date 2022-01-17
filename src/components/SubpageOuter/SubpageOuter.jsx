@@ -1,24 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
-import devices from '../../utility/MediaQueries.js';
+import React from "react";
+import styled from "styled-components";
+import devices from "../../utility/MediaQueries.js";
 
 import StaticHeader from "../StaticHeader/StaticHeader.jsx";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Outer = styled.div`
-  width: 100%;
-  margin-top: 80px;
-  align-items: center;
+    width: 100%;
+    margin-top: 80px;
+    align-items: center;
 `;
 
 const Content = styled.div`
-  width: 60%;
-  ${devices.tablet`
+    width: 60%;
+    ${devices.tablet`
     width: 90%;
   `}
-  margin-top: 0;
-  text-align: left;
-  margin: auto;
+    margin-top: 0;
+    text-align: left;
+    margin: auto;
 `;
 
 const SubpageOuter = (props) => (
@@ -29,11 +29,11 @@ const SubpageOuter = (props) => (
 );
 
 SubpageOuter.defaultProps = {
-    header: ""
+    header: "",
 };
 
 SubpageOuter.propTypes = {
-    header: PropTypes.string
+    header: PropTypes.string,
 };
 
 export default SubpageOuter;

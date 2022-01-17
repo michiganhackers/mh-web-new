@@ -8,7 +8,7 @@
  *  but I don't think it's that big of a deal
  */
 
-'use-strict';
+"use-strict";
 
 const fs = require("fs");
 const path = require("path");
@@ -51,114 +51,156 @@ const LEADERSHIP_FIELD_TO_COL = {
     facebookUrl: 9,
     instagramUrl: 10,
     imageUrl: 11,
-    display: 12
+    display: 12,
 };
 
 const client = sheets.sheets({
-    version: 'v4',
+    version: "v4",
     auth: process.env.REACT_APP_GOOGLE_API_KEY,
 });
 
 const sheetId = process.env.REACT_APP_LEADERSHIP_ID;
 
-client.spreadsheets.values.get({
-    spreadsheetId: sheetId,
-    range: "Sheet1!A1:AA998",
-}).then(res => {
-    const categories = [];
-    const personData = {};
-    const people = res.data.values;
+client.spreadsheets.values
+    .get({
+        spreadsheetId: sheetId,
+        range: "Sheet1!A1:AA998",
+    })
+    .then((res) => {
+        const categories = [];
+        const personData = {};
+        const people = res.data.values;
 
-    // Do a pass to find the categories. Categories must be nonempty.
-    people.forEach((row, index) => {
-        if (row[0] === "CATEGORY") {
-            categories.push({
-                name: row[1],
-                startIndex: index
-            });
-            personData[row[1]] = [];
-        }
-    });
+        // Do a pass to find the categories. Categories must be nonempty.
+        people.forEach((row, index) => {
+            if (row[0] === "CATEGORY") {
+                categories.push({
+                    name: row[1],
+                    startIndex: index,
+                });
+                personData[row[1]] = [];
+            }
+        });
 
-    const imagePromises = [];
-    //put the people in their bins and add their information
-    // TODO: mostly a port of the React template code, could be improved
-    categories.forEach((category, catIndex) => {
-        // const peopleInCategory = personData[category.name];
-        const nextCategoryStart = (catIndex === categories.length - 1) ?
-            people.length :
-            categories[catIndex + 1].startIndex;
-        for (let rowIndex = category.startIndex + 1; rowIndex < nextCategoryStart; ++rowIndex) {
-            const row = people[rowIndex];
-            // ignore empty rows and hidden rows
-            if (row[0] !== "" && row[LEADERSHIP_FIELD_TO_COL["display"]] === "Y") {
-                const props = {};
-                for (const item in LEADERSHIP_FIELD_TO_COL) {
-                    if (row[LEADERSHIP_FIELD_TO_COL[item]] !== "") {
-                        props[item] = row[LEADERSHIP_FIELD_TO_COL[item]];
+        const imagePromises = [];
+        //put the people in their bins and add their information
+        // TODO: mostly a port of the React template code, could be improved
+        categories.forEach((category, catIndex) => {
+            // const peopleInCategory = personData[category.name];
+            const nextCategoryStart =
+                catIndex === categories.length - 1
+                    ? people.length
+                    : categories[catIndex + 1].startIndex;
+            for (
+                let rowIndex = category.startIndex + 1;
+                rowIndex < nextCategoryStart;
+                ++rowIndex
+            ) {
+                const row = people[rowIndex];
+                // ignore empty rows and hidden rows
+                if (
+                    row[0] !== "" &&
+                    row[LEADERSHIP_FIELD_TO_COL["display"]] === "Y"
+                ) {
+                    const props = {};
+                    for (const item in LEADERSHIP_FIELD_TO_COL) {
+                        if (row[LEADERSHIP_FIELD_TO_COL[item]] !== "") {
+                            props[item] = row[LEADERSHIP_FIELD_TO_COL[item]];
+                        }
+                    }
+                    // TODO: a progress bar would be pretty cool *wink* *wink* *nudge* *nudge*
+                    if (props.imageUrl) {
+                        const imageProcessing = fetch(props.imageUrl)
+                            .then((res) => {
+                                if (!res.ok) {
+                                    if (res.status === 403) {
+                                        throw new Error(
+                                            "Too many requests. Try again later."
+                                        );
+                                    }
+                                    throw new URIError(
+                                        `Image for ${props["uniqname"]} is not valid.`
+                                    );
+                                }
+                                return res.blob();
+                            })
+                            .then(async (blob) => {
+                                const filename = `${
+                                    props.uniqname
+                                }.${getExtension(blob.type)}`;
+                                const localPath = path.join(
+                                    IMAGE_DIR,
+                                    filename
+                                );
+                                // we don't need to include public/ since it is resolved by default
+                                // one fun consequence is that the original path will be kept if this one doesn't work
+                                props.imageUrl = path.posix.join(
+                                    LEADERSHIP,
+                                    filename
+                                );
+                                // eslint-disable-next-line no-undef
+                                const buffer = Buffer.from(
+                                    await blob.arrayBuffer()
+                                );
+                                return writeFile(localPath, buffer);
+                            })
+                            .then((err) => {
+                                if (err) {
+                                    throw err;
+                                }
+                                personData[category.name].push(props);
+                            })
+                            .catch((err) => {
+                                console.error(err);
+                                // process will exit with error after all tasks complete
+                                process.exitCode = 1;
+                            });
+                        imagePromises.push(imageProcessing);
+                    } else {
+                        console.warn(
+                            `${props["uniqname"]} did not add an image.`
+                        );
+                        personData[category.name].push(props);
                     }
                 }
-                // TODO: a progress bar would be pretty cool *wink* *wink* *nudge* *nudge*
-                if (props.imageUrl) {
-                    const imageProcessing = fetch(props.imageUrl).then(res => {
-                        if (!res.ok) {
-                            if (res.status === 403) {
-                                throw new Error("Too many requests. Try again later.");
-                            }
-                            throw new URIError(`Image for ${props["uniqname"]} is not valid.`);
-                        }
-                        return res.blob();
-                    }).then(async blob => {
-                        const filename = `${props.uniqname}.${getExtension(blob.type)}`;
-                        const localPath = path.join(IMAGE_DIR, filename);
-                        // we don't need to include public/ since it is resolved by default
-                        // one fun consequence is that the original path will be kept if this one doesn't work
-                        props.imageUrl = path.posix.join(LEADERSHIP, filename);
-                        // eslint-disable-next-line no-undef
-                        const buffer = Buffer.from(await blob.arrayBuffer());
-                        return writeFile(localPath, buffer);
-                    }).then(err => {
-                        if (err) {throw err;}
-                        personData[category.name].push(props);
-                    }).catch(err => {
-                        console.error(err);
-                        // process will exit with error after all tasks complete
-                        process.exitCode = 1;
-                    });
-                    imagePromises.push(imageProcessing);
-                } else {
-                    console.warn(`${props["uniqname"]} did not add an image.`);
-                    personData[category.name].push(props);
-                }
             }
-
-        }
-
+        });
+        Promise.all(imagePromises)
+            .then(() => {
+                console.log(`${imagePromises.length} images saved`);
+                console.log(
+                    `${
+                        imagePromises.length -
+                        Object.keys(personData).reduce(
+                            (sum, category) =>
+                                sum + personData[category].length,
+                            0
+                        )
+                    } images missing`
+                );
+                return writeFile(
+                    DATA_FILE,
+                    JSON.stringify(personData, undefined, 4)
+                );
+            })
+            .catch((err) => {
+                console.error("Failed to write to json file");
+                console.error(err);
+                process.exitCode = 1;
+            });
     });
-    Promise.all(imagePromises).then(
-        () => {
-            console.log(`${imagePromises.length} images saved`);
-            console.log(`${imagePromises.length - Object.keys(personData).reduce((sum, category) => sum + personData[category].length, 0)} images missing`);
-            return writeFile(DATA_FILE, JSON.stringify(personData, undefined, 4));
-        }
-    ).catch(err => {
-        console.error("Failed to write to json file");
-        console.error(err);
-        process.exitCode = 1;
-    });
-});
 
 function getExtension(mimeType) {
     switch (mimeType) {
-    case "image/jpeg":
-        return "jpg";
-    case "image/gif":
-        return "gif";
-    case "image/png":
-        return "png";
-    case "image/webp":
-        return "webp";
-    default:
-        throw new Error(`MIME type ${mimeType} not found.`);
+        case "image/jpeg":
+            return "jpg";
+        case "image/gif":
+            return "gif";
+        case "image/png":
+            return "png";
+        case "image/webp":
+            return "webp";
+        default:
+            throw new Error(`MIME type ${mimeType} not found.`);
     }
 }

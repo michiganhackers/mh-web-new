@@ -4,11 +4,11 @@
  * a non 200 response is received and does not automatically unmarshal JSON. This wrapper solves those problems and
  * provides a uniform API, returning an object of the form { json, error, response } in all cases, whether the promise
  * was rejected or not. In some cases, we still want access to the json even if the response is not 200.
- * 
+ *
  * This gives you the original response as well, in case you want that.
- * 
+ *
  * This wrapper is also designed to interface nicely with the URL API implemented in url.js.
- * 
+ *
  * This wrapper will *not* work as intended for response types that are not JSON or empty.
  */
 
@@ -27,14 +27,14 @@ function makeResponseData(response, json, error) {
     return {
         response,
         json,
-        error
+        error,
     };
 }
 
 function getHeaders() {
     return {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
     };
 }
 
@@ -44,43 +44,54 @@ function fetcher(url, options) {
     let goodJSON = true;
     let savedResponse = null;
     return fetch(url, options)
-        .then(response => {
+        .then((response) => {
             savedResponse = response;
             const contentType = response.headers.get("content-type");
             // If the request was good, then attempt to unmarshal
             if (response.ok) {
                 if (contentType && contentType.includes("application/json")) {
                     return response.json();
-                }
-                else {
+                } else {
                     return null;
                 }
-            }
-            else {
+            } else {
                 if (contentType && contentType.includes("application/json")) {
                     goodJSON = false;
                     return response.json();
-                }
-                else {
-                    return Promise.reject({ response, status: response.status, reason: NOT_JSON_AND_NOT_OK });
+                } else {
+                    return Promise.reject({
+                        response,
+                        status: response.status,
+                        reason: NOT_JSON_AND_NOT_OK,
+                    });
                 }
             }
         })
-        .then(json => {
+        .then((json) => {
             // Response was good and we successfully unmarshalled
-            if (goodJSON) {return makeResponseData(savedResponse, json, null);}
+            if (goodJSON) {
+                return makeResponseData(savedResponse, json, null);
+            }
             return Promise.reject({ json, reason: JSON_AND_NOT_OK });
         })
-        .catch(error => {
+        .catch((error) => {
             switch (error.reason) {
-            case NOT_JSON_AND_OK:
-                return Promise.reject(makeResponseData(savedResponse, null, error));
-            case NOT_JSON_AND_NOT_OK:
-                return Promise.reject(makeResponseData(savedResponse, null, error));
-            case JSON_AND_NOT_OK:
-                return Promise.reject(makeResponseData(savedResponse, error.json, error));
-            default: 
-                return Promise.reject(makeResponseData(savedResponse, null, error));
+                case NOT_JSON_AND_OK:
+                    return Promise.reject(
+                        makeResponseData(savedResponse, null, error)
+                    );
+                case NOT_JSON_AND_NOT_OK:
+                    return Promise.reject(
+                        makeResponseData(savedResponse, null, error)
+                    );
+                case JSON_AND_NOT_OK:
+                    return Promise.reject(
+                        makeResponseData(savedResponse, error.json, error)
+                    );
+                default:
+                    return Promise.reject(
+                        makeResponseData(savedResponse, null, error)
+                    );
             }
         });
 }
@@ -93,7 +104,7 @@ You will likely not need to use response, since the data has already been extrac
 export function Get(url) {
     const options = {
         method: REQUEST_VERBS.GET,
-        headers: getHeaders()
+        headers: getHeaders(),
     };
 
     // Make the request
@@ -109,7 +120,7 @@ You will likely not need to use response, since the data has already been extrac
 export function Put(url, body) {
     const options = {
         method: REQUEST_VERBS.PUT,
-        headers: getHeaders()
+        headers: getHeaders(),
     };
     if (body) {
         options.body = JSON.stringify(body);
@@ -126,12 +137,12 @@ You will likely not need to use response, since the data has already been extrac
 export function Post(url, body) {
     const options = {
         method: REQUEST_VERBS.POST,
-        headers: getHeaders()
+        headers: getHeaders(),
     };
     if (body) {
         options.body = JSON.stringify(body);
     }
-  
+
     return fetcher(url.str(), options);
 }
 
@@ -144,7 +155,7 @@ You will likely not need to use response, since the data has already been extrac
 export function Delete(url, body) {
     const options = {
         method: REQUEST_VERBS.DELETE,
-        headers: getHeaders()
+        headers: getHeaders(),
     };
     if (body) {
         options.body = JSON.stringify(body);

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import devices from '../utility/MediaQueries.js';
-import logoUrl from '../assets/logo.png'; // webpack takes care of creating the appropriate path upon build. Prefer this to putting static assets in /public
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import devices from "../utility/MediaQueries.js";
+import logoUrl from "../assets/logo.png"; // webpack takes care of creating the appropriate path upon build. Prefer this to putting static assets in /public
 
 const Wrapper = styled.div`
     position: fixed;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     height: 80px;
     align-items: center;
     justify-content: space-between;
-    background: rgb(241,93,36);
+    background: rgb(241, 93, 36);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 `;
 
@@ -58,15 +58,15 @@ const HeaderNavLink = styled(NavLink)`
     transition: all 0.3s;
 
     &:hover {
-      text-decoration: underline;
+        text-decoration: underline;
     }
-  
+
     // styles for the current active navlink
     &.active {
-      text-decoration: underline wavy;
-      color: black;
-      cursor: default;
-    }    
+        text-decoration: underline wavy;
+        color: black;
+        cursor: default;
+    }
 `;
 
 const LogoNavLink = styled(NavLink)`
@@ -83,21 +83,11 @@ const Navbar = () => (
                 <Logo src={logoUrl} />
             </LogoNavLink>
             <NavContainer>
-                <HeaderNavLink to="/about">
-                    about
-                </HeaderNavLink>
-                <HeaderNavLink to="/team">
-                    team
-                </HeaderNavLink>
-                <HeaderNavLink to="/events">
-                    calendar
-                </HeaderNavLink>
-                <HeaderNavLink to="/contact">
-                    contact
-                </HeaderNavLink>
-                <HeaderNavLink to="/faq">
-                    faq
-                </HeaderNavLink>
+                <HeaderNavLink to="/about">about</HeaderNavLink>
+                <HeaderNavLink to="/team">team</HeaderNavLink>
+                <HeaderNavLink to="/events">calendar</HeaderNavLink>
+                <HeaderNavLink to="/contact">contact</HeaderNavLink>
+                <HeaderNavLink to="/faq">faq</HeaderNavLink>
             </NavContainer>
         </FlexWrapper>
     </Wrapper>

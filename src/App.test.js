@@ -1,7 +1,7 @@
-import App from './App';
-import React from 'react';
-import { mount } from 'enzyme';
+import App from "./App";
+import React from "react";
+import { mount } from "enzyme";
 
-it('renders without crashing', () => {
+it("renders without crashing", () => {
     mount(<App />);
 });

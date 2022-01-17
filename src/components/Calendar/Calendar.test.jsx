@@ -1,12 +1,12 @@
-import Calendar from './Calendar';
-import { calendarFetch } from './CalendarFetch';
-import React from 'react';
-import { mount } from 'enzyme';
+import Calendar from "./Calendar";
+import { calendarFetch } from "./CalendarFetch";
+import React from "react";
+import { mount } from "enzyme";
 
-it('fetches correctly', () => {
+it("fetches correctly", () => {
     return expect(calendarFetch()).resolves.not.toThrow();
 });
 
-it('renders without crashing', () => {
+it("renders without crashing", () => {
     mount(<Calendar />);
 });

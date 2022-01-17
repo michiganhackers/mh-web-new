@@ -1,11 +1,11 @@
 import { OSADistance } from "./EditDistance";
 
-describe('Edit Distance correctness',  () => {
-    it('should return 0 for empty strings', () => {
+describe("Edit Distance correctness", () => {
+    it("should return 0 for empty strings", () => {
         expect(OSADistance("", "")).toBe(0);
     });
 
-    it('should be correct for simple cases regardless of order', () => {
+    it("should be correct for simple cases regardless of order", () => {
         expect(OSADistance("CA", "ABC")).toBe(3);
         expect(OSADistance("ABC", "CA")).toBe(3);
         expect(OSADistance("an act", "a cat")).toBe(2);
@@ -16,7 +16,7 @@ describe('Edit Distance correctness',  () => {
         expect(OSADistance("sittin", "kitten")).toBe(2);
     });
 
-    it('should handle common route misspellings', () => {
+    it("should handle common route misspellings", () => {
         // misspelling is on the left, correct is on the right
         expect(OSADistance("faqs", "faq")).toBe(1);
         expect(OSADistance("teams", "team")).toBe(1);

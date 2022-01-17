@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "../../utility/fonts.css";
 import "../../index.css";
 import { StaticH1 } from "../../utility/ContentStyles.js";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import styled from 'styled-components';
-import { rosterFetch } from './RosterFetch';
+import styled from "styled-components";
+import { rosterFetch } from "./RosterFetch";
 
 const TableDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 `;
 
 class Roster extends Component {
@@ -21,7 +21,7 @@ class Roster extends Component {
         this.createPerson = this.createPerson.bind(this);
         this.constructRoster = this.constructRoster.bind(this);
         this.state = {
-            data: null
+            data: null,
         };
     }
     componentDidMount() {
@@ -36,51 +36,52 @@ class Roster extends Component {
     constructRoster(rowData) {
         const people = [];
         for (const row of rowData) {
-            if ( row.values[0].length === 0 || !row.values[0].userEnteredValue) {break;}
+            if (row.values[0].length === 0 || !row.values[0].userEnteredValue) {
+                break;
+            }
             people.push(this.createPerson(row));
         }
         return people;
     }
     getRoster() {
         rosterFetch()
-            .then(res => {
-                const people = this.constructRoster(res.json.sheets[0].data[0].rowData.slice(1));
+            .then((res) => {
+                const people = this.constructRoster(
+                    res.json.sheets[0].data[0].rowData.slice(1)
+                );
                 this.setState({
-                    data: people
+                    data: people,
                 });
             })
-            .catch(res => {
+            .catch((res) => {
                 console.log(res.error);
             });
     }
     render() {
-        return ( !this.state.data ? null :
+        return !this.state.data ? null : (
             <React.Fragment>
-                <StaticH1>
-            Our Team
-                </StaticH1>
+                <StaticH1>Our Team</StaticH1>
                 <TableDiv>
                     <ReactTable
                         data={this.state.data}
                         columns={[
                             {
                                 Header: "Name",
-                                accessor: "name"
+                                accessor: "name",
                             },
                             {
                                 Header: "Team",
-                                accessor: "team"
-                            }
+                                accessor: "team",
+                            },
                         ]}
                         defaultPageSize={60}
                         style={{
                             height: "400px", // This will force the table body to overflow and scroll, since there is not enough room
                             width: "500px",
                         }}
-                        className = "-striped -highlight"
+                        className="-striped -highlight"
                     />
                 </TableDiv>
-          
             </React.Fragment>
         );
     }

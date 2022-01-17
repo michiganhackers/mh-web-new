@@ -1,31 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 const CalendarFieldContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  margin: 5px 10px 5px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 5px 10px 5px;
 `;
 
 const IconContainer = styled.div`
-  float: left;
-  flex: 1;
-  margin: 0px 5px;
+    float: left;
+    flex: 1;
+    margin: 0px 5px;
 `;
 
 const CalendarTextContainer = styled.div`
-  flex: 10;
-  margin: 0px 5px;
-  font-size: 0.8rem;
+    flex: 10;
+    margin: 0px 5px;
+    font-size: 0.8rem;
 `;
 
 const MAX_DESCRIPTION_WORDS = 40;
 
 class CalendarField extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -35,7 +34,7 @@ class CalendarField extends React.Component {
 
         this.state = {
             small: false,
-            expanded: false
+            expanded: false,
         };
     }
 
@@ -50,8 +49,10 @@ class CalendarField extends React.Component {
     }
 
     update(text) {
-        const small = text && text.trim() !== ""
-        && text.split(" ").length <= MAX_DESCRIPTION_WORDS;
+        const small =
+            text &&
+            text.trim() !== "" &&
+            text.split(" ").length <= MAX_DESCRIPTION_WORDS;
         this.setState({ small: small, expanded: false });
     }
 
@@ -64,7 +65,7 @@ class CalendarField extends React.Component {
 
     toggleExpanded() {
         this.setState({
-            expanded: !this.state.expanded
+            expanded: !this.state.expanded,
         });
     }
 
@@ -73,29 +74,34 @@ class CalendarField extends React.Component {
             const buffer = [];
 
             if (this.props.link) {
-                buffer.push(<a key="link" href={this.props.text}>{this.props.text}</a>);
-            }
-            else {
+                buffer.push(
+                    <a key="link" href={this.props.text}>
+                        {this.props.text}
+                    </a>
+                );
+            } else {
                 if (this.state.small) {
-                    buffer.push(
-                        <span key="regular">{this.props.text}</span>
-                    );
-                }
-                else if (!this.state.expanded) {
+                    buffer.push(<span key="regular">{this.props.text}</span>);
+                } else if (!this.state.expanded) {
                     buffer.push(
                         <React.Fragment key="less">
-                            <span>{this.truncate(this.props.text) + '...'}</span>
+                            <span>
+                                {this.truncate(this.props.text) + "..."}
+                            </span>
                             <br></br>
-                            <a href="#" onClick={this.toggleExpanded}>See more</a>
+                            <a href="#" onClick={this.toggleExpanded}>
+                                See more
+                            </a>
                         </React.Fragment>
                     );
-                }
-                else {
+                } else {
                     buffer.push(
                         <React.Fragment key="more">
                             <span>{this.props.text}</span>
                             <br></br>
-                            <a href="#" onClick={this.toggleExpanded}>See less</a>
+                            <a href="#" onClick={this.toggleExpanded}>
+                                See less
+                            </a>
                         </React.Fragment>
                     );
                 }
@@ -106,13 +112,10 @@ class CalendarField extends React.Component {
                     <IconContainer>
                         <FontAwesomeIcon icon={this.props.icon} />
                     </IconContainer>
-                    <CalendarTextContainer>
-                        {buffer}
-                    </CalendarTextContainer>
+                    <CalendarTextContainer>{buffer}</CalendarTextContainer>
                 </CalendarFieldContainer>
             );
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -122,14 +125,14 @@ CalendarField.defaultProps = {
     text: "",
     link: "",
     className: "",
-    icon: "clock"
+    icon: "clock",
 };
 
 CalendarField.propTypes = {
     text: PropTypes.string,
     link: PropTypes.string,
     className: PropTypes.string,
-    icon: PropTypes.string
+    icon: PropTypes.string,
 };
 
 export default CalendarField;

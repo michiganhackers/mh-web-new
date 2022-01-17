@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 import "../../utility/fonts.css";
 import { StaticH1 } from "../../utility/ContentStyles.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import MemberCard from './MemberCard.jsx';
-import styled from 'styled-components';
+import MemberCard from "./MemberCard.jsx";
+import styled from "styled-components";
 
-import CoreTeam from '../../assets/CoreTeam.JPG';
-import Squad from '../../assets/Squad.JPG';
-import Bros from '../../assets/Bros.JPG';
-import PaintTheRockGroup from '../../assets/PaintTheRockGroup.JPG';
-import PaulBubble from '../../assets/PaulBubble.JPG';
-import JanetBubbles from '../../assets/JanetBubbles.JPG';
-import Escapade from '../../assets/Escapade.JPG';
-import ErichHands from '../../assets/ErichHands.JPG';
-import Smoothie from '../../assets/Smoothie.jpg';
-import MichiganRock from '../../assets/MichiganRock.JPG';
-import MassMeeting2021 from '../../assets/MassMeeting2021.jpg';
-import Festifall2021 from '../../assets/Festifall2021.jpg';
-import Festifall2021_1 from '../../assets/Festifall2021_1.jpg';
+import CoreTeam from "../../assets/CoreTeam.JPG";
+import Squad from "../../assets/Squad.JPG";
+import Bros from "../../assets/Bros.JPG";
+import PaintTheRockGroup from "../../assets/PaintTheRockGroup.JPG";
+import PaulBubble from "../../assets/PaulBubble.JPG";
+import JanetBubbles from "../../assets/JanetBubbles.JPG";
+import Escapade from "../../assets/Escapade.JPG";
+import ErichHands from "../../assets/ErichHands.JPG";
+import Smoothie from "../../assets/Smoothie.jpg";
+import MichiganRock from "../../assets/MichiganRock.JPG";
+import MassMeeting2021 from "../../assets/MassMeeting2021.jpg";
+import Festifall2021 from "../../assets/Festifall2021.jpg";
+import Festifall2021_1 from "../../assets/Festifall2021_1.jpg";
 import ImageCarousel from "./ImageCarousel";
 
 // we may want to switch this to using a global variable so the whole json can be updated by itself using public/
@@ -31,7 +31,6 @@ const Cards = styled.section`
 `;
 
 class CardContainer extends React.Component {
-
     constructor() {
         super();
         this.state = {
@@ -40,7 +39,10 @@ class CardContainer extends React.Component {
             images: [
                 { url: MassMeeting2021, description: "Mass Meeting 2021" },
                 { url: Festifall2021, description: "Our Festifall 2021 booth" },
-                { url: Festifall2021_1, description: "Team leads at our Festifall 2021 booth" },
+                {
+                    url: Festifall2021_1,
+                    description: "Team leads at our Festifall 2021 booth",
+                },
                 { url: CoreTeam, description: "The entire 2019-2020 Team!" },
                 { url: Squad, description: "Festifall 2019" },
                 { url: ErichHands, description: "Paint the Rock 2019" },
@@ -62,19 +64,19 @@ class CardContainer extends React.Component {
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <ImageCarousel images={this.state.images}/>
+                <ImageCarousel images={this.state.images} />
                 {Object.keys(leadership).map((category, index) => (
                     <div key={index}>
-                        <StaticH1>
-                            {category}
-                        </StaticH1>
+                        <StaticH1>{category}</StaticH1>
                         <div>
                             <Cards>
                                 {leadership[category].map((lead, index) => (
                                     <div key={index}>
-                                        <MemberCard {...lead} imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`} />
+                                        <MemberCard
+                                            {...lead}
+                                            imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
+                                        />
                                     </div>
-
                                 ))}
                             </Cards>
                         </div>
@@ -83,7 +85,6 @@ class CardContainer extends React.Component {
             </React.Fragment>
         );
     }
-
 }
 
 export default CardContainer;

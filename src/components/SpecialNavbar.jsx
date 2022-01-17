@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import devices from '../utility/MediaQueries.js';
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import devices from "../utility/MediaQueries.js";
 
 const Wrapper = styled.div`
     position: fixed;
@@ -45,7 +45,6 @@ const NavContainer = styled.div`
 
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
-    marginLeft: 0;
     font-size: 22px;
     ${devices.small`
     font-size: 20px;
@@ -62,7 +61,7 @@ const HeaderNavLink = styled(NavLink)`
     transition: all 0.3s;
 
     &:hover {
-      text-decoration: underline;
+        text-decoration: underline;
     }
 `;
 
@@ -70,21 +69,11 @@ const SpecialNavbar = () => (
     <Wrapper>
         <FlexWrapper>
             <NavContainer>
-                <HeaderNavLink to="/about">
-					about
-                </HeaderNavLink>
-                <HeaderNavLink to="/team">
-					team
-                </HeaderNavLink>
-                <HeaderNavLink to="/events">
-					calendar
-                </HeaderNavLink>
-                <HeaderNavLink to="/contact">
-					contact
-                </HeaderNavLink>
-                <HeaderNavLink to="/faq">
-					faq
-                </HeaderNavLink>
+                <HeaderNavLink to="/about">about</HeaderNavLink>
+                <HeaderNavLink to="/team">team</HeaderNavLink>
+                <HeaderNavLink to="/events">calendar</HeaderNavLink>
+                <HeaderNavLink to="/contact">contact</HeaderNavLink>
+                <HeaderNavLink to="/faq">faq</HeaderNavLink>
             </NavContainer>
         </FlexWrapper>
     </Wrapper>

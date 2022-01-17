@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
+import React, { Component } from "react";
+import $ from "jquery";
 import FSS from "../utility/geometryangle.min.js";
 
 class PolygonCanvas extends Component {
@@ -7,12 +7,17 @@ class PolygonCanvas extends Component {
         this.$el = $(this.el);
         const canvasHeight = this.props.height || "100%";
         const canvasWidth = this.props.width || "100%";
-        $(this.$el).attr("style", "width: "+ canvasWidth +"; height: " + canvasHeight + "; position: absolute");
+        $(this.$el).attr(
+            "style",
+            "width: " +
+                canvasWidth +
+                "; height: " +
+                canvasHeight +
+                "; position: absolute"
+        );
         this.$el.Geometryangle({
-
             // handle transparent colors
-            mesh:{
-
+            mesh: {
                 width: 1.2,
                 height: 1.2,
 
@@ -20,12 +25,18 @@ class PolygonCanvas extends Component {
                 depth: 15,
 
                 // Number of columns for the mesh.
-                rows: Math.round(canvasWidth.replace(/(^\d+)(.+$)/i,'$1')/
-                          canvasHeight.replace(/(^\d+)(.+$)/i,'$1')*10),
+                rows: Math.round(
+                    (canvasWidth.replace(/(^\d+)(.+$)/i, "$1") /
+                        canvasHeight.replace(/(^\d+)(.+$)/i, "$1")) *
+                        10
+                ),
 
                 // Number of rows
-                columns: Math.round(canvasHeight.replace(/(^\d+)(.+$)/i,'$1')/
-                      canvasWidth.replace(/(^\d+)(.+$)/i,'$1')*10),
+                columns: Math.round(
+                    (canvasHeight.replace(/(^\d+)(.+$)/i, "$1") /
+                        canvasWidth.replace(/(^\d+)(.+$)/i, "$1")) *
+                        10
+                ),
 
                 columns_auto: false,
 
@@ -36,22 +47,18 @@ class PolygonCanvas extends Component {
                 xRange: 0.8,
                 yRange: 0.4,
                 zRange: 3.0,
-                ambient: 'rgb(255, 140, 0)',
-                diffuse: 'rgb(255, 255, 0)',
-                background: 'rgb(255, 0, 0)',
+                ambient: "rgb(255, 140, 0)",
+                diffuse: "rgb(255, 255, 0)",
+                background: "rgb(255, 0, 0)",
                 speed: 0.0002,
-                fluctuationSpeed: .2,
+                fluctuationSpeed: 0.2,
                 fluctuationIntensity: 0,
-                onRender: function () {
-                },
+                onRender: function () {},
                 floorPosition: false,
-                draw: true
-
+                draw: true,
             },
 
-
             lights: {
-
                 // How many light sources belong to this light.
                 count: 1,
 
@@ -60,8 +67,8 @@ class PolygonCanvas extends Component {
                 // Position of light source.
                 zOffset: 100,
 
-                ambient: 'rgba(97,0,94, 1)',
-                diffuse: 'rgba(97,18,94, 1)',
+                ambient: "rgba(97,0,94, 1)",
+                diffuse: "rgba(97,18,94, 1)",
                 speed: 0.001,
                 gravity: 100,
 
@@ -79,24 +86,20 @@ class PolygonCanvas extends Component {
                     Math.randomInRange(0.2, 1.0),
                     Math.randomInRange(0.2, 1.0),
                     Math.randomInRange(0.2, 1.0)
-                )
-
+                ),
             },
 
             // specify the thickness, color, stroke, etc.
             line: {
-
                 fill: "rgba(0, 0, 0, 0)",
                 thickness: 0,
                 fluctuationIntensity: 0,
                 fluctuationSpeed: 0.5,
-                draw: false
-
+                draw: false,
             },
 
             // Set the point attributes for the vertex.
             vertex: {
-
                 // Radius of vertice circle.
                 radius: 0,
 
@@ -111,20 +114,19 @@ class PolygonCanvas extends Component {
 
                 // Instead of setting alpha channel to zero
                 // Set draw to false to avoid computing.
-                draw: false
-
-            }
-
+                draw: false,
+            },
         });
-    // $(".fss-output").css("z-index", "100");
+        // $(".fss-output").css("z-index", "100");
     }
 
     render() {
-        return <div ref={el => this.el = el} />;
+        return <div ref={(el) => (this.el = el)} />;
     }
 }
 
 // Testing environment doesn't like this component. Turn it off when testing.
-const disableIfTesting = canvas => process.env.NODE_ENV === "test" ? () => null : canvas;
+const disableIfTesting = (canvas) =>
+    process.env.NODE_ENV === "test" ? () => null : canvas;
 
 export default disableIfTesting(PolygonCanvas);

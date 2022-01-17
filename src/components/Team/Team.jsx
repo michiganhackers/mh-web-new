@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import "../../utility/fonts.css";
 import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import Navbar from '../Navbar.jsx';
-import CardContainer from './CardContainer.jsx';
+import Navbar from "../Navbar.jsx";
+import CardContainer from "./CardContainer.jsx";
 
 const Team = () => (
     <React.Fragment>

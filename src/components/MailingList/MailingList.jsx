@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { StaticP } from "../../utility/ContentStyles.js";
-import { addEmailFetch } from './MailingListFetch';
+import { addEmailFetch } from "./MailingListFetch";
 
 const EmailForm = styled.form`
     text-align: center;
 `;
 const EmailInputBox = styled.input`
     min-width: 250px;
-    size: 30px
+    size: 30px;
 `;
 const EmailSubmitButton = styled.input`
-    background-color: #F15D24;
+    background-color: #f15d24;
     color: white;
     border: none;
     text-decoration: none;
@@ -25,7 +25,7 @@ const EmailSubmitButton = styled.input`
 class MailingList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { address: '', submitted: false };
+        this.state = { address: "", submitted: false };
 
         this.handleChange = this.handleChange.bind(this);
         this.addEmailToList = this.addEmailToList.bind(this);
@@ -35,16 +35,16 @@ class MailingList extends React.Component {
         e.preventDefault();
 
         const payload = {
-            Email: this.state.address
+            Email: this.state.address,
         };
         /**
          * TODO: refactor when merging with attendance branch, which adds better email error handling.
          */
         addEmailFetch(payload);
-        
+
         this.setState({
             address: "",
-            submitted: true
+            submitted: true,
         });
     }
 
@@ -53,14 +53,23 @@ class MailingList extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <EmailForm onSubmit={this.addEmailToList}>
                 <StaticP>
-                Join our mailing list! You&apos;ll receive weekly updates from us detailing upcoming events, tech talks, hackathons, and news.
+                    Join our mailing list! You&apos;ll receive weekly updates
+                    from us detailing upcoming events, tech talks, hackathons,
+                    and news.
                 </StaticP>
-                {this.state.submitted ? <StaticP> Successfully Added! </StaticP> : null}
-                <EmailInputBox type="email" value={this.state.address} onChange={this.handleChange} placeholder="michiganhackers@umich.edu"/>
-                <EmailSubmitButton type="submit" value="Join"/>
+                {this.state.submitted ? (
+                    <StaticP> Successfully Added! </StaticP>
+                ) : null}
+                <EmailInputBox
+                    type="email"
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                    placeholder="michiganhackers@umich.edu"
+                />
+                <EmailSubmitButton type="submit" value="Join" />
             </EmailForm>
         );
     }

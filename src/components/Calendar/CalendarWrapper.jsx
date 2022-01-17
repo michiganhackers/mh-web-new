@@ -1,9 +1,9 @@
-import React from 'react';
-import Calendar from './Calendar.jsx';
+import React from "react";
+import Calendar from "./Calendar.jsx";
 
 const CalendarStyle = {
-    color: '#F15D24',
-    textColor: 'white'
+    color: "#F15D24",
+    textColor: "white",
 };
 
 const CalendarWrapper = () => (
