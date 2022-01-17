@@ -35,7 +35,7 @@ echo Build finished.
 # verify that the lead pictures are included
 LEADERSHIP_IMAGES=public/leadership/
 $L
-if [ ! -d $LEADERSHIP_IMAGES]
+if [ ! -d $LEADERSHIP_IMAGES] ]
 then
     echo "Lead information is missing."
     exit 1
@@ -55,7 +55,7 @@ then
 fi
 echo Preparing to synchronizing build.
 while true; do
-    read -p "Are you sure you want to deploy? This cannot be undone. [y/n]" yn
+    read -p "Are you sure you want to deploy? This cannot be undone. [y/n]: " yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit 1;;

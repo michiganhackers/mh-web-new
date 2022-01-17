@@ -6,12 +6,14 @@ describe('Edit Distance correctness',  () => {
     });
 
     it('should be correct for simple cases regardless of order', () => {
-        expect(OSADistance("CA", "ABC")).toBe(2);
-        expect(OSADistance("ABC", "CA")).toBe(2);
+        expect(OSADistance("CA", "ABC")).toBe(3);
+        expect(OSADistance("ABC", "CA")).toBe(3);
         expect(OSADistance("an act", "a cat")).toBe(2);
         expect(OSADistance("a cat", "an act")).toBe(2);
         expect(OSADistance("kitten", "sitting")).toBe(3);
         expect(OSADistance("sitting", "kitten")).toBe(3);
+        expect(OSADistance("kitten", "sittin")).toBe(2);
+        expect(OSADistance("sittin", "kitten")).toBe(2);
     });
 
     it('should handle common route misspellings', () => {
@@ -19,7 +21,5 @@ describe('Edit Distance correctness',  () => {
         expect(OSADistance("faqs", "faq")).toBe(1);
         expect(OSADistance("teams", "team")).toBe(1);
         expect(OSADistance("event", "events")).toBe(1);
-        expect(OSADistance("a cat", "an act")).toBe(2);
-        expect(OSADistance("kitten", "sitting")).toBe(3);
     });
 });

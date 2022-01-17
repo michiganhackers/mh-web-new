@@ -38,7 +38,7 @@ const Contact = () => (
             </StaticP>
             <MailingList />
             {/* MailingList looks terrible pressed up against the bottom*/}
-            <div style={{ "margin-bottom": "100px" }}/>
+            <div style={{ marginBottom: "100px" }}/>
         </SubpageOuter>
     </React.Fragment>
 );
