@@ -34,8 +34,7 @@ echo Build finished.
 
 # verify that the lead pictures are included
 LEADERSHIP_IMAGES=public/leadership/
-$L
-if [ ! -d $LEADERSHIP_IMAGES] ]
+if [ ! -d $LEADERSHIP_IMAGES ]
 then
     echo "Lead information is missing."
     exit 1
