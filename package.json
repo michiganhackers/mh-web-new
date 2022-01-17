@@ -30,6 +30,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .jsx,.js src",
     "lint-fix": "eslint --fix --ext .jsx,.js src",
+    "style-check": "npx prettier --check .",
+    "style-fix": "npx prettier --write .",
     "get-leadership": "node bin/collectTeamData.js"
   },
   "devDependencies": {
@@ -37,7 +39,9 @@
     "cross-fetch": "^3.1.4",
     "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2"
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "2.5.1"
   },
   "browserslist": [
     ">0.2%",
