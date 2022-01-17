@@ -9,12 +9,10 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    paddingTop: 15px;
-    paddingBottom: 15px;
     z-index: 100;
     display: flex;
     height: 80px;
-    alignItems: center;
+    align-items: center;
     justify-content: space-between;
     background: rgb(241,93,36);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
@@ -22,7 +20,7 @@ const Wrapper = styled.div`
 
 const FlexWrapper = styled.div`
     display: flex;
-    alignItems: center;
+    align-items: center;
     justify-content: space-between;
     height: 90%;
     width: calc(100% - 72px);
@@ -33,18 +31,14 @@ const Logo = styled.img`
     margin: auto;
     height: 50px;
     display: block;
-    paddingBottom: 5px;
 `;
 
 const NavContainer = styled.div`
     display: flex;
-    alignItems: right;
     justify-content: flex-end;
 `;
 
 const HeaderNavLink = styled(NavLink)`
-    margin: auto;
-    marginLeft: 0;
     font-size: 20px;
     ${devices.small`
       font-size: 18px;
@@ -66,12 +60,19 @@ const HeaderNavLink = styled(NavLink)`
     &:hover {
       text-decoration: underline;
     }
+  
+    // styles for the current active navlink
+    &.active {
+      text-decoration: underline wavy;
+      color: black;
+      cursor: default;
+    }    
 `;
 
 const LogoNavLink = styled(NavLink)`
     display: flex;
     justify-content: left;
-    fontSize: 22px;
+    font-size: 22px;
     padding: 2px 10px;
 `;
 
