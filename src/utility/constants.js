@@ -13,3 +13,13 @@ export const API_KEYS = Object.freeze({
     CALENDAR: process.env.REACT_APP_CALENDAR_API_KEY,
 });
 
+// a list of application routes and their aliases
+//  we may want to one day switch to building the routes in an object so we can put this info there instead
+export const ROUTES = Object.freeze({
+    "/about": [ "/help", "/resources" ],
+    "/team": [ "/leads" ],
+    "/events": [ "/calendar" ],
+    "/contact": [ "/connect" ],
+    "/faq": [ "/info" ],
+    "/projects": [ "/progress" ],
+});
