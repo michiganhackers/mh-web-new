@@ -50,10 +50,18 @@
         "no-useless-constructor": "error",
         "curly": "error",
         "space-before-blocks": ["error", "always"],
-        "valid-jsdoc": "warn"
+        "valid-jsdoc": ["warn"]
     },
     "plugins": ["@babel", "react"],
     "env": {
         "jest": true
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.jsx"],
+            "rules": {
+                "valid-jsdoc": ["warn", {"requireReturn": false, "requireReturnDescription": false, "requireParamType": false}]
+            }
+        }
+    ]
 }

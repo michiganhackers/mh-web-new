@@ -1,9 +1,9 @@
 /**
  * Calculate the Optimal string alignment distance between two strings
  * Code adapted from https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance#Optimal_string_alignment_distance
- * @param a {string}
- * @param b {string}
- * @return editDistance {number}
+ * @param {string} a First string
+ * @param {string} b Second string
+ * @return {number} Edit distance between the strings
  */
 export function OSADistance(a, b) {
     const d = new Array(a.length + 1)

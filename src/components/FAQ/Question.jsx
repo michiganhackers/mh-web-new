@@ -4,6 +4,11 @@ import "../../index.css";
 import { CopyP, CopyH1 } from "../../utility/ContentStyles.js";
 import PropTypes from "prop-types";
 
+/**
+ * Display a Q/A item
+ * @constructor
+ * @param props The question and answer
+ */
 const Question = (props) => (
     <React.Fragment>
         <CopyH1>Q: {props.question}</CopyH1>

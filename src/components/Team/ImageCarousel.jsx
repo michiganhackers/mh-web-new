@@ -27,8 +27,8 @@ const Legend = styled.p`
  * Display the input array of images in an image carousel.
  * Expects the image location and a short description.
  *
- * @param {{url: string, description: string}[]} props.images
- * @returns {JSX.Element}
+ * @constructor
+ * @param props A list of objects each containing the location and a short description
  */
 const ImageCarousel = (props) => {
     const { images } = props;
