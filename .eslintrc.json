@@ -1,8 +1,12 @@
 {
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
+        "requireConfigFile": false,
         "ecmaFeatures": {
             "jsx": true
+        },
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
         }
     },
     "settings": {
@@ -27,7 +31,7 @@
         "setTimeout": "readonly",
         "gapi": "readonly"
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
     "rules": {
         "semi": ["error", "always"],
         "no-eval": ["error"],
@@ -41,18 +45,15 @@
         "jsx-quotes": ["error", "prefer-double"],
         "no-var": "error",
         "react/prop-types": 0,
-        "indent": ["error", 4],
         "no-multiple-empty-lines": "error",
-        "array-bracket-spacing": ["error", "always"],
-        "object-curly-spacing": ["error", "always"],
         "no-duplicate-imports": "error",
         "no-useless-constructor": "error",
         "curly": "error",
-        "space-before-blocks": ["error", "always"]
+        "space-before-blocks": ["error", "always"],
+        "valid-jsdoc": "warn"
     },
+    "plugins": ["@babel", "react"],
     "env": {
-        //TODO: replace with below for react 17
-//        "jest/globals": true
         "jest": true
     }
 }
