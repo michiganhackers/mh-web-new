@@ -17,12 +17,14 @@ import {
     faMapMarkerAlt,
     faClock,
 } from "@fortawesome/free-solid-svg-icons";
+import ScrollToTop from "./utility/ScrollToTop";
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
 
 const App = () => (
     <div>
         <Router>
+            <ScrollToTop/>
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/events" component={Events} />
