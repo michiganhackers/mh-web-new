@@ -13,9 +13,11 @@
 const fs = require("fs");
 const path = require("path");
 const util = require("util");
+const { Buffer } = require("buffer");
 const fetch = require("cross-fetch");
 require("dotenv").config();
 const sheets = require("@googleapis/sheets");
+const sharp = require("sharp");
 
 const writeFile = util.promisify(fs.writeFile);
 
@@ -69,10 +71,10 @@ client.spreadsheets.values
     .then((res) => {
         const categories = [];
         const personData = {};
-        const people = res.data.values;
+        const rows = res.data.values;
 
         // Do a pass to find the categories. Categories must be nonempty.
-        people.forEach((row, index) => {
+        rows.forEach((row, index) => {
             if (row[0] === "CATEGORY") {
                 categories.push({
                     name: row[1],
@@ -89,14 +91,14 @@ client.spreadsheets.values
             // const peopleInCategory = personData[category.name];
             const nextCategoryStart =
                 catIndex === categories.length - 1
-                    ? people.length
+                    ? rows.length
                     : categories[catIndex + 1].startIndex;
             for (
-                let rowIndex = category.startIndex + 1;
+                let rowIndex = category.startIndex + 1, personIndex = 0;
                 rowIndex < nextCategoryStart;
                 ++rowIndex
             ) {
-                const row = people[rowIndex];
+                const row = rows[rowIndex];
                 // ignore empty rows and hidden rows
                 if (
                     row[0] !== "" &&
@@ -108,8 +110,12 @@ client.spreadsheets.values
                             props[item] = row[LEADERSHIP_FIELD_TO_COL[item]];
                         }
                     }
+                    // write the props immediate with the google image url, and then later we only update the url
+                    personData[category.name][personIndex] = props;
                     // TODO: a progress bar would be pretty cool *wink* *wink* *nudge* *nudge*
                     if (props.imageUrl) {
+                        // we want to keep the row counter in this scope so each fetch gets its own, unincremented one
+                        const myRow = personIndex;
                         const imageProcessing = fetch(props.imageUrl)
                             .then((res) => {
                                 if (!res.ok) {
@@ -125,33 +131,46 @@ client.spreadsheets.values
                                 return res.blob();
                             })
                             .then(async (blob) => {
-                                const filename = `${
-                                    props.uniqname
-                                }.${getExtension(blob.type)}`;
+                                const filename = `${props.uniqname}.jpg`;
                                 const localPath = path.join(
                                     IMAGE_DIR,
                                     filename
                                 );
                                 // we don't need to include public/ since it is resolved by default
-                                // one fun consequence is that the original path will be kept if this one doesn't work
-                                props.imageUrl = path.posix.join(
+                                personData[category.name][
+                                    myRow
+                                ].imageUrl = path.posix.join(
                                     LEADERSHIP,
                                     filename
                                 );
-                                // eslint-disable-next-line no-undef
-                                const buffer = Buffer.from(
-                                    await blob.arrayBuffer()
+                                return (
+                                    sharp(Buffer.from(await blob.arrayBuffer()))
+                                        // rotate the image based on EXIF data
+                                        .rotate()
+                                        // resize the image to a smallest dimension of 400 without growing small images
+                                        .resize(400, 400, {
+                                            fit: "outside",
+                                            withoutEnlargement: true,
+                                        })
+                                        // convert it to a jpg if it isn't one already
+                                        .jpeg({
+                                            quality: 100,
+                                            chromaSubsampling: "4:4:4",
+                                        })
+                                        // automatically strips remaining exif data
+                                        .toFile(localPath)
                                 );
-                                return writeFile(localPath, buffer);
-                            })
-                            .then((err) => {
-                                if (err) {
-                                    throw err;
-                                }
-                                personData[category.name].push(props);
+
+                                // eslint-disable-next-line no-undef
+                                // const buffer = Buffer.from(
+                                //     await blob.arrayBuffer()
+                                // );
+                                // return writeFile(localPath, buffer);
                             })
                             .catch((err) => {
-                                console.error(err);
+                                console.error(
+                                    `Image operations failed for ${props.uniqname}.\n\n${err}`
+                                );
                                 // process will exit with error after all tasks complete
                                 process.exitCode = 1;
                             });
@@ -160,8 +179,9 @@ client.spreadsheets.values
                         console.warn(
                             `${props["uniqname"]} did not add an image.`
                         );
-                        personData[category.name].push(props);
                     }
+                    // only increment on rows containing people who will be added
+                    ++personIndex;
                 }
             }
         });
@@ -170,12 +190,11 @@ client.spreadsheets.values
                 console.log(`${imagePromises.length} images saved`);
                 console.log(
                     `${
-                        imagePromises.length -
                         Object.keys(personData).reduce(
                             (sum, category) =>
                                 sum + personData[category].length,
                             0
-                        )
+                        ) - imagePromises.length
                     } images missing`
                 );
                 return writeFile(
@@ -189,18 +208,3 @@ client.spreadsheets.values
                 process.exitCode = 1;
             });
     });
-
-function getExtension(mimeType) {
-    switch (mimeType) {
-        case "image/jpeg":
-            return "jpg";
-        case "image/gif":
-            return "gif";
-        case "image/png":
-            return "png";
-        case "image/webp":
-            return "webp";
-        default:
-            throw new Error(`MIME type ${mimeType} not found.`);
-    }
-}
