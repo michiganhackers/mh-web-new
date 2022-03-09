@@ -5,7 +5,6 @@ import devices from "../../utility/MediaQueries.js";
 import $ from "jquery";
 
 import SpecialNavbar from "../SpecialNavbar.jsx";
-
 import PolygonCanvas from "../PolygonCanvas.js";
 
 import logoUrl from "../../assets/logo-orange-cropped.png";
@@ -29,9 +28,13 @@ const MainText = styled.h1`
     width: 60vw;
     font-size: 5vw;
     ${devices.tablet`
-    width: 70vw;
-    font-size: 10vw;
-  `}
+        width: 70vw;
+        font-size: 8vw;
+    `}
+    ${devices.small`
+        width: 80vw;
+        font-size: 10vw;
+    `}
     text-transform: uppercase;
 `;
 
@@ -39,8 +42,11 @@ const Logo = styled.img`
     display: block;
     width: 10vw;
     ${devices.tablet`
-    width: 20vw;
-  `}
+        width: 15vw;
+    `}
+    ${devices.small`
+        width: 20vw;
+    `}
     height: auto;
     padding: 2vw;
 `;
@@ -57,7 +63,8 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <SpecialNavbar />
+                {/*<SpecialNavbar />*/}
+              <SpecialNavbar />
                 <PolygonCanvas
                     style={{
                         width: "100%",

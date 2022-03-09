@@ -16,10 +16,11 @@ import {
     faLink,
     faMapMarkerAlt,
     faClock,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
-library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock);
+library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock, faBars);
 
 const App = () => (
     <div>

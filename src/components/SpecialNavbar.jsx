@@ -2,59 +2,121 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import devices from "../utility/MediaQueries.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Wrapper = styled.div`
+const FlexWrapper = styled.div`
+    height: 80px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 100;
     display: flex;
-    height: 80px;
-    align-items: center;
-    ${devices.small`
-      align-items: center;
+    ${devices.tablet`
+        justify-content: flex-end;
+        position: static;
+        
+        // rotate the menu icon on open and close
+        label > svg {
+          transition: transform 1.2s ease-out;
+        }
+        #hamburger:checked ~ & > label > svg {
+          transform: rotate(90deg);
+          transition: transform 0.6s ease-out;
+        }
     `}
+    align-items: center;
     justify-content: space-between;
     background: transparent;
-    font-size: 20px;
 `;
 
-const FlexWrapper = styled.div`
-    display: flex;
-    align-items: flex-start;
-    ${devices.small`
-      align-items: center;
-    `}
-    flex-direction: row;
-    justify-content: space-between;
-    height: 90%;
-    margin: 0 auto;
-    width: calc(100% - 72px);
-    ${devices.small`
-      width: auto;
-      flex-wrap: wrap;
+const HeaderAnchor = styled.header`
+    position: fixed;
+    // we don't want this to take any space on the page
+    // It serves as an anchor for the rest of the header
+    height: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    ${devices.tablet`
+        bottom: 80px;
     `}
 `;
 
-const NavContainer = styled.div`
+const Hamburger = styled.label`
+    font-size: 24px;
+    color: white;
+    display: none;
+    text-align: right;
+    margin: auto 10px auto 0;
+    transition: color 0.3s;
+    // needs to be above the mobile nav menu, which is up first so the whole thing is clickable
+    z-index: 3;
+
+    span {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        color: #404040;
+        cursor: pointer;
+    }
+
+    ${devices.tablet`
+        // display: block;
+        display: flex;
+        align-items: center;
+    `}
+    ${devices.small`
+        font-size: 28px;
+    `}
+    ${devices.tiny`
+        font-size: 24px;
+    `}
+`;
+
+const MobileNavContainer = styled.nav`
     display: flex;
-    align-items: center;
     justify-content: flex-end;
+    align-items: flex-start;
+    ${devices.tablet`
+        flex-direction: column;
+        position: sticky;
+        // works because already is on top of everything thanks to sticky
+        // default state is retracted. This does mean when we resize, it has to slide up.
+        //  Not sure what the best way to resolve without js is
+        transition: transform 1.2s ease-in-out;
+        transform: translateY(0%);
+        
+        #hamburger:checked ~ & {
+            transform: translateY(-100%);
+            transition: transform 0.6s ease-in-out;
+        }
+    `}
+`;
+
+const DesktopNavContainer = styled.nav`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 4;
+    flex: auto;
+    ${devices.tablet`
+        display:none;
+    `}
 `;
 
 const HeaderNavLink = styled(NavLink)`
-    margin: auto;
-    font-size: 22px;
+    font-size: 24px;
+    padding: 2px 10px;
     ${devices.small`
-    font-size: 20px;
+        font-size: 28px;
+        padding: 2px 6px 2px 10px
     `}
     ${devices.tiny`
-    font-size: 18px;
-    `}
-    padding: 2px 20px;
-    ${devices.small`
-      padding: 2px 8px;
+        font-size: 24px;
+        padding: 2px 4px 2px 8px
     `}
     color: white;
     text-decoration: none;
@@ -63,20 +125,61 @@ const HeaderNavLink = styled(NavLink)`
     &:hover {
         text-decoration: underline;
     }
+
+    // styles for the current active navlink
+    &.active {
+        text-decoration: underline wavy;
+        color: #404040;
+        cursor: default;
+    }
 `;
 
+const GithubLink = styled.a`
+    font-size: 24px;
+    order: 1;
+
+    ${devices.tablet`
+        display: none;
+    `}
+    &:hover {
+        color: #404040;
+    }
+
+    color: white;
+    padding: 8px 0;
+    width: 64px;
+    flex: 0 0 auto;
+    text-align: center;
+`;
+
+const links = ["about", "team", "events", "contact", "faq"].map(
+    (name) => (
+        <HeaderNavLink to={`/${name}`} key={name}>
+            {name}
+        </HeaderNavLink>
+    )
+);
+
 const SpecialNavbar = () => (
-    <Wrapper>
+    <HeaderAnchor>
+        <input type="checkbox" id="hamburger" style={{ display: "none" }} />
         <FlexWrapper>
-            <NavContainer>
-                <HeaderNavLink to="/about">about</HeaderNavLink>
-                <HeaderNavLink to="/team">team</HeaderNavLink>
-                <HeaderNavLink to="/events">calendar</HeaderNavLink>
-                <HeaderNavLink to="/contact">contact</HeaderNavLink>
-                <HeaderNavLink to="/faq">faq</HeaderNavLink>
-            </NavContainer>
+            <DesktopNavContainer>{links}</DesktopNavContainer>
+            <GithubLink
+                target="_blank"
+                href="https://github.com/michiganhackers"
+            >
+                <FontAwesomeIcon icon={["fab", "github"]} />
+            </GithubLink>
+            <Hamburger htmlFor="hamburger">
+                <span>menu</span>
+                <FontAwesomeIcon icon="bars" />
+            </Hamburger>
         </FlexWrapper>
-    </Wrapper>
+        {/*fix tab indexing*/}
+
+        <MobileNavContainer>{links}</MobileNavContainer>
+    </HeaderAnchor>
 );
 
 export default SpecialNavbar;
