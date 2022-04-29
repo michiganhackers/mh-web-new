@@ -35,7 +35,7 @@
         "@babel/eslint-parser": "^7.16.5",
         "@babel/eslint-plugin": "^7.16.5",
         "@googleapis/sheets": "^0.3.0",
-        "cross-fetch": "^3.1.4",
+        "cross-fetch": "^3.1.5",
         "dotenv": "^10.0.0",
         "enzyme": "^3.11.0",
         "eslint": "^8.7.0",
