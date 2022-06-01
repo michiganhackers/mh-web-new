@@ -39,6 +39,10 @@
 //
 //============================================================
 
+import $ from "jquery";
+
+var t0, t1, vertex, l, light, FSS;
+
 /**
  * Defines the Flat Surface Shader namespace for all the awesomeness to exist upon.
  * @author Matthew Wagerfield
@@ -1922,7 +1926,6 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
         }
 
         function onMouseMove(event) {
-            console.log(event);
             FSS.Vector3.set(attractor, event.x, event.y);
             /* 			FSS.Vector3.subtract(attractor, center); */
         }
@@ -1938,3 +1941,5 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
         return callbacks;
     };
 })();
+
+export default FSS;

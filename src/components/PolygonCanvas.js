@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import FSS from "../utility/geometryangle.min.js";
+import FSS from "../utility/geometryangle.js";
 
 class PolygonCanvas extends Component {
     componentDidMount() {
