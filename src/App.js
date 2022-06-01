@@ -16,27 +16,25 @@ import {
     faLink,
     faMapMarkerAlt,
     faClock,
-  faBars,
+    faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
 library.add(fab, faListUl, faLink, faMapMarkerAlt, faClock, faBars);
 
 const App = () => (
-    <div>
-        <Router>
-            <ScrollToTop/>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/events" component={Events} />
-                <Route path="/about" component={About} />
-                <Route path="/team" component={Team} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/faq" component={FAQ} />
-                <Route path="*" component={PageNotFound} />
-            </Switch>
-        </Router>
-    </div>
+    <Router>
+        <ScrollToTop />
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/events" component={Events} />
+            <Route path="/about" component={About} />
+            <Route path="/team" component={Team} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/faq" component={FAQ} />
+            <Route path="*" component={PageNotFound} />
+        </Switch>
+    </Router>
 );
 
 export default App;
