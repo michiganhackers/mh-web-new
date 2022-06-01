@@ -3,6 +3,14 @@ import $ from "jquery";
 import FSS from "../utility/geometryangle.js";
 
 class PolygonCanvas extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            geometry: null
+        };
+    }
+
     componentDidMount() {
         this.$el = $(this.el);
         const canvasHeight = this.props.height || "100%";
@@ -13,9 +21,10 @@ class PolygonCanvas extends Component {
                 canvasWidth +
                 "; height: " +
                 canvasHeight +
-                "; position: absolute"
+                // "; position: absolute"
+                "; position: fixed"
         );
-        this.$el.Geometryangle({
+        const geometry = this.$el.Geometryangle({
             // handle transparent colors
             mesh: {
                 width: 1.2,
@@ -118,6 +127,11 @@ class PolygonCanvas extends Component {
             },
         });
         // $(".fss-output").css("z-index", "100");
+        this.setState({geometry});
+    }
+
+    componentWillUnmount() {
+        this.state.geometry.destroy();
     }
 
     render() {

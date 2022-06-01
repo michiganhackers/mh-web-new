@@ -1581,6 +1581,7 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
         var renderer, scene, mesh, geometry, material;
         var webglRenderer, canvasRenderer, svgRenderer;
         var gui, autopilotController;
+        let isActive = true;
 
         //------------------------------
         // Methods
@@ -1591,7 +1592,8 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
             createMesh();
             createLights();
             addEventListeners();
-            callbacks.resize(container.offsetWidth, container.offsetHeight);
+            callbacks.resize(container.offsetWidth, container.offsetHeight+200);
+            // callbacks.resize(window.innerWidth, window.innerHeight);
             animate();
         }
 
@@ -1778,7 +1780,14 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
             formatRGBA: function (a) {
                 var string = "rgba(" + a[0] + "," + a[1] + "," + a[2] + "," + a[3] + ")";
                 return string;
+            },
+            destroy: function () {
+                isActive = false;
+                window.removeEventListener("resize", onWindowResize, false);
+                self.removeEventListener('click', onMouseClick, false);
+                self.removeEventListener('mousemove', onMouseMove, true);
             }
+
         };
 
 
@@ -1786,7 +1795,9 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
             now = Date.now() - start;
             update();
             render();
-            requestAnimationFrame(animate);
+            if (isActive) {
+                requestAnimationFrame(animate);
+            }
         }
 
         function update() {
@@ -1931,7 +1942,10 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
         }
 
         function onWindowResize(event) {
-            callbacks.resize(self.offsetWidth, self.offsetHeight);
+            // adjusted to prevent the weird whitespace issue that we have on mobile devices
+            // callbacks.resize(self.offsetWidth, self.offsetHeight);
+            callbacks.resize(self.offsetWidth, self.offsetHeight+200);
+            // callbacks.resize(window.innerWidth, window.innerHeight);
             render();
         }
 
