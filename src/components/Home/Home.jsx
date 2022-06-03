@@ -8,6 +8,7 @@ import SpecialNavbar from "../SpecialNavbar.jsx";
 import PolygonCanvas from "../PolygonCanvas.js";
 
 import logoUrl from "../../assets/logo-orange-cropped.png";
+import NewPolygonCanvas from "../NewPolygonCanvas";
 
 const HomeBackgroundOuter = styled.div`
     position: relative;
@@ -53,6 +54,8 @@ const Logo = styled.img`
 
 class Home extends Component {
     componentDidMount() {
+        // TODO: see if we can set up dimensions properly so we don't need this
+        //  might be a factor in the mobile issue
         $("body").css("overflow", "hidden");
     }
 
@@ -63,14 +66,12 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                {/*<SpecialNavbar />*/}
-              <SpecialNavbar />
-                <PolygonCanvas
+                <SpecialNavbar />
+                <NewPolygonCanvas
                     style={{
                         width: "100%",
                         height: "100%",
                         position: "absolute",
-                        transform: "scaleX(-1)",
                     }}
                 />
                 <HomeBackgroundOuter>
