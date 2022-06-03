@@ -67,13 +67,7 @@ class Home extends Component {
         return (
             <React.Fragment>
                 <SpecialNavbar />
-                <NewPolygonCanvas
-                    style={{
-                        width: "100%",
-                        height: "100%",
-                        position: "absolute",
-                    }}
-                />
+                <NewPolygonCanvas />
                 <HomeBackgroundOuter>
                     <Logo src={logoUrl} />
                     <MainText>

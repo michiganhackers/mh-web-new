@@ -20,7 +20,7 @@ function useWindowSize() {
     return size;
 }
 
-function NewPolygonCanvas({ width, height }) {
+function NewPolygonCanvas() {
     const divRef = useRef(null);
     const [windowWidth, windowHeight] = useWindowSize();
     useEffect(() => {
