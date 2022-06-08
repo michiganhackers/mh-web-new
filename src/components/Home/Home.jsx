@@ -47,6 +47,7 @@ const Logo = styled.img`
     `}
     ${devices.small`
         width: 20vw;
+        padding-top: 8vw;
     `}
     height: auto;
     padding: 2vw;
