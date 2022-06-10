@@ -5,7 +5,6 @@ import devices from "../../utility/MediaQueries.js";
 import $ from "jquery";
 
 import SpecialNavbar from "../SpecialNavbar.jsx";
-import PolygonCanvas from "../PolygonCanvas.js";
 
 import logoUrl from "../../assets/logo-orange-cropped.png";
 import NewPolygonCanvas from "../NewPolygonCanvas";
