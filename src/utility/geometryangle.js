@@ -1919,9 +1919,6 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
         }
 
         function addEventListeners() {
-            if(window.attachEvent) {
-                window.addEventHandler = window.attachEvent;
-            }
             window.addEventListener('resize', onWindowResize, false);
             self.addEventListener('click', onMouseClick, false);
             self.addEventListener('mousemove', onMouseMove, true);
