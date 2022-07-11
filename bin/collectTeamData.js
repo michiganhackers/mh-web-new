@@ -169,7 +169,7 @@ client.spreadsheets.values
                             })
                             .catch((err) => {
                                 console.error(
-                                    `Image operations failed for ${props.uniqname}.\n\n${err}`
+                                    `Image operations failed for ${props.uniqname}.\n${err}`
                                 );
                                 // process will exit with error after all tasks complete
                                 process.exitCode = 1;
