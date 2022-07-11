@@ -15,7 +15,7 @@ const FAQ = () => (
             />
             <Question
                 question="Can I join Michigan Hackers? How? What’s the process?"
-                answer="Yes! Any student can come to our events and be a guest. You're welcome to check out our different teams and our company events. If you're interested in Michigan Hackers, consistent attendance (three consecutive events) will earn you an invitation to join officially."
+                answer="Yes! Any student can come to our events and be a guest. You're welcome to check out our different teams and our company events. If you're interested in Michigan Hackers, consistent attendance (five hack nights) will earn you an invitation to join officially."
             />
             <Question
                 question="Can I join a team if I’m not an official member?"
@@ -35,7 +35,7 @@ const FAQ = () => (
             />
             <Question
                 question="How do I become an official member?"
-                answer="Official membership is FREE and decided on a rolling basis. Application invites are sent out through email after attending half of the Hack nights (usually 5-6, be sure to fill out the attendance forms) or other events. After filling out your application, schedule an appointment in our executive team's office hours for a low stress interview to become an official member."
+                answer="Official membership is FREE and decided on a rolling basis. Application invites are sent out through email after attending five of the Hack nights or other events. After filling out your application, schedule an appointment in our executive team's office hours for a low stress interview to become an official member."
             />
             <Question
                 question="What are Hack Nights? What do you do?"
