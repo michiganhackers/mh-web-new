@@ -792,6 +792,9 @@ FSS.CanvasRenderer = function () {
     /* 	this.element.style.display = 'block'; */
     this.element.style.zIndex = "-100";
     this.element.style.pointerEvents = "none";
+    // if unexpected resizes happen without document.resize being
+    this.element.style.width = "100%";
+    this.element.style.height = "100%";
     this.context = this.element.getContext('2d');
     this.setSize(this.element.width, this.element.height);
 };
@@ -1786,6 +1789,7 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
                 window.removeEventListener("resize", onWindowResize, false);
                 self.removeEventListener('click', onMouseClick, false);
                 self.removeEventListener('mousemove', onMouseMove, true);
+                clearTimeout(windowResizeTimeout);
             }
 
         };
@@ -1938,12 +1942,20 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
             /* 			FSS.Vector3.subtract(attractor, center); */
         }
 
+        let windowResizeTimeout;
         function onWindowResize(event) {
             // adjusted to prevent the weird whitespace issue that we have on mobile devices
-            // callbacks.resize(self.offsetWidth, self.offsetHeight);
-            callbacks.resize(self.offsetWidth, self.offsetHeight+200);
-            // callbacks.resize(window.innerWidth, window.innerHeight);
-            render();
+
+            // technically this won't do anything unless we add a debounce to the parent component
+            //  since parent forces rebuild on size change.
+            // debounce 500ms
+            clearTimeout(windowResizeTimeout)
+            windowResizeTimeout = setTimeout(() => {
+                // callbacks.resize(self.offsetWidth, self.offsetHeight);
+                callbacks.resize(self.offsetWidth, self.offsetHeight+200);
+                // callbacks.resize(window.innerWidth, window.innerHeight);
+                render();
+            }, 3000)
         }
 
 
