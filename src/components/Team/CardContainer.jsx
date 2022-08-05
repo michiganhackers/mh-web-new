@@ -5,19 +5,19 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import MemberCard from "./MemberCard.jsx";
 import styled from "styled-components";
 
-import CoreTeam from "../../assets/CoreTeam.JPG";
-import Squad from "../../assets/Squad.JPG";
-import Bros from "../../assets/Bros.JPG";
-import PaintTheRockGroup from "../../assets/PaintTheRockGroup.JPG";
-import PaulBubble from "../../assets/PaulBubble.JPG";
-import JanetBubbles from "../../assets/JanetBubbles.JPG";
-import Escapade from "../../assets/Escapade.JPG";
-import ErichHands from "../../assets/ErichHands.JPG";
-import Smoothie from "../../assets/Smoothie.jpg";
-import MichiganRock from "../../assets/MichiganRock.JPG";
-import MassMeeting2021 from "../../assets/MassMeeting2021.jpg";
-import Festifall2021 from "../../assets/Festifall2021.jpg";
-import Festifall2021_1 from "../../assets/Festifall2021_1.jpg";
+import CoreTeam from "assets/carousel/CoreTeam.jpg";
+import Squad from "assets/carousel/Squad.jpg";
+import Bros from "assets/carousel/Bros.jpg";
+import PaintTheRockGroup from "assets/carousel/PaintTheRockGroup.jpg";
+import PaulBubble from "assets/carousel/PaulBubble.jpg";
+import JanetBubbles from "assets/carousel/JanetBubbles.jpg";
+import Escapade from "assets/carousel/Escapade.jpg";
+import ErichHands from "assets/carousel/ErichHands.jpg";
+import Smoothie from "assets/carousel/Smoothie.jpg";
+import MichiganRock from "assets/carousel/MichiganRock.jpg";
+import MassMeeting2021 from "assets/carousel/MassMeeting2021.jpg";
+import Festifall2021 from "assets/carousel/Festifall2021.jpg";
+import Festifall2021_1 from "assets/carousel/Festifall2021_1.jpg";
 import ImageCarousel from "./ImageCarousel";
 
 // we may want to switch this to using a global variable so the whole json can be updated by itself using public/
