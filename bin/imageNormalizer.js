@@ -64,8 +64,8 @@ const inputIsDirectory = fs.lstatSync(location).isDirectory();
 if (
     inputIsDirectory &&
     options.output &&
-  fs.existsSync(options.output) &&
-  !fs.lstatSync(options.output).isDirectory()
+    fs.existsSync(options.output) &&
+    !fs.lstatSync(options.output).isDirectory()
 ) {
     throw new Error("Cannot write entries in a directory to a file");
 }
@@ -78,9 +78,10 @@ if (
     throw new Error("Cannot write file to a directory");
 }
 
-const outputIsDirectory = options.output && fs.existsSync(options.output)
-    ? fs.lstatSync(options.output).isDirectory()
-    : false;
+const outputIsDirectory =
+    options.output && fs.existsSync(options.output)
+        ? fs.lstatSync(options.output).isDirectory()
+        : false;
 
 const width = parseInt(positional_args[1]);
 const height = parseInt(positional_args[2]);
@@ -118,7 +119,7 @@ if (inputIsDirectory) {
             );
         }
     } catch (e) {
-       throw new Error(`Failed to read directory '${location}': ${e}`);
+        throw new Error(`Failed to read directory '${location}': ${e}`);
     }
     Promise.all(imagePromises).then(() => {
         console.log(`${imagePromises.length} images converted`);
@@ -158,7 +159,11 @@ async function convertImage(filename, width, height, type, output) {
 
     switch (type) {
         case "jpg":
-            await image.jpeg({ quality: 100, chromaSubsampling: "4:4:4", mozjpeg: true });
+            await image.jpeg({
+                quality: 100,
+                chromaSubsampling: "4:4:4",
+                mozjpeg: true,
+            });
             break;
         case "png":
             await image.png();
