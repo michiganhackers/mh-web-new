@@ -20,7 +20,7 @@ export const API_KEYS = Object.freeze({
 //  we may want to one day switch to building the routes in an object so we can put this info there instead
 export const ROUTES = Object.freeze({
     "/about": ["/help", "/resources"],
-    "/team": ["/leads"],
+    "/leadership": ["/team", "/leads"],
     "/events": ["/calendar"],
     "/contact": ["/connect"],
     "/faq": ["/info"],

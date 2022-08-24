@@ -4,12 +4,12 @@ import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import Navbar from "../Navbar.jsx";
 import CardContainer from "./CardContainer.jsx";
 
-const Team = () => (
+const Leadership = () => (
     <React.Fragment>
         <Navbar />
-        <SubpageOuter header="our team" />
+        <SubpageOuter header="our leadership" />
         <CardContainer />
     </React.Fragment>
 );
 
-export default Team;
+export default Leadership;
