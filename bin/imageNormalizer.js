@@ -122,8 +122,8 @@ if (inputIsDirectory) {
         throw new Error(`Failed to read directory '${location}': ${e}`);
     }
     Promise.all(imagePromises).then(() => {
-        console.log(`${imagePromises.length} images converted`);
-        console.warn(`${failures} images failed to convert`);
+        console.log(`${imagePromises.length - failures} images converted`);
+        failures && console.warn(`${failures} images failed to convert`);
     });
 } else {
     convertImage(location, width, height, options.type, options.output).catch(

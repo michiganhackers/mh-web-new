@@ -18,6 +18,9 @@ import MichiganRock from "assets/carousel/MichiganRock.jpg";
 import MassMeeting2021 from "assets/carousel/MassMeeting2021.jpg";
 import Festifall2021 from "assets/carousel/Festifall2021.jpg";
 import Festifall2021_1 from "assets/carousel/Festifall2021_1.jpg";
+import N1CTFNovember from "assets/carousel/N1CTFNovember.jpg";
+import PinballPetes2021 from "assets/carousel/PinballPetes2021.jpg";
+import PinballPetes2021Leads from "assets/carousel/PinballPetes2021Leads.jpg";
 import ImageCarousel from "./ImageCarousel";
 
 // we may want to switch this to using a global variable so the whole json can be updated by itself using public/
@@ -37,6 +40,9 @@ class CardContainer extends React.Component {
             leadership: [],
             categories: [],
             images: [
+                { url: N1CTFNovember, description: "NU1L Capture the Flag Kickoff hosted by our Security Team" },
+                { url: PinballPetes2021, description: "Pinball Pete's Social Night 2021" },
+                { url: PinballPetes2021Leads, description: "Our Exec Team having fun at a social night" },
                 { url: MassMeeting2021, description: "Mass Meeting 2021" },
                 { url: Festifall2021, description: "Our Festifall 2021 booth" },
                 {
