@@ -7,3 +7,31 @@ body {
 .fc {
     margin-bottom: 20px;
 }
+
+@keyframes details-open {
+    0% {
+        opacity: 0;
+        transform: translateX(-32px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes details-close {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-32px);
+    }
+}
+
+@counter-style alternating-arrows {
+    system: cyclic;
+    symbols: url(assets/list_arrow.svg);
+    suffix: " ";
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { mount } from "enzyme";
 import Question from "./Question";
-import { CopyH1, CopyP } from "../../utility/ContentStyles";
+import { CopyP } from "../../utility/ContentStyles";
 
 describe("<Question />", () => {
     it("renders without crashing", () => {
@@ -9,11 +9,11 @@ describe("<Question />", () => {
     });
 
     it("renders a question", () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <Question question="do I work?" answer={"hopefully yes"} />
         );
         expect(
-            wrapper.find(CopyH1).matchesElement(<CopyH1>Q: do I work?</CopyH1>)
+            wrapper.containsMatchingElement(<summary>do I work?</summary>)
         ).toBe(true);
         expect(
             wrapper.find(CopyP).matchesElement(<CopyP>hopefully yes</CopyP>)
@@ -21,14 +21,14 @@ describe("<Question />", () => {
     });
 
     it("renders a multiline q/a", () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <Question
                 question="do I work?"
                 answer={"hopefully yes\n or else\n someone will be unhappy"}
             />
         );
         expect(
-            wrapper.find(CopyH1).matchesElement(<CopyH1>Q: do I work?</CopyH1>)
+            wrapper.containsMatchingElement(<summary>do I work?</summary>)
         ).toBe(true);
         expect(
             wrapper
