@@ -21,12 +21,9 @@ const Header = styled.h1`
     padding-top: 16px;
 `;
 
-const HeaderOuter = styled.div``;
 
 const StaticHeader = (props) => (
-    <HeaderOuter>
         <Header>{props.children}</Header>
-    </HeaderOuter>
 );
 
 StaticHeader.defaultProps = {

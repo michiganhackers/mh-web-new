@@ -7,11 +7,11 @@ import PropTypes from "prop-types";
 
 const Outer = styled.div`
     width: 100%;
-    margin-top: 80px;
+    margin-top: 100px;
     align-items: center;
 `;
 
-const Content = styled.div`
+const Content = styled.main`
     width: 60%;
     ${devices.tablet`
     width: 90%;
@@ -21,6 +21,13 @@ const Content = styled.div`
     margin: auto;
 `;
 
+/**
+ * Wrapper for all pages. Reason for this is the Navbar not being `fixed` due to styling decisions.
+ * Since Navbar is not fixed and taking up space, we need a standard way to adjust the layout to prevent overlaps.
+ * @constructor
+ * @param props.header {string} Name of the page
+ * @param props.children React subcomponents (supplied automatically)
+ */
 const SubpageOuter = (props) => (
     <Outer>
         <StaticHeader>{props.header}</StaticHeader>
