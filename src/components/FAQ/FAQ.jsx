@@ -66,6 +66,7 @@ const FAQ = () => (
                     "\nOur reach. Sure, we have many companies that want to hold events with us and even pay us (Google, Facebook, Yelp, Capital One, Twitter, Grainger, Steven's Capital Management, to name a few). But we also go beyond that. We have contacts with other organizations outside of the university and even have an annual hackathon with Michigan State University's Spartan Hackers. Within the university, we work with other organizations like the amazing Girls in Electrical Engineering and Computer Science (GEECS) and faculty like our advisor, Professor Alex J. Halderman. We have over 3k people following our social media, making us the top computer science focused student organization on campus. We're not perfect, but we're willing to grow and learn from mistakes."
                 }
             />
+            <br/>
         </SubpageOuter>
     </>
 );
