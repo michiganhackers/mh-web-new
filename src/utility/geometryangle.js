@@ -1497,14 +1497,14 @@ FSS.SVGRenderer.prototype.formatStyle = function (color) {
             zOffset: 100,
             ambient: 'rgba(255,0,102, 1)',
             diffuse: 'rgba(255,136,0, 1)',
-            speed: 0.010,
-            gravity: 1200,
+            speed: 0.00001,
+            gravity: 1,
             dampening: 0.95,
-            minLimit: 10,
+            minLimit: 1,
             maxLimit: null,
             minDistance: 20,
             maxDistance: 400,
-            autopilot: false,
+            autopilot: true,
             draw: false, //show circle
             bounds: FSS.Vector3.create(),
             step: FSS.Vector3.create(
