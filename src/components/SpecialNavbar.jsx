@@ -176,7 +176,7 @@ const social_mappings = {
     twitter: "https://twitter.com/michiganhackers",
 };
 const social_link_group = (
-    <SocialLinkContainer>
+    <SocialLinkContainer key={"social_group"}>
         {Object.entries(social_mappings).map(([name, url]) => (
             <SocialNavLink key={name} target="_blank" href={url}>
                 <FontAwesomeIcon icon={["fab", name]} />
