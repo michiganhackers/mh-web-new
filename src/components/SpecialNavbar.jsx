@@ -64,7 +64,6 @@ const Hamburger = styled.label`
     }
 
     ${devices.tablet`
-        // display: block;
         display: flex;
         align-items: center;
     `}
@@ -124,6 +123,7 @@ const HeaderNavLink = styled(NavLink)`
 
     &:hover {
         text-decoration: underline;
+        color: #404040;
     }
 
     // styles for the current active navlink
@@ -134,22 +134,27 @@ const HeaderNavLink = styled(NavLink)`
     }
 `;
 
-const GithubLink = styled.a`
+const SocialNavLink = styled.a`
     font-size: 24px;
     order: 1;
 
-    ${devices.tablet`
-        display: none;
-    `}
     &:hover {
         color: #404040;
     }
 
+    transition: color 0.3s;
     color: white;
-    padding: 8px 0;
-    width: 64px;
-    flex: 0 0 auto;
+    padding: 8px 20px;
     text-align: center;
+    ${devices.tablet`
+        &:first-of-type {
+            padding-left: 10px;
+        }
+    `}
+`;
+
+const SocialLinkContainer = styled.nav`
+    display: flex;
 `;
 
 const links = ["about", "leadership", "events", "contact", "faq"].map(
@@ -160,17 +165,33 @@ const links = ["about", "leadership", "events", "contact", "faq"].map(
     )
 );
 
+/**
+ * Map the social media icons to their respective URLs
+ * @type {{string: string}} FontAwesome icon name: target URL
+ */
+const social_mappings = {
+    github: "https://github.com/michiganhackers",
+    instagram: "https://instagram.com/michiganhackers",
+    facebook: "https://fb.com/michiganhackers",
+    twitter: "https://twitter.com/michiganhackers",
+};
+const social_link_group = (
+    <SocialLinkContainer>
+        {Object.entries(social_mappings).map(([name, url]) => (
+            <SocialNavLink key={name} target="_blank" href={url}>
+                <FontAwesomeIcon icon={["fab", name]} />
+            </SocialNavLink>
+        ))}
+    </SocialLinkContainer>
+);
+
 const SpecialNavbar = () => (
     <HeaderAnchor>
         <input type="checkbox" id="hamburger" style={{ display: "none" }} />
         <FlexWrapper>
-            <DesktopNavContainer>{links}</DesktopNavContainer>
-            <GithubLink
-                target="_blank"
-                href="https://github.com/michiganhackers"
-            >
-                <FontAwesomeIcon icon={["fab", "github"]} />
-            </GithubLink>
+            <DesktopNavContainer>
+                {[...links, social_link_group]}
+            </DesktopNavContainer>
             <Hamburger htmlFor="hamburger">
                 <span>menu</span>
                 <FontAwesomeIcon icon="bars" />
@@ -178,7 +199,7 @@ const SpecialNavbar = () => (
         </FlexWrapper>
         {/*fix tab indexing*/}
 
-        <MobileNavContainer>{links}</MobileNavContainer>
+        <MobileNavContainer>{[...links, social_link_group]}</MobileNavContainer>
     </HeaderAnchor>
 );
 
