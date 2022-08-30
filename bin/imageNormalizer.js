@@ -36,7 +36,7 @@ for (let i = 0; i < args.length; ++i) {
             break;
         case "--type":
             options.type = args[++i]?.toLowerCase();
-            if (!(options.type in ["jpg", "png"])) {
+            if (!["jpg", "png"].includes(options.type)) {
                 throw new Error(`Unknown image type "${options.type}"`);
             }
             break;
@@ -69,6 +69,7 @@ if (
 ) {
     throw new Error("Cannot write entries in a directory to a file");
 }
+// TODO: if input is directory, output must be directory and then create it if need be
 if (
     !inputIsDirectory &&
     options.output &&
@@ -150,7 +151,7 @@ async function convertImage(filename, width, height, type, output) {
                 withoutEnlargement: true,
             });
         } else {
-            await image.resize(width, {
+            await image.resize(width, null, {
                 fit: "outside",
                 withoutEnlargement: true,
             });
