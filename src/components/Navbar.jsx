@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import devices from "../utility/MediaQueries.js";
-import logoUrl from "../assets/logo.png";
+import logoUrl from "assets/logo-orange-cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FlexWrapper = styled.div`
@@ -87,7 +87,7 @@ const Hamburger = styled.label`
 `;
 
 const Logo = styled.img`
-    height: 50px;
+    height: 40px;
     display: block;
 `;
 
@@ -155,13 +155,35 @@ const HeaderNavLink = styled(NavLink)`
         color: #404040;
         cursor: default;
     }
+    
 `;
 
 const LogoNavLink = styled(NavLink)`
     display: flex;
     justify-content: left;
     font-size: 22px;
-    padding: 2px 10px;
+    padding: 2px 20px;
+    color: white;
+    align-items: center;
+    
+
+    &:hover {
+        // this shouldn't work but it does????
+        filter: brightness(33.33%);
+        text-decoration: none;
+        //color: #555555;
+    }
+    
+    ${devices.tablet`
+        padding: 12px 0 12px 20px;
+    `}
+
+    transition: color 0.3s, filter 0.3s;
+    grid-column: 1/3;
+    span {
+        padding-left: 16px;
+        line-height: 1.2;
+    }
 `;
 
 const GithubLink = styled.a`
@@ -174,7 +196,8 @@ const GithubLink = styled.a`
     &:hover {
         color: #404040;
     }
-
+    
+    transition: color 0.3s;
     color: white;
     padding: 8px 0;
     width: 64px;
@@ -196,6 +219,7 @@ const Navbar = () => (
         <FlexWrapper>
             <LogoNavLink to="/">
                 <Logo src={logoUrl} />
+                <span>Michigan Hackers</span>
             </LogoNavLink>
             <DesktopNavContainer>{links}</DesktopNavContainer>
             <GithubLink
