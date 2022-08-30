@@ -15,7 +15,7 @@ const FAQ = () => (
             />
             <Question
                 question="Can I join Michigan Hackers? How? What’s the process?"
-                answer="Yes! Any student can come to our events and be a guest. You're welcome to check out our different teams and our company events. If you're interested in Michigan Hackers, consistent attendance (five hack nights) will earn you an invitation to join officially."
+                answer="Yes! Any student can come to our events and be a guest. You're welcome to check out our different teams and our company events. If you're interested in Michigan Hackers, you’ll be invited to join officially by attending at least five Hack Nights in a semester."
             />
             <Question
                 question="Can I join a team if I’m not an official member?"
@@ -23,11 +23,11 @@ const FAQ = () => (
             />
             <Question
                 question="I’m new to computer science and programming! Can I still be involved?"
-                answer="Yes, of course! We love students who are open and passionate about learning about code. We just ask that you are committed to putting in some time and effort to engage with our resources to help you gain technical skills, whether it be through our teams and members/leads with immense knowledge or the guides and talks they share."
+                answer="Of course! We love students who are open and passionate about learning about code. We just ask that you are committed to putting in some time and effort to engage with our resources, whether it be through our teams, immensely knowledgeable members/leads, or the guides and talks they share. They’re all here to help you learn!"
             />
             <Question
                 question="What are Michigan Hackers' teams?"
-                answer="Our current roster of teams is: Security, Web, Android, iOS, Open-Source Development, Interviewing, Independent Hackers, Embedded Systems, Machine Learning, Marketing, Conversational AI, and Puzzles!"
+                answer="Our current roster of teams: Security, Web, Android, iOS, Open-Source Development, Interviewing, Embedded Systems, Machine Learning, and Quant!"
             />
             <Question
                 question="I'm interested in multiple teams. Can I be on more than one?"
@@ -35,11 +35,11 @@ const FAQ = () => (
             />
             <Question
                 question="How do I become an official member?"
-                answer="Official membership is FREE and decided on a rolling basis. Application invites are sent out through email after attending five of the Hack nights or other events. After filling out your application, schedule an appointment in our executive team's office hours for a low stress interview to become an official member."
+                answer="Official membership is FREE and decided on a rolling basis. Application invites are sent out through email after attending five Hack Nights in a semester. After filling out your application, schedule an appointment in our executive team's office hours for a low stress interview to become an official member."
             />
             <Question
                 question="What are Hack Nights? What do you do?"
-                answer="Hack Nights, held every Thursday, are the very foundation of who we are. During these Hack Nights, students work within one of our teams, casually code, meet others, and just hangout get to know the people and the club. We often hold student lightning talks on technical topics and play music. We also sometimes hold fun theme nights like Halloween Night and provide food. Official membership requires regular attendance to hack nights, but we offer leniency too. Make sure you bring a laptop!"
+                answer="Hack Nights, held every Thursday, are the very foundation of who we are. During these Hack Nights, students work within one of our teams, casually code, meet others, and get to know the people and the club. We also sometimes hold fun theme nights like Halloween Night and provide food. Official membership requires regular attendance to hack nights. Make sure you bring a laptop!"
             />
             <Question
                 question="I have class during Hack Nights! How can I still be involved?"
@@ -51,11 +51,11 @@ const FAQ = () => (
             />
             <Question
                 question="What are membership benefits? Responsibilities?"
-                answer="Our members get to join our official website roster, company resume book, and have access to exclusive swag discounts and stickers! If you regularly attend our events and received an application or office hour invite, we highly recommend finalizing the membership process so that you can reap the benefits and distinguish the time and effort you’ve put in. With that, we have to be fair to people who demonstrate commitment by revoking membership from those who miss four Hack Nights in a row."
+                answer="Our members get to join our official website roster, company resume book, and have access to exclusive swag discounts and stickers! If you regularly attend our events and receive an application or office hour invite, we highly recommend finalizing the membership process so that you can reap the benefits and distinguish the time and effort you’ve put in."
             />
             <Question
                 question="I have an exam! Can I excuse my absence?"
-                answer="We don't currently have an excused attendance policy, but our invitation requirements for prospective members are lenient enough that a new streak can be created quickly, and current members are allowed up to four consecutive absences as a buffer for these situations."
+                answer="Yes! If you’ll be missing any work on a project, make sure to let your subteam lead(s) know. Our attendance policy is created with students’ busy schedules in mind, and missing one or two Hack Nights for exams won’t hurt engaged students from becoming official members."
             />
             <Question
                 question="What makes you guys different?"
