@@ -4,11 +4,10 @@ import "../../index.css";
 import styled from "styled-components";
 import { StaticH1 } from "../../utility/ContentStyles.js";
 
-import GoogleLogo from "../../assets/google.png";
-import C1Logo from "../../assets/c1.png";
-import GraingerLogo from "../../assets/grainger.png";
-import TargetLogo from "../../assets/target.png";
-import SCM from "../../assets/SCM.jpg";
+import CrowdstrikeLogo from "assets/crowdstrike.png";
+import MetaLogo from "assets/meta.png";
+import OracleLogo from "assets/oracle.png";
+import SusquehannaLogo from "assets/susquehanna.png";
 
 const HighLogo = styled.img`
     align: middle;
@@ -39,13 +38,12 @@ const Sponsors = () => (
     <React.Fragment>
         <StaticH1>Our Top Sponsors</StaticH1>
         <HighSponsors>
-            <HighLogo src={GoogleLogo} />
-            <HighLogo src={C1Logo} />
+            <HighLogo src={CrowdstrikeLogo} />
+            <HighLogo src={MetaLogo} />
         </HighSponsors>
         <LowSponsors>
-            <LowLogo src={GraingerLogo} />
-            <LowLogo src={TargetLogo} />
-            <LowLogo src={SCM} />
+          <LowLogo src={OracleLogo} />
+          <LowLogo src={SusquehannaLogo} />
         </LowSponsors>
     </React.Fragment>
 );

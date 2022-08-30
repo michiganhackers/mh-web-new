@@ -21,17 +21,14 @@ const About = () => (
         <Navbar />
         <SubpageOuter header="about us">
             <StaticH1>
-                We&apos;re a student organization at University of Michigan
-                seeking to foster a diverse community to build and grow relevant
-                skills in a technological and fast-paced world.
+                We&apos;re a tech oriented student organization at the University of Michigan
+                seeking to foster a diverse community to build and grow relevant skills in a
+                technological and fast-paced world.
             </StaticH1>
             <StaticP>
-                Our end goal is to provide high quality resources for all
-                students to become more competent technologists (technically,
-                socially, and professionally). While connecting students to
-                projects, skills, faculty, companies, and more, we hope to make
-                a large university feel smaller and forge lifelong bonds in an
-                inclusive environment.
+                We provide members high quality resources to become competent engineers by working on projects, holding corporate events, hosting networking opportunities, etc.
+                Our primary form of member engagement is through our weekly hack nights where we split into our teams (such as Web, ML, iOS, etc) and work on domain-specific projects.
+                Membership is open to everyone.
             </StaticP>
             <MailingList />
             <StaticH1>Our Events</StaticH1>
@@ -47,31 +44,6 @@ const About = () => (
                 <li>Cybersecurity Capture The Flag competitions</li>
                 <li>Resume Critiques</li>
                 <li>Interview Prep</li>
-            </EventList>
-            <StaticH1>Other Relevant Links</StaticH1>
-            <StaticP>
-                Look at the following links to get a feel of our culture, our
-                organizational structure, event vibes, how our teams work, how
-                to get involved, access to free resources, and more.
-            </StaticP>
-            <EventList>
-                <li>
-                    <a href="https://docs.google.com/presentation/d/11QyTngMyUgGYdRbpwM3XfDPIQ9NIT4QieeWnN1O0HJY/edit?usp=sharing">
-                        Our Mass Meeting Slides
-                    </a>
-                </li>
-                {/*<li><a href="https://docs.google.com/presentation/d/1cihP20nwMc4rEwrapCwK8tumh5eUCUIdshGuB9-QoPY/edit">Our Teams</a></li>*/}
-                <li>
-                    <a href="https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUh5amplSG5xVkVMfGRlZmF1bHR8MmFhMDQ2ZTllMzlmMmZmZDU4ZjAwNDZkNGNiOTZiMDU">
-                        Office hours sign-up
-                    </a>
-                </li>
-                {/*<li><a href="https://docs.google.com/spreadsheets/d/13t39d5ou1FGmapBw2CxUsuo6OLtLENmbVQpotNGtCxM/edit#gid=0">Drop your LinkedIn</a></li>*/}
-                <li>
-                    <a href="https://docs.google.com/document/d/1wchq66lN9bDLcSSAxPEamBQYqBjUVjfJgcd9NqBc704/edit">
-                        Some CS Resources
-                    </a>
-                </li>
             </EventList>
             <Sponsors />
         </SubpageOuter>
