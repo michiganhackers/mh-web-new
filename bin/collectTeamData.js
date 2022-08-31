@@ -30,6 +30,12 @@ const DATA_FILE = path.join(SRC, "leadership.json");
 const LEADERSHIP = "leadership";
 // save location in the public folder for images
 const IMAGE_DIR = path.join(PUBLIC, LEADERSHIP);
+// location of the default profile image
+//  must be already properly sized and transformed
+const DEFAULT_IMAGE = "src/assets/logo_square.png";
+// Move the default image to this location
+const { ext: default_ext } = path.parse(DEFAULT_IMAGE);
+const DEFAULT_FILENAME = `DEFAULT${default_ext}`;
 
 // remove any old files if need be and replace with a fresh output dir
 if (fs.existsSync(IMAGE_DIR)) {
@@ -62,6 +68,8 @@ const client = sheets.sheets({
 });
 
 const sheetId = process.env.REACT_APP_LEADERSHIP_ID;
+
+let hasDefaultImages = false;
 
 client.spreadsheets.values
     .get({
@@ -113,9 +121,9 @@ client.spreadsheets.values
                     // write the props immediate with the google image url, and then later we only update the url
                     personData[category.name][personIndex] = props;
                     // TODO: a progress bar would be pretty cool *wink* *wink* *nudge* *nudge*
+                    const myRow = personIndex;
                     if (props.imageUrl) {
                         // we want to keep the row counter in this scope so each fetch gets its own, unincremented one
-                        const myRow = personIndex;
                         const imageProcessing = fetch(props.imageUrl)
                             .then((res) => {
                                 if (!res.ok) {
@@ -137,12 +145,9 @@ client.spreadsheets.values
                                     filename
                                 );
                                 // we don't need to include public/ since it is resolved by default
-                                personData[category.name][
-                                    myRow
-                                ].imageUrl = path.posix.join(
-                                    LEADERSHIP,
-                                    filename
-                                );
+                                //  we also use posix paths because we need / instead of the platform specific option
+                                personData[category.name][myRow].imageUrl =
+                                    path.posix.join(LEADERSHIP, filename);
                                 return (
                                     sharp(Buffer.from(await blob.arrayBuffer()))
                                         // rotate the image based on EXIF data
@@ -169,13 +174,23 @@ client.spreadsheets.values
                             })
                             .catch((err) => {
                                 console.error(
-                                    `Image operations failed for ${props.uniqname}.\n${err}`
+                                    `Image operations failed for ${props.uniqname}. Default image used.\n${err}`
                                 );
+                                hasDefaultImages = true;
+                                personData[category.name][myRow].imageUrl =
+                                    path.posix.join(
+                                        LEADERSHIP,
+                                        DEFAULT_FILENAME
+                                    );
                                 // process will exit with error after all tasks complete
                                 process.exitCode = 1;
                             });
                         imagePromises.push(imageProcessing);
                     } else {
+                        hasDefaultImages = true;
+                        // we don't need to include public/ since it is resolved by default
+                        personData[category.name][myRow].imageUrl =
+                            path.posix.join(LEADERSHIP, DEFAULT_FILENAME);
                         console.warn(
                             `${props["uniqname"]} did not add an image.`
                         );
@@ -185,6 +200,13 @@ client.spreadsheets.values
                 }
             }
         });
+        if (hasDefaultImages) {
+            // copy over the default image only if we have people using it
+            fs.copyFileSync(
+                DEFAULT_IMAGE,
+                path.join(IMAGE_DIR, DEFAULT_FILENAME)
+            );
+        }
         Promise.all(imagePromises)
             .then(() => {
                 console.log(`${imagePromises.length} images saved`);
