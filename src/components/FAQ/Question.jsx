@@ -48,7 +48,7 @@ const Details = styled.details`
     }
     border-bottom: solid 3px #555555;
     padding: 8px 0;
-    *:not(summary) {
+    * {
         margin-left: ${LIST_ITEM_ICON_SIZE + LIST_ITEM_ICON_PADDING}px;
     }
 `;
@@ -57,7 +57,6 @@ const Summary = styled.summary`
     list-style: none;
     font-weight: bold;
     font-size: 1.2em;
-    margin-left: ${LIST_ITEM_ICON_SIZE + LIST_ITEM_ICON_PADDING}px;
 `;
 
 /**

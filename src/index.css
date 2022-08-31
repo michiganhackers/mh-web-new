@@ -29,9 +29,3 @@ body {
         transform: translateX(-32px);
     }
 }
-
-@counter-style alternating-arrows {
-    system: cyclic;
-    symbols: url(assets/list_arrow.svg);
-    suffix: " ";
-}
