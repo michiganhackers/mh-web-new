@@ -172,7 +172,7 @@ const links = ["about", "leadership", "events", "contact", "faq"].map(
 const social_mappings = {
     github: "https://github.com/michiganhackers",
     instagram: "https://instagram.com/michiganhackers",
-    facebook: "https://fb.com/michiganhackers",
+    slack: "https://bit.ly/slackmh",
     twitter: "https://twitter.com/michiganhackers",
 };
 const social_link_group = (
