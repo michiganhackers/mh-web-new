@@ -70,7 +70,7 @@ aws s3 rm s3://michhackers.com --recursive --exclude "backup/*"
 echo "Synchronizing s3 bucket with local build folder..."
 aws s3 sync build s3://michhackers.com
 echo "Marking index.html as uncacheable"
-aws s3 cp s3://michhackers.com/index.html s3://michhackers.com/index.htm --metadata-directive REPLACE --cache-control max-age=0 --content-type "text/html"
+aws s3 cp s3://michhackers.com/index.html s3://michhackers.com/index.html --metadata-directive REPLACE --cache-control max-age=0 --content-type "text/html"
 echo "Creating CloudFront invalidation..."
 aws cloudfront create-invalidation --distribution-id E3CA3DGYHE1YW2 --paths "/*"
 echo "Done!"
