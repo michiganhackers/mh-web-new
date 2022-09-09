@@ -16,11 +16,30 @@ const HomeBackgroundOuter = styled.div`
     pointer-events: none;
 `;
 
-const MainText = styled.h1`
+const ClubName = styled.h1`
     font-family: "Roboto Condensed";
     font-weight: 900;
     line-height: 0.8;
-    margin: 0 2vw 0 2vw;
+    font-size: clamp(1em, 10vw, 6em);
+    color: #fff;
+    text-align: left;
+    text-transform: uppercase;
+    display: inline;
+    vertical-align: middle;
+    margin-bottom: 0;
+    ${devices.tablet`
+        display: inline-block;
+        overflow-wrap: break-word;
+        width: 60vw;
+        font-size: 10vw;
+    `}
+`;
+
+const MainText = styled.p`
+    font-family: "Roboto Condensed";
+    font-weight: 900;
+    line-height: 0.8;
+    padding-left: 10px;
     color: #fff;
     text-align: left;
     position: relative;
@@ -39,17 +58,18 @@ const MainText = styled.h1`
 `;
 
 const Logo = styled.img`
-    display: block;
     width: 10vw;
+    ${devices.desktop`
+        width: 13vw;
+    `}
     ${devices.tablet`
         width: 15vw;
     `}
     ${devices.small`
         width: 20vw;
-        padding-top: 8vw;
     `}
     height: auto;
-    padding: 2vw;
+    padding: 10px 10px;
 `;
 
 class Home extends Component {
@@ -70,6 +90,7 @@ class Home extends Component {
                 <NewPolygonCanvas />
                 <HomeBackgroundOuter>
                     <Logo src={logoUrl} />
+                    <ClubName>Michigan Hackers</ClubName>
                     <MainText>
                         a community of individuals who enjoy expressing
                         creativity through technology.
