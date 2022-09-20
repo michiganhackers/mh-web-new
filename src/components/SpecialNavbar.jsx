@@ -119,6 +119,7 @@ const HeaderNavLink = styled(NavLink)`
     `}
     color: white;
     text-decoration: none;
+    text-transform: capitalize;
     transition: all 0.3s;
 
     &:hover {
@@ -128,7 +129,8 @@ const HeaderNavLink = styled(NavLink)`
 
     // styles for the current active navlink
     &.active {
-        text-decoration: underline wavy;
+        text-decoration: none;
+        font-weight: bold;
         color: #404040;
         cursor: default;
     }
