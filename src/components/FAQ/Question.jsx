@@ -8,7 +8,6 @@ import list_arrow from "assets/list_arrow.svg";
 import list_arrow_blue from "assets/list_arrow_blue.svg";
 
 //set the size of the icon in pixels
-//  TODO: should maybe use rem instead?
 const LIST_ITEM_ICON_SIZE = 24;
 const LIST_ITEM_ICON_PADDING = 16;
 
@@ -21,7 +20,7 @@ const Details = styled.details`
         background: url(${list_arrow}) no-repeat;
         background-size: contain;
         content: "";
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-out;
         // by making our element wider and changing the origin, we can preserve
         //  the horizontal spacing between the icon and question
         margin-left: -${LIST_ITEM_ICON_SIZE + LIST_ITEM_ICON_PADDING}px;
@@ -40,8 +39,6 @@ const Details = styled.details`
 
     &[open] summary::before {
         transform: rotate(-180deg);
-        position: absolute;
-        bottom: 12px;
     }
     &[close] summary ~ * {
         animation: details-close 0.5s ease-in-out;
