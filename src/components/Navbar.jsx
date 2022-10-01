@@ -157,7 +157,6 @@ const HeaderNavLink = styled(NavLink)`
         color: #404040;
         cursor: default;
     }
-    
 `;
 
 const LogoNavLink = styled(NavLink)`
@@ -167,7 +166,6 @@ const LogoNavLink = styled(NavLink)`
     padding: 2px 20px;
     color: white;
     align-items: center;
-    
 
     &:hover {
         // this shouldn't work but it does????
@@ -175,16 +173,27 @@ const LogoNavLink = styled(NavLink)`
         text-decoration: none;
         //color: #555555;
     }
-    
+
     ${devices.tablet`
         padding: 12px 0 12px 20px;
+    `}
+    ${devices.small`
+        padding: 12px 0 12px 12px;
     `}
 
     transition: color 0.3s, filter 0.3s;
     grid-column: 1/3;
+    
+    // Contains the Michigan Hackers text
     span {
         padding-left: 16px;
-        line-height: 1.2;
+        line-height: 1;
+        ${devices.tablet`
+            padding-left: 12px;
+        `}
+        ${devices.small`
+            padding-left: 8px;
+        `}
     }
 `;
 
@@ -198,7 +207,7 @@ const GithubLink = styled.a`
     &:hover {
         color: #404040;
     }
-    
+
     transition: color 0.3s;
     color: white;
     padding: 8px 0;
