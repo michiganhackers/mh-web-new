@@ -5,10 +5,12 @@ import { addEmailFetch } from "./MailingListFetch";
 
 const EmailForm = styled.form`
     text-align: center;
+    width: min(60%, 600px);
+    margin: auto;
 `;
 const EmailInputBox = styled.input`
     min-width: 250px;
-    size: 30px;
+    border: #555555 solid 2px;
 `;
 const EmailSubmitButton = styled.input`
     background-color: #f15d24;
@@ -19,7 +21,6 @@ const EmailSubmitButton = styled.input`
     padding-bottom: 3px;
     cursor: pointer;
     min-width: 50px;
-    margin-top: 10px;
 `;
 
 class MailingList extends React.Component {
