@@ -2,11 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { StaticP } from "../../utility/ContentStyles.js";
 import { addEmailFetch } from "./MailingListFetch";
+import devices from "utility/MediaQueries.js";
 
 const EmailForm = styled.form`
     text-align: center;
-    width: min(60%, 600px);
     margin: auto;
+    width: min(60%, 600px);
+    ${devices.tablet`
+        width: min(80%, 600px);
+    `}
+    ${devices.small`
+        width: min(90%, 600px);
+    `}
 `;
 const EmailInputBox = styled.input`
     min-width: 250px;
