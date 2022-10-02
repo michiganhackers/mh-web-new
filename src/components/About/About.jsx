@@ -5,8 +5,17 @@ import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import { StaticP, StaticH1 } from "../../utility/ContentStyles.js";
 import Sponsors from "./Sponsors.jsx";
 import MailingList from "../MailingList/MailingList.jsx";
+import devices from "utility/MediaQueries.js";
+import about_bg_2x1 from "assets/about_bg_2x1.svg";
+import about_bg_2x1_mirror from "assets/about_bg_2x1_mirror.svg";
+import about_bg_6x1 from "assets/about_bg_6x1.svg";
+import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
 import Navbar from "../Navbar.jsx";
+
+
+const AboutColor1 = "#8dcadf";
+const AboutColor2 = "#f38a63";
 
 const EventList = styled.ul`
     list-style-type: none;
@@ -16,37 +25,140 @@ const EventList = styled.ul`
     text-align: center;
 `;
 
+const MissionStatement = styled.article`
+    width: 100%;
+    color: white;
+    // cap width
+    // need 4:1 for desktops to ultrawides
+    background-image: url(${about_bg_6x1});
+    &:nth-of-type(even) {
+        background-image: url(${about_bg_6x1_mirror});
+    }
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    ${devices.tablet`
+      background-image: url(${about_bg_2x1});
+      &:nth-of-type(even) {
+        background-image: url(${about_bg_2x1_mirror});
+      }
+    `}
+    ${devices.small`
+      background-image: none;
+      background-color: ${AboutColor1};
+      &:nth-of-type(even) {
+        background-image: none;
+        background-color: ${AboutColor2};
+      }
+    `}
+`;
+
+const TITLE_MARGIN_NORMAL = "3%";
+const BODY_MARGIN_NORMAL = "5%";
+
+const MissionWidthWrapper = styled.div`
+    width: min(85%, 1444px);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+`;
+
+/**
+ * Display a title text. Flex position can be adjusted with the alignment parameter.
+ *
+ * @constructor
+ * @param props.alignment {"start" | "end"} Flex alignment of the element
+ */
+const MissionTitle = styled.h2.attrs((props) => ({
+    alignment: props.alignment || "left",
+}))`
+    font-family: "Roboto Condensed";
+    font-weight: 900;
+    line-height: 1;
+    font-size: 2.5em;
+    ${(props) =>
+        props.alignment === "left"
+            ? `align-self: start;
+    margin-left: ${TITLE_MARGIN_NORMAL};`
+            : `align-self: end;
+    margin-right: ${TITLE_MARGIN_NORMAL};`}
+    margin-bottom: 16px;
+    padding-top: 16px;
+`;
+
+const MissionBody = styled.p.attrs((props) => ({
+    alignment: props.alignment || "left",
+}))`
+    font-family: Roboto;
+    line-height: 1;
+    font-size: 1.5em;
+    ${(props) =>
+        props.alignment === "left"
+            ? `align-self: start;
+    margin-left: ${BODY_MARGIN_NORMAL};`
+            : `align-self: end;
+    margin-right: ${BODY_MARGIN_NORMAL};`}
+    width: min(60%, 600px);
+    ${devices.tablet`
+      width: min(75%, 600px);
+    `}
+    ${devices.small`
+      width: 90%;
+    `}
+`;
+
 const About = () => (
     <React.Fragment>
         <Navbar />
-        <SubpageOuter header="about us">
-            <StaticH1>
-                We&apos;re a tech oriented student organization at the University of Michigan
-                seeking to foster a diverse community to build and grow relevant skills in a
-                technological and fast-paced world.
-            </StaticH1>
-            <StaticP>
-                We provide members high quality resources to become competent engineers by working on projects, holding corporate events, hosting networking opportunities, etc.
-                Our primary form of member engagement is through our weekly hack nights where we split into our teams (such as Web, ML, iOS, etc) and work on domain-specific projects.
-                Membership is open to everyone.
-            </StaticP>
-            <MailingList />
-            <StaticH1>Our Events</StaticH1>
-            <StaticP>
-                Some events we&apos;ve had in the past or are planning for the
-                future include:
-            </StaticP>
-            <EventList>
-                <li>Weekly Hack Nights</li>
-                <li>Company Events</li>
-                <li>Organizing groups to attend hackathons</li>
-                <li>Lightning Talks</li>
-                <li>Cybersecurity Capture The Flag competitions</li>
-                <li>Resume Critiques</li>
-                <li>Interview Prep</li>
-            </EventList>
-            <Sponsors />
-        </SubpageOuter>
+        <br />
+        <br />
+        <br />
+        <br />
+        {/*Looks doneish*/}
+        {/*Only change remaining is maybe to adjust the sides slightly so it looks less blocky*/}
+        <MissionStatement>
+            <MissionWidthWrapper>
+                <MissionTitle>Who Are We?</MissionTitle>
+                <MissionBody alignment="right">
+                    We&apos;re a tech oriented student organization at the
+                    University of Michigan seeking to foster a diverse community
+                    to build and grow relevant skills in a technological and
+                    fast-paced world.
+                </MissionBody>
+            </MissionWidthWrapper>
+        </MissionStatement>
+
+        <MissionStatement>
+            <MissionWidthWrapper>
+                <MissionTitle alignment="right">What Do We Do?</MissionTitle>
+                <MissionBody>
+                    We provide members high quality resources to become
+                    competent engineers by working on projects, holding
+                    corporate events, hosting networking opportunities, etc. Our
+                    primary form of member engagement is through our weekly hack
+                    nights where we split into our teams (such as Web, ML, iOS,
+                    etc) and work on domain-specific projects. Membership is
+                    open to everyone.
+                </MissionBody>
+            </MissionWidthWrapper>
+        </MissionStatement>
+
+        <MailingList />
+        <StaticH1>Our Events</StaticH1>
+        <StaticP>
+            Some events we&apos;ve had in the past or are planning for the
+            future include:
+        </StaticP>
+        <EventList>
+            <li>Weekly Hack Nights</li>
+            <li>Company Events</li>
+            <li>Organizing groups to attend hackathons</li>
+            <li>Lightning Talks</li>
+            <li>Cybersecurity Capture The Flag competitions</li>
+            <li>Resume Critiques</li>
+            <li>Interview Prep</li>
+        </EventList>
+        <Sponsors />
     </React.Fragment>
 );
 
