@@ -13,7 +13,6 @@ import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
 import Navbar from "../Navbar.jsx";
 
-
 const AboutColor1 = "#8dcadf";
 const AboutColor2 = "#f38a63";
 
@@ -110,12 +109,6 @@ const MissionBody = styled.p.attrs((props) => ({
 const About = () => (
     <React.Fragment>
         <Navbar />
-        <br />
-        <br />
-        <br />
-        <br />
-        {/*Looks doneish*/}
-        {/*Only change remaining is maybe to adjust the sides slightly so it looks less blocky*/}
         <MissionStatement>
             <MissionWidthWrapper>
                 <MissionTitle>Who Are We?</MissionTitle>
@@ -149,15 +142,6 @@ const About = () => (
             Some events we&apos;ve had in the past or are planning for the
             future include:
         </StaticP>
-        <EventList>
-            <li>Weekly Hack Nights</li>
-            <li>Company Events</li>
-            <li>Organizing groups to attend hackathons</li>
-            <li>Lightning Talks</li>
-            <li>Cybersecurity Capture The Flag competitions</li>
-            <li>Resume Critiques</li>
-            <li>Interview Prep</li>
-        </EventList>
         <Sponsors />
     </React.Fragment>
 );
