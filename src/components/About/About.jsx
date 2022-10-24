@@ -1,29 +1,19 @@
 import React from "react";
-import "../../utility/fonts.css";
+import "utility/fonts.css";
 import styled from "styled-components";
-import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import { StaticP, StaticH1 } from "../../utility/ContentStyles.js";
 import Sponsors from "./Sponsors.jsx";
-import MailingList from "../MailingList/MailingList.jsx";
+import MailingList from "components/MailingList/MailingList.jsx";
 import devices from "utility/MediaQueries.js";
 import about_bg_2x1 from "assets/about_bg_2x1.svg";
 import about_bg_2x1_mirror from "assets/about_bg_2x1_mirror.svg";
 import about_bg_6x1 from "assets/about_bg_6x1.svg";
 import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
-import Navbar from "../Navbar.jsx";
+import Navbar from "components/Navbar";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
 
 const AboutColor1 = "#8dcadf";
 const AboutColor2 = "#f38a63";
-
-const EventList = styled.ul`
-    list-style-type: none;
-    margin: auto;
-    padding: 0;
-    font-size: 1.2em;
-    text-align: center;
-`;
 
 const MissionStatement = styled.article`
     width: 100%;
@@ -89,7 +79,6 @@ const MissionTitle = styled.h2.attrs((props) => ({
 const MissionBody = styled.p.attrs((props) => ({
     alignment: props.alignment || "left",
 }))`
-    font-family: Roboto;
     line-height: 1;
     font-size: 1.5em;
     ${(props) =>
@@ -108,7 +97,7 @@ const MissionBody = styled.p.attrs((props) => ({
 `;
 
 const About = () => (
-    <React.Fragment>
+    <>
         <Navbar />
         <MissionStatement>
             <MissionWidthWrapper>
@@ -140,7 +129,7 @@ const About = () => (
         <MailingList />
         <ClubImagesCarousel />
         <Sponsors />
-    </React.Fragment>
+    </>
 );
 
 export default About;
