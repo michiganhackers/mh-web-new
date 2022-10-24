@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FlexWrapper = styled.div`
     height: 80px;
-    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -21,7 +20,7 @@ const FlexWrapper = styled.div`
         
         transition: border-bottom-color 1.3s ease-in-out;
         border-bottom: dashed transparent 2px;
-        #hamburger:checked ~ & {
+        :has(~div > #hamburger:checked) {
             border-bottom: dashed white 2px;
             transition: border-bottom-color 0.7s ease-in-out;
         }
@@ -43,10 +42,9 @@ const FlexWrapper = styled.div`
 `;
 
 const HeaderAnchor = styled.header`
-    position: fixed;
+    position: sticky;
     // we don't want this to take any space on the page
     // It serves as an anchor for the rest of the header
-    height: 0;
     top: 0;
     left: 0;
     right: 0;
@@ -87,15 +85,27 @@ const Hamburger = styled.label`
 `;
 
 const Logo = styled.img`
-    height: 40px;
+    height: 48px;
     display: block;
 `;
 
+const MobileNavBlock = styled.div`
+    position: absolute;
+    width: 100%;
+    z-index: -9;
+    pointer-events: none;
+    * {
+        pointer-events: revert;
+    }
+`;
+
 const MobileNavContainer = styled.nav`
-    display: flex;
+    display: none;
     justify-content: flex-end;
     align-items: flex-end;
+    position: sticky;
     ${devices.tablet`
+        display: flex;
         flex-direction: column;
         
         background: rgb(241, 93, 36);
@@ -111,7 +121,7 @@ const MobileNavContainer = styled.nav`
         
         #hamburger:checked ~ & {
             transform: translateY(0%);
-            transition: transform 0.6s ease-in-out;
+            transition: transform 0.6s ease-in-out, border-top 0.7s ease-in-out;
         }
     `}
 `;
@@ -226,7 +236,6 @@ const links = ["about", "leadership", "events", "contact", "faq"].map(
 
 const Navbar = () => (
     <HeaderAnchor>
-        <input type="checkbox" id="hamburger" style={{ display: "none" }} />
         <FlexWrapper>
             <LogoNavLink to="/">
                 <Logo src={logoUrl} />
@@ -245,8 +254,10 @@ const Navbar = () => (
             </Hamburger>
         </FlexWrapper>
         {/*fix tab indexing*/}
-
-        <MobileNavContainer>{links}</MobileNavContainer>
+        <MobileNavBlock>
+            <input type="checkbox" id="hamburger" style={{ display: "none" }} />
+            <MobileNavContainer>{links}</MobileNavContainer>
+        </MobileNavBlock>
     </HeaderAnchor>
 );
 
