@@ -93,10 +93,9 @@ const MobileNavBlock = styled.div`
     position: absolute;
     width: 100%;
     z-index: -9;
+    // If they were enabled on this block, we would not be able
+    //  to interact with elements under it since it would absorb clicks
     pointer-events: none;
-    * {
-        pointer-events: revert;
-    }
 `;
 
 const MobileNavContainer = styled.nav`
@@ -104,6 +103,7 @@ const MobileNavContainer = styled.nav`
     justify-content: flex-end;
     align-items: flex-end;
     position: sticky;
+    pointer-events: auto;
     ${devices.tablet`
         display: flex;
         flex-direction: column;
