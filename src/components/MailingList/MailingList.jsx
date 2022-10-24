@@ -8,6 +8,7 @@ const EmailForm = styled.form`
     text-align: center;
     margin: auto;
     width: min(60%, 600px);
+    padding-bottom: 24px;
     ${devices.tablet`
         width: min(80%, 600px);
     `}

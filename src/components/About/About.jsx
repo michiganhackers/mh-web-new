@@ -137,11 +137,6 @@ const About = () => (
         </MissionStatement>
 
         <MailingList />
-        <StaticH1>Our Events</StaticH1>
-        <StaticP>
-            Some events we&apos;ve had in the past or are planning for the
-            future include:
-        </StaticP>
         <Sponsors />
     </React.Fragment>
 );
