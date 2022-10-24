@@ -12,6 +12,7 @@ import about_bg_6x1 from "assets/about_bg_6x1.svg";
 import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
 import Navbar from "../Navbar.jsx";
+import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
 
 const AboutColor1 = "#8dcadf";
 const AboutColor2 = "#f38a63";
@@ -137,6 +138,7 @@ const About = () => (
         </MissionStatement>
 
         <MailingList />
+        <ClubImagesCarousel />
         <Sponsors />
     </React.Fragment>
 );
