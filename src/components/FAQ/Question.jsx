@@ -38,6 +38,10 @@ const Details = styled.details`
         animation: details-open 0.5s ease-in-out;
     }
 
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
     &[open] summary::before {
         transform: rotate(-180deg);
         position: absolute;

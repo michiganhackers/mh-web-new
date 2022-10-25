@@ -25,6 +25,7 @@ const Content = styled.main`
  * Wrapper for all pages. Reason for this is the Navbar not being `fixed` due to styling decisions.
  * Since Navbar is not fixed and taking up space, we need a standard way to adjust the layout to prevent overlaps.
  * @constructor
+ * @param props Component props
  * @param props.header {string} Name of the page
  * @param props.children React subcomponents (supplied automatically)
  */
