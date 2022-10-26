@@ -55,6 +55,11 @@ class MailingList extends React.Component {
     render() {
         return (
             <EmailForm onSubmit={this.addEmailToList}>
+                <StaticP>
+                    Join our mailing list! You&apos;ll receive weekly updates
+                    from us detailing upcoming events, tech talks, hackathons,
+                    and news.
+                </StaticP>
                 {this.state.submitted ? (
                     <StaticP> Successfully Added! </StaticP>
                 ) : null}

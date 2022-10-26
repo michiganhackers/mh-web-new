@@ -1,12 +1,12 @@
 import React from "react";
-import "../../utility/fonts.css";
-import Navbar from "../Navbar.jsx";
+import "utility/fonts.css";
+import Navbar from "components/Navbar.jsx";
 import styled from "styled-components";
-import ForStudents from "./ForStudents";
-import ForCompanies from "./ForCompanies";
-import ContactLinks from "./ContactLinks";
-import devices from '../../utility/MediaQueries.js';
-import MailingList from "../MailingList/MailingList.jsx";
+import ForStudents from "components/Contact/ForStudents";
+import ForCompanies from "components/Contact/ForCompanies";
+import ContactLinks from "components/Contact/ContactLinks";
+import devices from 'utility/MediaQueries.js';
+import MailingList from "components/MailingList/MailingList.jsx";
 
 const Outer = styled.div`
     display: grid;
@@ -45,14 +45,6 @@ const ConnectWithUsBody = styled.p`
     font-weight: 500;
     font-size: 1.2em;
 `;
-
-// const Placeholder1 = styled.div`
-//     background-color: blue
-// `;
-
-// const Placeholder2 = styled.div`
-//     background-color: orange
-// `;
 
 const ForStudentsDiv = styled.div`
     padding: 0 3rem;
@@ -112,7 +104,7 @@ const Contact = () => (
                 Connect With Us
             </ConnectWithUsHeader>
             <ConnectWithUsBody>
-                Follow Michigan Hackers on social media, and join our mailing list! You&apos;ll receive weekly updates from us detailing upcoming events, tech talks, hackathons, and news.
+                Follow Michigan Hackers on social media!
             </ConnectWithUsBody>
             <ContactLinks />
             <MailingList />
