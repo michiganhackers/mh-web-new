@@ -16,7 +16,7 @@ const Outer = styled.div`
         display: flex;
         grid-template-columns: 1fr;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
     `}
 `;
 

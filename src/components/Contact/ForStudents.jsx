@@ -4,9 +4,9 @@ import devices from 'utility/MediaQueries.js';
 import ForStudentsSVG from 'assets/ForStudents.svg';
 
 const SVGContainer = styled.div`
-    min-width: 50vw;
+    min-width: 50%;
     ${devices.tablet`
-        width: 100vw;
+        width: 100%;
         order: 1;
     `}
 `;

@@ -4,10 +4,10 @@ import devices from 'utility/MediaQueries.js';
 import ForCompaniesSVG from "assets/ForCompanies.svg";
 
 const SVGContainer = styled.div`
-    min-width: 50vw;
+    min-width: 50%;
     ${devices.tablet`
         order: 3;
-        width: 100vw;
+        width: 100%;
     `}
 `;
 
