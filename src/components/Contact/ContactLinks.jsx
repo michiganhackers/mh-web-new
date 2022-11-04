@@ -9,6 +9,7 @@ const LinksContainer = styled.div`
     align-items: center;
     max-width: 100%;
     min-width: 20rem;
+    margin-bottom: 1rem;
     ${devices.small`
         justify-content: space-evenly;
     `}

@@ -41,7 +41,7 @@ const ConnectWithUsHeader = styled.h1`
 const ConnectWithUsBody = styled.p`
     color: white;
     text-align: center;
-    max-width: 30rem;
+    max-width: 50%;
     font-weight: 500;
     font-size: 1.2em;
 `;
@@ -107,6 +107,11 @@ const Contact = () => (
                 Follow Michigan Hackers on social media!
             </ConnectWithUsBody>
             <ContactLinks />
+            <ConnectWithUsBody>
+                Join our mailing list! You&apos;ll receive weekly updates
+                from us detailing upcoming events, tech talks, hackathons,
+                and news.
+            </ConnectWithUsBody>
             <MailingList />
         </ConnectWithUsOuter>
         <Outer>

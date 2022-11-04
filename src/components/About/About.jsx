@@ -30,6 +30,11 @@ const About = () => (
                 Our primary form of member engagement is through our weekly hack nights where we split into our teams (such as Web, ML, iOS, etc) and work on domain-specific projects.
                 Membership is open to everyone.
             </StaticP>
+            <StaticP>
+                Join our mailing list! You&apos;ll receive weekly updates
+                from us detailing upcoming events, tech talks, hackathons,
+                and news.
+            </StaticP>
             <MailingList />
             <StaticH1>Our Events</StaticH1>
             <StaticP>
