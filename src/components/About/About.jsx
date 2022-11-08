@@ -103,6 +103,7 @@ const MailingListText = styled.p`
     font-size: 1.2em;
     padding: 1rem 0;
 
+    margin: auto;
     width: min(60%, 600px);
     ${devices.tablet`
         width: min(80%, 600px);

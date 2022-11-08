@@ -23,6 +23,9 @@ const Outer = styled.div`
 const ConnectWithUsOuter = styled.div`
     background-color: rgba(89, 202, 241, 1);
     padding: 3rem;
+    ${devices.tablet`
+        padding: 3rem 1rem;
+    `}
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,9 +40,16 @@ const ConnectWithUsHeader = styled.h1`
 const ConnectWithUsBody = styled.p`
     color: white;
     text-align: center;
-    max-width: 50%;
     font-weight: 500;
     font-size: 1.2em;
+    
+    width: min(60%, 600px);
+    ${devices.tablet`
+        width: min(80%, 600px);
+    `}
+    ${devices.small`
+        width: min(90%, 600px);
+    `}
 `;
 
 const ForStudentsDiv = styled.div`
