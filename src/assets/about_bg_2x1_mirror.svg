@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="200mm" height="100mm" version="1.1" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient1769" x1="101.26" x2="200" y1="39.67" y2="39.67" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#8dcadf" offset="0"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1949" x2="67.482" y1="50" y2="50" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#c74421" offset="0"/>
+  </linearGradient>
+ </defs>
+ <g stroke-width="1.1579">
+  <rect transform="scale(-1,1)" x="-200" y=".0081022" width="200" height="99.992" fill="#ed8246"/>
+  <path d="M 1e-5,58.096 0,0 H 67.482 L 0,100 Z" fill="url(#linearGradient1949)"/>
+  <path d="m200 0.0081065-98.738-1.622e-5 98.738 79.324v-79.324z" fill="url(#linearGradient1769)"/>
+ </g>
+</svg>
