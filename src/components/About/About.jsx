@@ -96,6 +96,22 @@ const MissionBody = styled.p.attrs((props) => ({
     `}
 `;
 
+const MailingListText = styled.p`
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 1rem 0;
+
+    width: min(60%, 600px);
+    ${devices.tablet`
+        width: min(80%, 600px);
+    `}
+    ${devices.small`
+        width: min(90%, 600px);
+    `}
+`;
+
 const About = () => (
     <>
         <Navbar />
@@ -126,6 +142,10 @@ const About = () => (
             </MissionWidthWrapper>
         </MissionStatement>
 
+        <MailingListText>
+            Join our mailing list! You&apos;ll receive weekly updates from us
+            detailing upcoming events, tech talks, hackathons, and news.
+        </MailingListText>
         <MailingList />
         <ClubImagesCarousel />
         <Sponsors />

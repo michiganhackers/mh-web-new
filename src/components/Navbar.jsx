@@ -229,7 +229,7 @@ const GithubLink = styled.a`
 const links = ["about", "leadership", "events", "contact", "faq"].map(
     (name) => (
         <HeaderNavLink to={`/${name}`} key={name}>
-            {name}
+            {name !== "faq" ? name : "FAQ"}
         </HeaderNavLink>
     )
 );

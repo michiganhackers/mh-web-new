@@ -31,4 +31,10 @@ export default {
                 ${css(...args)};
             }
         `,
+    massive: (...args) =>
+        css`
+            @media (max-width: 1500px) {
+                ${css(...args)};
+            }
+        `
 };
