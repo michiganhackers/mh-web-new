@@ -21,10 +21,6 @@ const Outer = styled.div`
 `;
 
 const ConnectWithUsOuter = styled.div`
-    margin-top: 80px;
-    ${devices.tablet`
-        margin-top: 66px;
-    `}
     background-color: rgba(89, 202, 241, 1);
     padding: 3rem;
     display: flex;
