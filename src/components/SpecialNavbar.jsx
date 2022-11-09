@@ -195,7 +195,7 @@ const SpecialNavbar = () => (
                 {[...links, social_link_group]}
             </DesktopNavContainer>
             <Hamburger htmlFor="hamburger">
-                <span>menu</span>
+                <span>Menu</span>
                 <FontAwesomeIcon icon="bars" />
             </Hamburger>
         </FlexWrapper>

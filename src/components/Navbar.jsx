@@ -249,7 +249,7 @@ const Navbar = () => (
                 <FontAwesomeIcon icon={["fab", "github"]} />
             </GithubLink>
             <Hamburger htmlFor="hamburger">
-                <span>menu</span>
+                <span>Menu</span>
                 <FontAwesomeIcon icon="bars" />
             </Hamburger>
         </FlexWrapper>
