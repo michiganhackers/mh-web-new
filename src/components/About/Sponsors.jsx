@@ -49,6 +49,8 @@ const TierHeader = styled.h2.attrs((props) => ({
     font-family: "Roboto Condensed";
     font-weight: 700;
     padding-top: 12px;
+    // Temporary with TierSubHeader
+    margin-bottom: 0;
     ${devices.tablet`
       font-size: ${(props) => {
           switch (props.tier) {
@@ -64,15 +66,51 @@ const TierHeader = styled.h2.attrs((props) => ({
     `}
 `;
 
+// temporary place to show the previous sponsor levels (gigabyte, megabyte, ...)
+const TierSubHeader = styled.h3.attrs((props) => ({
+    tier: props.tier,
+}))`
+    text-align: center;
+    font-size: ${(props) => {
+        switch (props.tier) {
+            case "1":
+                return "1.5em";
+            case "2":
+                return "1.25em";
+            case "3":
+            default:
+                return "1em";
+        }
+    }};
+    font-family: "Roboto Condensed";
+    font-weight: 700;
+    ${devices.tablet`
+      font-size: ${(props) => {
+          switch (props.tier) {
+              case "1":
+                  return "1.2em";
+              case "2":
+                  return "1em";
+              case "3":
+              default:
+                  return "0.8em";
+          }
+      }};
+    `}
+`;
+
 const Sponsors = () => (
     <Wrapper>
-        <TierHeader tier="1">Tier 1 Sponsors</TierHeader>
+        {/*TODO: TierHeader should be parameterized to prevent messing up the names*/}
+        <TierHeader tier="1">Platinum Sponsors</TierHeader>
+        <TierSubHeader tier="1">(formerly Gigabyte)</TierSubHeader>
         <SponsorTier>
             <Sponsor tier="1" url={CrowdstrikeLogo} name={"Crowdstrike"} />
             <Sponsor tier="1" url={MetaLogo} name={"Meta"} />
         </SponsorTier>
 
-        <TierHeader tier="2">Tier 2 Sponsors</TierHeader>
+        <TierHeader tier="2">Gold Sponsors</TierHeader>
+        <TierSubHeader tier="2">(formerly Megabyte)</TierSubHeader>
         <SponsorTier>
             <Sponsor tier="2" url={SusquehannaLogo} name={"Susquehanna"} />
             <Sponsor tier="2" url={OracleLogo} name={"Oracle"} />
