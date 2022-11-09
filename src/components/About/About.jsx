@@ -27,6 +27,7 @@ const MissionStatement = styled.article`
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 1.5rem;
     ${devices.tablet`
       background-image: url(${about_bg_2x1});
       &:nth-of-type(even) {
