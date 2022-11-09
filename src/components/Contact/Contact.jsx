@@ -86,12 +86,9 @@ const ForCompaniesDiv = styled.div`
 `;
 
 const InfoP = styled.p`
-    font-size: 2.3rem;
+    font-size: 1.7rem;
     margin: 0;
-    ${devices.massive`
-        font-size: 1.7rem;
-    `}
-    ${devices.giant`
+      ${devices.giant`
         font-size: 1.4rem;
     `}
     ${devices.desktop`
