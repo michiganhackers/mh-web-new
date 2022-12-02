@@ -159,7 +159,7 @@ const SocialLinkContainer = styled.nav`
     display: flex;
 `;
 
-const links = ["about", "leadership", "events", "contact", "faq"].map(
+const links = ["about", "leadership", "teams", "events", "contact", "faq"].map(
     (name) => (
         <HeaderNavLink to={`/${name}`} key={name}>
             {name !== "faq" ? name : "FAQ"}
