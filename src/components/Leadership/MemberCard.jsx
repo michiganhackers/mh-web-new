@@ -44,7 +44,6 @@ const Card = styled.div`
     margin-left: 5px;
     margin-right: 5px;
     font-size: 13px;
-    font: comic-sans;
     ${specificResponsiveness`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 290px;
@@ -77,112 +76,129 @@ const Title = styled.p`
   `}
 `;
 
-const DetailsCategoryContainer = styled.div`
-    color: black;
-    text-align: left;
-`;
+const DetailsCategoryContainer = styled.dl`
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  
+ `;
 
-const DetailsCategory = styled.div`
-    color: rgb(241, 93, 36);
-    display: inline;
-`;
+const DetailsCategory = styled.dt`
+   color: rgb(241, 93, 36);
+  padding: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  margin-bottom:0 ;
+ `;
 
-const DetailsCategoryDescription = styled.div`
-    display: inline;
-`;
+const DetailsCategoryDescription = styled.dd`
+   color: black;
+  flex-basis: 50%;
+  flex-grow: 2;
+  text-align: left;
+  margin-bottom: 0.4em;
+ `;
 
 const IconLink = styled.a`
-    text-decoration: none !important;
-    font-size: 19px !important;
-    color: rgb(241, 93, 36) !important;
-    padding: 10px !important;
+    color: rgb(241, 93, 36);
+    text-decoration: none;
+    font-size: 2em;
+    transition: color 0.3s;
+    &:hover {
+      color: #404040;
+    }
 `;
 
-const Links = styled.div`
+const Links = styled.ul`
     display: inline-block;
     color: rgb(241, 93, 36);
+    // remove default list styling
+    padding-left: 0;
     ${specificResponsiveness`
-    width: 100%;
-  `}
+      width: 100%;
+    `}
 `;
 
-class MemberCard extends React.Component {
-    nonemptyUrls() {
-        const returnValue = [];
+const LinkItem = styled.li`
+    padding: 10px;
+    display: inline;
+`;
 
-        if (this.props.instagramUrl !== "") {
-            returnValue.push(
-                <IconLink key="insta" href={this.props.instagramUrl}>
-                  <FontAwesomeIcon icon={['fab', 'instagram']} />
-                </IconLink>
+const MemberCard = (props) => {
+    const personalUrls = () => {
+        const urls = [];
+        if (props.instagramUrl) {
+            urls.push(
+                <LinkItem key="insta">
+                    <IconLink href={props.instagramUrl}>
+                        <FontAwesomeIcon icon={["fab", "instagram"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.githubUrl !== "") {
-            returnValue.push(
-                <IconLink key="git" href={this.props.githubUrl}>
-                  <FontAwesomeIcon icon={['fab', 'github']} />
-                </IconLink>
+        if (props.githubUrl) {
+            urls.push(
+                <LinkItem key="git">
+                    <IconLink href={props.githubUrl}>
+                        <FontAwesomeIcon icon={["fab", "github"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.linkedinUrl !== "") {
-            returnValue.push(
-                <IconLink key="linked" href={this.props.linkedinUrl}>
-                  <FontAwesomeIcon icon={['fab', 'linkedin']} />
-                </IconLink>
+        if (props.linkedinUrl) {
+            urls.push(
+                <LinkItem key="linked">
+                    <IconLink href={props.linkedinUrl}>
+                        <FontAwesomeIcon icon={["fab", "linkedin"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.facebookUrl !== "") {
-            returnValue.push(
-                <IconLink key="fb" href={this.props.facebookUrl}>
-                  <FontAwesomeIcon icon={['fab', 'facebook']} />
-                </IconLink>
+        if (props.facebookUrl) {
+            urls.push(
+                <LinkItem key="fb">
+                    <IconLink href={props.facebookUrl}>
+                        <FontAwesomeIcon icon={["fab", "facebook"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.personalUrl !== "") {
-            returnValue.push(
-                <IconLink key="personal" href={this.props.personalUrl}>
-                  <FontAwesomeIcon icon={['fab', 'user']} />
-                </IconLink>
+        if (props.personalUrl) {
+            urls.push(
+                <LinkItem key="personal">
+                    <IconLink href={props.personalUrl}>
+                        <FontAwesomeIcon icon={["far", "user"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
 
-        return returnValue;
-    }
+        return urls;
+    };
 
-    render() {
-        return (
-            <Card>
-                <Leadership
-                    src={this.props.imageUrl}
-                    alt="leadership"
-                    loading="lazy"
-                />
-                <MemberName>{this.props.name}</MemberName>
-                <Title>{this.props.title}</Title>
-                <DetailsCategoryContainer>
-                    <DetailsCategory>Grad Year: </DetailsCategory>
-                    <DetailsCategoryDescription>
-                        {this.props.gradYear}
-                    </DetailsCategoryDescription>
-                </DetailsCategoryContainer>
-                <DetailsCategoryContainer>
-                    <DetailsCategory>Interests: </DetailsCategory>
-                    <DetailsCategoryDescription>
-                        {this.props.interests}
-                    </DetailsCategoryDescription>
-                </DetailsCategoryContainer>
-                <DetailsCategoryContainer>
-                    <DetailsCategory>Fun fact: </DetailsCategory>
-                    <DetailsCategoryDescription>
-                        {this.props.funFact}
-                    </DetailsCategoryDescription>
-                </DetailsCategoryContainer>
-                <p>{this.props.bio}</p>
-                <Links>{this.nonemptyUrls()}</Links>
-            </Card>
-        );
-    }
-}
+    return (
+        <Card>
+            <Leadership src={props.imageUrl} alt="leadership" loading="lazy" />
+            <MemberName>{props.name}</MemberName>
+            <Title>{props.title}</Title>
+            <DetailsCategoryContainer>
+                <DetailsCategory>Grad Year: </DetailsCategory>
+                <DetailsCategoryDescription>
+                    {props.gradYear}
+                </DetailsCategoryDescription>
+                <DetailsCategory>Interests: </DetailsCategory>
+                <DetailsCategoryDescription>
+                    {props.interests}
+                </DetailsCategoryDescription>
+                <DetailsCategory>Fun fact: </DetailsCategory>
+                <DetailsCategoryDescription>
+                    {props.funFact}
+                </DetailsCategoryDescription>
+            </DetailsCategoryContainer>
+            <Links>{personalUrls()}</Links>
+        </Card>
+    );
+};
 
 MemberCard.defaultProps = {
     instagramUrl: "",
@@ -193,6 +209,14 @@ MemberCard.defaultProps = {
 };
 
 MemberCard.propTypes = {
+    name: PropTypes.string,
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    gradYear: PropTypes.string,
+    interests: PropTypes.string,
+    funFact: PropTypes.string,
+    bio: PropTypes.string,
+
     instagramUrl: PropTypes.string,
     githubUrl: PropTypes.string,
     linkedinUrl: PropTypes.string,
