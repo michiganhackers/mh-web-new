@@ -1,6 +1,6 @@
 import React from "react";
-import "../../utility/fonts.css";
-import { StaticH1 } from "../../utility/ContentStyles.js";
+import "utility/fonts.css";
+import { StaticH1 } from "utility/ContentStyles.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import MemberCard from "./MemberCard.jsx";
 import styled from "styled-components";

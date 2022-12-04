@@ -1,5 +1,5 @@
 import React from "react";
-import "../../utility/fonts.css";
+import "utility/fonts.css";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
