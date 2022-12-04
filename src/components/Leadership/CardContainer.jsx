@@ -27,10 +27,6 @@ class CardContainer extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-                />
                 {Object.keys(leadership).map((category, index) => (
                     <div key={index}>
                         <StaticH1>{category}</StaticH1>

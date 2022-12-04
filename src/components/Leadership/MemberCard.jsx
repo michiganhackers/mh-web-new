@@ -2,6 +2,7 @@ import React from "react";
 import "utility/fonts.css";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const specificResponsiveness = (...args) =>
     css`
@@ -112,35 +113,35 @@ class MemberCard extends React.Component {
         if (this.props.instagramUrl !== "") {
             returnValue.push(
                 <IconLink key="insta" href={this.props.instagramUrl}>
-                    <i className="fa fa-instagram"></i>
+                  <FontAwesomeIcon icon={['fab', 'instagram']} />
                 </IconLink>
             );
         }
         if (this.props.githubUrl !== "") {
             returnValue.push(
                 <IconLink key="git" href={this.props.githubUrl}>
-                    <i className="fa fa-github"></i>
+                  <FontAwesomeIcon icon={['fab', 'github']} />
                 </IconLink>
             );
         }
         if (this.props.linkedinUrl !== "") {
             returnValue.push(
                 <IconLink key="linked" href={this.props.linkedinUrl}>
-                    <i className="fa fa-linkedin"></i>
+                  <FontAwesomeIcon icon={['fab', 'linkedin']} />
                 </IconLink>
             );
         }
         if (this.props.facebookUrl !== "") {
             returnValue.push(
                 <IconLink key="fb" href={this.props.facebookUrl}>
-                    <i className="fa fa-facebook"></i>
+                  <FontAwesomeIcon icon={['fab', 'facebook']} />
                 </IconLink>
             );
         }
         if (this.props.personalUrl !== "") {
             returnValue.push(
                 <IconLink key="personal" href={this.props.personalUrl}>
-                    <i className="fa fa-user"></i>
+                  <FontAwesomeIcon icon={['fab', 'user']} />
                 </IconLink>
             );
         }
