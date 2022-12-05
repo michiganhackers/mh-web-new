@@ -4,6 +4,7 @@ import Navbar from "components/Navbar.jsx";
 import styled from "styled-components";
 import teams from "teams.json";
 import SubteamCard from "components/Teams/SubteamCard.jsx";
+import devices from "utility/MediaQueries.js";
 
 const OurSubteamsWrapper = styled.div`
     display: flex;
@@ -17,9 +18,13 @@ const OurSubsteamsDiv = styled.div`
     margin: 1rem 1rem 0;
     border-radius: 10px;
     width: 100%;
-    max-width: 2000px;
+    max-width: 1200px;
     background-color: #ED8246;
     padding: 1rem;
+
+    ${devices.tablet`
+        max-width: 500px;
+    `}
 `;
 
 const OurSubteamsTitle = styled.h1`
@@ -30,7 +35,16 @@ const OurSubteamsTitle = styled.h1`
 
 const SubteamButtonsGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 150px);
+    grid-template-columns: repeat(3, 220px);
+    ${devices.tablet`
+        grid-template-columns: repeat(2, 200px);
+    `}
+    ${devices.small`
+        grid-template-columns: repeat(2, 150px);
+    `}
+    ${devices.tiny`
+        grid-template-columns: repeat(2, 120px);
+    `}
     gap: 1rem;
 `;
 
@@ -44,17 +58,33 @@ const SubteamButtonWrapper = styled.div`
     padding: 0;
     display: flex;
     justify-content: center;
+    ${devices.tablet`
+        ${props => props.last && "grid-column: 1 / span 2;"}
+    `}
+    ${devices.tiny`
+        ${props => props.last && "grid-column: 1 / span 2;"}
+    `}
 `;
 
 const SubteamButton = styled.button`
     border: 2px solid white;
     background-color: white;
     color: #F18048;
-    width: 150px;
+    width: 220px;
+    ${devices.tablet`
+        width: 200px;
+    `}
+    ${devices.small`
+        width: 150px;
+    `}
+    ${devices.tiny`
+        width: 120px;
+    `}
     min-height: 40px;
     outline: none;
     font-size: 1rem;
     border-radius: 8px;
+    transition: all 0.2s;
 
     &:hover {
         border: 2px solid white;
@@ -77,11 +107,11 @@ const Teams = () => {
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
-    });
+    },[]);
 
 
     const handleClick = i => {
-        const navbarHeight = 80;
+        const navbarHeight = window.innerWidth <= 768 ? 74 : 80;
         const onerem = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
         const padding = 1 * onerem;
         const yOffset = -(navbarHeight + padding); 
@@ -99,7 +129,7 @@ const Teams = () => {
                     <SubteamButtonsGridWrapper>
                         <SubteamButtonsGrid>
                             {teamNames.map((teamName, i) => 
-                                <SubteamButtonWrapper key={i}>
+                                <SubteamButtonWrapper key={i} last={i == teamNames.length - 1}>
                                     <SubteamButton onClick={() => handleClick(i)}>{teamName}</SubteamButton>
                                 </SubteamButtonWrapper>
                             )}
@@ -114,6 +144,7 @@ const Teams = () => {
                         team={team}
                         key={i}
                         even={i % 2 === 0}
+                        first={i == 0}
                     />
                 )}
             </SubteamCardsDiv>
