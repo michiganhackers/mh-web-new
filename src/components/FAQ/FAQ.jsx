@@ -9,6 +9,7 @@ const FAQ = () => (
     <>
         <Navbar />
         <SubpageOuter header="frequently asked questions">
+            <br/>
             <Question
                 question="You guys hack?"
                 answer="Yes, we hack things together! Hacking, to us, is the process of bringing together passion, creativity, and technical skills to build something new and learn more about technology."
