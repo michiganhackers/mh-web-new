@@ -39,7 +39,6 @@ const Legend = styled.p`
  */
 const ImageCarousel = (props) => {
     const { images } = props;
-    console.log(images);
     return (
         <CarouselContainer>
             <Carousel autoplay>
