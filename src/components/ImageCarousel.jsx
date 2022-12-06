@@ -3,15 +3,22 @@ import "utility/fonts.css";
 import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import devices from "utility/MediaQueries.js";
 
 const CarouselContainer = styled.div`
     width: 45%;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    @media all and (min-width: 214px) and (max-width: 600px) {
-        width: 90%;
-    }
+  margin: auto;
+
+  ${devices.giant`
+      width: 60%;
+    `}
+  ${devices.tablet`
+      width: 70%;
+    `}
+    ${devices.small`
+      width: 90%;
+    `}
 `;
 
 const Legend = styled.p`
@@ -32,6 +39,7 @@ const Legend = styled.p`
  */
 const ImageCarousel = (props) => {
     const { images } = props;
+    console.log(images);
     return (
         <CarouselContainer>
             <Carousel autoplay>
