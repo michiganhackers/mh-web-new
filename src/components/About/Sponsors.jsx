@@ -4,8 +4,12 @@ import "index.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
 
+import CapitalOneLogo from "assets/c1.png";
+import CitadelLogo from "assets/citadel.png";
 import CrowdstrikeLogo from "assets/crowdstrike.png";
+import GraingerLogo from "assets/grainger.png";
 import MetaLogo from "assets/meta.png";
+import NitsLogo from "assets/nits.png";
 import OracleLogo from "assets/oracle.png";
 import SusquehannaLogo from "assets/susquehanna.png";
 import Sponsor from "./Sponsor";
@@ -22,6 +26,9 @@ const SponsorTier = styled.section`
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding-bottom: 12px;
+    &:not(:last-of-type) {
+      border-bottom: dashed white;
+    }
     ${devices.tablet`
       width: 95%;
     `}
@@ -55,12 +62,12 @@ const TierHeader = styled.h2.attrs((props) => ({
       font-size: ${(props) => {
           switch (props.tier) {
               case "1":
-                  return "2.5em";
+                  return "2.75em";
               case "2":
-                  return "2em";
+                  return "2.25em";
               case "3":
               default:
-                  return "1.5em";
+                  return "1.75em";
           }
       }};
     `}
@@ -106,14 +113,23 @@ const Sponsors = () => (
         <TierSubHeader tier="1">(formerly Gigabyte)</TierSubHeader>
         <SponsorTier>
             <Sponsor tier="1" url={CrowdstrikeLogo} name={"Crowdstrike"} />
-            <Sponsor tier="1" url={MetaLogo} name={"Meta"} />
+            <Sponsor tier="1" url={GraingerLogo} name={"Grainger"} />
         </SponsorTier>
 
         <TierHeader tier="2">Gold Sponsors</TierHeader>
         <TierSubHeader tier="2">(formerly Megabyte)</TierSubHeader>
         <SponsorTier>
-            <Sponsor tier="2" url={SusquehannaLogo} name={"Susquehanna"} />
-            <Sponsor tier="2" url={OracleLogo} name={"Oracle"} />
+            <Sponsor tier="2" url={CitadelLogo} name={"Citadel"} />
+          <Sponsor tier="2" url={SusquehannaLogo} name={"Susquehanna International Group"} />
+          <Sponsor tier="2" url={NitsLogo} name={"Nits Solutions"} />
+        </SponsorTier>
+
+          <TierHeader tier="3">Silver Sponsors</TierHeader>
+        <TierSubHeader tier="3">(formerly Kilobyte)</TierSubHeader>
+        <SponsorTier>
+            <Sponsor tier="3" url={MetaLogo} name={"Meta"} />
+          <Sponsor tier="3" url={CapitalOneLogo} name={"Capital One"} />
+          <Sponsor tier="3" url={OracleLogo} name={"Oracle"} />
         </SponsorTier>
     </Wrapper>
 );
