@@ -1,106 +1,92 @@
 import React from "react";
 import "utility/fonts.css";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const specificResponsiveness = (...args) =>
-    css`
-        @media all and (min-width: 214px) and (max-width: 600px) {
-            ${css(...args)};
-        }
-    `;
+import devices from "utility/MediaQueries.js";
 
 const Leadership = styled.img`
     height: 200px;
+    width: 200px;
     display: block;
     object-fit: cover;
-    border-radius: 200px;
+    border-radius: 100%;
     box-sizing: border-box;
     border: 7px solid white;
-    width: 100%;
-    ${specificResponsiveness`
-    height: 190px;
-    display: block;
-    border-radius: 200px;
-    box-sizing: border-box;
-    background-color: #d15c19;
-    border: 7px solid #d15c19;
+    margin: 0 auto;
+    ${devices.small`
+      height: 150px;
+      width: 150px;
   `}
 `;
 
 const Card = styled.article`
-  background-color: #ED8246;
-  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ed8246;
     width: 300px;
-    height: 525px;
+    height: 550px;
     text-align: center;
-    flex: 0 1 24%;
-    padding: 50px;
-    padding-top: 20px;
+    padding: 20px 30px 30px;
     box-sizing: border-box;
     align-content: center;
     margin-bottom: 5%;
     margin-left: 5px;
     margin-right: 5px;
-    font-size: 13px;
-    ${specificResponsiveness`
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 290px;
-    height: auto;
-    text-align: center;
-    flex: 0 1 24%;
-    box-sizing: border-box;;
-    align-content: center;
-    margin-bottom: 5%;
-    margin-right: 0px;
-    font-size: 14px;
+    font-size: 1em;
+    ${devices.small`
+      font-size: 1em;
+      height: 475px;
   `}
 `;
 
 const MemberName = styled.h2`
-    font-size: 19px;
+    font-size: 1.2em;
     margin-top: 10px;
     font-weight: 500;
-  color: white;
-    ${specificResponsiveness`
-    font-size: 20px;
+    color: white;
+    ${devices.small`
+      font-size: 20px;
+    font-size: 1.1em;
   `}
 `;
 
 const Title = styled.p`
     //color: rgb(241, 93, 36);
-  color: white;
-    font-size: 14px;
+    color: white;
     font-weight: 600;
-    ${specificResponsiveness`
-    font-size: 15px;
-  `}
+    font-size: 1.1em;
+    ${devices.small`
+      font-size: 1em;
+    `}
 `;
 
-const DetailsCategoryContainer = styled.dl`
-  display: flex;
-  flex-flow: column wrap;
-  align-items: flex-start;
-  
- `;
+const Details = styled.dl`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
 
-const DetailsCategory = styled.dt`
-  color: white;
-   //color: rgb(241, 93, 36);
-  padding: 0;
-  flex-basis: auto;
-  flex-grow: 1;
-  margin-bottom:0 ;
- `;
+const DetailGroup = styled.div`
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0.2em;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+`;
 
-const DetailsCategoryDescription = styled.dd`
-   color: white;
-  flex-basis: 50%;
-  flex-grow: 2;
-  text-align: left;
-  margin-bottom: 0.4em;
- `;
+const Detail = styled.dt`
+    display: inline;
+    color: white;
+    //color: rgb(241, 93, 36);
+    padding: 0;
+    margin-bottom: 0;
+`;
+
+const DetailDescription = styled.dd`
+    display: inline;
+    color: white;
+    text-align: left;
+`;
 
 const IconLink = styled.a`
     color: white;
@@ -109,7 +95,7 @@ const IconLink = styled.a`
     font-size: 2em;
     transition: color 0.3s;
     &:hover {
-      color: #404040;
+        color: #404040;
     }
 `;
 
@@ -119,7 +105,7 @@ const Links = styled.ul`
     color: white;
     // remove default list styling
     padding-left: 0;
-    ${specificResponsiveness`
+    ${devices.small`
       width: 100%;
     `}
 `;
@@ -186,20 +172,20 @@ const MemberCard = (props) => {
             <Leadership src={props.imageUrl} alt="leadership" loading="lazy" />
             <MemberName>{props.name}</MemberName>
             <Title>{props.title}</Title>
-            <DetailsCategoryContainer>
-                <DetailsCategory>Grad Year: </DetailsCategory>
-                <DetailsCategoryDescription>
-                    {props.gradYear}
-                </DetailsCategoryDescription>
-                <DetailsCategory>Interests: </DetailsCategory>
-                <DetailsCategoryDescription>
-                    {props.interests}
-                </DetailsCategoryDescription>
-                <DetailsCategory>Fun fact: </DetailsCategory>
-                <DetailsCategoryDescription>
-                    {props.funFact}
-                </DetailsCategoryDescription>
-            </DetailsCategoryContainer>
+            <Details>
+                <DetailGroup>
+                    <Detail>Grad Year: </Detail>
+                    <DetailDescription>{props.gradYear}</DetailDescription>
+                </DetailGroup>
+                <DetailGroup>
+                    <Detail>Interests: </Detail>
+                    <DetailDescription>{props.interests}</DetailDescription>
+                </DetailGroup>
+                <DetailGroup>
+                    <Detail>Fun fact: </Detail>
+                    <DetailDescription>{props.funFact}</DetailDescription>
+                </DetailGroup>
+            </Details>
             <Links>{personalUrls()}</Links>
         </Card>
     );

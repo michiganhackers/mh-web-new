@@ -7,7 +7,8 @@ import CardContainer from "./CardContainer.jsx";
 import CoreTeam from "assets/CoreTeam.JPG";
 import ErichHands from "assets/ErichHands.JPG";
 import Escapade from "assets/Escapade.JPG";
-import { slugify } from "../../utility/utils";
+import { slugify } from "utility/utils";
+import devices from "utility/MediaQueries.js";
 
 import leadership_json from "leadership.json";
 
@@ -19,22 +20,23 @@ const LeadershipWrapper = styled.main`
 const LeadershipGroupImages = styled.div`
     width: 100%;
     height: 400px;
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    ${devices.small`
+        display: none;
+    `}
 `;
 
 const LeadershipGroupImage = styled.img.attrs((props) => ({
     isActive: props.isActive,
 }))`
-    width: 100%;
+    width: 33.3%;
     height: 400px;
     background-color: lightgray;
     object-fit: cover;
-  transition: filter 0.3s;
+    transition: filter 0.3s;
+    // has to read the property because not a navlink and will not get a style when active
     ${(props) => props.isActive || "filter: grayscale(100%);"};
-    //&.active {
-    //  filter: grayscale(100%);
-    //}
 `;
 
 const TabNav = styled.nav``;
@@ -44,6 +46,9 @@ const TabGroup = styled.ul`
     margin-bottom: 0;
     //background: rgb(241, 93, 36);
     background: #ed8246;
+    ${devices.small`
+        flex-direction: column;
+    `}
 `;
 const Tab = styled(NavLink)`
     padding: 10px 10px;
@@ -51,7 +56,7 @@ const Tab = styled(NavLink)`
     flex-grow: 1;
     text-align: center;
     color: white;
-  transition: background-color 0.3s;
+    transition: background-color 0.3s;
     &.active {
         background-color: #8dcadf;
     }
@@ -61,7 +66,7 @@ const TabInfo = styled.div`
     background-color: #8dcadf;
     padding: 1.5em 0;
     margin-bottom: 1.5em;
-  transition: content 0.3s;
+    transition: content 0.3s;
 `;
 
 const TabName = styled.h1`
@@ -136,12 +141,15 @@ function Leadership() {
                         <LeadershipGroupImage
                             key={group_name}
                             src={leadership[group_name].image}
-                            isActive={isActive(leadership[group_name].slug, i)(null, location)}
+                            isActive={isActive(leadership[group_name].slug, i)(
+                                null,
+                                location
+                            )}
                         />
                     ))}
                 </LeadershipGroupImages>
                 <TabNav>
-                    <TabGroup role={"tabgroup"}>
+                    <TabGroup role="tablist">
                         {TAB_NAMES.map((group_name, i) => (
                             <Tab
                                 key={group_name}
@@ -151,14 +159,14 @@ function Leadership() {
                                     leadership[group_name].slug,
                                     i
                                 )}
-                                role={"tab"}
+                                role="tab"
                             >
                                 {group_name}
                             </Tab>
                         ))}
                     </TabGroup>
                 </TabNav>
-                <TabInfo>
+                <TabInfo role="tabpanel">
                     <TabName>{TAB_NAMES[currentTabIndex]}</TabName>
                     <TabDescription>
                         {getCurrentTab().description}

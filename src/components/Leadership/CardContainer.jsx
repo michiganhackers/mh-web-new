@@ -16,50 +16,15 @@ const CardContainer = ({ people }) => {
     return (
         <Cards>
             {people.map((lead) => (
-                <div key={lead.uniqname}>
-                    <MemberCard
-                        {...lead}
-                        imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
-                    />
-                </div>
+                <MemberCard
+                    {...lead}
+                    key={lead.uniqname}
+                    imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
+                />
             ))}
         </Cards>
     );
 };
-
-// class CardContainer extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             leadership: [],
-//             categories: [],
-//         };
-//     }
-//
-//     render() {
-//         return (
-//             <React.Fragment>
-//                 {Object.keys(leadership).map((category, index) => (
-//                     <div key={index}>
-//                         <StaticH1>{category}</StaticH1>
-//                         <div>
-//                             <Cards>
-//                                 {leadership[category].map((lead, index) => (
-//                                     <div key={index}>
-//                                         <MemberCard
-//                                             {...lead}
-//                                             imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
-//                                         />
-//                                     </div>
-//                                 ))}
-//                             </Cards>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </React.Fragment>
-//         );
-//     }
-// }
 
 // TODO: extract out lead type?
 CardContainer.propTypes = {
