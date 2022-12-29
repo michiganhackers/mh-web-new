@@ -17,8 +17,7 @@ const Leadership = styled.img`
     object-fit: cover;
     border-radius: 200px;
     box-sizing: border-box;
-    background-color: #d15c19;
-    border: 7px solid #d15c19;
+    border: 7px solid white;
     width: 100%;
     ${specificResponsiveness`
     height: 190px;
@@ -30,8 +29,9 @@ const Leadership = styled.img`
   `}
 `;
 
-const Card = styled.div`
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+const Card = styled.article`
+  background-color: #ED8246;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 300px;
     height: 525px;
     text-align: center;
@@ -45,7 +45,7 @@ const Card = styled.div`
     margin-right: 5px;
     font-size: 13px;
     ${specificResponsiveness`
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 290px;
     height: auto;
     text-align: center;
@@ -62,13 +62,15 @@ const MemberName = styled.h2`
     font-size: 19px;
     margin-top: 10px;
     font-weight: 500;
+  color: white;
     ${specificResponsiveness`
     font-size: 20px;
   `}
 `;
 
 const Title = styled.p`
-    color: rgb(241, 93, 36);
+    //color: rgb(241, 93, 36);
+  color: white;
     font-size: 14px;
     font-weight: 600;
     ${specificResponsiveness`
@@ -84,7 +86,8 @@ const DetailsCategoryContainer = styled.dl`
  `;
 
 const DetailsCategory = styled.dt`
-   color: rgb(241, 93, 36);
+  color: white;
+   //color: rgb(241, 93, 36);
   padding: 0;
   flex-basis: auto;
   flex-grow: 1;
@@ -92,7 +95,7 @@ const DetailsCategory = styled.dt`
  `;
 
 const DetailsCategoryDescription = styled.dd`
-   color: black;
+   color: white;
   flex-basis: 50%;
   flex-grow: 2;
   text-align: left;
@@ -100,7 +103,8 @@ const DetailsCategoryDescription = styled.dd`
  `;
 
 const IconLink = styled.a`
-    color: rgb(241, 93, 36);
+    color: white;
+    //color: rgb(241, 93, 36);
     text-decoration: none;
     font-size: 2em;
     transition: color 0.3s;
@@ -111,7 +115,8 @@ const IconLink = styled.a`
 
 const Links = styled.ul`
     display: inline-block;
-    color: rgb(241, 93, 36);
+    //color: rgb(241, 93, 36);
+    color: white;
     // remove default list styling
     padding-left: 0;
     ${specificResponsiveness`

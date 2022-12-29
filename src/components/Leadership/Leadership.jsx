@@ -1,15 +1,173 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import "utility/fonts.css";
-import SubpageOuter from "components/SubpageOuter/SubpageOuter.jsx";
 import Navbar from "components/Navbar.jsx";
+import { NavLink, useLocation } from "react-router-dom";
 import CardContainer from "./CardContainer.jsx";
+import CoreTeam from "assets/CoreTeam.JPG";
+import ErichHands from "assets/ErichHands.JPG";
+import Escapade from "assets/Escapade.JPG";
+import { slugify } from "../../utility/utils";
 
-const Leadership = () => (
-    <React.Fragment>
-        <Navbar />
-        <SubpageOuter header="our leadership" />
-        <CardContainer />
-    </React.Fragment>
+import leadership_json from "leadership.json";
+
+// TODO: do we really need this?
+const LeadershipWrapper = styled.main`
+    width: 100%;
+`;
+
+const LeadershipGroupImages = styled.div`
+    width: 100%;
+    height: 400px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const LeadershipGroupImage = styled.img.attrs((props) => ({
+    isActive: props.isActive,
+}))`
+    width: 100%;
+    height: 400px;
+    background-color: lightgray;
+    object-fit: cover;
+  transition: filter 0.3s;
+    ${(props) => props.isActive || "filter: grayscale(100%);"};
+    //&.active {
+    //  filter: grayscale(100%);
+    //}
+`;
+
+const TabNav = styled.nav``;
+const TabGroup = styled.ul`
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    //background: rgb(241, 93, 36);
+    background: #ed8246;
+`;
+const Tab = styled(NavLink)`
+    padding: 10px 10px;
+    flex-basis: 33%;
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+  transition: background-color 0.3s;
+    &.active {
+        background-color: #8dcadf;
+    }
+`;
+
+const TabInfo = styled.div`
+    background-color: #8dcadf;
+    padding: 1.5em 0;
+    margin-bottom: 1.5em;
+  transition: content 0.3s;
+`;
+
+const TabName = styled.h1`
+    font-size: 2em;
+    text-align: center;
+    color: white;
+`;
+
+const TabDescription = styled.p`
+    width: 50%;
+    margin: auto;
+    color: white;
+`;
+
+const leadGroupPicsGenerator = function* () {
+    yield CoreTeam;
+    yield ErichHands;
+    yield Escapade;
+};
+
+const leadGroupPics = leadGroupPicsGenerator();
+
+// TODO: change leadership.json format
+const leadership = JSON.parse(JSON.stringify(leadership_json));
+Object.keys(leadership).map(
+    (groupName) =>
+        (leadership[groupName] = {
+            description: `${groupName} `.repeat(20),
+            slug: slugify(groupName),
+            people: leadership[groupName],
+            image: leadGroupPics.next().value,
+        })
 );
+/*
+ * "Executive Team": {
+ *    slug: "executive-team",
+ *    people: [...],
+ * }
+ *
+ */
+
+const TAB_NAMES = Object.keys(leadership);
+const getTab = (tabIndex) => leadership[TAB_NAMES[tabIndex]];
+
+function Leadership() {
+    const [currentTabIndex, setCurrentTabIndex] = useState(0);
+    const location = useLocation();
+
+    const getCurrentTab = () => getTab(currentTabIndex);
+    // return true if the slug matches the hash or this is the first item and no hash is set
+    const isActive = (slug, i) => (match, location) =>
+        match || location.hash === `#${slug}` || (!location.hash && i === 0);
+
+    // Set the appropriate tab to be open when the page is reloaded or entered
+    useEffect(() => {
+        const hashIndex = TAB_NAMES.findIndex(
+            (groupName) =>
+                leadership[groupName].slug === location.hash.substring(1)
+        );
+        if (hashIndex !== -1) {
+            setCurrentTabIndex(hashIndex);
+        } else {
+            setCurrentTabIndex(0);
+        }
+    }, [location]);
+    return (
+        <>
+            <Navbar />
+            <LeadershipWrapper>
+                <LeadershipGroupImages>
+                    {TAB_NAMES.map((group_name, i) => (
+                        <LeadershipGroupImage
+                            key={group_name}
+                            src={leadership[group_name].image}
+                            isActive={isActive(leadership[group_name].slug, i)(null, location)}
+                        />
+                    ))}
+                </LeadershipGroupImages>
+                <TabNav>
+                    <TabGroup role={"tabgroup"}>
+                        {TAB_NAMES.map((group_name, i) => (
+                            <Tab
+                                key={group_name}
+                                to={{ hash: `#${leadership[group_name].slug}` }}
+                                onClick={() => setCurrentTabIndex(i)}
+                                isActive={isActive(
+                                    leadership[group_name].slug,
+                                    i
+                                )}
+                                role={"tab"}
+                            >
+                                {group_name}
+                            </Tab>
+                        ))}
+                    </TabGroup>
+                </TabNav>
+                <TabInfo>
+                    <TabName>{TAB_NAMES[currentTabIndex]}</TabName>
+                    <TabDescription>
+                        {getCurrentTab().description}
+                    </TabDescription>
+                </TabInfo>
+                <CardContainer people={getCurrentTab().people} />
+            </LeadershipWrapper>
+        </>
+    );
+}
 
 export default Leadership;
