@@ -4,13 +4,9 @@ import "utility/fonts.css";
 import Navbar from "components/Navbar.jsx";
 import { NavLink, useLocation } from "react-router-dom";
 import CardContainer from "./CardContainer.jsx";
-import CoreTeam from "assets/CoreTeam.JPG";
-import ErichHands from "assets/ErichHands.JPG";
-import Escapade from "assets/Escapade.JPG";
-import { slugify } from "utility/utils";
 import devices from "utility/MediaQueries.js";
 
-import leadership_json from "leadership.json";
+import leadership from "leadership.json";
 
 // TODO: do we really need this?
 const LeadershipWrapper = styled.main`
@@ -81,32 +77,6 @@ const TabDescription = styled.p`
     color: white;
 `;
 
-const leadGroupPicsGenerator = function* () {
-    yield CoreTeam;
-    yield ErichHands;
-    yield Escapade;
-};
-
-const leadGroupPics = leadGroupPicsGenerator();
-
-// TODO: change leadership.json format
-const leadership = JSON.parse(JSON.stringify(leadership_json));
-Object.keys(leadership).map(
-    (groupName) =>
-        (leadership[groupName] = {
-            description: `${groupName} `.repeat(20),
-            slug: slugify(groupName),
-            people: leadership[groupName],
-            image: leadGroupPics.next().value,
-        })
-);
-/*
- * "Executive Team": {
- *    slug: "executive-team",
- *    people: [...],
- * }
- *
- */
 
 const TAB_NAMES = Object.keys(leadership);
 const getTab = (tabIndex) => leadership[TAB_NAMES[tabIndex]];
@@ -140,7 +110,7 @@ function Leadership() {
                     {TAB_NAMES.map((group_name, i) => (
                         <LeadershipGroupImage
                             key={group_name}
-                            src={leadership[group_name].image}
+                            src={`${process.env.PUBLIC_URL}/${leadership[group_name].imageUrl}`}
                             isActive={isActive(leadership[group_name].slug, i)(
                                 null,
                                 location
