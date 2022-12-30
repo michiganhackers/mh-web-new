@@ -77,18 +77,41 @@ const TabDescription = styled.p`
     color: white;
 `;
 
+const tabNavigationActions = {
+    ArrowLeft: (idx) => idx - 1,
+    ArrowRight: (idx) => idx + 1,
+    Home: () => 0,
+    End: () => Infinity,
+};
+
+function clamp(val, min, max) {
+    return Math.min(max, Math.max(val, min));
+}
 
 const TAB_NAMES = Object.keys(leadership);
 const getTab = (tabIndex) => leadership[TAB_NAMES[tabIndex]];
 
 function Leadership() {
-    const [currentTabIndex, setCurrentTabIndex] = useState(0);
+    const [currentTabIndex, _setCurrentTabIndex] = useState(0);
     const location = useLocation();
 
     const getCurrentTab = () => getTab(currentTabIndex);
-    // return true if the slug matches the hash or this is the first item and no hash is set
-    const isActive = (slug, i) => (match, location) =>
-        match || location.hash === `#${slug}` || (!location.hash && i === 0);
+
+    // TODO: shift focus to the correct tab
+    //       will probably need refs
+    const handleKeyDown = (event) => {
+        if (event.key in tabNavigationActions) {
+            window.location.hash = getTab(
+                clamp(
+                    tabNavigationActions[event.key](currentTabIndex),
+                    0,
+                    TAB_NAMES.length - 1
+                )
+            ).slug;
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    };
 
     // Set the appropriate tab to be open when the page is reloaded or entered
     useEffect(() => {
@@ -96,12 +119,9 @@ function Leadership() {
             (groupName) =>
                 leadership[groupName].slug === location.hash.substring(1)
         );
-        if (hashIndex !== -1) {
-            setCurrentTabIndex(hashIndex);
-        } else {
-            setCurrentTabIndex(0);
-        }
+        _setCurrentTabIndex(hashIndex !== -1 ? hashIndex : 0);
     }, [location]);
+
     return (
         <>
             <Navbar />
@@ -111,10 +131,8 @@ function Leadership() {
                         <LeadershipGroupImage
                             key={group_name}
                             src={`${process.env.PUBLIC_URL}/${leadership[group_name].imageUrl}`}
-                            isActive={isActive(leadership[group_name].slug, i)(
-                                null,
-                                location
-                            )}
+                            isActive={currentTabIndex === i}
+                            alt={`${group_name} group photo`}
                         />
                     ))}
                 </LeadershipGroupImages>
@@ -124,25 +142,28 @@ function Leadership() {
                             <Tab
                                 key={group_name}
                                 to={{ hash: `#${leadership[group_name].slug}` }}
-                                onClick={() => setCurrentTabIndex(i)}
-                                isActive={isActive(
-                                    leadership[group_name].slug,
-                                    i
-                                )}
+                                // onClick={() => _setCurrentTabIndex(i)}
+                                onKeyDown={handleKeyDown}
+                                isActive={() => currentTabIndex === i}
                                 role="tab"
+                                tabIndex={currentTabIndex === i ? "0" : "-1"}
+                                ariaSelected={currentTabIndex === i}
                             >
                                 {group_name}
                             </Tab>
                         ))}
                     </TabGroup>
                 </TabNav>
-                <TabInfo role="tabpanel">
+                <TabInfo role="tabpanel" tabIndex="0">
                     <TabName>{TAB_NAMES[currentTabIndex]}</TabName>
                     <TabDescription>
                         {getCurrentTab().description}
                     </TabDescription>
                 </TabInfo>
-                <CardContainer people={getCurrentTab().people} />
+                <CardContainer
+                    role="tabpanel"
+                    people={getCurrentTab().people}
+                />
             </LeadershipWrapper>
         </>
     );

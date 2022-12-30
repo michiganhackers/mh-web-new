@@ -169,7 +169,7 @@ const MemberCard = (props) => {
 
     return (
         <Card>
-            <Leadership src={props.imageUrl} alt="leadership" loading="lazy" />
+            <Leadership src={props.imageUrl} alt="lead photo" loading="lazy" />
             <MemberName>{props.name}</MemberName>
             <Title>{props.title}</Title>
             <Details>
