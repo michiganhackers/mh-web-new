@@ -23,9 +23,7 @@ const LeadershipGroupImages = styled.div`
     `}
 `;
 
-const LeadershipGroupImage = styled.img.attrs((props) => ({
-    isActive: props.isActive,
-}))`
+const LeadershipGroupImage = styled.img`
     width: 33.3%;
     height: 400px;
     background-color: lightgray;
@@ -81,32 +79,27 @@ const tabNavigationActions = {
     ArrowLeft: (idx) => idx - 1,
     ArrowRight: (idx) => idx + 1,
     Home: () => 0,
-    End: () => Infinity,
+    End: () => -1,
 };
-
-function clamp(val, min, max) {
-    return Math.min(max, Math.max(val, min));
-}
 
 const TAB_NAMES = Object.keys(leadership);
 const getTab = (tabIndex) => leadership[TAB_NAMES[tabIndex]];
 
 function Leadership() {
-    const [currentTabIndex, _setCurrentTabIndex] = useState(0);
+    const [currentTabIndex, setCurrentTabIndex] = useState(0);
     const location = useLocation();
 
     const getCurrentTab = () => getTab(currentTabIndex);
 
     // TODO: shift focus to the correct tab
     //       will probably need refs
+    // Update the hash first; the next render will update the currentTabIndex
     const handleKeyDown = (event) => {
         if (event.key in tabNavigationActions) {
             window.location.hash = getTab(
-                clamp(
-                    tabNavigationActions[event.key](currentTabIndex),
-                    0,
-                    TAB_NAMES.length - 1
-                )
+                (tabNavigationActions[event.key](currentTabIndex) +
+                    TAB_NAMES.length) %
+                    TAB_NAMES.length
             ).slug;
             event.preventDefault();
             event.stopPropagation();
@@ -119,7 +112,7 @@ function Leadership() {
             (groupName) =>
                 leadership[groupName].slug === location.hash.substring(1)
         );
-        _setCurrentTabIndex(hashIndex !== -1 ? hashIndex : 0);
+        setCurrentTabIndex(hashIndex !== -1 ? hashIndex : 0);
     }, [location]);
 
     return (
@@ -142,19 +135,18 @@ function Leadership() {
                             <Tab
                                 key={group_name}
                                 to={{ hash: `#${leadership[group_name].slug}` }}
-                                // onClick={() => _setCurrentTabIndex(i)}
                                 onKeyDown={handleKeyDown}
                                 isActive={() => currentTabIndex === i}
                                 role="tab"
                                 tabIndex={currentTabIndex === i ? "0" : "-1"}
-                                ariaSelected={currentTabIndex === i}
+                                aria-selected={currentTabIndex === i}
                             >
                                 {group_name}
                             </Tab>
                         ))}
                     </TabGroup>
                 </TabNav>
-                <TabInfo role="tabpanel" tabIndex="0">
+                <TabInfo role="tabpanel">
                     <TabName>{TAB_NAMES[currentTabIndex]}</TabName>
                     <TabDescription>
                         {getCurrentTab().description}
