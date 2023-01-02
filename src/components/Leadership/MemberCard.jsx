@@ -27,6 +27,7 @@ const Card = styled.article`
     text-align: center;
     padding: 20px 30px 30px;
     box-sizing: border-box;
+    border-radius: 10px;
     align-content: center;
     margin-bottom: 5%;
     margin-left: 5px;

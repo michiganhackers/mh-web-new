@@ -50,6 +50,7 @@ const Tab = styled(NavLink)`
     flex-grow: 1;
     text-align: center;
     color: white;
+    font-size: 1.3em;
     transition: background-color 0.3s;
     &.active {
         background-color: #8dcadf;
