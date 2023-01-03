@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import "utility/fonts.css";
 import Navbar from "components/Navbar.jsx";
@@ -89,11 +89,11 @@ const getTab = (tabIndex) => leadership[TAB_NAMES[tabIndex]];
 function Leadership() {
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
     const location = useLocation();
+    // when the selected tab changes (keyboard, click, or routing with non-empty hash), focus it
+    const selectedTabRef = useCallback(node => location.hash && node?.focus(), []);
 
     const getCurrentTab = () => getTab(currentTabIndex);
 
-    // TODO: shift focus to the correct tab
-    //       will probably need refs
     // Update the hash first; the next render will update the currentTabIndex
     const handleKeyDown = (event) => {
         if (event.key in tabNavigationActions) {
@@ -141,6 +141,7 @@ function Leadership() {
                                 role="tab"
                                 tabIndex={currentTabIndex === i ? "0" : "-1"}
                                 aria-selected={currentTabIndex === i}
+                                ref={currentTabIndex === i ? selectedTabRef : null}
                             >
                                 {group_name}
                             </Tab>
