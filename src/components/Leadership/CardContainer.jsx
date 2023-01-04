@@ -12,10 +12,18 @@ const Cards = styled.section`
     width: 100%;
 `;
 
-const CardContainer = ({ people }) => {
+/**
+ * Display a collection of club members
+ * Can accept other html props and pass them down
+ *
+ * @constructor
+ * @param props Other html attributes to use
+ * @param props.people {[{}]} The people to display
+ */
+const CardContainer = (props) => {
     return (
-        <Cards>
-            {people.map((lead) => (
+        <Cards {...props}>
+            {props.people.map((lead) => (
                 <MemberCard
                     {...lead}
                     key={lead.uniqname}

@@ -90,7 +90,10 @@ function Leadership() {
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
     const location = useLocation();
     // when the selected tab changes (keyboard, click, or routing with non-empty hash), focus it
-    const selectedTabRef = useCallback(node => location.hash && node?.focus(), []);
+    const selectedTabRef = useCallback(
+        (node) => location.hash && node?.focus(),
+        []
+    );
 
     const getCurrentTab = () => getTab(currentTabIndex);
 
@@ -135,13 +138,18 @@ function Leadership() {
                         {TAB_NAMES.map((group_name, i) => (
                             <Tab
                                 key={group_name}
+                                id={`tab-${group_name}`}
                                 to={{ hash: `#${leadership[group_name].slug}` }}
                                 onKeyDown={handleKeyDown}
                                 isActive={() => currentTabIndex === i}
                                 role="tab"
-                                tabIndex={currentTabIndex === i ? "0" : "-1"}
+                                tabIndex={currentTabIndex === i ? 0 : -1}
                                 aria-selected={currentTabIndex === i}
-                                ref={currentTabIndex === i ? selectedTabRef : null}
+                                ref={
+                                    currentTabIndex === i
+                                        ? selectedTabRef
+                                        : null
+                                }
                             >
                                 {group_name}
                             </Tab>
@@ -154,10 +162,15 @@ function Leadership() {
                         {getCurrentTab().description}
                     </TabDescription>
                 </TabInfo>
-                <CardContainer
-                    role="tabpanel"
-                    people={getCurrentTab().people}
-                />
+                {TAB_NAMES.map((group_name, i) => (
+                    <CardContainer
+                        key={group_name}
+                        aria-labelledby={`tab-${group_name}`}
+                        role="tabpanel"
+                        people={leadership[group_name].people}
+                        hidden={currentTabIndex !== i}
+                    />
+                ))}
             </LeadershipWrapper>
         </>
     );
