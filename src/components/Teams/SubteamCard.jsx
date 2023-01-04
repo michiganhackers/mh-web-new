@@ -70,7 +70,7 @@ const TeamLink = styled.a`
 
 `;
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.article`
     display: flex;
     justify-content: center;
     margin: 0;
@@ -85,13 +85,13 @@ const CardBorder = styled.div`
 `;
 
 const SubteamCard = (props) => {
-    const { team, innerRef, even, first } = props;
+    const { team, innerRef, even, first, teamId } = props;
     const { name, description, photoUrl, links } = team;
 
     return (
         <CardWrapper>
             <CardBorder first={first} even={even}>
-                <CardDiv ref={innerRef} even={even}>
+                <CardDiv ref={innerRef} even={even} id={teamId}>
                     <TeamPhotoDiv>
                         <TeamPhoto src={photoUrl} />
                     </TeamPhotoDiv>

@@ -6,7 +6,7 @@ import teams from "teams.json";
 import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
 
-const OurSubteamsWrapper = styled.div`
+const OurSubteamsWrapper = styled.nav`
     display: flex;
     justify-content: center;
     margin: 0;
@@ -58,18 +58,7 @@ const SubteamButtonWrapper = styled.div`
     padding: 0;
     display: flex;
     justify-content: center;
-    ${devices.tablet`
-        ${props => props.last && "grid-column: 1 / span 2;"}
-    `}
-    ${devices.tiny`
-        ${props => props.last && "grid-column: 1 / span 2;"}
-    `}
-`;
-
-const SubteamButton = styled.button`
-    border: 2px solid white;
-    background-color: white;
-    color: #F18048;
+    align-items: center;
     width: 220px;
     ${devices.tablet`
         width: 200px;
@@ -81,20 +70,54 @@ const SubteamButton = styled.button`
         width: 120px;
     `}
     min-height: 40px;
-    outline: none;
-    font-size: 1rem;
+    border: 2px solid white;
+    background-color: white;
     border-radius: 8px;
-    transition: all 0.2s;
 
     &:hover {
         border: 2px solid white;
         background-color: #F18048;
-        color: white;
+        cursor: pointer;
     }
 
+    &:hover > p {
+        color: white;
+    }
+    transition: all 0.2s;
+`;
+
+const SubteamButtonText = styled.p`
+    color: #F18048;
+    outline: none;
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin: 0;
+
+    &:hover {
+        text-decoration: none;
+    }
     &:focus {
         outline: none;
     }
+`;
+
+const SubTeamButtonLink = styled.a`
+    &:hover {
+        text-decoration: none;
+    }
+`;
+
+const SubteamButtonCenterer = styled.div`
+    ${devices.tablet`
+        grid-column: 1 / span 2;
+    `}
+    ${devices.tiny`
+        grid-column: 1 / span 2;
+    `}
+    display: flex;
+    justify-content: center;
 `;
 
 const SubteamCardsDiv = styled.div`
@@ -103,14 +126,27 @@ const SubteamCardsDiv = styled.div`
 
 const Teams = () => {
     const teamNames = teams.map(team => team.name);
+    const teamIds = teamNames.map(name => name.replaceAll(" ", "_").toLowerCase());
     const cardsRef = useRef([]);
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
+        if (window.location.hash !== "" && document.querySelector(window.location.hash)) {
+            window.history.scrollRestoration = "manual";
+            const navbarHeight = window.innerWidth <= 768 ? 74 : 80;
+            const onerem = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+            const padding = 1 * onerem;
+            const yOffset = -(navbarHeight + padding); 
+            const element = document.querySelector(window.location.hash);
+            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({top: y, behavior: 'instant'});
+            // window.scrollBy(0, yOffset);
+        }
     },[]);
 
 
-    const handleClick = i => {
+    const handleClick = (e, i) => {
+        e.preventDefault();
         const navbarHeight = window.innerWidth <= 768 ? 74 : 80;
         const onerem = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
         const padding = 1 * onerem;
@@ -118,6 +154,7 @@ const Teams = () => {
         const element = cardsRef.current[i];
         const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({top: y, behavior: 'smooth'});
+        window.history.replaceState(null, "", window.location.href.split("#")[0] + "#" + teamIds[i]);
     };
 
     return (
@@ -129,9 +166,20 @@ const Teams = () => {
                     <SubteamButtonsGridWrapper>
                         <SubteamButtonsGrid>
                             {teamNames.map((teamName, i) => 
-                                <SubteamButtonWrapper key={i} last={i == teamNames.length - 1}>
-                                    <SubteamButton onClick={() => handleClick(i)}>{teamName}</SubteamButton>
-                                </SubteamButtonWrapper>
+                                i === teams.length - 1 ? 
+                                <SubteamButtonCenterer>
+                                    <SubTeamButtonLink key={i} href={`#${teamIds[i]}`} onClick={(e) => handleClick(e, i)}>
+                                        <SubteamButtonWrapper>
+                                            <SubteamButtonText>{teamName}</SubteamButtonText>
+                                        </SubteamButtonWrapper>
+                                    </SubTeamButtonLink>
+                                </SubteamButtonCenterer>
+                                :
+                                <SubTeamButtonLink key={i} href={`#${teamIds[i]}`} onClick={(e) => handleClick(e, i)}>
+                                    <SubteamButtonWrapper>
+                                        <SubteamButtonText>{teamName}</SubteamButtonText>
+                                    </SubteamButtonWrapper>
+                                </SubTeamButtonLink>
                             )}
                         </SubteamButtonsGrid>
                     </SubteamButtonsGridWrapper>
@@ -145,6 +193,7 @@ const Teams = () => {
                         key={i}
                         even={i % 2 === 0}
                         first={i == 0}
+                        teamId={teamIds[i]}
                     />
                 )}
             </SubteamCardsDiv>
