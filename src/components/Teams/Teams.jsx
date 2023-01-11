@@ -1,10 +1,29 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "utility/fonts.css";
 import Navbar from "components/Navbar.jsx";
 import styled from "styled-components";
 import teams from "teams.json";
 import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
+
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return windowSize;
+  }
 
 const OurSubteamsWrapper = styled.nav`
     display: flex;
@@ -110,14 +129,25 @@ const SubTeamButtonLink = styled.a`
 `;
 
 const SubteamButtonCenterer = styled.div`
+    grid-column: 1 / span 3;
+    a:last-child {
+        margin-left: 1rem;
+    }
     ${devices.tablet`
         grid-column: 1 / span 2;
+        a:last-child {
+            margin-left: 0;
+        }
     `}
     ${devices.tiny`
         grid-column: 1 / span 2;
+        a:last-child {
+            margin-left: 0;
+        }
     `}
     display: flex;
     justify-content: center;
+
 `;
 
 const SubteamCardsDiv = styled.div`
@@ -128,19 +158,22 @@ const Teams = () => {
     const teamNames = teams.map(team => team.name);
     const teamIds = teamNames.map(name => name.replaceAll(" ", "_").toLowerCase());
     const cardsRef = useRef([]);
+    const windowSize = useWindowSize();
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
         if (window.location.hash !== "" && document.querySelector(window.location.hash)) {
             window.history.scrollRestoration = "manual";
-            const navbarHeight = window.innerWidth <= 768 ? 74 : 80;
-            const onerem = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
-            const padding = 1 * onerem;
-            const yOffset = -(navbarHeight + padding); 
-            const element = document.querySelector(window.location.hash);
-            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-            window.scrollTo({top: y, behavior: 'instant'});
-            // window.scrollBy(0, yOffset);
+            // have to wait for all images to load before we can calculate how far to scroll
+            Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
+                const navbarHeight = window.innerWidth <= 768 ? 74 : 80;
+                const onerem = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+                const padding = 1 * onerem;
+                const yOffset = -(navbarHeight + padding); 
+                const element = document.querySelector(window.location.hash);
+                const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({top: y, behavior: 'instant'});
+            });
         }
     },[]);
 
@@ -165,7 +198,8 @@ const Teams = () => {
                     <OurSubteamsTitle>Our Subteams</OurSubteamsTitle>
                     <SubteamButtonsGridWrapper>
                         <SubteamButtonsGrid>
-                            {teamNames.map((teamName, i) => 
+                        {windowSize.width < 768 ? 
+                            teamNames.map((teamName, i) => 
                                 i === teams.length - 1 ? 
                                 <SubteamButtonCenterer>
                                     <SubTeamButtonLink key={i} href={`#${teamIds[i]}`} onClick={(e) => handleClick(e, i)}>
@@ -180,7 +214,26 @@ const Teams = () => {
                                         <SubteamButtonText>{teamName}</SubteamButtonText>
                                     </SubteamButtonWrapper>
                                 </SubTeamButtonLink>
-                            )}
+                            )
+                        :
+                            teamNames.slice(0, -2).map((teamName, i) => 
+                                <SubTeamButtonLink key={i} href={`#${teamIds[i]}`} onClick={(e) => handleClick(e, i)}>
+                                    <SubteamButtonWrapper>
+                                        <SubteamButtonText>{teamName}</SubteamButtonText>
+                                    </SubteamButtonWrapper>
+                                </SubTeamButtonLink>
+                            ).concat(
+                                <SubteamButtonCenterer>
+                                    {teamNames.slice(-2).map((teamName, i) => 
+                                        <SubTeamButtonLink key={i} href={`#${teamIds[i]}`} onClick={(e) => handleClick(e, i + teamNames.length - 2)}>
+                                            <SubteamButtonWrapper>
+                                                <SubteamButtonText>{teamName}</SubteamButtonText>
+                                            </SubteamButtonWrapper>
+                                        </SubTeamButtonLink>
+                                    )}
+                                </SubteamButtonCenterer>
+                            )
+                        }
                         </SubteamButtonsGrid>
                     </SubteamButtonsGridWrapper>
                 </OurSubsteamsDiv>

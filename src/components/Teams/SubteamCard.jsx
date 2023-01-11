@@ -26,6 +26,7 @@ const TeamName = styled.h3`
 
 const TeamDescription = styled.p`
     color: white;
+    white-space: pre-line;
 `;
 
 const TeamPhoto = styled.img`

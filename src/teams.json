@@ -1,137 +1,137 @@
 [
     {
         "name": "Quant",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://m.foolcdn.com/media/dubs/images/Intro_slide_-_digital_stock_chart_going_up_-_s.width-880.jpg",
+        "description": "Quant is short for quantitative analysis, and it involves using computer science skills to analyze the stock market and investing. The team will focus on an education series and a main project to apply your quant skills in a software setting. No experience is required to join! Quant’s education series will first introduce core concepts of quant at a beginner-friendly level, and members will then work on simulations of real-world trading scenarios and quantitative research later in the semester.",
+        "photoUrl": "/teams/quant.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
-            },
-            {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/folders/1PlPixLRjn9CDT63GdWmkxcacbEdhQFWy"
             }
         ]
     },
     {
         "name": "Machine Learning",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://imageio.forbes.com/specials-images/dam/imageserve/966248982/960x0.jpg?format=jpg&width=960",
+        "description": "The Machine Learning team is split into two groups: Beginner and Advanced. Members can join either group based on their knowledge/experiences in ML.\n\nThe Beginner group focuses on learning elementary ML concepts such as Linear Regression, Logistic Regression, Test/Train Data, Generalization, Gradient Descent, Intro to Neural Networks, etc. The topics are presented in an interactive lecture format and are complemented with hands-on mini projects.\n\nThe Advanced group is comprised of multiple teams of 4 - 7 members who on in-depth, semester-long ML projects of their choosing. Some projects ideas include Text Summarization, Art/Music Generation, Computer Vision, etc.",
+        "photoUrl": "/teams/machine_learning.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/folders/1rL-LqI_ih4hzIuuYMtx_bmpfQvKAseTG?usp=share_link"
             },
             {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Website",
+                "link": "https://www.mhml.dev/ "
             }
         ]
     },
     {
         "name": "Security",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://imageio.forbes.com/specials-images/imageserve/625584f34d6c517b19109d49/Padlock-Icon-Cyber-Security-of-Digital-Data-Network-Protection--Secure-Technology/960x0.jpg?format=jpg&width=960",
-        "links": [
-            {
-                "title": "project 1",
-                "link": "https://google.com"
-            },
-            {
-                "title": "project 2",
-                "link": "https://umich.edu"
-            }
-        ]
+        "description": "The security team focuses on establishing a surface level knowledge of the key components seen in capture the flag (CTF) challenges. We do a content overview and implement mini coding projects relating in some way to the security component discussed. We also work as a team to compete in CTFs throughout the year and work on learning how to solve and potentially write challenges.\n\nIf you are interested in learning more please contact Anisha Aggarwal or Morgan VanderLeest!",
+        "photoUrl": "/teams/security.png",
+        "links": []
     },
     {
         "name": "Interviewing",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://wpmedia.smartmusic.com/wp-content/uploads/2019/05/051319_SM_Interview-1024x512.jpg",
+        "description": "The Interviewing team allows students to ace the technical/coding interview. This team lays the ground work for a career in the tech industry by allowing students to gain a preview of real-world software topics and be prepared to solve challenging algorithmic problems in whiteboard and coding interviews. Moreover, students also receive feedback on their resumes and get help searching for technical internships/full time jobs.",
+        "photoUrl": "/teams/interviewing.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
-            },
-            {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/u/0/folders/1a3CvnLx8OH4Pf3LFDYIq88SJKEVGoiLl"
             }
         ]
     },
     {
         "name": "Open Source Development",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://www.howtogeek.com/wp-content/uploads/2022/08/github_hero_2.jpg?height=200p&trim=2,2,2,2",
+        "description": "We contribute to world-class open source projects and practice skills vital to real-world collaborative development.",
+        "photoUrl": "/teams/open_source.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
-            },
-            {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/folders/1nAhapSHnoEPiBJtnAPKucM5tYZEgwFVj?usp=sharing"
             }
         ]
     },
     {
         "name": "Embedded Systems",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://www.electronicsforu.com/wp-contents/uploads/2016/07/1743079040.jpg",
+        "description": "The embedded systems team is Michigan Hackers' hardware team. We cover foundational embedded systems concepts, like memory-mapped I/O, serial communication, timers and interrupts, etc. In addition, we cover broader electrical and computer engineering concepts as needed. This semester, we'll be looking at these concepts through building a quadcopter drone.",
+        "photoUrl": "/teams/embedded_systems.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
-            },
-            {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/folders/1yb6eZLiqsRXjUlm2BJdC5lSNmQ1hCOBD?usp=sharing"
             }
         ]
     },
     {
         "name": "Web",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://www.history.com/.image/t_share/MTU3ODc5MDg1ODk1MDAxNDE3/surfing-the-www.jpg",
+        "description": "The Web Team delves into all things web: from frontend and backend to deployment and maintenance. Members can either start from the basics and learn how to create a full stack application using React and Express, or they can learn about how to create useful and secure production servers. Members interested about other web-related technologies or concepts can also talk to the leads for advice regarding personal projects.",
+        "photoUrl": "/teams/web.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
+                "title": "Website Repository",
+                "link": "https://github.com/michiganhackers/mh-web-new"
             },
             {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/u/0/folders/1XXNtIT33r1lVLGp5WNn-0KtFJbEhrl_4"
             }
         ]
     },
     {
         "name": "Android",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2022/05/android-13-beta-2-news.jpeg?x27457",
+        "description": "The Android team uses Android Studio to create Android apps in Java.  They also use GitHub and basic git commands for version control.  Beginners will work on several tutorial apps to learn the basics of Android development and Java, while veterans can work on a larger Android app to learn advanced concepts and publish to the app store.",
+        "photoUrl": "/teams/android.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/u/0/folders/1I4wgwey6OXEUCeg-JOA1FFWz5LnCXsmo "
             },
             {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Slack",
+                "link": "https://michiganhackers.slack.com/archives/C03PC3X76K1"
+            },
+            {
+                "title": "Onboarding",
+                "link": "https://docs.google.com/document/d/1WREFeSbQS1kIp0ufkN3gWnKTY-c0W7M_/edit?usp=sharing&ouid=109134245836189266476&rtpof=true&sd=true"
             }
         ]
     },
     {
         "name": "iOS",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photoUrl": "https://9to5mac.com/wp-content/uploads/sites/6/2019/09/ios-13-1.jpg?quality=82&strip=all&w=1280",
+        "description": "The Michigan Hackers iOS team is a project-based team that works to create a functional iOS app every semester (or year depending on the complexity). Our members learn how to use Apple’s development environment, Xcode, to work on a large project. These projects typically involve the continuous development of both frontend and backend features with the goal of publishing the app at the end of the semester. No experience? No problem! We teach everything along the way!",
+        "photoUrl": "/teams/ios.png",
         "links": [
             {
-                "title": "project 1",
-                "link": "https://google.com"
+                "title": "Project Respository",
+                "link": "https://github.com/michiganhackers/MStudy"
             },
             {
-                "title": "project 2",
-                "link": "https://umich.edu"
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/u/1/folders/1Hf-rZSPlljamgxkUFgZhmYMpAgE8hTTE"
             }
         ]
+    },
+    {
+        "name": "Design",
+        "description": "The design team meets throughout the week (not on regular Hack Nights) to design and create posters/posts for upcoming Michigan Hackers events. We have worked on redesigning the Michigan Hackers website and we create content for Michigan Hackers social accounts. Members of the design team work independently or in groups to make design-related decisions for Michigan Hackers. Members of the design team can be involved in another team that meets on regular hack nights without conflict.",
+        "photoUrl": "/teams/design.png",
+        "links": [
+            {
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/folders/18aEjcVZLL7xvDFRZ2IwRzGueyTdNlHmE"
+            },
+            {
+                "title": "Figma",
+                "link": "https://www.figma.com/files/project/63401592/Team-Workspace?fuid=1064644961435293494"
+            }
+        ]
+    },
+    {
+        "name": "System Design",
+        "description": "We at the system design team want to explore how modern systems are built and learn more about them. If you ever wondered how the google search can serve upto 8.5 billon searches per day or how discord can handle upto 11 million concurrent users then this the right team for you.",
+        "photoUrl": "/teams/system_design.png",
+        "links": []
     }
 ]
