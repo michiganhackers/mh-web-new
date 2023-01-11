@@ -1,12 +1,9 @@
 import React from "react";
-import "../../utility/fonts.css";
-import { StaticH1 } from "../../utility/ContentStyles.js";
+import "utility/fonts.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import MemberCard from "./MemberCard.jsx";
+import PropTypes from "prop-types";
 import styled from "styled-components";
-
-// we may want to switch this to using a global variable so the whole json can be updated by itself using public/
-import leadership from "leadership.json";
 
 const Cards = styled.section`
     display: inline-flex;
@@ -15,42 +12,31 @@ const Cards = styled.section`
     width: 100%;
 `;
 
-class CardContainer extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            leadership: [],
-            categories: [],
-        };
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/**
+ * Display a collection of club members
+ * Can accept other html props and pass them down
+ *
+ * @constructor
+ * @param props Other html attributes to use
+ * @param props.people {[{}]} The people to display
+ */
+const CardContainer = (props) => {
+    return (
+        <Cards {...props}>
+            {props.people.map((lead) => (
+                <MemberCard
+                    {...lead}
+                    key={lead.uniqname}
+                    imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
                 />
-                {Object.keys(leadership).map((category, index) => (
-                    <div key={index}>
-                        <StaticH1>{category}</StaticH1>
-                        <div>
-                            <Cards>
-                                {leadership[category].map((lead, index) => (
-                                    <div key={index}>
-                                        <MemberCard
-                                            {...lead}
-                                            imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
-                                        />
-                                    </div>
-                                ))}
-                            </Cards>
-                        </div>
-                    </div>
-                ))}
-            </React.Fragment>
-        );
-    }
-}
+            ))}
+        </Cards>
+    );
+};
+
+// TODO: extract out lead type?
+CardContainer.propTypes = {
+    people: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default CardContainer;

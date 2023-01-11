@@ -62,6 +62,12 @@ const LEADERSHIP_FIELD_TO_COL = {
     display: 12,
 };
 
+const CATEGORY_FIELD_TO_COL = {
+    name: 1,
+    description: 2,
+    imageUrl: 3,
+};
+
 const client = sheets.sheets({
     version: "v4",
     auth: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -69,6 +75,7 @@ const client = sheets.sheets({
 
 const sheetId = process.env.REACT_APP_LEADERSHIP_ID;
 
+// set to true if any of the leads have not supplied a profile image
 let hasDefaultImages = false;
 
 client.spreadsheets.values
@@ -81,15 +88,83 @@ client.spreadsheets.values
         const personData = {};
         const rows = res.data.values;
 
+        const categoryImagePromises = [];
         // Do a pass to find the categories. Categories must be nonempty.
         rows.forEach((row, index) => {
             if (row[0] === "CATEGORY") {
+                const categoryName = row[CATEGORY_FIELD_TO_COL.name];
+                const categorySlug = slugify(categoryName);
                 categories.push({
-                    name: row[1],
+                    name: categoryName,
                     startIndex: index,
                 });
-                personData[row[1]] = [];
+                personData[categoryName] = {
+                    slug: categorySlug,
+                    description: row[CATEGORY_FIELD_TO_COL.description],
+                    imageUrl: "",
+                    people: [],
+                };
+                if (!row[CATEGORY_FIELD_TO_COL.imageUrl]) {
+                    throw new Error(`Category ${categoryName} missing image`);
+                }
+                const imageProcessing = fetch(
+                    row[CATEGORY_FIELD_TO_COL.imageUrl]
+                )
+                    .then((res) => {
+                        if (!res.ok) {
+                            if (res.status === 403) {
+                                throw new Error(
+                                    "Too many requests. Try again later."
+                                );
+                            }
+                            throw new URIError(
+                                `Image for category ${categoryName} is not valid.`
+                            );
+                        }
+                        return res.blob();
+                    })
+                    .then(async (blob) => {
+                        const filename = `category-${categorySlug}.jpg`;
+                        const localPath = path.join(IMAGE_DIR, filename);
+                        // we don't need to include public/ since it is resolved by default
+                        //  we also use posix paths because we need / instead of the platform specific option
+                        personData[categoryName].imageUrl = path.posix.join(
+                            LEADERSHIP,
+                            filename
+                        );
+                        return (
+                            sharp(Buffer.from(await blob.arrayBuffer()))
+                                // rotate the image based on EXIF data
+                                .rotate()
+                                // resize the image to a small 4:3 since the view is small
+                                .resize(720, 540, {
+                                    fit: "inside",
+                                    withoutEnlargement: true,
+                                })
+                                // convert it to a jpg if it isn't one already
+                                .jpeg({
+                                    quality: 100,
+                                    chromaSubsampling: "4:4:4",
+                                })
+                                // automatically strips remaining exif data
+                                .toFile(localPath)
+                        );
+                    })
+                    .catch((err) => {
+                        console.error(
+                            `Image operations failed for category ${categoryName} \n${err}`
+                        );
+                        // process will exit with error after all tasks complete
+                        process.exitCode = 1;
+                    });
+                categoryImagePromises.push(imageProcessing);
             }
+        });
+
+        Promise.all(categoryImagePromises).then(() => {
+            console.log(
+                `${categoryImagePromises.length} category images saved`
+            );
         });
 
         const imagePromises = [];
@@ -119,7 +194,7 @@ client.spreadsheets.values
                         }
                     }
                     // write the props immediate with the google image url, and then later we only update the url
-                    personData[category.name][personIndex] = props;
+                    personData[category.name].people[personIndex] = props;
                     // TODO: a progress bar would be pretty cool *wink* *wink* *nudge* *nudge*
                     const myRow = personIndex;
                     if (props.imageUrl) {
@@ -146,8 +221,12 @@ client.spreadsheets.values
                                 );
                                 // we don't need to include public/ since it is resolved by default
                                 //  we also use posix paths because we need / instead of the platform specific option
-                                personData[category.name][myRow].imageUrl =
-                                    path.posix.join(LEADERSHIP, filename);
+                                personData[category.name].people[
+                                    myRow
+                                ].imageUrl = path.posix.join(
+                                    LEADERSHIP,
+                                    filename
+                                );
                                 return (
                                     sharp(Buffer.from(await blob.arrayBuffer()))
                                         // rotate the image based on EXIF data
@@ -165,23 +244,18 @@ client.spreadsheets.values
                                         // automatically strips remaining exif data
                                         .toFile(localPath)
                                 );
-
-                                // eslint-disable-next-line no-undef
-                                // const buffer = Buffer.from(
-                                //     await blob.arrayBuffer()
-                                // );
-                                // return writeFile(localPath, buffer);
                             })
                             .catch((err) => {
                                 console.error(
                                     `Image operations failed for ${props.uniqname}. Default image used.\n${err}`
                                 );
                                 hasDefaultImages = true;
-                                personData[category.name][myRow].imageUrl =
-                                    path.posix.join(
-                                        LEADERSHIP,
-                                        DEFAULT_FILENAME
-                                    );
+                                personData[category.name].people[
+                                    myRow
+                                ].imageUrl = path.posix.join(
+                                    LEADERSHIP,
+                                    DEFAULT_FILENAME
+                                );
                                 // process will exit with error after all tasks complete
                                 process.exitCode = 1;
                             });
@@ -189,7 +263,7 @@ client.spreadsheets.values
                     } else {
                         hasDefaultImages = true;
                         // we don't need to include public/ since it is resolved by default
-                        personData[category.name][myRow].imageUrl =
+                        personData[category.name].people[myRow].imageUrl =
                             path.posix.join(LEADERSHIP, DEFAULT_FILENAME);
                         console.warn(
                             `${props["uniqname"]} did not add an image.`
@@ -209,12 +283,12 @@ client.spreadsheets.values
         }
         Promise.all(imagePromises)
             .then(() => {
-                console.log(`${imagePromises.length} images saved`);
+                console.log(`${imagePromises.length} profile images saved`);
                 console.log(
                     `${
                         Object.keys(personData).reduce(
                             (sum, category) =>
-                                sum + personData[category].length,
+                                sum + personData[category].people.length,
                             0
                         ) - imagePromises.length
                     } images missing`
@@ -230,3 +304,16 @@ client.spreadsheets.values
                 process.exitCode = 1;
             });
     });
+
+/**
+ * Convert a string into a slug-like format
+ * Replace spaces with dashes, casefold letters, and strip out non-alpha-numeric chars
+ * @param {string} str First string
+ * @return {string} Slugified string
+ */
+function slugify(str) {
+    return str
+        .toLowerCase()
+        .replaceAll(/ /g, "-")
+        .replaceAll(/[^a-z0-9-]/g, "");
+}
