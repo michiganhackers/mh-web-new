@@ -3,7 +3,9 @@
  * Given a directory or image with optional command line arguments,
  * normalizes it by converting it to a jpeg with a reasonable resolution
  * Warning: I don't know what exactly is happening when you run it multiple times on the same file
- * Default resolution for Carousel is 1024x768
+ * Note: Sometimes images interact poorly with Webpack
+ *  Open in an editing program and save the image; fixes the issue
+ * Default resolution for Carousel is 1080x768
  *
  * Usage
  * $ node imageNormalizer.js FILENAME|DIRECTORY [MAX_WIDTH] [MAX_HEIGHT] [--output FILENAME|DIRECTORY] [--type png|jpg]

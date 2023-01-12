@@ -18,8 +18,34 @@ import N1CTFNovember from "assets/carousel/N1CTFNovember.jpg";
 import PinballPetes2021 from "assets/carousel/PinballPetes2021.jpg";
 import PinballPetes2021Leads from "assets/carousel/PinballPetes2021Leads.jpg";
 
+//F22
+import CrowdstrikeEventF22 from "assets/carousel/CrowdstrikeEventF22.jpg";
+import FestifallF22_Leads from "assets/carousel/FestifallF22_Leads.jpg";
+import HKNBowlingF22 from "assets/carousel/HKNBowlingF22.jpg";
+import MassMeetingF22 from "assets/carousel/MassMeetingF22.jpg";
+import SIGEventF22 from "assets/carousel/SIGEventF22.jpg";
+import PaintRockF22 from "assets/carousel/PaintRockF22.jpg";
+import PaintRockF22_leads from "assets/carousel/PaintRockF22_leads.jpg";
+import LastMeetingGroupPictureF22 from "assets/carousel/LastMeetingGroupPictureF22.jpg";
+import FestifallF22 from "assets/carousel/FestifallF22.jpg";
+
 // List of club images to include in the image carousel
 const images = [
+    { url: LastMeetingGroupPictureF22, description: "Last Hack Night of 2022" },
+    {
+        url: PaintRockF22,
+        description: "President Abhik by the Hacker-colored Rock",
+    },
+    { url: PaintRockF22_leads, description: "Painting the Rock 2022" },
+    { url: HKNBowlingF22, description: "Bowling Night With HKN 2022" },
+    { url: SIGEventF22, description: "SIG Sponsor Event 2022" },
+    { url: CrowdstrikeEventF22, description: "Crowdstrike Sponsor Event 2022" },
+    { url: MassMeetingF22, description: "Mass Meeting Fall 2022" },
+    {
+        url: FestifallF22_Leads,
+        description: "Some of our leads at Festifall 2022",
+    },
+    { url: FestifallF22, description: "Michigan Hackers at Festifall 2022" },
     {
         url: N1CTFNovember,
         description:

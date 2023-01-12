@@ -1,187 +1,196 @@
 import React from "react";
-import "../../utility/fonts.css";
-import styled, { css } from "styled-components";
+import "utility/fonts.css";
+import styled from "styled-components";
 import PropTypes from "prop-types";
-
-const specificResponsiveness = (...args) =>
-    css`
-        @media all and (min-width: 214px) and (max-width: 600px) {
-            ${css(...args)};
-        }
-    `;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import devices from "utility/MediaQueries.js";
 
 const Leadership = styled.img`
     height: 200px;
+    width: 200px;
     display: block;
     object-fit: cover;
-    border-radius: 200px;
+    border-radius: 100%;
     box-sizing: border-box;
-    background-color: #d15c19;
-    border: 7px solid #d15c19;
-    width: 100%;
-    ${specificResponsiveness`
-    height: 190px;
-    display: block;
-    border-radius: 200px;
-    box-sizing: border-box;
-    background-color: #d15c19;
-    border: 7px solid #d15c19;
+    border: 7px solid white;
+    margin: 0 auto;
+    ${devices.small`
+      height: 150px;
+      width: 150px;
   `}
 `;
 
-const Card = styled.div`
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+const Card = styled.article`
+    background-color: #ed8246;
     width: 300px;
-    height: 525px;
+    height: 550px;
     text-align: center;
-    flex: 0 1 24%;
-    padding: 50px;
-    padding-top: 20px;
+    padding: 20px 30px 30px;
     box-sizing: border-box;
+    border-radius: 10px;
     align-content: center;
     margin-bottom: 5%;
     margin-left: 5px;
     margin-right: 5px;
-    font-size: 13px;
-    font: comic-sans;
-    ${specificResponsiveness`
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 290px;
-    height: auto;
-    text-align: center;
-    flex: 0 1 24%;
-    box-sizing: border-box;;
-    align-content: center;
-    margin-bottom: 5%;
-    margin-right: 0px;
-    font-size: 14px;
+    font-size: 1em;
+    ${devices.small`
+      font-size: 1em;
+      height: 475px;
   `}
 `;
 
 const MemberName = styled.h2`
-    font-size: 19px;
+    font-size: 1.2em;
     margin-top: 10px;
     font-weight: 500;
-    ${specificResponsiveness`
-    font-size: 20px;
+    color: white;
+    ${devices.small`
+      font-size: 20px;
+    font-size: 1.1em;
   `}
 `;
 
 const Title = styled.p`
-    color: rgb(241, 93, 36);
-    font-size: 14px;
+    //color: rgb(241, 93, 36);
+    color: white;
     font-weight: 600;
-    ${specificResponsiveness`
-    font-size: 15px;
-  `}
+    font-size: 1.1em;
+    ${devices.small`
+      font-size: 1em;
+    `}
 `;
 
-const DetailsCategoryContainer = styled.div`
-    color: black;
+const Details = styled.dl`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+
+const DetailGroup = styled.div`
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0.2em;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+`;
+
+const Detail = styled.dt`
+    display: inline;
+    color: white;
+    //color: rgb(241, 93, 36);
+    padding: 0;
+    margin-bottom: 0;
+`;
+
+const DetailDescription = styled.dd`
+    display: inline;
+    color: white;
     text-align: left;
 `;
 
-const DetailsCategory = styled.div`
-    color: rgb(241, 93, 36);
-    display: inline;
-`;
-
-const DetailsCategoryDescription = styled.div`
-    display: inline;
-`;
-
 const IconLink = styled.a`
-    text-decoration: none !important;
-    font-size: 19px !important;
-    color: rgb(241, 93, 36) !important;
-    padding: 10px !important;
+    color: white;
+    //color: rgb(241, 93, 36);
+    text-decoration: none;
+    font-size: 2em;
+    transition: color 0.3s;
+    &:hover {
+        color: #404040;
+    }
 `;
 
-const Links = styled.div`
+const Links = styled.ul`
     display: inline-block;
-    color: rgb(241, 93, 36);
-    ${specificResponsiveness`
-    width: 100%;
-  `}
+    //color: rgb(241, 93, 36);
+    color: white;
+    // remove default list styling
+    padding-left: 0;
+    ${devices.small`
+      width: 100%;
+    `}
 `;
 
-class MemberCard extends React.Component {
-    nonemptyUrls() {
-        const returnValue = [];
+const LinkItem = styled.li`
+    padding: 10px;
+    display: inline;
+`;
 
-        if (this.props.instagramUrl !== "") {
-            returnValue.push(
-                <IconLink key="insta" href={this.props.instagramUrl}>
-                    <i className="fa fa-instagram"></i>
-                </IconLink>
+const MemberCard = (props) => {
+    const personalUrls = () => {
+        const urls = [];
+        if (props.instagramUrl) {
+            urls.push(
+                <LinkItem key="insta">
+                    <IconLink href={props.instagramUrl}>
+                        <FontAwesomeIcon icon={["fab", "instagram"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.githubUrl !== "") {
-            returnValue.push(
-                <IconLink key="git" href={this.props.githubUrl}>
-                    <i className="fa fa-github"></i>
-                </IconLink>
+        if (props.githubUrl) {
+            urls.push(
+                <LinkItem key="git">
+                    <IconLink href={props.githubUrl}>
+                        <FontAwesomeIcon icon={["fab", "github"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.linkedinUrl !== "") {
-            returnValue.push(
-                <IconLink key="linked" href={this.props.linkedinUrl}>
-                    <i className="fa fa-linkedin"></i>
-                </IconLink>
+        if (props.linkedinUrl) {
+            urls.push(
+                <LinkItem key="linked">
+                    <IconLink href={props.linkedinUrl}>
+                        <FontAwesomeIcon icon={["fab", "linkedin"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.facebookUrl !== "") {
-            returnValue.push(
-                <IconLink key="fb" href={this.props.facebookUrl}>
-                    <i className="fa fa-facebook"></i>
-                </IconLink>
+        if (props.facebookUrl) {
+            urls.push(
+                <LinkItem key="fb">
+                    <IconLink href={props.facebookUrl}>
+                        <FontAwesomeIcon icon={["fab", "facebook"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
-        if (this.props.personalUrl !== "") {
-            returnValue.push(
-                <IconLink key="personal" href={this.props.personalUrl}>
-                    <i className="fa fa-user"></i>
-                </IconLink>
+        if (props.personalUrl) {
+            urls.push(
+                <LinkItem key="personal">
+                    <IconLink href={props.personalUrl}>
+                        <FontAwesomeIcon icon={["far", "user"]} />
+                    </IconLink>
+                </LinkItem>
             );
         }
 
-        return returnValue;
-    }
+        return urls;
+    };
 
-    render() {
-        return (
-            <Card>
-                <Leadership
-                    src={this.props.imageUrl}
-                    alt="leadership"
-                    loading="lazy"
-                />
-                <MemberName>{this.props.name}</MemberName>
-                <Title>{this.props.title}</Title>
-                <DetailsCategoryContainer>
-                    <DetailsCategory>Grad Year: </DetailsCategory>
-                    <DetailsCategoryDescription>
-                        {this.props.gradYear}
-                    </DetailsCategoryDescription>
-                </DetailsCategoryContainer>
-                <DetailsCategoryContainer>
-                    <DetailsCategory>Interests: </DetailsCategory>
-                    <DetailsCategoryDescription>
-                        {this.props.interests}
-                    </DetailsCategoryDescription>
-                </DetailsCategoryContainer>
-                <DetailsCategoryContainer>
-                    <DetailsCategory>Fun fact: </DetailsCategory>
-                    <DetailsCategoryDescription>
-                        {this.props.funFact}
-                    </DetailsCategoryDescription>
-                </DetailsCategoryContainer>
-                <p>{this.props.bio}</p>
-                <Links>{this.nonemptyUrls()}</Links>
-            </Card>
-        );
-    }
-}
+    return (
+        <Card>
+            <Leadership src={props.imageUrl} alt="lead photo" loading="lazy" />
+            <MemberName>{props.name}</MemberName>
+            <Title>{props.title}</Title>
+            <Details>
+                <DetailGroup>
+                    <Detail>Grad Year: </Detail>
+                    <DetailDescription>{props.gradYear}</DetailDescription>
+                </DetailGroup>
+                <DetailGroup>
+                    <Detail>Interests: </Detail>
+                    <DetailDescription>{props.interests}</DetailDescription>
+                </DetailGroup>
+                <DetailGroup>
+                    <Detail>Fun fact: </Detail>
+                    <DetailDescription>{props.funFact}</DetailDescription>
+                </DetailGroup>
+            </Details>
+            <Links>{personalUrls()}</Links>
+        </Card>
+    );
+};
 
 MemberCard.defaultProps = {
     instagramUrl: "",
@@ -192,6 +201,14 @@ MemberCard.defaultProps = {
 };
 
 MemberCard.propTypes = {
+    name: PropTypes.string,
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    gradYear: PropTypes.string,
+    interests: PropTypes.string,
+    funFact: PropTypes.string,
+    bio: PropTypes.string,
+
     instagramUrl: PropTypes.string,
     githubUrl: PropTypes.string,
     linkedinUrl: PropTypes.string,

@@ -5,16 +5,16 @@ import devices from "utility/MediaQueries.js";
 const SponsorWrapper = styled.article.attrs((props) => ({
     tier: props.tier,
 }))`
-    flex: 0 ${(props) => props.tier} 300px;
+    flex: 0 ${(props) => props.tier};
     flex-basis: ${(props) => {
         switch (props.tier) {
             case "1":
-                return "300px";
+                return "350px";
             case "2":
-                return "200px";
+                return "225px";
             case "3":
             default:
-                return "100px";
+                return "200px";
         }
     }};
     display: flex;
@@ -28,7 +28,7 @@ const SponsorWrapper = styled.article.attrs((props) => ({
       flex-basis: ${(props) => {
           switch (props.tier) {
               case "1":
-                  return "250px";
+                  return "275px";
               case "2":
                   return "200px";
               case "3":
