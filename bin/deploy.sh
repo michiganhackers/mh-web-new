@@ -17,7 +17,7 @@ then
 done
 fi
 echo Linting...
-npm lint
+npm run lint
 if [ $? -ne 0 ]
 then
     echo "Lint failed. Aborting."
