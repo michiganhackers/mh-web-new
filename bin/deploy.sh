@@ -17,14 +17,14 @@ then
 done
 fi
 echo Linting...
-yarn lint
+npm lint
 if [ $? -ne 0 ]
 then
     echo "Lint failed. Aborting."
     exit 1
 fi
 echo Building...
-yarn build
+npm build
 if [ $? -ne 0 ]
 then
     echo "Build failed. Aborting."
