@@ -24,7 +24,7 @@ then
     exit 1
 fi
 echo Building...
-npm build
+npm run build
 if [ $? -ne 0 ]
 then
     echo "Build failed. Aborting."

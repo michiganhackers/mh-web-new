@@ -32,7 +32,7 @@ const LEADERSHIP = "leadership";
 const IMAGE_DIR = path.join(PUBLIC, LEADERSHIP);
 // location of the default profile image
 //  must be already properly sized and transformed
-const DEFAULT_IMAGE = "src/assets/logo_square.png";
+const DEFAULT_IMAGE = path.join("src", "assets", "logo_square.png");
 // Move the default image to this location
 const { ext: default_ext } = path.parse(DEFAULT_IMAGE);
 const DEFAULT_FILENAME = `DEFAULT${default_ext}`;
@@ -274,15 +274,16 @@ client.spreadsheets.values
                 }
             }
         });
-        if (hasDefaultImages) {
-            // copy over the default image only if we have people using it
-            fs.copyFileSync(
-                DEFAULT_IMAGE,
-                path.join(IMAGE_DIR, DEFAULT_FILENAME)
-            );
-        }
         Promise.all(imagePromises)
             .then(() => {
+                if (hasDefaultImages) {
+                    // copy over the default image only if we have people using it
+                    fs.copyFileSync(
+                      DEFAULT_IMAGE,
+                      path.join(IMAGE_DIR, DEFAULT_FILENAME)
+                    );
+                    console.log("Copied default profile image");
+                }
                 console.log(`${imagePromises.length} profile images saved`);
                 console.log(
                     `${
