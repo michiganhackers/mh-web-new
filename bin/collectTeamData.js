@@ -207,6 +207,11 @@ client.spreadsheets.values
                                             "Too many requests. Try again later."
                                         );
                                     }
+                                    if (res.status === 404) {
+                                        throw new Error(
+                                            `Image for ${props["uniqname"]} not publicly available`
+                                        );
+                                    }
                                     throw new URIError(
                                         `Image for ${props["uniqname"]} is not valid.`
                                     );
@@ -279,8 +284,8 @@ client.spreadsheets.values
                 if (hasDefaultImages) {
                     // copy over the default image only if we have people using it
                     fs.copyFileSync(
-                      DEFAULT_IMAGE,
-                      path.join(IMAGE_DIR, DEFAULT_FILENAME)
+                        DEFAULT_IMAGE,
+                        path.join(IMAGE_DIR, DEFAULT_FILENAME)
                     );
                     console.log("Copied default profile image");
                 }
