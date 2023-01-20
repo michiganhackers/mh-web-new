@@ -26,3 +26,11 @@ export const ROUTES = Object.freeze({
     "/faq": ["/info"],
     "/projects": ["/progress"],
 });
+
+export const SOCIAL_MEDIA_LINKS = Object.freeze({
+    slack: "https://bit.ly/slackmhackers",
+    github: "https://github.com/michiganhackers",
+    instagram: "https://instagram.com/michiganhackers",
+    twitter: "https://twitter.com/michiganhackers",
+    email: "mailto:michiganhackers@umich.edu",
+});

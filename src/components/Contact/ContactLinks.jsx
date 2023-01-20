@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import devices from 'utility/MediaQueries.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 
 const LinksContainer = styled.div`
     display: flex;
@@ -26,19 +27,19 @@ const Link = styled.a`
 
 const ContactLinks = () =>
     <LinksContainer>
-        <Link href="https://bit.ly/slackmh" target="_blank" rel="noopener noreferrer">
+        <Link href={SOCIAL_MEDIA_LINKS.slack} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "slack"]}/>
         </Link>
-        <Link href="https://instagram.com/michiganhackers" target="_blank" rel="noopener noreferrer">
+        <Link href={SOCIAL_MEDIA_LINKS.instagram} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "instagram"]}/>
         </Link>
-        <Link href="mailto:michiganhackers@umich.edu" target="_blank" rel="noopener noreferrer">
+        <Link href={SOCIAL_MEDIA_LINKS.email} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["far", "envelope"]}/>
         </Link>
-        <Link href="https://github.com/michiganhackers" target="_blank" rel="noopener noreferrer">
+        <Link href={SOCIAL_MEDIA_LINKS.github} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "github"]} />
         </Link>
-        <Link href="https://twitter.com/michiganhackers" target="_blank" rel="noopener noreferrer">
+        <Link href={SOCIAL_MEDIA_LINKS.twitter} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "twitter"]} />
         </Link>
     </LinksContainer>

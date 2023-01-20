@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import devices from "../utility/MediaQueries.js";
 import logoUrl from "assets/logo-orange-cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 
 const FlexWrapper = styled.div`
     height: 80px;
@@ -244,7 +245,7 @@ const Navbar = () => (
             <DesktopNavContainer>{links}</DesktopNavContainer>
             <GithubLink
                 target="_blank"
-                href="https://github.com/michiganhackers"
+                href={SOCIAL_MEDIA_LINKS.github}
             >
                 <FontAwesomeIcon icon={["fab", "github"]} />
             </GithubLink>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import devices from "../utility/MediaQueries.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 
 const FlexWrapper = styled.div`
     height: 80px;
@@ -171,12 +172,12 @@ const links = ["about", "leadership", "events", "contact", "faq"].map(
  * Map the social media icons to their respective URLs
  * @type {{string: string}} FontAwesome icon name: target URL
  */
-const social_mappings = {
-    github: "https://github.com/michiganhackers",
-    instagram: "https://instagram.com/michiganhackers",
-    slack: "https://bit.ly/slackmh",
-    twitter: "https://twitter.com/michiganhackers",
-};
+const social_mappings = Object.fromEntries(
+    ["github", "instagram", "slack", "twitter"].map((key) => [
+        key,
+        SOCIAL_MEDIA_LINKS[key],
+    ])
+);
 const social_link_group = (
     <SocialLinkContainer key={"social_group"}>
         {Object.entries(social_mappings).map(([name, url]) => (
