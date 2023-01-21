@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { StaticP } from "../../utility/ContentStyles.js";
 import { addEmailFetch } from "./MailingListFetch";
@@ -23,52 +23,37 @@ const EmailSubmitButton = styled.input`
     min-width: 50px;
 `;
 
-class MailingList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { address: "", submitted: false };
+export default function MailingList() {
+  const [address, setAddress] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.addEmailToList = this.addEmailToList.bind(this);
-    }
+  function addEmailToList(e) {
+    e.preventDefault();
 
-    addEmailToList(e) {
-        e.preventDefault();
+    const payload = {
+      Email: address,
+    };
+    /**
+     * TODO: refactor when merging with attendance branch, which adds better email error handling.
+     */
+    addEmailFetch(payload);
 
-        const payload = {
-            Email: this.state.address,
-        };
-        /**
-         * TODO: refactor when merging with attendance branch, which adds better email error handling.
-         */
-        addEmailFetch(payload);
+    setAddress("");
+    setSubmitted(true);
+  }
 
-        this.setState({
-            address: "",
-            submitted: true,
-        });
-    }
-
-    handleChange(event) {
-        this.setState({ address: event.target.value });
-    }
-
-    render() {
-        return (
-            <EmailForm onSubmit={this.addEmailToList}>
-                {this.state.submitted ? (
-                    <StaticP> Successfully Added! </StaticP>
-                ) : null}
-                <EmailInputBox
-                    type="email"
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                    placeholder="michiganhackers@umich.edu"
-                />
-                <EmailSubmitButton type="submit" value="Join" />
-            </EmailForm>
-        );
-    }
+  return (
+    <EmailForm onSubmit={addEmailToList}>
+      {submitted ? (
+        <StaticP> Successfully Added! </StaticP>
+      ) : null}
+      <EmailInputBox
+        type="email"
+        value={address}
+        onChange={e => setAddress(e.target.value)}
+        placeholder="michiganhackers@umich.edu"
+      />
+      <EmailSubmitButton type="submit" value="Join" />
+    </EmailForm>
+  );
 }
-
-export default MailingList;
