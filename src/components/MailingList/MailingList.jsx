@@ -10,17 +10,29 @@ const EmailForm = styled.form`
 `;
 const EmailInputBox = styled.input`
     min-width: 250px;
-    border: #555555 solid 2px;
+    border: 2px solid #555;
+    border-right: 0;
+    height: 50px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    padding: 0 16px;
 `;
 const EmailSubmitButton = styled.input`
-    background-color: #f15d24;
     color: white;
-    border: none;
+    border: 2px solid #555;
+    border-left: 0;
     text-decoration: none;
     padding-top: 3px;
     padding-bottom: 3px;
     cursor: pointer;
-    min-width: 50px;
+    background: rgb(239, 133, 62);
+    width: 60px;
+    height: 50px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    &:hover {
+      background: rgb(222, 103, 63);
+    }
 `;
 
 export default function MailingList() {
