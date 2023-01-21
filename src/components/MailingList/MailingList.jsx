@@ -64,6 +64,7 @@ export default function MailingList() {
         value={address}
         onChange={e => setAddress(e.target.value)}
         placeholder="michiganhackers@umich.edu"
+        required
       />
       <EmailSubmitButton type="submit" value="Join" />
     </EmailForm>
