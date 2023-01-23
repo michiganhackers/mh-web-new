@@ -54,17 +54,6 @@
         ]
     },
     {
-        "name": "Embedded Systems",
-        "description": "The embedded systems team is Michigan Hackers' hardware team. We cover foundational embedded systems concepts, like memory-mapped I/O, serial communication, timers and interrupts, etc. In addition, we cover broader electrical and computer engineering concepts as needed. This semester, we'll be looking at these concepts through building a quadcopter drone.",
-        "photoUrl": "/teams/embedded_systems.png",
-        "links": [
-            {
-                "title": "Google Drive",
-                "link": "https://drive.google.com/drive/folders/1yb6eZLiqsRXjUlm2BJdC5lSNmQ1hCOBD?usp=sharing"
-            }
-        ]
-    },
-    {
         "name": "Web",
         "description": "The Web Team delves into all things web: from frontend and backend to deployment and maintenance. Members can either start from the basics and learn how to create a full stack application using React and Express, or they can learn about how to create useful and secure production servers. Members interested about other web-related technologies or concepts can also talk to the leads for advice regarding personal projects.",
         "photoUrl": "/teams/web.png",
@@ -76,6 +65,17 @@
             {
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/u/0/folders/1XXNtIT33r1lVLGp5WNn-0KtFJbEhrl_4"
+            }
+        ]
+    },
+    {
+        "name": "Embedded Systems",
+        "description": "The embedded systems team is Michigan Hackers' hardware team. We cover foundational embedded systems concepts, like memory-mapped I/O, serial communication, timers and interrupts, etc. In addition, we cover broader electrical and computer engineering concepts as needed. This semester, we'll be looking at these concepts through building a quadcopter drone.",
+        "photoUrl": "/teams/embedded_systems.png",
+        "links": [
+            {
+                "title": "Google Drive",
+                "link": "https://drive.google.com/drive/folders/1yb6eZLiqsRXjUlm2BJdC5lSNmQ1hCOBD?usp=sharing"
             }
         ]
     },
