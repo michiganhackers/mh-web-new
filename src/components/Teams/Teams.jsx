@@ -7,26 +7,6 @@ import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
 import BackToTop from "./BackToTop";
 
-// function useWindowSize() {
-//     const [windowSize, setWindowSize] = useState({
-//       width: undefined,
-//       height: undefined,
-//     });
-//     useEffect(() => {
-//       function handleResize() {
-//         setWindowSize({
-//           width: window.innerWidth,
-//           height: window.innerHeight,
-//         });
-//       }
-//       window.addEventListener("resize", handleResize);
-//       handleResize();
-//       return () => window.removeEventListener("resize", handleResize);
-//     }, []);
-//     return windowSize;
-//   }
-
-
 const SubteamCardsDiv = styled.div`
     padding: 0 1rem;
 `;
@@ -36,7 +16,8 @@ const SidebarWrapper = styled.div`
     overflow: scroll;
 `;
 
-const Sidebar = styled.div`
+const Sidebar = styled.a`
+    display: block;
     padding: 2rem;
     top: 80px;
     ${devices.tablet`
@@ -51,6 +32,7 @@ const Sidebar = styled.div`
         position: static;
     `}
 `;
+
 const PageLayout = styled.div`
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -61,6 +43,7 @@ const PageLayout = styled.div`
 
 const SidebarLink = styled.a`
     display: block;
+    color: black;
     padding: 0.5rem;
     width: 100%;
     border-radius: 10px;
@@ -69,6 +52,8 @@ const SidebarLink = styled.a`
     &:hover {
         background-color: #ddd;
         cursor: pointer;
+        color: black;
+        text-decoration: none;
     }
 `;
 
@@ -76,7 +61,6 @@ const Teams = () => {
     const teamNames = teams.map(team => team.name);
     const teamIds = teamNames.map(name => name.replaceAll(" ", "_").toLowerCase());
     const cardsRef = useRef([]);
-    // const windowSize = useWindowSize();
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
@@ -115,7 +99,7 @@ const Teams = () => {
             <SidebarWrapper>
                 <Sidebar>
                     {teamNames.map((team, i) => 
-                        <SidebarLink key={i} onClick={e => handleClick(e, i)}>
+                        <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
                             {team}
                         </SidebarLink>
                     )}
