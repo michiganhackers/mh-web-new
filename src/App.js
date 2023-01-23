@@ -26,6 +26,7 @@ import {
     faMapMarkerAlt,
     faClock,
     faBars,
+    faAngleUp
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
@@ -43,6 +44,7 @@ library.add(
     faMapMarkerAlt,
     faClock,
     faBars,
+    faAngleUp
 );
 
 const App = () => (

@@ -4,7 +4,8 @@ import Navbar from "components/Navbar.jsx";
 import styled from "styled-components";
 import teams from "teams.json";
 import SubteamCard from "components/Teams/SubteamCard.jsx";
-// import devices from "utility/MediaQueries.js";
+import devices from "utility/MediaQueries.js";
+import BackToTop from "./BackToTop";
 
 // function useWindowSize() {
 //     const [windowSize, setWindowSize] = useState({
@@ -32,23 +33,38 @@ const SubteamCardsDiv = styled.div`
 
 const SidebarWrapper = styled.div`
     background-color: #eee;
+    overflow: scroll;
 `;
 
 const Sidebar = styled.div`
     padding: 2rem;
-    width: inherit;
+    top: 80px;
+    ${devices.tablet`
+        top: 74px;
+    `}
+    bottom: 0;
     position: fixed;
-    width: 400px;
+    overflow-y: auto;
+    width: 300px;
+    ${devices.desktop`
+        width: 100%;
+        position: static;
+    `}
 `;
 const PageLayout = styled.div`
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 300px 1fr;
+    ${devices.desktop`
+        display: block;
+    `}
 `;
 
 const SidebarLink = styled.a`
     display: block;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 100%;
+    border-radius: 10px;
+    transition: background-color 0.25s;
 
     &:hover {
         background-color: #ddd;
@@ -118,6 +134,7 @@ const Teams = () => {
                 )}
             </SubteamCardsDiv>
             </PageLayout>
+            <BackToTop />
         </>
     );
 };
