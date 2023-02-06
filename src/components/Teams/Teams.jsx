@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "utility/fonts.css";
 import Navbar from "components/Navbar.jsx";
 import styled from "styled-components";
@@ -6,6 +6,7 @@ import teams from "teams.json";
 import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
 import BackToTop from "./BackToTop";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SubteamCardsDiv = styled.div`
     padding: 0 1rem;
@@ -13,10 +14,10 @@ const SubteamCardsDiv = styled.div`
 
 const SidebarWrapper = styled.div`
     background-color: #eee;
-    overflow: scroll;
+    overflow: auto;
 `;
 
-const Sidebar = styled.a`
+const Sidebar = styled.nav`
     display: block;
     padding: 2rem;
     top: 80px;
@@ -57,10 +58,29 @@ const SidebarLink = styled.a`
     }
 `;
 
+const SubteamsTitle = styled.h1`
+    text-align: center;
+    margin: 1rem 0 0;
+`;
+
+const ToggleText = styled.p`
+    font-weight: bold;
+    font-size: 1.5rem;
+`;
+
+const ToggleIcon = styled.span`
+    font-size: 2rem;
+    display: inline-block;
+    margin: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+`;
+
 const Teams = () => {
     const teamNames = teams.map(team => team.name);
     const teamIds = teamNames.map(name => name.replaceAll(" ", "_").toLowerCase());
     const cardsRef = useRef([]);
+    const [sidebarOpen, setSidebarOpen] = useState(true);
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
@@ -92,20 +112,35 @@ const Teams = () => {
         window.history.replaceState(null, "", window.location.href.split("#")[0] + "#" + teamIds[i]);
     };
 
+    const toggleOpen = () => {
+        setSidebarOpen(prevOpen => !prevOpen);
+    };
+
     return (
         <>
             <Navbar />
             <PageLayout>
             <SidebarWrapper>
                 <Sidebar>
+                {sidebarOpen ?
+                <>
+                <ToggleText onClick={toggleOpen}>
+                <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-down"]}/></ToggleIcon>Teams</ToggleText>
                     {teamNames.map((team, i) => 
                         <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
                             {team}
                         </SidebarLink>
                     )}
+                </>
+                :
+                <ToggleText onClick={toggleOpen}>
+                    <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-right"]} onClick={toggleOpen} /></ToggleIcon>Teams
+                </ToggleText>
+                }
                 </Sidebar>
             </SidebarWrapper>
             <SubteamCardsDiv>
+                <SubteamsTitle>Meet Our Teams</SubteamsTitle>
                 {teams.map((team, i) => 
                     <SubteamCard
                         innerRef={el => cardsRef.current[i] = el}
