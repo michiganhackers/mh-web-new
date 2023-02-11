@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { StaticP } from "../../utility/ContentStyles.js";
-import { addEmailFetch } from "./MailingListFetch";
+import { StaticP } from "utility/ContentStyles.js";
 
 const EmailForm = styled.form`
     text-align: center;
@@ -13,8 +12,8 @@ const EmailInputBox = styled.input`
     border: 2px solid #555;
     border-right: 0;
     height: 50px;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     padding: 0 16px;
 `;
 const EmailSubmitButton = styled.input`
@@ -28,8 +27,8 @@ const EmailSubmitButton = styled.input`
     background: rgb(239, 133, 62);
     width: 60px;
     height: 50px;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     &:hover {
       background: rgb(222, 103, 63);
     }
@@ -37,7 +36,7 @@ const EmailSubmitButton = styled.input`
 
 export default function MailingList() {
   const [address, setAddress] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [result, setResult] = useState(null);
 
   function addEmailToList(e) {
     e.preventDefault();
@@ -56,9 +55,7 @@ export default function MailingList() {
 
   return (
     <EmailForm onSubmit={addEmailToList}>
-      {submitted ? (
-        <StaticP> Successfully Added! </StaticP>
-      ) : null}
+      {result && <StaticP>{result}</StaticP>}
       <EmailInputBox
         type="email"
         value={address}
