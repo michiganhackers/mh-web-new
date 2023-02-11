@@ -38,19 +38,30 @@ export default function MailingList() {
   const [address, setAddress] = useState("");
   const [result, setResult] = useState(null);
 
-  function addEmailToList(e) {
+  async function addEmailToList(e) {
     e.preventDefault();
+    setResult(null);
 
-    const payload = {
-      Email: address,
-    };
-    /**
-     * TODO: refactor when merging with attendance branch, which adds better email error handling.
-     */
-    addEmailFetch(payload);
+    // make email post request
+    const response = await fetch('https://api.michhackers.com/email/add', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: address
+      })
+    });
 
+    // handle error
+    if (response.status !== 200) {
+      setResult(`An error occured: ${response.status} ${response.statusText}`);
+      return;
+    }
+
+    // handle successful response
     setAddress("");
-    setSubmitted(true);
+    setResult("Successfully added!");
   }
 
   return (
