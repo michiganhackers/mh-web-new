@@ -11,7 +11,7 @@ import HackHersCasinoNight from "assets/carousel_new/7_W23_Hack_Hers_Casino_Nigh
 import ExecAtPinballPetes from "assets/carousel_new/8_F21_Exec_At_Pinball_Petes.jpg";
 import LeadsIceCreamSocial from "assets/carousel_new/9_F22_Leads_Ice_Cream_Social.jpg";
 import BowlingHKN from "assets/carousel_new/10_F22_Bowling_HKN.jpg";
-import Festifall from "assets/carousel_new/11_F22_Festifall.JPEG";
+import Festifall from "assets/carousel_new/11_F22_Festifall.jpg";
 
 // List of club images to include in the image carousel
 const images = [
