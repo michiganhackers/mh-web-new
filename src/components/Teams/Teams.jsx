@@ -19,7 +19,7 @@ const SidebarWrapper = styled.div`
 
 const Sidebar = styled.nav`
     display: block;
-    padding: 2rem;
+    padding: 1rem;
     top: 80px;
     ${devices.tablet`
         top: 74px;
@@ -28,6 +28,7 @@ const Sidebar = styled.nav`
     position: fixed;
     overflow-y: auto;
     width: 300px;
+    ${props => !props.sidebarOpen && "width: 60px;"}
     ${devices.desktop`
         width: 100%;
         position: static;
@@ -37,6 +38,7 @@ const Sidebar = styled.nav`
 const PageLayout = styled.div`
     display: grid;
     grid-template-columns: 300px 1fr;
+    ${props => !props.sidebarOpen && "grid-template-columns: 60px 1fr;"}
     ${devices.desktop`
         display: block;
     `}
@@ -61,26 +63,66 @@ const SidebarLink = styled.a`
 const SubteamsTitle = styled.h1`
     text-align: center;
     margin: 1rem 0 0;
+    ${devices.desktop`
+        margin: 1rem 0;
+    `}
 `;
 
 const ToggleText = styled.p`
     font-weight: bold;
     font-size: 1.5rem;
+    display: block;
+    margin: 0;
 `;
 
 const ToggleIcon = styled.span`
     font-size: 2rem;
-    display: inline-block;
-    margin: 0.5rem;
+    display: block;
     width: 1rem;
-    height: 1rem;
+    margin-right: 1rem;
 `;
+
+const Hamburger = styled.span`
+    font-size: 2rem;
+    line-height: 1rem;
+    display: block;
+    margin-right: 1rem;
+`;
+
+const ToggleWrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+const useIsMobile = () => {
+    const getIsMobile = () => window.innerWidth <= 992;
+    const [isMobile, setIsMobile] = useState(getIsMobile());
+
+    useEffect(() => {
+        const onResize = () => {
+            setIsMobile(getIsMobile());
+        };
+
+        window.addEventListener("resize", onResize);
+    
+        return () => {
+            window.removeEventListener("resize", onResize);
+        };
+    }, []);
+    
+    return isMobile;
+};
 
 const Teams = () => {
     const teamNames = teams.map(team => team.name);
     const teamIds = teamNames.map(name => name.replaceAll(" ", "_").toLowerCase());
     const cardsRef = useRef([]);
     const [sidebarOpen, setSidebarOpen] = useState(true);
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
@@ -119,13 +161,39 @@ const Teams = () => {
     return (
         <>
             <Navbar />
-            <PageLayout>
+            <PageLayout sidebarOpen={sidebarOpen}>
+            {isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
             <SidebarWrapper>
-                <Sidebar>
-                {sidebarOpen ?
+                <Sidebar sidebarOpen={sidebarOpen}>
+                {isMobile && sidebarOpen ?
                 <>
-                <ToggleText onClick={toggleOpen}>
-                <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-down"]}/></ToggleIcon>Teams</ToggleText>
+                <ToggleWrapper onClick={toggleOpen}>
+                    <ToggleIcon>
+                        <FontAwesomeIcon icon={["fas", "caret-down"]}/>
+                    </ToggleIcon>
+                    <ToggleText>Teams</ToggleText>
+                </ToggleWrapper>
+                    {teamNames.map((team, i) => 
+                        <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
+                            {team}
+                        </SidebarLink>
+                    )}
+                </>
+                : isMobile && !sidebarOpen ?
+                <ToggleWrapper onClick={toggleOpen}>
+                    <ToggleIcon>
+                        <FontAwesomeIcon icon={["fas", "caret-right"]}/>
+                    </ToggleIcon>
+                    <ToggleText>Teams</ToggleText>
+                </ToggleWrapper>
+                : !isMobile  && sidebarOpen ?
+                <>
+                <ToggleWrapper onClick={toggleOpen}>
+                    <Hamburger>
+                        <FontAwesomeIcon icon="bars" />
+                    </Hamburger>
+                    <ToggleText>Teams</ToggleText>
+                </ToggleWrapper>
                     {teamNames.map((team, i) => 
                         <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
                             {team}
@@ -133,14 +201,17 @@ const Teams = () => {
                     )}
                 </>
                 :
-                <ToggleText onClick={toggleOpen}>
-                    <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-right"]} onClick={toggleOpen} /></ToggleIcon>Teams
-                </ToggleText>
-                }
+                <ToggleWrapper onClick={toggleOpen}>
+                    <Hamburger>
+                        <FontAwesomeIcon icon="bars" />
+                    </Hamburger>
+                    <ToggleText>Teams</ToggleText>
+                </ToggleWrapper>
+            }   
                 </Sidebar>
             </SidebarWrapper>
             <SubteamCardsDiv>
-                <SubteamsTitle>Meet Our Teams</SubteamsTitle>
+                {!isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
                 {teams.map((team, i) => 
                     <SubteamCard
                         innerRef={el => cardsRef.current[i] = el}
