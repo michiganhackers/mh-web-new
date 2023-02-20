@@ -1,9 +1,9 @@
 import React from "react";
-import "../../utility/fonts.css";
-import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
-import Question from "./Question.jsx";
+import "utility/fonts.css";
+import SubpageOuter from "components/SubpageOuter/SubpageOuter.jsx";
+import Question from "components/FAQ/Question.jsx";
 
-import Navbar from "../Navbar.jsx";
+import Navbar from "components/Navbar.jsx";
 
 const FAQ = () => (
     <>

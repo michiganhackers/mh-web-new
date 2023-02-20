@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import "../../utility/fonts.css";
-import "../../index.css";
-import { CopyP } from "../../utility/ContentStyles.js";
+import "utility/fonts.css";
+import "index.css";
+import { CopyP } from "utility/ContentStyles.js";
 import PropTypes from "prop-types";
 import list_arrow from "assets/list_arrow.svg";
 
