@@ -5,7 +5,7 @@ import devices from "../utility/MediaQueries.js";
 // import logoUrl from "assets/logo-orange-cropped.png";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
-import ContactLinks from "./Contact/ContactLinks";
+import ContactLinks, { Link } from "./Contact/ContactLinks";
 
 const FooterOuter = styled.div`
     background-color: rgba(238, 95, 48, 1);
@@ -39,13 +39,18 @@ const ConnectWithUsFooter = styled.h1`
     font-weight: 700;
 `;
 
+const CustomLink = styled(Link)`
+  font-size: 3rem;
+`;
+
+
 const Footer = () => (
     <FooterOuter>
         <FooterBody>
             <ConnectWithUsFooter>
                 CONNECT WITH US
             </ConnectWithUsFooter>
-            <ContactLinks />
+            <ContactLinks LinkComponent={CustomLink} />
         </FooterBody>
     </FooterOuter>
 );
