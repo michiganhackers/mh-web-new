@@ -13,6 +13,8 @@ const ThemeNameContext = createContext(null);
  * Responsible for reading and updating local storage and passing theme data down
  * through the styled-components ThemeProvider
  *
+ * Default theme is the first one provided in `themes`
+ *
  * @param themes {ThemeData[]}
  * @param children
  * @constructor
