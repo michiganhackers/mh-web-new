@@ -67,6 +67,8 @@ export const lightTheme = {
         mission: {
             heading: lightColors.white,
             text: lightColors.white,
+            background: lightColors.secondary,
+            backgroundAlt: lightColors.primaryLightest,
         },
 
         sponsors: {
@@ -173,7 +175,6 @@ export const darkTheme = {
     },
 
     about: {
-        text: "blue",
         svg: {
             headingBackground: darkColors.primaryLight,
         },

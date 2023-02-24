@@ -31,8 +31,8 @@ import {
     faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
-import { ThemeProvider } from "styled-components";
-import { lightTheme } from "./utility/theme.js";
+import { darkTheme, lightTheme } from "./utility/theme.js";
+import { Theme } from "./ThemeComponents.jsx";
 
 library.add(
     faGithub,
@@ -54,7 +54,7 @@ library.add(
 );
 
 const App = () => (
-    <ThemeProvider theme={lightTheme}>
+    <Theme themes={[lightTheme, darkTheme]}>
         <Router>
             <ScrollToTop />
             <Switch>
@@ -68,7 +68,7 @@ const App = () => (
                 <Route path="*" component={PageNotFound} />
             </Switch>
         </Router>
-    </ThemeProvider>
+    </Theme>
 );
 
 export default App;

@@ -12,11 +12,12 @@ import MetaLogo from "assets/meta.png";
 import NitsLogo from "assets/nits.png";
 import OracleLogo from "assets/oracle.png";
 import SusquehannaLogo from "assets/susquehanna.png";
-import Sponsor from "./Sponsor";
+import Sponsor from "./Sponsor.jsx";
+import { SubTheme } from "ThemeComponents.jsx";
 
 const Wrapper = styled.div`
     width: 100%;
-    background-color: lightblue;
+    background-color: ${props => props.theme.background};
 `;
 
 const SponsorTier = styled.section`
@@ -24,7 +25,7 @@ const SponsorTier = styled.section`
     margin: auto;
     padding-bottom: 12px;
     &:not(:last-of-type) {
-        border-bottom: dashed white;
+        border-bottom: dashed ${props => props.theme.border};
     }
     ${devices.tablet`
       width: 95%;
@@ -44,6 +45,7 @@ const SponsorTierList = styled.div`
 const TierHeaderTag = styled.h2.attrs((props) => ({
     tier: props.tier,
 }))`
+    color: ${props => props.theme.heading};
     text-align: center;
     font-size: ${(props) => {
         switch (props.tier) {
@@ -89,6 +91,7 @@ const TierHeader = ({ tier }) => (
 );
 
 const Sponsors = () => (
+  <SubTheme name={"sponsors"}>
     <Wrapper>
         <SponsorTier>
             <TierHeader tier="1" />
@@ -126,6 +129,7 @@ const Sponsors = () => (
             </SponsorTierList>
         </SponsorTier>
     </Wrapper>
+  </SubTheme>
 );
 
 export default Sponsors;

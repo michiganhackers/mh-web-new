@@ -11,13 +11,15 @@ import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
 import Navbar from "components/Navbar";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
+import { SubTheme } from "ThemeComponents.jsx";
 
-const AboutColor1 = "#8dcadf";
-const AboutColor2 = "#f38a63";
+const AboutWrapper = styled.main`
+    width: 100%;
+    background-color: ${(props) => props.theme.background};
+`;
 
 const MissionStatement = styled.article`
     width: 100%;
-    color: white;
     // cap width
     // need 4:1 for desktops to ultrawides
     background-image: url(${about_bg_6x1});
@@ -36,10 +38,10 @@ const MissionStatement = styled.article`
     `}
     ${devices.small`
       background-image: none;
-      background-color: ${AboutColor1};
+      background-color: ${(props) => props.theme.background};
       &:nth-of-type(even) {
         background-image: none;
-        background-color: ${AboutColor2};
+        background-color: ${(props) => props.theme.backgroundAlt};
       }
     `}
 `;
@@ -63,6 +65,7 @@ const MissionWidthWrapper = styled.div`
 const MissionTitle = styled.h2.attrs((props) => ({
     alignment: props.alignment || "left",
 }))`
+    color: ${(props) => props.theme.heading};
     font-family: "Roboto Condensed";
     font-weight: 900;
     line-height: 1;
@@ -80,6 +83,7 @@ const MissionTitle = styled.h2.attrs((props) => ({
 const MissionBody = styled.p.attrs((props) => ({
     alignment: props.alignment || "left",
 }))`
+    color: ${(props) => props.theme.text};
     line-height: 1;
     font-size: 1.5em;
     ${(props) =>
@@ -98,7 +102,8 @@ const MissionBody = styled.p.attrs((props) => ({
 `;
 
 const MailingListText = styled.p`
-    color: black;
+    color: ${(props) => props.theme.text};
+    background: ${(props) => props.theme.background};
     text-align: center;
     font-weight: 500;
     font-size: 1.2em;
@@ -117,40 +122,49 @@ const MailingListText = styled.p`
 const About = () => (
     <>
         <Navbar />
-        <MissionStatement>
-            <MissionWidthWrapper>
-                <MissionTitle>Who Are We?</MissionTitle>
-                <MissionBody alignment="right">
-                    We&apos;re a tech oriented student organization at the
-                    University of Michigan seeking to foster a diverse community
-                    to build and grow relevant skills in a technological and
-                    fast-paced world.
-                </MissionBody>
-            </MissionWidthWrapper>
-        </MissionStatement>
+        <SubTheme name={"about"}>
+            <AboutWrapper>
+                <SubTheme name={"mission"}>
+                    <MissionStatement>
+                        <MissionWidthWrapper>
+                            <MissionTitle>Who Are We?</MissionTitle>
+                            <MissionBody alignment="right">
+                                We&apos;re a tech oriented student organization
+                                at the University of Michigan seeking to foster
+                                a diverse community to build and grow relevant
+                                skills in a technological and fast-paced world.
+                            </MissionBody>
+                        </MissionWidthWrapper>
+                    </MissionStatement>
 
-        <MissionStatement>
-            <MissionWidthWrapper>
-                <MissionTitle alignment="right">What Do We Do?</MissionTitle>
-                <MissionBody>
-                    We provide members high quality resources to become
-                    competent engineers by working on projects, holding
-                    corporate events, hosting networking opportunities, etc. Our
-                    primary form of member engagement is through our weekly hack
-                    nights where we split into our teams (such as Web, ML, iOS,
-                    etc) and work on domain-specific projects. Membership is
-                    open to everyone.
-                </MissionBody>
-            </MissionWidthWrapper>
-        </MissionStatement>
-
-        <MailingListText>
-            Join our mailing list! You&apos;ll receive weekly updates from us
-            detailing upcoming events, tech talks, hackathons, and news.
-        </MailingListText>
-        <MailingList />
-        <ClubImagesCarousel />
-        <Sponsors />
+                    <MissionStatement>
+                        <MissionWidthWrapper>
+                            <MissionTitle alignment="right">
+                                What Do We Do?
+                            </MissionTitle>
+                            <MissionBody>
+                                We provide members high quality resources to
+                                become competent engineers by working on
+                                projects, holding corporate events, hosting
+                                networking opportunities, etc. Our primary form
+                                of member engagement is through our weekly hack
+                                nights where we split into our teams (such as
+                                Web, ML, iOS, etc) and work on domain-specific
+                                projects. Membership is open to everyone.
+                            </MissionBody>
+                        </MissionWidthWrapper>
+                    </MissionStatement>
+                </SubTheme>
+                <MailingListText>
+                    Join our mailing list! You&apos;ll receive weekly updates
+                    from us detailing upcoming events, tech talks, hackathons,
+                    and news.
+                </MailingListText>
+                <MailingList />
+                <ClubImagesCarousel />
+                <Sponsors />
+            </AboutWrapper>
+        </SubTheme>
     </>
 );
 
