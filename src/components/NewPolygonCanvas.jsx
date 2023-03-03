@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import $ from "jquery";
-import FSS from "../utility/geometryangle.js";
+import FSS from "utility/geometryangle.js";
 
 /**
  * Get window size and rerender on size changes

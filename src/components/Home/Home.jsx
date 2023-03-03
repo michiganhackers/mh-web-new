@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "utility/fonts.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
@@ -19,7 +19,7 @@ const ClubName = styled.h1`
     font-weight: 900;
     line-height: 0.8;
     font-size: clamp(1em, 10vw, 6em);
-    color: ${props => props.theme.heading};
+    color: ${(props) => props.theme.heading};
     text-align: left;
     text-transform: uppercase;
     display: inline;
@@ -38,7 +38,7 @@ const MainText = styled.p`
     font-weight: 900;
     line-height: 0.8;
     padding-left: 10px;
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     text-align: left;
     position: relative;
     display: block;
@@ -73,51 +73,22 @@ const Logo = styled.img`
 const HomeWrapper = styled.div`
     overflow: hidden;
 `;
-class Home2 extends Component {
-    componentDidMount() {
-        // TODO: see if we can set up dimensions properly so we don't need this
-        //  might be a factor in the mobile issue
-        // $("body").css("overflow", "hidden");
-    }
-
-    componentWillUnmount() {
-        // $("body").css("overflow", "initial");
-    }
-
-    render() {
-        return (
-            <HomeWrapper>
-                <SpecialNavbar />
-                <NewPolygonCanvas />
-                <HomeBackgroundOuter>
-                    <Logo src={logoUrl} />
-                    <ClubName>Michigan Hackers</ClubName>
-                    <MainText>
-                        a community of individuals who enjoy expressing
-                        creativity through technology.
-                    </MainText>
-                </HomeBackgroundOuter>
-            </HomeWrapper>
-        );
-    }
-}
 
 const Home = () => (
-  <SubTheme name="home">
-      <SpecialNavbar />
-      <HomeWrapper>
-          <NewPolygonCanvas />
-          <HomeBackgroundOuter>
-              <Logo src={logoUrl} />
-              <ClubName>Michigan Hackers</ClubName>
-              <MainText>
-                  a community of individuals who enjoy expressing
-                  creativity through technology.
-              </MainText>
-          </HomeBackgroundOuter>
-      </HomeWrapper>
-  </SubTheme>
+    <SubTheme name="home">
+        <SpecialNavbar />
+        <HomeWrapper>
+            <NewPolygonCanvas />
+            <HomeBackgroundOuter>
+                <Logo src={logoUrl} />
+                <ClubName>Michigan Hackers</ClubName>
+                <MainText>
+                    a community of individuals who enjoy expressing creativity
+                    through technology.
+                </MainText>
+            </HomeBackgroundOuter>
+        </HomeWrapper>
+    </SubTheme>
 );
-
 
 export default Home;
