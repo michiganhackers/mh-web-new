@@ -48,8 +48,11 @@ export const lightTheme = {
     icon: lightColors.black,
 
     home: {
+        heading: lightColors.white,
         text: lightColors.white,
         link: lightColors.white,
+        linkHover: lightColors.offBlack,
+        linkActive: lightColors.offBlack,
         icon: lightColors.white,
     },
 

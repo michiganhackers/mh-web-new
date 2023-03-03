@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import "../../utility/fonts.css";
+import "utility/fonts.css";
 import styled from "styled-components";
-import devices from "../../utility/MediaQueries.js";
-import $ from "jquery";
-
-import SpecialNavbar from "../SpecialNavbar.jsx";
-
-import logoUrl from "../../assets/logo-orange-cropped.png";
-import NewPolygonCanvas from "../NewPolygonCanvas";
+import devices from "utility/MediaQueries.js";
+import SpecialNavbar from "components/SpecialNavbar.jsx";
+import logoUrl from "assets/logo-orange-cropped.png";
+import NewPolygonCanvas from "components/NewPolygonCanvas.jsx";
+import { SubTheme } from "ThemeComponents.jsx";
 
 const HomeBackgroundOuter = styled.div`
     position: relative;
@@ -21,7 +19,7 @@ const ClubName = styled.h1`
     font-weight: 900;
     line-height: 0.8;
     font-size: clamp(1em, 10vw, 6em);
-    color: #fff;
+    color: ${props => props.theme.heading};
     text-align: left;
     text-transform: uppercase;
     display: inline;
@@ -40,7 +38,7 @@ const MainText = styled.p`
     font-weight: 900;
     line-height: 0.8;
     padding-left: 10px;
-    color: #fff;
+    color: ${props => props.theme.text};
     text-align: left;
     position: relative;
     display: block;
@@ -72,20 +70,23 @@ const Logo = styled.img`
     padding: 10px 10px;
 `;
 
-class Home extends Component {
+const HomeWrapper = styled.div`
+    overflow: hidden;
+`;
+class Home2 extends Component {
     componentDidMount() {
         // TODO: see if we can set up dimensions properly so we don't need this
         //  might be a factor in the mobile issue
-        $("body").css("overflow", "hidden");
+        // $("body").css("overflow", "hidden");
     }
 
     componentWillUnmount() {
-        $("body").css("overflow", "initial");
+        // $("body").css("overflow", "initial");
     }
 
     render() {
         return (
-            <React.Fragment>
+            <HomeWrapper>
                 <SpecialNavbar />
                 <NewPolygonCanvas />
                 <HomeBackgroundOuter>
@@ -96,9 +97,27 @@ class Home extends Component {
                         creativity through technology.
                     </MainText>
                 </HomeBackgroundOuter>
-            </React.Fragment>
+            </HomeWrapper>
         );
     }
 }
+
+const Home = () => (
+  <SubTheme name="home">
+      <SpecialNavbar />
+      <HomeWrapper>
+          <NewPolygonCanvas />
+          <HomeBackgroundOuter>
+              <Logo src={logoUrl} />
+              <ClubName>Michigan Hackers</ClubName>
+              <MainText>
+                  a community of individuals who enjoy expressing
+                  creativity through technology.
+              </MainText>
+          </HomeBackgroundOuter>
+      </HomeWrapper>
+  </SubTheme>
+);
+
 
 export default Home;

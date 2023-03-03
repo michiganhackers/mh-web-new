@@ -134,6 +134,7 @@ function NewPolygonCanvas() {
                 position: "absolute",
                 width: windowWidth,
                 height: windowHeight,
+                overflow: "hidden",
             }}
         />
     );
