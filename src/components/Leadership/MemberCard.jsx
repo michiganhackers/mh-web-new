@@ -12,7 +12,7 @@ const Leadership = styled.img`
     object-fit: cover;
     border-radius: 100%;
     box-sizing: border-box;
-    border: 7px solid white;
+    border: 7px solid ${props => props.theme.border};
     margin: 0 auto;
     ${devices.small`
       height: 150px;

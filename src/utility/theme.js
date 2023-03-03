@@ -98,6 +98,7 @@ export const lightTheme = {
             icon: lightColors.white,
             background: lightColors.primaryLight,
             linkHover: lightColors.offBlack,
+            border: lightColors.white,
         },
     },
 
