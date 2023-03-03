@@ -65,18 +65,18 @@ export const lightTheme = {
     },
 
     about: {
-        svg: {
-            headingBackground: lightColors.secondary,
-            background2: lightColors.primaryLight,
-            background3: lightColors.primaryDarker,
-            background4: lightColors.primaryDark,
-            background5: lightColors.primaryLightest
-        },
         mission: {
             heading: lightColors.white,
             text: lightColors.white,
             background: lightColors.secondary,
             backgroundAlt: lightColors.primaryLightest,
+            svg: {
+                headingBackground: lightColors.secondary,
+                background2: lightColors.primaryLight,
+                background3: lightColors.primaryDarker,
+                background4: lightColors.primaryDark,
+                background5: lightColors.primaryLightest
+            },
         },
 
         sponsors: {

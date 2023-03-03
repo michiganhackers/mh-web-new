@@ -61,28 +61,33 @@ function Theme({ themes, children }) {
  * Copies all simple (string) properties from the parent object into the child object
  * Allows easy cascading to minimize the amount of colors that need to manually be set
  *
- * @param name The name of the subtheme to use as an override
+ * @param name {string} The name of the subtheme to use as an override
  * @param children Child react nodes
  * @constructor
  */
 function SubTheme({ name, children }) {
-    const theme = useTheme();
-    const newTheme = {};
-    // copy simple string properties
-    for (const [key, value] of Object.entries(theme)) {
-        if (typeof value === "string") {
-            newTheme[key] = value;
+    const cascadeTheme = (outerTheme) => {
+        const newTheme = {};
+        // copy simple string properties
+        for (const [key, value] of Object.entries(outerTheme)) {
+            if (typeof value === "string") {
+                newTheme[key] = value;
+            }
         }
-    }
-    // then copy the contents of the subtheme, overwriting anything set by the base theme
-    // this will preserve child objects so this wrapper can be used multiple times
-    if (Object.hasOwn(theme, name)) {
-        Object.assign(newTheme, theme[name]);
-    } else {
-        console.warn(`Group ${name} does not exist on theme ${theme.name}`);
-    }
+        // then copy the contents of the subtheme, overwriting anything set by the base theme
+        // this will preserve child objects so this wrapper can be nested
+        if (Object.hasOwn(outerTheme, name)) {
+            Object.assign(newTheme, outerTheme[name]);
+        } else {
+            console.warn(`Group ${name} does not exist on theme ${outerTheme.name}`);
+        }
+        return newTheme;
+    };
 
-    return <ThemeProvider theme={newTheme}>{children}</ThemeProvider>;
+    // use a function to get around the default styled-components copy-to-child
+    //  if we manually set the object, styled-components would spread the parent
+    //  theme with the child theme, meaning that all top-level props are copied down too
+    return <ThemeProvider theme={cascadeTheme}>{children}</ThemeProvider>;
 }
 
 export { ThemeNameContext, Theme, SubTheme };
