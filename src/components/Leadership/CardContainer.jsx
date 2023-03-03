@@ -3,7 +3,6 @@ import "utility/fonts.css";
 import MemberCard from "./MemberCard.jsx";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { SubTheme } from "ThemeComponents.jsx";
 
 const Cards = styled.section`
     display: inline-flex;
@@ -22,15 +21,13 @@ const Cards = styled.section`
  */
 const CardContainer = (props) => (
     <Cards {...props}>
-        <SubTheme name="leads">
-            {props.people.map((lead) => (
-                <MemberCard
-                    {...lead}
-                    key={lead.uniqname}
-                    imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
-                />
-            ))}
-        </SubTheme>
+        {props.people.map((lead) => (
+            <MemberCard
+                {...lead}
+                key={lead.uniqname}
+                imageUrl={`${process.env.PUBLIC_URL}/${lead.imageUrl}`}
+            />
+        ))}
     </Cards>
 );
 
