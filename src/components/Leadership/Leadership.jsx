@@ -5,12 +5,13 @@ import Navbar from "components/Navbar.jsx";
 import { NavLink, useLocation } from "react-router-dom";
 import CardContainer from "./CardContainer.jsx";
 import devices from "utility/MediaQueries.js";
+import { SubTheme } from "ThemeComponents.jsx";
 
 import leadership from "leadership.json";
 
-// TODO: do we really need this?
 const LeadershipWrapper = styled.main`
     width: 100%;
+    background-color: ${(props) => props.theme.background};
 `;
 
 const LeadershipGroupImages = styled.div`
@@ -38,8 +39,6 @@ const TabGroup = styled.ul`
     display: flex;
     padding-left: 0;
     margin-bottom: 0;
-    //background: rgb(241, 93, 36);
-    background: #ed8246;
     ${devices.small`
         flex-direction: column;
     `}
@@ -49,16 +48,17 @@ const Tab = styled(NavLink)`
     flex-basis: 33%;
     flex-grow: 1;
     text-align: center;
-    color: white;
+    color: ${(props) => props.theme.text};
     font-size: 1.3em;
     transition: background-color 0.3s;
+    background: ${(props) => props.theme.background};
     &.active {
-        background-color: #8dcadf;
+        background-color: ${(props) => props.theme.backgroundAlt};
     }
 `;
 
 const TabInfo = styled.div`
-    background-color: #8dcadf;
+    background-color: ${(props) => props.theme.backgroundAlt};
     padding: 1.5em 0;
     margin-bottom: 1.5em;
     transition: content 0.3s;
@@ -67,13 +67,13 @@ const TabInfo = styled.div`
 const TabName = styled.h1`
     font-size: 2em;
     text-align: center;
-    color: white;
+    color: ${props => props.theme.heading};
 `;
 
 const TabDescription = styled.p`
     width: 50%;
     margin: auto;
-    color: white;
+    color: ${props => props.theme.text};
 `;
 
 const tabNavigationActions = {
@@ -122,56 +122,66 @@ function Leadership() {
     return (
         <>
             <Navbar />
-            <LeadershipWrapper>
-                <LeadershipGroupImages>
-                    {TAB_NAMES.map((group_name, i) => (
-                        <LeadershipGroupImage
-                            key={group_name}
-                            src={`${process.env.PUBLIC_URL}/${leadership[group_name].imageUrl}`}
-                            isActive={currentTabIndex === i}
-                            alt={`${group_name} group photo`}
-                        />
-                    ))}
-                </LeadershipGroupImages>
-                <TabNav>
-                    <TabGroup role="tablist">
+            <SubTheme name="leadership">
+                <LeadershipWrapper>
+                    <LeadershipGroupImages>
                         {TAB_NAMES.map((group_name, i) => (
-                            <Tab
+                            <LeadershipGroupImage
                                 key={group_name}
-                                id={`tab-${group_name}`}
-                                to={{ hash: `#${leadership[group_name].slug}` }}
-                                onKeyDown={handleKeyDown}
-                                isActive={() => currentTabIndex === i}
-                                role="tab"
-                                tabIndex={currentTabIndex === i ? 0 : -1}
-                                aria-selected={currentTabIndex === i}
-                                ref={
-                                    currentTabIndex === i
-                                        ? selectedTabRef
-                                        : null
-                                }
-                            >
-                                {group_name}
-                            </Tab>
+                                src={`${process.env.PUBLIC_URL}/${leadership[group_name].imageUrl}`}
+                                isActive={currentTabIndex === i}
+                                alt={`${group_name} group photo`}
+                            />
                         ))}
-                    </TabGroup>
-                </TabNav>
-                <TabInfo role="tabpanel">
-                    <TabName>{TAB_NAMES[currentTabIndex]}</TabName>
-                    <TabDescription>
-                        {getCurrentTab().description}
-                    </TabDescription>
-                </TabInfo>
-                {TAB_NAMES.map((group_name, i) => (
-                    <CardContainer
-                        key={group_name}
-                        aria-labelledby={`tab-${group_name}`}
-                        role="tabpanel"
-                        people={leadership[group_name].people}
-                        hidden={currentTabIndex !== i}
-                    />
-                ))}
-            </LeadershipWrapper>
+                    </LeadershipGroupImages>
+                    <SubTheme name="tab">
+                        <TabNav>
+                            <TabGroup role="tablist">
+                                {TAB_NAMES.map((group_name, i) => (
+                                    <Tab
+                                        key={group_name}
+                                        id={`tab-${group_name}`}
+                                        to={{
+                                            hash: `#${leadership[group_name].slug}`,
+                                        }}
+                                        onKeyDown={handleKeyDown}
+                                        isActive={() => currentTabIndex === i}
+                                        role="tab"
+                                        tabIndex={
+                                            currentTabIndex === i ? 0 : -1
+                                        }
+                                        aria-selected={currentTabIndex === i}
+                                        ref={
+                                            currentTabIndex === i
+                                                ? selectedTabRef
+                                                : null
+                                        }
+                                    >
+                                        {group_name}
+                                    </Tab>
+                                ))}
+                            </TabGroup>
+                        </TabNav>
+                        <TabInfo role="tabpanel">
+                            <TabName>{TAB_NAMES[currentTabIndex]}</TabName>
+                            <TabDescription>
+                                {getCurrentTab().description}
+                            </TabDescription>
+                        </TabInfo>
+                    </SubTheme>
+                    <SubTheme name="leads">
+                        {TAB_NAMES.map((group_name, i) => (
+                            <CardContainer
+                                key={group_name}
+                                aria-labelledby={`tab-${group_name}`}
+                                role="tabpanel"
+                                people={leadership[group_name].people}
+                                hidden={currentTabIndex !== i}
+                            />
+                        ))}
+                    </SubTheme>
+                </LeadershipWrapper>
+            </SubTheme>
         </>
     );
 }

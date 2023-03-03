@@ -85,16 +85,18 @@ export const lightTheme = {
     },
 
     leadership: {
+        heading: lightColors.white,
         text: lightColors.white,
-        icon: lightColors.white,
 
         tab: {
-            backgroundActive: lightColors.primaryLight,
-            backgroundHidden: lightColors.secondaryLight,
+            background: lightColors.primaryLight,
+            backgroundAlt: lightColors.secondary,
         },
 
-        lead: {
-            background: lightColors.primary,
+        leads: {
+            icon: lightColors.white,
+            background: lightColors.primaryLight,
+            linkHover: lightColors.offBlack,
         },
     },
 
