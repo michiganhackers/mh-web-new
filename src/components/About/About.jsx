@@ -4,12 +4,7 @@ import styled, { useTheme } from "styled-components";
 import Sponsors from "./Sponsors.jsx";
 import MailingList from "components/MailingList/MailingList.jsx";
 import devices from "utility/MediaQueries.js";
-// import about_bg_2x1 from "assets/about_bg_2x1.svg";
-// import about_bg_2x1_mirror from "assets/about_bg_2x1_mirror.svg";
-// import about_bg_6x1 from "assets/about_bg_6x1.svg";
-// import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
-
-import Navbar from "components/Navbar";
+import Navbar from "components/Navbar.jsx";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
 import { SubTheme } from "ThemeComponents.jsx";
 import { Background2x1, Background6x1 } from "./AboutSVGBackgrounds.jsx";
@@ -26,45 +21,40 @@ const MissionStatementElement = styled.article`
     background-size: cover;
     padding-bottom: 1.5rem;
     background-image: url(${(props) => props.image6x1});
-    
+
     ${devices.tablet`
       background-image: url(${(props) => props.image2x1});
     `}
-    
+
     ${devices.small`
       background-image: none;
       background-color: ${(props) => props.theme.background};
     `}
-    
-    // somehow, devices.tablet is subsuming everything below it
-    // no clue how this started or how to fix it
-    &:nth-of-type(even) {
-      background-image: url(${(props) => props.image6x1Mirrored});
-
-      ${devices.tablet`
-        background-image: url(${(props) => props.image2x1Mirrored});
-      `}
-
-      ${devices.small`
-        background-image: none;
-        background-color: ${(props) => props.theme.backgroundAlt};
-      `}
-    }
-    
 `;
 
+const MissionStatementElementMirrored = styled(MissionStatementElement)`
+    ${devices.small`
+        background-image: none;
+        background-color: ${(props) => props.theme.backgroundAlt};
+    `}
+`;
 
-function MissionStatement({ children }) {
+function MissionStatement({ children, isMirrored = false }) {
     const { svg: svgTheme } = useTheme();
-    return (
+    return isMirrored ? (
         <MissionStatementElement
             image2x1={Background2x1(svgTheme)}
-            image2x1Mirrored={Background2x1(svgTheme, true)}
             image6x1={Background6x1(svgTheme)}
-            image6x1Mirrored={Background6x1(svgTheme, true)}
         >
             {children}
         </MissionStatementElement>
+    ) : (
+        <MissionStatementElementMirrored
+            image2x1={Background2x1(svgTheme, true)}
+            image6x1={Background6x1(svgTheme, true)}
+        >
+            {children}
+        </MissionStatementElementMirrored>
     );
 }
 
@@ -147,7 +137,7 @@ const About = () => (
         <SubTheme name={"about"}>
             <AboutWrapper>
                 <SubTheme name={"mission"}>
-                    <MissionStatement>
+                    <MissionStatement isMirrored={true}>
                         <MissionWidthWrapper>
                             <MissionTitle>Who Are We?</MissionTitle>
                             <MissionBody alignment="right">
