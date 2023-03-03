@@ -18,6 +18,7 @@ const lightColors = {
     secondaryLighter: "#c8e4dd",
 
     gray: "#d9d9d9",
+    lightGray: "#eee",
     white: "#fff",
     black: "#000",
     offBlack: "#212529",
@@ -101,13 +102,23 @@ export const lightTheme = {
     },
 
     teams: {
-        background1: lightColors.primaryLight,
-        background2: lightColors.secondaryLight,
-        text: lightColors.white,
+        icon: lightColors.white,
+        backToTop: {
+            background: lightColors.primaryLight,
+        },
+        cards: {
+            heading: lightColors.white,
+            text: lightColors.white,
+            link: lightColors.offBlack,
+            background: lightColors.primaryLight,
+            backgroundAlt: lightColors.secondaryLight,
+        },
         sidebar: {
-            background: lightColors.gray,
-            heading: lightColors.offBlack,
-            text: lightColors.black,
+            background: lightColors.lightGray,
+            heading: lightColors.black,
+            link: lightColors.black,
+            linkHover: lightColors.gray,
+            backgroundHover: lightColors.gray,
         },
     },
 

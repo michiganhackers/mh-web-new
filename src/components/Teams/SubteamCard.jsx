@@ -4,7 +4,7 @@ import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
 
 const CardDiv = styled.div`
-    background-color: ${props => props.even ? "#8DCADF" : "#ED8246"};
+    background-color: ${props => props.even ? props.theme.backgroundAlt : props.theme.background};
     display: flex;
     flex-direction: ${props => props.even ? "row" : "row-reverse"};
     margin: 1rem 0;
@@ -20,12 +20,12 @@ const CardDiv = styled.div`
 `;
 
 const TeamName = styled.h3`
-    color: white;
+    color: ${props => props.theme.heading};
     font-weight: bold;
 `;
 
 const TeamDescription = styled.p`
-    color: white;
+    color: ${props => props.theme.text};
     white-space: pre-line;
 `;
 
@@ -68,7 +68,7 @@ const TeamLinksLi = styled.li`
 `;
 
 const TeamLink = styled.a`
-
+    color: ${props => props.theme.link};
 `;
 
 const CardWrapper = styled.article`
@@ -80,7 +80,7 @@ const CardWrapper = styled.article`
 `;
 
 const CardBorder = styled.div`
-    border-top: 3px solid ${props => props.even ? "#8DCADF" : "#ED8246"};
+    border-top: 3px solid ${props => props.even ? props.theme.background : props.theme.backgroundAlt};
 
     ${props => props.first && 'border-top: none;'}
 `;

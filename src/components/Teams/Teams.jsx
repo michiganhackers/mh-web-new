@@ -7,13 +7,14 @@ import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
 import BackToTop from "./BackToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SubTheme } from "ThemeComponents.jsx";
 
 const SubteamCardsDiv = styled.div`
     padding: 0 1rem;
 `;
 
 const SidebarWrapper = styled.div`
-    background-color: #eee;
+    background-color: ${props => props.theme.background};
     overflow: auto;
 `;
 
@@ -44,16 +45,16 @@ const PageLayout = styled.div`
 
 const SidebarLink = styled.a`
     display: block;
-    color: black;
+    color: ${props => props.theme.link};
     padding: 0.5rem;
     width: 100%;
     border-radius: 10px;
     transition: background-color 0.25s;
 
     &:hover {
-        background-color: #ddd;
+        background-color: ${props => props.theme.backgroundHover};
         cursor: pointer;
-        color: black;
+        color: ${props => props.theme.link};
         text-decoration: none;
     }
 `;
@@ -61,9 +62,11 @@ const SidebarLink = styled.a`
 const SubteamsTitle = styled.h1`
     text-align: center;
     margin: 1rem 0 0;
+    color: ${props => props.theme.heading};
 `;
 
 const ToggleText = styled.p`
+    color: ${props => props.theme.heading};
     font-weight: bold;
     font-size: 1.5rem;
 `;
@@ -99,7 +102,6 @@ const Teams = () => {
         }
     },[]);
 
-
     const handleClick = (e, i) => {
         e.preventDefault();
         const navbarHeight = window.innerWidth <= 768 ? 74 : 80;
@@ -119,41 +121,67 @@ const Teams = () => {
     return (
         <>
             <Navbar />
-            <PageLayout>
-            <SidebarWrapper>
-                <Sidebar>
-                {sidebarOpen ?
-                <>
-                <ToggleText onClick={toggleOpen}>
-                <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-down"]}/></ToggleIcon>Teams</ToggleText>
-                    {teamNames.map((team, i) => 
-                        <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
-                            {team}
-                        </SidebarLink>
-                    )}
-                </>
-                :
-                <ToggleText onClick={toggleOpen}>
-                    <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-right"]} onClick={toggleOpen} /></ToggleIcon>Teams
-                </ToggleText>
-                }
-                </Sidebar>
-            </SidebarWrapper>
-            <SubteamCardsDiv>
-                <SubteamsTitle>Meet Our Teams</SubteamsTitle>
-                {teams.map((team, i) => 
-                    <SubteamCard
-                        innerRef={el => cardsRef.current[i] = el}
-                        team={team}
-                        key={i}
-                        even={i % 2 === 0}
-                        first={i == 0}
-                        teamId={teamIds[i]}
-                    />
-                )}
-            </SubteamCardsDiv>
-            </PageLayout>
-            <BackToTop />
+            <SubTheme name="teams">
+                <PageLayout>
+                    <SubTheme name="sidebar">
+                        <SidebarWrapper>
+                            <Sidebar>
+                                {sidebarOpen ? (
+                                    <>
+                                        <ToggleText onClick={toggleOpen}>
+                                            <ToggleIcon>
+                                                <FontAwesomeIcon
+                                                    icon={["fas", "caret-down"]}
+                                                />
+                                            </ToggleIcon>
+                                            Teams
+                                        </ToggleText>
+                                        {teamNames.map((team, i) => (
+                                            <SidebarLink
+                                                key={i}
+                                                href={"#" + teamIds[i]}
+                                                onClick={(e) =>
+                                                    handleClick(e, i)
+                                                }
+                                            >
+                                                {team}
+                                            </SidebarLink>
+                                        ))}
+                                    </>
+                                ) : (
+                                    <ToggleText onClick={toggleOpen}>
+                                        <ToggleIcon>
+                                            <FontAwesomeIcon
+                                                icon={["fas", "caret-right"]}
+                                                onClick={toggleOpen}
+                                            />
+                                        </ToggleIcon>
+                                        Teams
+                                    </ToggleText>
+                                )}
+                            </Sidebar>
+                        </SidebarWrapper>
+                    </SubTheme>
+                    <SubteamCardsDiv>
+                        <SubteamsTitle>Meet Our Teams</SubteamsTitle>
+                        <SubTheme name="cards">
+                            {teams.map((team, i) => (
+                                <SubteamCard
+                                    innerRef={(el) =>
+                                        (cardsRef.current[i] = el)
+                                    }
+                                    team={team}
+                                    key={i}
+                                    even={i % 2 === 0}
+                                    first={i == 0}
+                                    teamId={teamIds[i]}
+                                />
+                            ))}
+                        </SubTheme>
+                    </SubteamCardsDiv>
+                </PageLayout>
+                <BackToTop />
+            </SubTheme>
         </>
     );
 };
