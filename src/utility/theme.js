@@ -62,7 +62,11 @@ export const lightTheme = {
 
     about: {
         svg: {
-            headingBackground: lightColors.primaryLight,
+            headingBackground: lightColors.secondary,
+            background2: lightColors.primaryLight,
+            background3: lightColors.primaryDarker,
+            background4: lightColors.primaryDark,
+            background5: lightColors.primaryLightest
         },
         mission: {
             heading: lightColors.white,

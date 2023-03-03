@@ -1,50 +1,72 @@
 import React from "react";
 import "utility/fonts.css";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Sponsors from "./Sponsors.jsx";
 import MailingList from "components/MailingList/MailingList.jsx";
 import devices from "utility/MediaQueries.js";
-import about_bg_2x1 from "assets/about_bg_2x1.svg";
-import about_bg_2x1_mirror from "assets/about_bg_2x1_mirror.svg";
-import about_bg_6x1 from "assets/about_bg_6x1.svg";
-import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
+// import about_bg_2x1 from "assets/about_bg_2x1.svg";
+// import about_bg_2x1_mirror from "assets/about_bg_2x1_mirror.svg";
+// import about_bg_6x1 from "assets/about_bg_6x1.svg";
+// import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
 import Navbar from "components/Navbar";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
 import { SubTheme } from "ThemeComponents.jsx";
+import { Background2x1, Background6x1 } from "./AboutSVGBackgrounds.jsx";
 
 const AboutWrapper = styled.main`
     width: 100%;
     background-color: ${(props) => props.theme.background};
 `;
 
-const MissionStatement = styled.article`
+const MissionStatementElement = styled.article`
     width: 100%;
-    // cap width
-    // need 4:1 for desktops to ultrawides
-    background-image: url(${about_bg_6x1});
-    &:nth-of-type(even) {
-        background-image: url(${about_bg_6x1_mirror});
-    }
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 1.5rem;
+    background-image: url(${(props) => props.image6x1});
+    
     ${devices.tablet`
-      background-image: url(${about_bg_2x1});
-      &:nth-of-type(even) {
-        background-image: url(${about_bg_2x1_mirror});
-      }
+      background-image: url(${(props) => props.image2x1});
     `}
+    
     ${devices.small`
       background-image: none;
       background-color: ${(props) => props.theme.background};
-      &:nth-of-type(even) {
+    `}
+    
+    // somehow, devices.tablet is subsuming everything below it
+    // no clue how this started or how to fix it
+    &:nth-of-type(even) {
+      background-image: url(${(props) => props.image6x1Mirrored});
+
+      ${devices.tablet`
+        background-image: url(${(props) => props.image2x1Mirrored});
+      `}
+
+      ${devices.small`
         background-image: none;
         background-color: ${(props) => props.theme.backgroundAlt};
-      }
-    `}
+      `}
+    }
+    
 `;
+
+
+function MissionStatement({ children }) {
+    const { svg: svgTheme } = useTheme();
+    return (
+        <MissionStatementElement
+            image2x1={Background2x1(svgTheme)}
+            image2x1Mirrored={Background2x1(svgTheme, true)}
+            image6x1={Background6x1(svgTheme)}
+            image6x1Mirrored={Background6x1(svgTheme, true)}
+        >
+            {children}
+        </MissionStatementElement>
+    );
+}
 
 const TITLE_MARGIN_NORMAL = "3%";
 const BODY_MARGIN_NORMAL = "5%";
