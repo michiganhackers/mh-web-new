@@ -30,13 +30,13 @@ const MissionStatementElement = styled.article`
       background-image: none;
       background-color: ${(props) => props.theme.background};
     `}
-`;
-
-const MissionStatementElementMirrored = styled(MissionStatementElement)`
-    ${devices.small`
-        background-image: none;
-        background-color: ${(props) => props.theme.backgroundAlt};
-    `}
+    
+    &:nth-of-type(even) {
+        ${devices.small`
+            background-image: none;
+            background-color: ${(props) => props.theme.backgroundAlt};
+        `}
+    }
 `;
 
 function MissionStatement({ children, isMirrored = false }) {
@@ -49,12 +49,12 @@ function MissionStatement({ children, isMirrored = false }) {
             {children}
         </MissionStatementElement>
     ) : (
-        <MissionStatementElementMirrored
+        <MissionStatementElement
             image2x1={Background2x1(svgTheme, true)}
             image6x1={Background6x1(svgTheme, true)}
         >
             {children}
-        </MissionStatementElementMirrored>
+        </MissionStatementElement>
     );
 }
 

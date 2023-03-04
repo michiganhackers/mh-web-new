@@ -1,7 +1,7 @@
 function Background2x1(theme, isMirrored = false) {
     return (
-        '"data:image/svg+xml,' +
-        encodeURIComponent(`<svg
+        'data:image/svg+xml;base64,' +
+        window.btoa(`<svg
             width="200mm"
             height="100mm"
             viewBox="0 0 200 100"
@@ -23,15 +23,14 @@ function Background2x1(theme, isMirrored = false) {
                     fill="${theme.background3}"
                 />
             </g>
-        </svg>`) +
-        '"'
+        </svg>`)
     );
 }
 
 function Background6x1(theme, isMirrored = false) {
     return (
-        '"data:image/svg+xml,' +
-        encodeURIComponent(`<svg
+        'data:image/svg+xml;base64,' +
+        window.btoa(`<svg
             width="600mm"
             height="100mm"
             viewBox="0 0 600 100"
@@ -45,8 +44,7 @@ function Background6x1(theme, isMirrored = false) {
                      <path d="m355.74-0.0014126h244.27v99.999z" fill="${theme.background3}"/>
                      <path d="m244.26 99.992h-244.27v-44.997z" fill="${theme.background5}"/>
                 </g>
-        </svg>`) +
-        '"'
+        </svg>`)
     );
 }
 
