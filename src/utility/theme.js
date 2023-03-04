@@ -142,10 +142,15 @@ export const lightTheme = {
     },
 
     faq: {
+        heading: lightColors.black,
         text: lightColors.black,
         // icon showing open state of question
+        svg: {
+            background: lightColors.primaryDark,
+            icon: lightColors.white,
+        },
         opener: lightColors.primary,
-        border: lightColors.black,
+        border: lightColors.offBlack,
     },
 };
 
