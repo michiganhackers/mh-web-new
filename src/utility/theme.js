@@ -58,10 +58,14 @@ export const lightTheme = {
     },
 
     navbar: {
+        background: lightColors.hackerOrange,
         text: lightColors.white,
         link: lightColors.white,
+        logo: lightColors.white,
+        logoHover: lightColors.offBlack,
         linkActive: lightColors.offBlack,
-        linkHover: lightColors.secondary,
+        linkHover: lightColors.offBlack,
+        border: lightColors.white,
     },
 
     about: {

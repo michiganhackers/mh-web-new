@@ -5,6 +5,7 @@ import devices from "../utility/MediaQueries.js";
 import logoUrl from "assets/logo-orange-cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
+import { SubTheme } from "ThemeComponents.jsx";
 
 const FlexWrapper = styled.div`
     height: 80px;
@@ -22,7 +23,7 @@ const FlexWrapper = styled.div`
         transition: border-bottom-color 1.3s ease-in-out;
         border-bottom: dashed transparent 2px;
         :has(~div > #hamburger:checked) {
-            border-bottom: dashed white 2px;
+            border-bottom: dashed ${props => props.theme.border} 2px;
             transition: border-bottom-color 0.7s ease-in-out;
         }
         
@@ -38,7 +39,7 @@ const FlexWrapper = styled.div`
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: space-between;
-    background: rgb(241, 93, 36);
+    background: ${(props) => props.theme.background};
     box-shadow: 0 2px 4px rgb(0, 0, 0, 0.5);
 `;
 
@@ -54,7 +55,7 @@ const HeaderAnchor = styled.header`
 
 const Hamburger = styled.label`
     font-size: 24px;
-    color: white;
+    color: ${props => props.theme.link};
     display: none;
     flex: auto;
     grid-column: 3 / 4;
@@ -68,7 +69,7 @@ const Hamburger = styled.label`
     }
 
     &:hover {
-        color: #404040;
+        color: ${props => props.theme.linkHover};
         cursor: pointer;
     }
 
@@ -85,9 +86,13 @@ const Hamburger = styled.label`
     `}
 `;
 
-const Logo = styled.img`
+const Logo = styled.div`
     height: 48px;
+    width: 38px;
+    flex: 0 0 auto;
     display: block;
+    mask-size: auto 48px;
+    mask-image: url(${logoUrl});
 `;
 
 const MobileNavBlock = styled.div`
@@ -111,7 +116,6 @@ const MobileNavContainer = styled.nav`
         
         background: rgb(241, 93, 36);
         box-shadow: 0 2px 4px rgb(0, 0, 0, 0.5);
-        //border-top: dashed white 2px;
         position: sticky;
         // works because already is on top of everything thanks to sticky
         z-index: -1;
@@ -152,20 +156,21 @@ const HeaderNavLink = styled(NavLink)`
         font-size: 24px;
         padding: 2px 4px;
     `}
-    color: white;
+    color: ${props => props.theme.link};
     text-decoration: none;
     text-transform: capitalize;
     transition: all 0.3s;
 
     &:hover {
         text-decoration: underline;
+        color: ${props => props.theme.linkHover};
     }
 
     // styles for the current active navlink
     &.active {
         text-decoration: none;
         font-weight: bold;
-        color: #404040;
+        color: ${props => props.theme.linkActive};
         cursor: default;
     }
 `;
@@ -175,14 +180,21 @@ const LogoNavLink = styled(NavLink)`
     justify-content: left;
     font-size: 22px;
     padding: 2px 20px;
-    color: white;
+    color: ${props => props.theme.link};
+    
+    // contains the masked logo
+    div {
+        background-color: ${props => props.theme.logo};
+        transition: color 0.3s, background-color 0.3s;
+    }
     align-items: center;
 
     &:hover {
-        // this shouldn't work but it does????
-        filter: brightness(33.33%);
         text-decoration: none;
-        //color: #555555;
+        color: ${props => props.theme.linkHover};
+        div {
+            background-color: ${props => props.theme.logoHover};
+        }
     }
 
     ${devices.tablet`
@@ -192,9 +204,9 @@ const LogoNavLink = styled(NavLink)`
         padding: 12px 0 12px 12px;
     `}
 
-    transition: color 0.3s, filter 0.3s;
+    transition: color 0.3s, background-color 0.3s;
     grid-column: 1/3;
-    
+
     // Contains the Michigan Hackers text
     span {
         padding-left: 16px;
@@ -216,11 +228,11 @@ const GithubLink = styled.a`
         display: none;
     `}
     &:hover {
-        color: #404040;
+        color: ${props => props.theme.linkHover};
     }
 
     transition: color 0.3s;
-    color: white;
+    color: ${props => props.theme.link};
     padding: 8px 0;
     width: 64px;
     flex: 0 0 auto;
@@ -236,30 +248,35 @@ const links = ["about", "leadership", "teams", "events", "contact", "faq"].map(
 );
 
 const Navbar = () => (
-    <HeaderAnchor>
-        <FlexWrapper>
-            <LogoNavLink to="/">
-                <Logo src={logoUrl} />
-                <span>Michigan Hackers</span>
-            </LogoNavLink>
-            <DesktopNavContainer>{links}</DesktopNavContainer>
-            <GithubLink
-                target="_blank"
-                href={SOCIAL_MEDIA_LINKS.github}
-            >
-                <FontAwesomeIcon icon={["fab", "github"]} />
-            </GithubLink>
-            <Hamburger htmlFor="hamburger">
-                <span>Menu</span>
-                <FontAwesomeIcon icon="bars" />
-            </Hamburger>
-        </FlexWrapper>
-        {/*fix tab indexing*/}
-        <MobileNavBlock>
-            <input type="checkbox" id="hamburger" style={{ display: "none" }} />
-            <MobileNavContainer>{links}</MobileNavContainer>
-        </MobileNavBlock>
-    </HeaderAnchor>
+
+
+    <SubTheme name="navbar">
+        <HeaderAnchor>
+            <FlexWrapper>
+                <LogoNavLink to="/">
+                    <Logo />
+                    <span>Michigan Hackers</span>
+                </LogoNavLink>
+                <DesktopNavContainer>{links}</DesktopNavContainer>
+                <GithubLink target="_blank" href={SOCIAL_MEDIA_LINKS.github}>
+                    <FontAwesomeIcon icon={["fab", "github"]} />
+                </GithubLink>
+                <Hamburger htmlFor="hamburger">
+                    <span>Menu</span>
+                    <FontAwesomeIcon icon="bars" />
+                </Hamburger>
+            </FlexWrapper>
+            {/*fix tab indexing*/}
+            <MobileNavBlock>
+                <input
+                    type="checkbox"
+                    id="hamburger"
+                    style={{ display: "none" }}
+                />
+                <MobileNavContainer>{links}</MobileNavContainer>
+            </MobileNavBlock>
+        </HeaderAnchor>
+    </SubTheme>
 );
 
 export default Navbar;
