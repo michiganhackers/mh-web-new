@@ -137,6 +137,7 @@ export const lightTheme = {
     contact: {
         links: {
             background: lightColors.secondaryBright,
+            heading: lightColors.white,
             text: lightColors.white,
         },
     },

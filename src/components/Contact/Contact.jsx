@@ -5,10 +5,12 @@ import styled from "styled-components";
 import ForStudents from "components/Contact/ForStudents";
 import ForCompanies from "components/Contact/ForCompanies";
 import ContactLinks from "components/Contact/ContactLinks";
-import devices from 'utility/MediaQueries.js';
+import devices from "utility/MediaQueries.js";
 import MailingList from "components/MailingList/MailingList.jsx";
+import { SubTheme } from "ThemeComponents.jsx";
 
 const Outer = styled.div`
+    background-color: ${(props) => props.theme.background};
     display: grid;
     grid-template-columns: 1fr 1fr;
     // height: calc(100vh - 80px);
@@ -21,7 +23,7 @@ const Outer = styled.div`
 `;
 
 const ConnectWithUsOuter = styled.div`
-    background-color: rgba(89, 202, 241, 1);
+    background-color: ${(props) => props.theme.background};
     padding: 3rem;
     ${devices.tablet`
         padding: 3rem 1rem;
@@ -32,17 +34,17 @@ const ConnectWithUsOuter = styled.div`
 `;
 
 const ConnectWithUsHeader = styled.h1`
-    color: white;
+    color: ${(props) => props.theme.heading};
     text-align: center;
     font-weight: 700;
 `;
 
 const ConnectWithUsBody = styled.p`
-    color: white;
+    color: ${(props) => props.theme.text};
     text-align: center;
     font-weight: 500;
     font-size: 1.2em;
-    
+
     width: min(60%, 600px);
     ${devices.tablet`
         width: min(80%, 600px);
@@ -66,7 +68,6 @@ const ForStudentsDiv = styled.div`
         order: 2;
         padding: 3rem;
     `}
-
 `;
 
 const ForCompaniesDiv = styled.div`
@@ -86,9 +87,10 @@ const ForCompaniesDiv = styled.div`
 `;
 
 const InfoP = styled.p`
+    color: ${(props) => props.theme.text};
     font-size: 1.7rem;
     margin: 0;
-      ${devices.giant`
+    ${devices.giant`
         font-size: 1.4rem;
     `}
     ${devices.desktop`
@@ -100,38 +102,56 @@ const InfoP = styled.p`
 `;
 
 const Contact = () => (
-    <React.Fragment>
+    <>
         <Navbar />
-        <ConnectWithUsOuter>
-            <ConnectWithUsHeader>
-                Connect With Us
-            </ConnectWithUsHeader>
-            <ConnectWithUsBody>
-                Follow Michigan Hackers on social media!
-            </ConnectWithUsBody>
-            <ContactLinks />
-            <ConnectWithUsBody>
-                Join our mailing list! You&apos;ll receive weekly updates
-                from us detailing upcoming events, tech talks, hackathons,
-                and news.
-            </ConnectWithUsBody>
-            <MailingList />
-        </ConnectWithUsOuter>
-        <Outer>
-            <ForStudents />
-            <ForStudentsDiv>
-                <InfoP>
-                    For students interested in participating with Michigan Hackers, join our Slack workspace and subscribe to our mailing list to stay in touch with upcoming hack nights, corporate events, and socials. For any questions, reach out at - <a href="mailto:michiganhackers-exec@umich.edu">michiganhackers&#8209;exec@umich.edu</a>
-                </InfoP>
-            </ForStudentsDiv>
-            <ForCompaniesDiv>
-                <InfoP>
-                    Michigan Hackers is constantly looking to build mutually beneficial partnerships with companies. In the past, we have had events such as engineering panels, technical workshops, recruiting coffee chats, coding competitions with companies. For companies interested in sponsoring and collaborating with Michigan Hackers, please reach out at - <a href="mailto:michiganhackers-exec@umich.edu">michiganhackers&#8209;exec@umich.edu</a>
-                </InfoP>
-            </ForCompaniesDiv>
-            <ForCompanies />
-        </Outer>
-    </React.Fragment>
+        <SubTheme name="contact">
+            <SubTheme name="links">
+                <ConnectWithUsOuter>
+                    <ConnectWithUsHeader>Connect With Us</ConnectWithUsHeader>
+                    <ConnectWithUsBody>
+                        Follow Michigan Hackers on social media!
+                    </ConnectWithUsBody>
+                    <ContactLinks />
+                    <ConnectWithUsBody>
+                        Join our mailing list! You&apos;ll receive weekly
+                        updates from us detailing upcoming events, tech talks,
+                        hackathons, and news.
+                    </ConnectWithUsBody>
+                    <MailingList />
+                </ConnectWithUsOuter>
+            </SubTheme>
+            <Outer>
+                <ForStudents />
+                <ForStudentsDiv>
+                    <InfoP>
+                        For students interested in participating with Michigan
+                        Hackers, join our Slack workspace and subscribe to our
+                        mailing list to stay in touch with upcoming hack nights,
+                        corporate events, and socials. For any questions, reach
+                        out at -{" "}
+                        <a href="mailto:michiganhackers-exec@umich.edu">
+                            michiganhackers&#8209;exec@umich.edu
+                        </a>
+                    </InfoP>
+                </ForStudentsDiv>
+                <ForCompaniesDiv>
+                    <InfoP>
+                        Michigan Hackers is constantly looking to build mutually
+                        beneficial partnerships with companies. In the past, we
+                        have had events such as engineering panels, technical
+                        workshops, recruiting coffee chats, coding competitions
+                        with companies. For companies interested in sponsoring
+                        and collaborating with Michigan Hackers, please reach
+                        out at -{" "}
+                        <a href="mailto:michiganhackers-exec@umich.edu">
+                            michiganhackers&#8209;exec@umich.edu
+                        </a>
+                    </InfoP>
+                </ForCompaniesDiv>
+                <ForCompanies />
+            </Outer>
+        </SubTheme>
+    </>
 );
 
 export default Contact;
