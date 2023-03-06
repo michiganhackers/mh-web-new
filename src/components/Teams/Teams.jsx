@@ -15,7 +15,6 @@ const SubteamCardsDiv = styled.div`
 const SidebarWrapper = styled.div`
     box-shadow: 0px 9.38461px 93.8461px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF;
-    overflow: auto;
     position: fixed;
     left: 0;
     transition: left 0.25s;
@@ -27,7 +26,6 @@ const SidebarWrapper = styled.div`
     ${devices.tablet`
         top: 74px;
     `}
-    bottom: 0;
     overflow-y: auto;
     overflow-x: visible;
     width: 300px;
@@ -96,19 +94,26 @@ const TeamIcon = styled.div`
 `;
 
 const CollapseContainer = styled.div`
+    width: calc(100% + 2rem);
+    display: flex;
+    justify-content: flex-end;
 `;
 
 const CollapseIcon = styled.div`
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-
     background-color: #FFFFFF;
     border: 1px solid #A3A3A3;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(16rem);
+    transition: transform 0.25s;
+    &:hover {
+        cursor: pointer;
+    }
+
+    ${props => props.sidebarOpen && "transform: rotate(180deg);"}
 `;
 
 const useIsMobile = () => {
@@ -203,9 +208,9 @@ const Teams = () => {
                 </ToggleWrapper>
                 :
                 <>
-                    <CollapseContainer onClick={toggleOpen}>
-                        <CollapseIcon>
-                            <FontAwesomeIcon icon={["fas", sidebarOpen ? "arrow-left" : "arrow-right"]}/>
+                    <CollapseContainer>
+                        <CollapseIcon onClick={toggleOpen} sidebarOpen={sidebarOpen}>
+                            <FontAwesomeIcon icon={["fas", "arrow-right"]}/>
                         </CollapseIcon>
                     </CollapseContainer>
                     {teamNames.map((team, i) => 

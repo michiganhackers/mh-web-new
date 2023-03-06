@@ -40,8 +40,7 @@ import {
     faMicrochip,
     faPencilRuler,
     faServer,
-    faArrowRight,
-    faArrowLeft
+    faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
@@ -73,8 +72,7 @@ library.add(
     faServer,
     faAndroid,
     faApple,
-    faArrowRight,
-    faArrowLeft
+    faArrowRight
 );
 
 const App = () => (
