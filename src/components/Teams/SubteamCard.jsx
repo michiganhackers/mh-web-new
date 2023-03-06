@@ -9,7 +9,7 @@ const CardDiv = styled.div`
     flex-direction: ${props => props.even ? "row" : "row-reverse"};
     margin: 1rem 0;
     border-radius: 10px;
-    max-width: 1100px;
+    max-width: 1000px;
     padding: 2rem;
     min-height: 200px;
     ${devices.tablet`
