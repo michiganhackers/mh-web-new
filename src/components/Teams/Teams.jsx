@@ -9,7 +9,7 @@ import BackToTop from "./BackToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SubteamCardsDiv = styled.div`
-    padding: 0 1rem;
+    padding: 0 2rem;
 `;
 
 const SidebarWrapper = styled.div`
@@ -18,10 +18,11 @@ const SidebarWrapper = styled.div`
     position: fixed;
     left: 0;
     transition: left 0.25s;
-    ${props => props.collapse && "left: -275px;"}
+    ${props => props.collapse && "left: calc(-300px + 1.5rem);"}
     height: 100%;
     display: block;
     padding: 1rem;
+    ${props => props.desktop && "padding: 4rem 1rem 1rem;"}
     top: 80px;
     ${devices.tablet`
         top: 74px;
@@ -40,16 +41,20 @@ const SidebarLink = styled.a`
     display: flex;
     align-items: center;
     color: black;
-    padding: 0.5rem;
+    padding: 1rem;
     width: 100%;
     border-radius: 10px;
     transition: background-color 0.25s;
-
     &:hover {
-        background-color: #ddd;
         cursor: pointer;
         color: black;
         text-decoration: none;
+    }
+    &:nth-child(odd):hover {
+        background-color: #ED8246;
+    }
+    &:nth-child(even):hover {
+        background-color: #8DCADF
     }
 `;
 
@@ -94,14 +99,17 @@ const TeamIcon = styled.div`
 `;
 
 const CollapseContainer = styled.div`
-    width: calc(100% + 2rem);
-    display: flex;
-    justify-content: flex-end;
+    position: fixed;
+    left: calc(300px - 1.25rem);
+    transition: left 0.25s;
+    ${props => props.sidebarOpen && "left: 0.25rem;"}
+    top: 100px;
 `;
 
 const CollapseIcon = styled.div`
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
     border-radius: 50%;
     background-color: #FFFFFF;
     border: 1px solid #A3A3A3;
@@ -181,7 +189,7 @@ const Teams = () => {
         <>
             <Navbar />
             {isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
-            <SidebarWrapper collapse={sidebarOpen && !isMobile}>
+            <SidebarWrapper collapse={sidebarOpen && !isMobile} desktop={!isMobile}>
                 {isMobile && sidebarOpen ?
                 <>
                 <ToggleWrapper onClick={toggleOpen}>
@@ -207,23 +215,23 @@ const Teams = () => {
                     <ToggleText>Teams</ToggleText>
                 </ToggleWrapper>
                 :
-                <>
-                    <CollapseContainer>
-                        <CollapseIcon onClick={toggleOpen} sidebarOpen={sidebarOpen}>
-                            <FontAwesomeIcon icon={["fas", "arrow-right"]}/>
-                        </CollapseIcon>
-                    </CollapseContainer>
-                    {teamNames.map((team, i) => 
-                        <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
-                            <TeamIcon>
-                                <FontAwesomeIcon icon={teamIcons[i]}/>
-                            </TeamIcon>
-                            {team}
-                        </SidebarLink>
-                    )}
-                </>
+                teamNames.map((team, i) => 
+                    <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
+                        <TeamIcon>
+                            <FontAwesomeIcon icon={teamIcons[i]}/>
+                        </TeamIcon>
+                        {team}
+                    </SidebarLink>
+                )
             }   
             </SidebarWrapper>
+            {!isMobile && 
+            <CollapseContainer sidebarOpen={sidebarOpen}>
+                <CollapseIcon onClick={toggleOpen} sidebarOpen={sidebarOpen}>
+                    <FontAwesomeIcon icon={["fas", "arrow-left"]}/>
+                </CollapseIcon>
+            </CollapseContainer>
+            }
             <SubteamCardsDiv>
                 {!isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
                 {teams.map((team, i) => 
