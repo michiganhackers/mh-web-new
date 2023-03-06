@@ -51,10 +51,10 @@ const SidebarLink = styled.a`
         text-decoration: none;
     }
     &:nth-child(odd):hover {
-        background-color: #ED8246;
+        background-color: #8DCADF;
     }
     &:nth-child(even):hover {
-        background-color: #8DCADF
+        background-color: #ED8246;
     }
 `;
 
