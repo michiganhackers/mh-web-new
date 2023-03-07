@@ -4,6 +4,7 @@ import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import Question from "./Question.jsx";
 
 import Navbar from "../Navbar.jsx";
+import Footer from "components/Footer.jsx";
 
 const FAQ = () => (
     <>
@@ -69,6 +70,7 @@ const FAQ = () => (
             />
             <br/>
         </SubpageOuter>
+        <Footer />
     </>
 );
 

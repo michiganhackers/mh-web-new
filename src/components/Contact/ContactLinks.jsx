@@ -24,7 +24,7 @@ export const Link = styled.a`
         color: #eee;
     }
 `;
-
+    
 const ContactLinks = ({ LinkComponent = Link }) =>
     <LinksContainer>
         <LinkComponent href={SOCIAL_MEDIA_LINKS.slack} target="_blank" rel="noopener noreferrer">

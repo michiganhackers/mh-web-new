@@ -1,14 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-// import { NavLink } from "react-router-dom";
-import devices from "../utility/MediaQueries.js";
-// import logoUrl from "assets/logo-orange-cropped.png";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
-import ContactLinks, { Link } from "./Contact/ContactLinks";
+import devices from "utility/MediaQueries.js";
+import {SOCIAL_MEDIA_LINKS} from "utility/constants";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const FooterOuter = styled.div`
-    background-color: rgba(238, 95, 48, 1);
+    background-color: #f15d24;
     padding: 3rem;
     ${devices.tablet`
         padding: 3rem 1rem;
@@ -19,11 +16,6 @@ const FooterOuter = styled.div`
 `;
 
 const FooterBody = styled.p`
-    color: white;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1.2em;
-    
     width: min(60%, 600px);
     ${devices.tablet`
         width: min(80%, 600px);
@@ -33,24 +25,58 @@ const FooterBody = styled.p`
     `}
 `;
 
-const ConnectWithUsFooter = styled.h1`
+const ConnectWithUsText = styled.p`
     color: white;
     text-align: center;
     font-weight: 700;
+    font-size: 2rem;
 `;
 
-const CustomLink = styled(Link)`
-  font-size: 3rem;
+const LinksContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100%;
+    min-width: 20rem;
+    margin-bottom: 1rem;
+    ${devices.small`
+        justify-content: space-evenly;
+    `}
+  
 `;
 
+const FooterLink = styled.a`
+    color: white;
+    font-size: 2rem;
+    display: block;
+    &:hover {
+        color: #eee;
+    }
+`;
 
 const Footer = () => (
     <FooterOuter>
         <FooterBody>
-            <ConnectWithUsFooter>
+            <ConnectWithUsText>
                 CONNECT WITH US
-            </ConnectWithUsFooter>
-            <ContactLinks LinkComponent={CustomLink} />
+            </ConnectWithUsText>
+            <LinksContainer>
+                <FooterLink href={SOCIAL_MEDIA_LINKS.slack} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["fab", "slack"]}/>
+                </FooterLink>
+                <FooterLink href={SOCIAL_MEDIA_LINKS.instagram} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["fab", "instagram"]}/>
+                </FooterLink>
+                <FooterLink href={SOCIAL_MEDIA_LINKS.email} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["far", "envelope"]}/>
+                </FooterLink>
+                <FooterLink href={SOCIAL_MEDIA_LINKS.github} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["fab", "github"]} />
+                </FooterLink>
+                <FooterLink href={SOCIAL_MEDIA_LINKS.twitter} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["fab", "twitter"]} />
+                </FooterLink>
+            </LinksContainer>
         </FooterBody>
     </FooterOuter>
 );

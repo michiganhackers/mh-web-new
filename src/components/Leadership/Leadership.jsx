@@ -7,6 +7,7 @@ import CardContainer from "./CardContainer.jsx";
 import devices from "utility/MediaQueries.js";
 
 import leadership from "leadership.json";
+import Footer from "components/Footer";
 
 // TODO: do we really need this?
 const LeadershipWrapper = styled.main`
@@ -172,6 +173,7 @@ function Leadership() {
                     />
                 ))}
             </LeadershipWrapper>
+            <Footer />
         </>
     );
 }
