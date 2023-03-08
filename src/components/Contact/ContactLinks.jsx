@@ -17,11 +17,11 @@ const LinksContainer = styled.div`
 `;
 
 const Link = styled.a`
-    color: white;
+    color: ${props => props.theme.icon};
     font-size: 2rem;
     display: block;
     &:hover {
-        color: #eee;
+        color: ${props => props.theme.iconHover};
     }
 `;
 

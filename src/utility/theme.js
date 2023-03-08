@@ -79,7 +79,7 @@ export const lightTheme = {
                 background2: lightColors.primaryLight,
                 background3: lightColors.primaryDarker,
                 background4: lightColors.primaryDark,
-                background5: lightColors.primaryLightest
+                background5: lightColors.primaryLightest,
             },
         },
 
@@ -139,6 +139,23 @@ export const lightTheme = {
             background: lightColors.secondaryBright,
             heading: lightColors.white,
             text: lightColors.white,
+            icon: lightColors.white,
+            iconHover: lightColors.offBlack,
+        },
+        details: {
+            heading: lightColors.white,
+            svg: {
+                icon: lightColors.white,
+                background1: lightColors.primaryLightest,
+                background2: lightColors.secondaryLight,
+                background3: lightColors.primaryDark,
+                background4: lightColors.primary,
+
+                background5: lightColors.secondaryLight,
+                background6: lightColors.primaryLightest,
+                background7: lightColors.primary,
+                background8: lightColors.secondaryBright,
+            },
         },
     },
 
@@ -154,7 +171,6 @@ export const lightTheme = {
         border: lightColors.offBlack,
     },
 };
-
 
 const darkColors = {
     hackerOrange,

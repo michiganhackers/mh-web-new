@@ -1,13 +1,12 @@
 import React from "react";
 import "utility/fonts.css";
 import Navbar from "components/Navbar.jsx";
-import styled from "styled-components";
-import ForStudents from "components/Contact/ForStudents";
-import ForCompanies from "components/Contact/ForCompanies";
+import styled, { useTheme } from "styled-components";
 import ContactLinks from "components/Contact/ContactLinks";
 import devices from "utility/MediaQueries.js";
 import MailingList from "components/MailingList/MailingList.jsx";
 import { SubTheme } from "ThemeComponents.jsx";
+import { ForStudents, ForCompanies } from "./ContactSVGBackgrounds.jsx";
 
 const Outer = styled.div`
     background-color: ${(props) => props.theme.background};
@@ -70,19 +69,9 @@ const ForStudentsDiv = styled.div`
     `}
 `;
 
-const ForCompaniesDiv = styled.div`
-    padding: 0 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    margin: 0;
-    ${devices.desktop`
-        padding: 0 2rem;
-    `}
+const ForCompaniesDiv = styled(ForStudentsDiv)`
     ${devices.tablet`
         order: 4;
-        padding: 3rem;
     `}
 `;
 
@@ -100,6 +89,54 @@ const InfoP = styled.p`
         font-size: 1rem
     `}
 `;
+
+const StudentSVGContainer = styled.div`
+    min-width: 50%;
+    position: relative;
+    ${devices.tablet`
+        width: 100%;
+        order: 1;
+    `}
+`;
+
+const CompanySVGContainer = styled(StudentSVGContainer)`
+    ${devices.tablet`
+        order: 3;
+    `}
+`;
+const SVGHeading = styled.p`
+    position: absolute;
+    top: 8px;
+    ${(props) => props.alignment}: 24px;
+    color: ${(props) => props.theme.heading};
+    font-family: "Roboto Condensed";
+    font-size: 4vw;
+    font-weight: bold;
+    user-select: none;
+    ${devices.tablet`
+        font-size: 8vw;
+    `}
+`;
+
+function ForStudentsImage() {
+    const { svg: svgTheme } = useTheme();
+    return (
+        <StudentSVGContainer>
+            <img src={ForStudents(svgTheme)} alt="" />
+            <SVGHeading alignment="right">For Students</SVGHeading>
+        </StudentSVGContainer>
+    );
+}
+
+function ForCompaniesImage() {
+    const { svg: svgTheme } = useTheme();
+    return (
+        <CompanySVGContainer>
+            <img src={ForCompanies(svgTheme)} alt="" />
+            <SVGHeading alignment="left">For Companies</SVGHeading>
+        </CompanySVGContainer>
+    );
+}
 
 const Contact = () => (
     <>
@@ -121,34 +158,36 @@ const Contact = () => (
                 </ConnectWithUsOuter>
             </SubTheme>
             <Outer>
-                <ForStudents />
-                <ForStudentsDiv>
-                    <InfoP>
-                        For students interested in participating with Michigan
-                        Hackers, join our Slack workspace and subscribe to our
-                        mailing list to stay in touch with upcoming hack nights,
-                        corporate events, and socials. For any questions, reach
-                        out at -{" "}
-                        <a href="mailto:michiganhackers-exec@umich.edu">
-                            michiganhackers&#8209;exec@umich.edu
-                        </a>
-                    </InfoP>
-                </ForStudentsDiv>
-                <ForCompaniesDiv>
-                    <InfoP>
-                        Michigan Hackers is constantly looking to build mutually
-                        beneficial partnerships with companies. In the past, we
-                        have had events such as engineering panels, technical
-                        workshops, recruiting coffee chats, coding competitions
-                        with companies. For companies interested in sponsoring
-                        and collaborating with Michigan Hackers, please reach
-                        out at -{" "}
-                        <a href="mailto:michiganhackers-exec@umich.edu">
-                            michiganhackers&#8209;exec@umich.edu
-                        </a>
-                    </InfoP>
-                </ForCompaniesDiv>
-                <ForCompanies />
+                <SubTheme name="details">
+                    <ForStudentsImage />
+                    <ForStudentsDiv>
+                        <InfoP>
+                            For students interested in participating with
+                            Michigan Hackers, join our Slack workspace and
+                            subscribe to our mailing list to stay in touch with
+                            upcoming hack nights, corporate events, and socials.
+                            For any questions, reach out at -{" "}
+                            <a href="mailto:michiganhackers-exec@umich.edu">
+                                michiganhackers&#8209;exec@umich.edu
+                            </a>
+                        </InfoP>
+                    </ForStudentsDiv>
+                    <ForCompaniesDiv>
+                        <InfoP>
+                            Michigan Hackers is constantly looking to build
+                            mutually beneficial partnerships with companies. In
+                            the past, we have had events such as engineering
+                            panels, technical workshops, recruiting coffee
+                            chats, coding competitions with companies. For
+                            companies interested in sponsoring and collaborating
+                            with Michigan Hackers, please reach out at -{" "}
+                            <a href="mailto:michiganhackers-exec@umich.edu">
+                                michiganhackers&#8209;exec@umich.edu
+                            </a>
+                        </InfoP>
+                    </ForCompaniesDiv>
+                    <ForCompaniesImage />
+                </SubTheme>
             </Outer>
         </SubTheme>
     </>
