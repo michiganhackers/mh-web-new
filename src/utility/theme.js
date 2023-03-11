@@ -170,6 +170,11 @@ export const lightTheme = {
         opener: lightColors.primary,
         border: lightColors.offBlack,
     },
+
+    pageNotFound: {
+        textAlt: lightColors.primaryDark,
+        heading: lightColors.primaryDark,
+    }
 };
 
 const darkColors = {

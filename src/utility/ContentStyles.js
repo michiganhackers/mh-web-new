@@ -10,6 +10,7 @@ const StaticP = styled.p`
 //mostly the same, just left-aligned text because it's easier to read a left-aligned wall of text
 const CopyP = styled(StaticP)`
     text-align: left;
+    color: ${props => props.theme.text};
 `;
 
 const StaticH1 = styled.h2`
