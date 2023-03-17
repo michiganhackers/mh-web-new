@@ -7,7 +7,7 @@ const Header = styled.h1`
     font-family: "Roboto Condensed";
     font-weight: 900;
     line-height: 0.8;
-    color: #ee5e30;
+    color: ${props => props.theme.heading};
     display: block;
     text-align: center;
     font-size: 8vh;

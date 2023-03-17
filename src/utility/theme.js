@@ -128,7 +128,7 @@ export const lightTheme = {
     },
 
     events: {
-        heading: lightColors.primary,
+        heading: lightColors.primaryDark,
         calendar: {
             heading: lightColors.black,
         },
@@ -160,15 +160,18 @@ export const lightTheme = {
     },
 
     faq: {
-        heading: lightColors.black,
-        text: lightColors.black,
-        // icon showing open state of question
-        svg: {
-            background: lightColors.primaryDark,
-            icon: lightColors.white,
+        heading: lightColors.primaryDark,
+        question: {
+            heading: lightColors.black,
+            text: lightColors.black,
+            // icon showing open state of question
+            svg: {
+                background: lightColors.primaryDark,
+                icon: lightColors.white,
+            },
+            opener: lightColors.primary,
+            border: lightColors.offBlack,
         },
-        opener: lightColors.primary,
-        border: lightColors.offBlack,
     },
 
     pageNotFound: {
