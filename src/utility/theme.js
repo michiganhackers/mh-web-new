@@ -131,6 +131,8 @@ export const lightTheme = {
         heading: lightColors.primaryDark,
         calendar: {
             heading: lightColors.black,
+            text: lightColors.white,
+            background: lightColors.primaryDark,
         },
     },
 
