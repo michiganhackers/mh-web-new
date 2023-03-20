@@ -15,6 +15,9 @@ const SubteamCardsDiv = styled.div`
 const SidebarWrapper = styled.div`
     box-shadow: 0px 9.38461px 93.8461px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF;
+    ${devices.desktop`
+        background-color: #EEEEEE;
+    `}
     position: fixed;
     left: 0;
     transition: left 0.25s;
@@ -22,7 +25,7 @@ const SidebarWrapper = styled.div`
     height: 100%;
     display: block;
     padding: 1rem;
-    ${props => props.desktop && "padding: 4rem 1rem 1rem;"}
+    ${props => props.desktop && "padding: 4rem 1.5em 1rem;"}
     top: 80px;
     ${devices.tablet`
         top: 74px;

@@ -20,6 +20,7 @@ import {
     faLinkedin,
     faAndroid,
     faApple,
+    faGoogleDrive
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -40,7 +41,8 @@ import {
     faMicrochip,
     faPencilRuler,
     faServer,
-    faArrowLeft
+    faArrowLeft,
+    faBook
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
@@ -72,7 +74,9 @@ library.add(
     faServer,
     faAndroid,
     faApple,
-    faArrowLeft
+    faArrowLeft,
+    faGoogleDrive,
+    faBook
 );
 
 const App = () => (

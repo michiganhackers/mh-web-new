@@ -2,6 +2,7 @@ import React from "react";
 import "utility/fonts.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardDiv = styled.div`
     background-color: ${props => props.even ? "#8DCADF" : "#ED8246"};
@@ -107,6 +108,8 @@ const SubteamCard = (props) => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
+                                        <FontAwesomeIcon icon={linkObj.icon} />
+                                        {' '}
                                         {linkObj.title}
                                     </TeamLink>
                                 </TeamLinksLi>

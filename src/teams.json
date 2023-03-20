@@ -6,7 +6,8 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/folders/1PlPixLRjn9CDT63GdWmkxcacbEdhQFWy"
+                "link": "https://drive.google.com/drive/folders/1PlPixLRjn9CDT63GdWmkxcacbEdhQFWy",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fas", "chart-line"]
@@ -18,11 +19,13 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/folders/1rL-LqI_ih4hzIuuYMtx_bmpfQvKAseTG?usp=share_link"
+                "link": "https://drive.google.com/drive/folders/1rL-LqI_ih4hzIuuYMtx_bmpfQvKAseTG?usp=share_link",
+                "icon": ["fab", "google-drive"]
             },
             {
                 "title": "Website",
-                "link": "https://www.mhml.dev/ "
+                "link": "https://www.mhml.dev/",
+                "icon": ["fas", "globe"]
             }
         ],
         "icon": ["fas", "brain"]
@@ -41,7 +44,8 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/u/0/folders/1a3CvnLx8OH4Pf3LFDYIq88SJKEVGoiLl"
+                "link": "https://drive.google.com/drive/u/0/folders/1a3CvnLx8OH4Pf3LFDYIq88SJKEVGoiLl",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fas", "user-tie"]
@@ -53,7 +57,8 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/folders/1nAhapSHnoEPiBJtnAPKucM5tYZEgwFVj?usp=sharing"
+                "link": "https://drive.google.com/drive/folders/1nAhapSHnoEPiBJtnAPKucM5tYZEgwFVj?usp=sharing",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fas", "code-branch"]
@@ -65,11 +70,13 @@
         "links": [
             {
                 "title": "Website Repository",
-                "link": "https://github.com/michiganhackers/mh-web-new"
+                "link": "https://github.com/michiganhackers/mh-web-new",
+                "icon": ["fab", "github"]
             },
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/u/0/folders/1XXNtIT33r1lVLGp5WNn-0KtFJbEhrl_4"
+                "link": "https://drive.google.com/drive/u/0/folders/1XXNtIT33r1lVLGp5WNn-0KtFJbEhrl_4",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fas", "globe"]
@@ -81,7 +88,8 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/folders/1yb6eZLiqsRXjUlm2BJdC5lSNmQ1hCOBD?usp=sharing"
+                "link": "https://drive.google.com/drive/folders/1yb6eZLiqsRXjUlm2BJdC5lSNmQ1hCOBD?usp=sharing",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fas", "microchip"]
@@ -93,15 +101,18 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/u/0/folders/1I4wgwey6OXEUCeg-JOA1FFWz5LnCXsmo "
+                "link": "https://drive.google.com/drive/u/0/folders/1I4wgwey6OXEUCeg-JOA1FFWz5LnCXsmo",
+                "icon": ["fab", "google-drive"]
             },
             {
                 "title": "Slack",
-                "link": "https://michiganhackers.slack.com/archives/C03PC3X76K1"
+                "link": "https://michiganhackers.slack.com/archives/C03PC3X76K1",
+                "icon": ["fab", "slack"]
             },
             {
                 "title": "Onboarding",
-                "link": "https://docs.google.com/document/d/1WREFeSbQS1kIp0ufkN3gWnKTY-c0W7M_/edit?usp=sharing&ouid=109134245836189266476&rtpof=true&sd=true"
+                "link": "https://docs.google.com/document/d/1WREFeSbQS1kIp0ufkN3gWnKTY-c0W7M_/edit?usp=sharing&ouid=109134245836189266476&rtpof=true&sd=true",
+                "icon": ["fas", "book"]
             }
         ],
         "icon": ["fab", "android"]
@@ -113,11 +124,13 @@
         "links": [
             {
                 "title": "Project Respository",
-                "link": "https://github.com/michiganhackers/MStudy"
+                "link": "https://github.com/michiganhackers/MStudy",
+                "icon": ["fab", "github"]
             },
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/u/1/folders/1Hf-rZSPlljamgxkUFgZhmYMpAgE8hTTE"
+                "link": "https://drive.google.com/drive/u/1/folders/1Hf-rZSPlljamgxkUFgZhmYMpAgE8hTTE",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fab", "apple"]
@@ -129,7 +142,8 @@
         "links": [
             {
                 "title": "Google Drive",
-                "link": "https://drive.google.com/drive/folders/18aEjcVZLL7xvDFRZ2IwRzGueyTdNlHmE"
+                "link": "https://drive.google.com/drive/folders/18aEjcVZLL7xvDFRZ2IwRzGueyTdNlHmE",
+                "icon": ["fab", "google-drive"]
             }
         ],
         "icon": ["fas", "pencil-ruler"]
