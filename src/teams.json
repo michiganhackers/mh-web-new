@@ -21,11 +21,6 @@
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/1rL-LqI_ih4hzIuuYMtx_bmpfQvKAseTG?usp=share_link",
                 "icon": ["fab", "google-drive"]
-            },
-            {
-                "title": "Website",
-                "link": "https://www.mhml.dev/",
-                "icon": ["fas", "globe"]
             }
         ],
         "icon": ["fas", "brain"]
