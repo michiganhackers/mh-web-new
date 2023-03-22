@@ -1,48 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
-import {SOCIAL_MEDIA_LINKS} from "utility/constants";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FooterOuter = styled.div`
     background-color: #f15d24;
     padding: 3rem;
-    ${devices.tablet`
-        padding: 3rem 1rem;
-    `}
     display: flex;
     flex-direction: column;
     align-items: center;
-`;
-
-const FooterBody = styled.p`
-    width: min(60%, 600px);
-    ${devices.tablet`
-        width: min(80%, 600px);
-    `}
     ${devices.small`
-        width: min(90%, 600px);
+        padding: 3rem 0.5rem;
     `}
 `;
 
 const ConnectWithUsText = styled.p`
     color: white;
+    font-family: "Roboto Condensed";
     text-align: center;
-    font-weight: 700;
+    font-weight: bold;
     font-size: 2rem;
 `;
 
 const LinksContainer = styled.div`
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 100%;
-    min-width: 20rem;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 50rem;
+    width: 80%;
     ${devices.small`
-        justify-content: space-evenly;
+        width: 100%;
     `}
-  
 `;
 
 const FooterLink = styled.a`
@@ -52,32 +41,49 @@ const FooterLink = styled.a`
     &:hover {
         color: #eee;
     }
+    padding: 0 8px;
 `;
 
 const Footer = () => (
     <FooterOuter>
-        <FooterBody>
-            <ConnectWithUsText>
-                CONNECT WITH US
-            </ConnectWithUsText>
-            <LinksContainer>
-                <FooterLink href={SOCIAL_MEDIA_LINKS.slack} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "slack"]}/>
-                </FooterLink>
-                <FooterLink href={SOCIAL_MEDIA_LINKS.instagram} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "instagram"]}/>
-                </FooterLink>
-                <FooterLink href={SOCIAL_MEDIA_LINKS.email} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["far", "envelope"]}/>
-                </FooterLink>
-                <FooterLink href={SOCIAL_MEDIA_LINKS.github} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "github"]} />
-                </FooterLink>
-                <FooterLink href={SOCIAL_MEDIA_LINKS.twitter} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "twitter"]} />
-                </FooterLink>
-            </LinksContainer>
-        </FooterBody>
+        <ConnectWithUsText>CONNECT WITH US</ConnectWithUsText>
+        <LinksContainer>
+            <FooterLink
+                href={SOCIAL_MEDIA_LINKS.slack}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={["fab", "slack"]} />
+            </FooterLink>
+            <FooterLink
+                href={SOCIAL_MEDIA_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={["fab", "instagram"]} />
+            </FooterLink>
+            <FooterLink
+                href={SOCIAL_MEDIA_LINKS.email}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={["far", "envelope"]} />
+            </FooterLink>
+            <FooterLink
+                href={SOCIAL_MEDIA_LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={["fab", "github"]} />
+            </FooterLink>
+            <FooterLink
+                href={SOCIAL_MEDIA_LINKS.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FontAwesomeIcon icon={["fab", "twitter"]} />
+            </FooterLink>
+        </LinksContainer>
     </FooterOuter>
 );
 
