@@ -49,8 +49,7 @@
         "no-duplicate-imports": "error",
         "no-useless-constructor": "error",
         "curly": "error",
-        "space-before-blocks": ["error", "always"],
-        "valid-jsdoc": ["warn"]
+        "space-before-blocks": ["error", "always"]
     },
     "plugins": ["@babel", "react"],
     "env": {
@@ -58,10 +57,7 @@
     },
     "overrides": [
         {
-            "files": ["*.jsx"],
-            "rules": {
-                "valid-jsdoc": ["warn", {"requireReturn": false, "requireReturnDescription": false, "requireParamType": false}]
-            }
+            "files": ["*.jsx"]
         }
     ]
 }

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { StaticP } from "../../utility/ContentStyles.js";
-import { addEmailFetch } from "./MailingListFetch";
+import { StaticP } from "utility/ContentStyles.js";
 
 const EmailForm = styled.form`
     text-align: center;
@@ -10,65 +9,72 @@ const EmailForm = styled.form`
 `;
 const EmailInputBox = styled.input`
     min-width: 250px;
-    border: #555555 solid 2px;
+    border: 2px solid #555;
+    border-right: 0;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 0 16px;
 `;
 const EmailSubmitButton = styled.input`
-    background-color: #f15d24;
     color: white;
-    border: none;
+    border: 2px solid #555;
+    border-left: 0;
     text-decoration: none;
     padding-top: 3px;
     padding-bottom: 3px;
     cursor: pointer;
-    min-width: 50px;
+    background: rgb(239, 133, 62);
+    width: 60px;
+    height: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    &:hover {
+      background: rgb(222, 103, 63);
+    }
 `;
 
-class MailingList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { address: "", submitted: false };
+export default function MailingList() {
+  const [address, setAddress] = useState("");
+  const [result, setResult] = useState(null);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.addEmailToList = this.addEmailToList.bind(this);
+  async function addEmailToList(e) {
+    e.preventDefault();
+    setResult(null);
+
+    // make email post request
+    const response = await fetch('https://api.michhackers.com/email/add', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: address
+      })
+    });
+
+    // handle error
+    if (response.status !== 200) {
+      setResult(`An error occured: ${response.status} ${response.statusText}`);
+      return;
     }
 
-    addEmailToList(e) {
-        e.preventDefault();
+    // handle successful response
+    setAddress("");
+    setResult("Successfully added!");
+  }
 
-        const payload = {
-            Email: this.state.address,
-        };
-        /**
-         * TODO: refactor when merging with attendance branch, which adds better email error handling.
-         */
-        addEmailFetch(payload);
-
-        this.setState({
-            address: "",
-            submitted: true,
-        });
-    }
-
-    handleChange(event) {
-        this.setState({ address: event.target.value });
-    }
-
-    render() {
-        return (
-            <EmailForm onSubmit={this.addEmailToList}>
-                {this.state.submitted ? (
-                    <StaticP> Successfully Added! </StaticP>
-                ) : null}
-                <EmailInputBox
-                    type="email"
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                    placeholder="michiganhackers@umich.edu"
-                />
-                <EmailSubmitButton type="submit" value="Join" />
-            </EmailForm>
-        );
-    }
+  return (
+    <EmailForm onSubmit={addEmailToList}>
+      {result && <StaticP>{result}</StaticP>}
+      <EmailInputBox
+        type="email"
+        value={address}
+        onChange={e => setAddress(e.target.value)}
+        placeholder="michiganhackers@umich.edu"
+        required
+      />
+      <EmailSubmitButton type="submit" value="Join" />
+    </EmailForm>
+  );
 }
-
-export default MailingList;

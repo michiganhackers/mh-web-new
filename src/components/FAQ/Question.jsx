@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import "../../utility/fonts.css";
-import "../../index.css";
-import { CopyP } from "../../utility/ContentStyles.js";
+import "utility/fonts.css";
+import "index.css";
+import { CopyP } from "utility/ContentStyles.js";
 import PropTypes from "prop-types";
 import list_arrow from "assets/list_arrow.svg";
-import list_arrow_blue from "assets/list_arrow_blue.svg";
 
 //set the size of the icon in pixels
 const LIST_ITEM_ICON_SIZE = 24;
@@ -30,9 +29,6 @@ const Details = styled.details`
     }
     // this enables moving the marker relatively
     position: relative;
-    &:nth-of-type(even) summary::before {
-        background-image: url(${list_arrow_blue});
-    }
     &[open] summary ~ * {
         animation: details-open 0.5s ease-in-out;
     }

@@ -149,12 +149,12 @@ async function convertImage(filename, width, height, type, output) {
     if (!isNaN(width)) {
         if (!isNaN(height)) {
             await image.resize(width, height, {
-                fit: "outside",
+                fit: "inside",
                 withoutEnlargement: true,
             });
         } else {
             await image.resize(width, null, {
-                fit: "outside",
+                fit: "inside",
                 withoutEnlargement: true,
             });
         }

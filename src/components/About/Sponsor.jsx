@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
 
-const SponsorWrapper = styled.article.attrs((props) => ({
+const SponsorWrapper = styled.div.attrs((props) => ({
     tier: props.tier,
 }))`
     flex: 0 ${(props) => props.tier};
@@ -13,6 +13,7 @@ const SponsorWrapper = styled.article.attrs((props) => ({
             case "2":
                 return "225px";
             case "3":
+            case "4":
             default:
                 return "200px";
         }
@@ -32,6 +33,7 @@ const SponsorWrapper = styled.article.attrs((props) => ({
               case "2":
                   return "200px";
               case "3":
+              case "4":
               default:
                   return "150px";
           }
@@ -48,6 +50,7 @@ const SponsorWrapper = styled.article.attrs((props) => ({
               case "2":
                   return "55%";
               case "3":
+              case "4":
               default:
                   return "40%";
           }
@@ -59,6 +62,7 @@ const SponsorWrapper = styled.article.attrs((props) => ({
               case "2":
                   return "100px";
               case "3":
+              case "4":
               default:
                   return "75px";
           }
@@ -77,7 +81,7 @@ const SponsorImage = styled.img`
  * @constructor
  * @param {string} props.url The location of the sponsor's logo
  * @param {string} props.name The name of the sponsor
- * @param {1,2,3} props.tier The sponsor's tier. Determines logo size.
+ * @param {"1","2","3","4"} props.tier The sponsor's tier. Determines logo size.
  *
  */
 const Sponsor = (props) => (
