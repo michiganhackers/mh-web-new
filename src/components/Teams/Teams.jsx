@@ -26,9 +26,8 @@ const SidebarWrapper = styled.div`
     ${props => props.collapse && "left: calc(-300px + 1.5rem);"}
     height: 100%;
     display: block;
-    padding: 1rem;
-    ${props => props.desktop && "padding: 4rem 1.5em 1rem;"}
     top: 80px;
+    padding: 1rem 1.5em 1rem;
     ${devices.tablet`
         top: 74px;
     `}
@@ -39,6 +38,7 @@ const SidebarWrapper = styled.div`
         width: 100%;
         position: static;
         box-shadow: none;
+        padding: 1rem;
     `}
 `;
 
@@ -195,7 +195,7 @@ const Teams = () => {
         <>
             <Navbar />
             {isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
-            <SidebarWrapper collapse={sidebarOpen && !isMobile} desktop={!isMobile}>
+            <SidebarWrapper collapse={sidebarOpen && !isMobile}>
                 {isMobile && sidebarOpen ?
                 <>
                 <ToggleWrapper onClick={toggleOpen}>
@@ -246,7 +246,7 @@ const Teams = () => {
                         team={team}
                         key={i}
                         even={i % 2 === 0}
-                        first={i == 0}
+                        first={i === 0}
                         teamId={teamIds[i]}
                     />
                 )}
