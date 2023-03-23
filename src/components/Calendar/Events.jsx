@@ -3,6 +3,7 @@ import "../../utility/fonts.css";
 import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
 import Calendar from "./Calendar.jsx";
 import Navbar from "../Navbar.jsx";
+import Footer from "components/Footer.jsx";
 
 const CalendarStyle = {
     color: "#F15D24",
@@ -18,6 +19,7 @@ const Events = () => (
                 Export/add our calendar!
             </a>
         </SubpageOuter>
+        <Footer />
     </React.Fragment>
 );
 

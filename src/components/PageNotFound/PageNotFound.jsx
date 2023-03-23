@@ -7,6 +7,7 @@ import { ROUTES } from "../../utility/constants";
 import { OSADistance } from "../../utility/EditDistance";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import Footer from "components/Footer.jsx";
 
 const MessageContainer = styled.div`
     width: 80%;
@@ -50,6 +51,7 @@ const PageNotFound = () => {
                     </CopyP>
                 ) : null}
             </MessageContainer>
+            <Footer />
         </>
     );
 };
