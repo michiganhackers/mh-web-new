@@ -18,6 +18,9 @@ import {
     faTwitter,
     faFacebook,
     faLinkedin,
+    faAndroid,
+    faApple,
+    faGoogleDrive
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -28,7 +31,18 @@ import {
     faBars,
     faAngleUp,
     faCaretRight,
-    faCaretDown
+    faCaretDown,
+    faChartLine,
+    faBrain,
+    faLock,
+    faUserTie,
+    faCodeBranch,
+    faGlobe,
+    faMicrochip,
+    faPencilRuler,
+    faServer,
+    faArrowLeft,
+    faBook
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
@@ -48,7 +62,21 @@ library.add(
     faBars,
     faAngleUp,
     faCaretRight,
-    faCaretDown
+    faCaretDown,
+    faChartLine,
+    faBrain,
+    faLock,
+    faUserTie,
+    faCodeBranch,
+    faGlobe,
+    faMicrochip,
+    faPencilRuler,
+    faServer,
+    faAndroid,
+    faApple,
+    faArrowLeft,
+    faGoogleDrive,
+    faBook
 );
 
 const App = () => (

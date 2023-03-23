@@ -9,78 +9,150 @@ import BackToTop from "./BackToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SubteamCardsDiv = styled.div`
-    padding: 0 1rem;
+    padding: 0 2rem;
 `;
 
 const SidebarWrapper = styled.div`
-    background-color: #eee;
-    overflow: auto;
-`;
-
-const Sidebar = styled.nav`
+    box-shadow: 0px 9.38461px 93.8461px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
+    ${devices.desktop`
+        background-color: #EEEEEE;
+    `}
+    position: fixed;
+    left: 0;
+    transition: left 0.25s;
+    ${props => props.collapse && "left: calc(-300px + 1.5rem);"}
+    height: 100%;
     display: block;
-    padding: 2rem;
+    padding: 1rem;
+    ${props => props.desktop && "padding: 4rem 1.5em 1rem;"}
     top: 80px;
     ${devices.tablet`
         top: 74px;
     `}
-    bottom: 0;
-    position: fixed;
     overflow-y: auto;
+    overflow-x: visible;
     width: 300px;
     ${devices.desktop`
         width: 100%;
         position: static;
-    `}
-`;
-
-const PageLayout = styled.div`
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    ${devices.desktop`
-        display: block;
+        box-shadow: none;
     `}
 `;
 
 const SidebarLink = styled.a`
-    display: block;
+    display: flex;
+    align-items: center;
     color: black;
-    padding: 0.5rem;
+    padding: 1rem;
     width: 100%;
     border-radius: 10px;
     transition: background-color 0.25s;
-
     &:hover {
-        background-color: #ddd;
         cursor: pointer;
         color: black;
         text-decoration: none;
+    }
+    &:nth-child(odd):hover {
+        background-color: #8DCADF;
+    }
+    &:nth-child(even):hover {
+        background-color: #ED8246;
     }
 `;
 
 const SubteamsTitle = styled.h1`
     text-align: center;
     margin: 1rem 0 0;
+    ${devices.desktop`
+        margin: 1rem 0;
+    `}
 `;
 
 const ToggleText = styled.p`
     font-weight: bold;
     font-size: 1.5rem;
+    display: block;
+    margin: 0;
 `;
 
 const ToggleIcon = styled.span`
     font-size: 2rem;
-    display: inline-block;
-    margin: 0.5rem;
+    display: block;
     width: 1rem;
-    height: 1rem;
+    margin-right: 1rem;
 `;
+
+const ToggleWrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+const TeamIcon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+`;
+
+const CollapseContainer = styled.div`
+    position: fixed;
+    left: calc(300px - 1.25rem);
+    transition: left 0.25s;
+    ${props => props.sidebarOpen && "left: 0.25rem;"}
+    top: 100px;
+`;
+
+const CollapseIcon = styled.div`
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #A3A3A3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.25s;
+    &:hover {
+        cursor: pointer;
+    }
+
+    ${props => props.sidebarOpen && "transform: rotate(180deg);"}
+`;
+
+const useIsMobile = () => {
+    const getIsMobile = () => window.innerWidth <= 992;
+    const [isMobile, setIsMobile] = useState(getIsMobile());
+
+    useEffect(() => {
+        const onResize = () => {
+            setIsMobile(getIsMobile());
+        };
+
+        window.addEventListener("resize", onResize);
+    
+        return () => {
+            window.removeEventListener("resize", onResize);
+        };
+    }, []);
+    
+    return isMobile;
+};
 
 const Teams = () => {
     const teamNames = teams.map(team => team.name);
+    const teamIcons = teams.map(team => team.icon);
     const teamIds = teamNames.map(name => name.replaceAll(" ", "_").toLowerCase());
     const cardsRef = useRef([]);
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         cardsRef.current = cardsRef.current.slice(0, teams.length);
@@ -119,28 +191,52 @@ const Teams = () => {
     return (
         <>
             <Navbar />
-            <PageLayout>
-            <SidebarWrapper>
-                <Sidebar>
-                {sidebarOpen ?
+            {isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
+            <SidebarWrapper collapse={sidebarOpen && !isMobile} desktop={!isMobile}>
+                {isMobile && sidebarOpen ?
                 <>
-                <ToggleText onClick={toggleOpen}>
-                <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-down"]}/></ToggleIcon>Teams</ToggleText>
+                <ToggleWrapper onClick={toggleOpen}>
+                    <ToggleIcon>
+                        <FontAwesomeIcon icon={["fas", "caret-down"]}/>
+                    </ToggleIcon>
+                    <ToggleText>Teams</ToggleText>
+                </ToggleWrapper>
                     {teamNames.map((team, i) => 
                         <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
+                            <TeamIcon>
+                                <FontAwesomeIcon icon={teamIcons[i]}/>
+                            </TeamIcon>
                             {team}
                         </SidebarLink>
                     )}
                 </>
+                : isMobile && !sidebarOpen ?
+                <ToggleWrapper onClick={toggleOpen}>
+                    <ToggleIcon>
+                        <FontAwesomeIcon icon={["fas", "caret-right"]}/>
+                    </ToggleIcon>
+                    <ToggleText>Teams</ToggleText>
+                </ToggleWrapper>
                 :
-                <ToggleText onClick={toggleOpen}>
-                    <ToggleIcon><FontAwesomeIcon icon={["fas", "caret-right"]} onClick={toggleOpen} /></ToggleIcon>Teams
-                </ToggleText>
-                }
-                </Sidebar>
+                teamNames.map((team, i) => 
+                    <SidebarLink key={i} href={'#' + teamIds[i]} onClick={e => handleClick(e, i)}>
+                        <TeamIcon>
+                            <FontAwesomeIcon icon={teamIcons[i]}/>
+                        </TeamIcon>
+                        {team}
+                    </SidebarLink>
+                )
+            }   
             </SidebarWrapper>
+            {!isMobile && 
+            <CollapseContainer sidebarOpen={sidebarOpen}>
+                <CollapseIcon onClick={toggleOpen} sidebarOpen={sidebarOpen}>
+                    <FontAwesomeIcon icon={["fas", "arrow-left"]}/>
+                </CollapseIcon>
+            </CollapseContainer>
+            }
             <SubteamCardsDiv>
-                <SubteamsTitle>Meet Our Teams</SubteamsTitle>
+                {!isMobile && <SubteamsTitle>Meet Our Teams</SubteamsTitle>}
                 {teams.map((team, i) => 
                     <SubteamCard
                         innerRef={el => cardsRef.current[i] = el}
@@ -152,7 +248,6 @@ const Teams = () => {
                     />
                 )}
             </SubteamCardsDiv>
-            </PageLayout>
             <BackToTop />
         </>
     );

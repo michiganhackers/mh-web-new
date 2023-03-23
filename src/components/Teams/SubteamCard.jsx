@@ -2,6 +2,7 @@ import React from "react";
 import "utility/fonts.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardDiv = styled.div`
     background-color: ${props => props.even ? "#8DCADF" : "#ED8246"};
@@ -9,7 +10,7 @@ const CardDiv = styled.div`
     flex-direction: ${props => props.even ? "row" : "row-reverse"};
     margin: 1rem 0;
     border-radius: 10px;
-    max-width: 1100px;
+    max-width: 1000px;
     padding: 2rem;
     min-height: 200px;
     ${devices.tablet`
@@ -107,6 +108,8 @@ const SubteamCard = (props) => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
+                                        <FontAwesomeIcon icon={linkObj.icon} />
+                                        {' '}
                                         {linkObj.title}
                                     </TeamLink>
                                 </TeamLinksLi>
