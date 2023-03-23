@@ -1,3 +1,9 @@
+#!/bin/bash
+
+set -eou pipefail
+
+# Deployment script for the Michigan Hackers website
+
 # Before deployment:
 # 1. Obtain the .env api keys from a previous lead
 # 2. Install the awscli package
@@ -5,10 +11,10 @@
 # 4. Follow the instructions in this script
 
 branch=$(git rev-parse --abbrev-ref HEAD)
-if [ $branch != dev ]
+if [ "$branch" != dev ]
 then
     while true; do
-    read -p "You're not on branch dev. Are you sure you want to proceed? [y/n]: " yn
+    read -rp "You're not on branch dev. Are you sure you want to proceed? [y/n]: " yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit 1;;
@@ -17,15 +23,13 @@ then
 done
 fi
 echo Linting...
-npm run lint
-if [ $? -ne 0 ]
+if ! npm run lint;
 then
     echo "Lint failed. Aborting."
     exit 1
 fi
 echo Building...
-npm run build
-if [ $? -ne 0 ]
+if ! npm run build;
 then
     echo "Build failed. Aborting."
     exit 1
@@ -46,15 +50,15 @@ echo Contact the web team for more details.
 echo Leave \'Default region name\' and \'Default output format\' blank.
 aws configure
 echo Current contents of bucket:
-aws s3 ls s3://michhackers.com
-if [ $? -ne 0 ]
+
+if ! aws s3 ls s3://michhackers.com;
 then
     echo "Could not connect to AWS. Check your credentials."
     exit 1
 fi
 echo Preparing to synchronizing build.
 while true; do
-    read -p "Are you sure you want to deploy? This cannot be undone. [y/n]: " yn
+    read -rp "Are you sure you want to deploy? This cannot be undone. [y/n]: " yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit 1;;
