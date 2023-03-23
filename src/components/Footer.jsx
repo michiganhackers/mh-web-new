@@ -4,7 +4,12 @@ import devices from "utility/MediaQueries.js";
 import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const FooterOuter = styled.div`
+const FooterOuter = styled.footer`
+    // Used with min-height: 100vh in #root to make this work
+    // See https://stackoverflow.com/a/72624859
+    position: sticky;
+    top: 100%;
+
     background-color: #f15d24;
     padding: 3rem;
     display: flex;
