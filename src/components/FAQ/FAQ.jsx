@@ -2,8 +2,8 @@ import React from "react";
 import "utility/fonts.css";
 import SubpageOuter from "components/SubpageOuter/SubpageOuter.jsx";
 import Question from "components/FAQ/Question.jsx";
-
 import Navbar from "components/Navbar.jsx";
+import Footer from "components/Footer.jsx";
 
 const FAQ = () => (
     <>
@@ -60,6 +60,7 @@ const FAQ = () => (
             />
             <br/>
         </SubpageOuter>
+        <Footer />
     </>
 );
 

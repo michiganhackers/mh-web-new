@@ -7,6 +7,7 @@ import ForCompanies from "components/Contact/ForCompanies";
 import ContactLinks from "components/Contact/ContactLinks";
 import devices from 'utility/MediaQueries.js';
 import MailingList from "components/MailingList/MailingList.jsx";
+import Footer from "components/Footer";
 
 const Outer = styled.div`
     display: grid;
@@ -131,6 +132,7 @@ const Contact = () => (
             </ForCompaniesDiv>
             <ForCompanies />
         </Outer>
+        <Footer />
     </React.Fragment>
 );
 

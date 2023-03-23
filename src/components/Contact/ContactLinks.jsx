@@ -16,7 +16,7 @@ const LinksContainer = styled.div`
     `}
 `;
 
-const Link = styled.a`
+export const Link = styled.a`
     color: white;
     font-size: 2rem;
     display: block;
@@ -24,24 +24,24 @@ const Link = styled.a`
         color: #eee;
     }
 `;
-
-const ContactLinks = () =>
+    
+const ContactLinks = ({ LinkComponent = Link }) =>
     <LinksContainer>
-        <Link href={SOCIAL_MEDIA_LINKS.slack} target="_blank" rel="noopener noreferrer">
+        <LinkComponent href={SOCIAL_MEDIA_LINKS.slack} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "slack"]}/>
-        </Link>
-        <Link href={SOCIAL_MEDIA_LINKS.instagram} target="_blank" rel="noopener noreferrer">
+        </LinkComponent>
+        <LinkComponent href={SOCIAL_MEDIA_LINKS.instagram} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "instagram"]}/>
-        </Link>
-        <Link href={SOCIAL_MEDIA_LINKS.email} target="_blank" rel="noopener noreferrer">
+        </LinkComponent>
+        <LinkComponent href={SOCIAL_MEDIA_LINKS.email} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["far", "envelope"]}/>
-        </Link>
-        <Link href={SOCIAL_MEDIA_LINKS.github} target="_blank" rel="noopener noreferrer">
+        </LinkComponent>
+        <LinkComponent href={SOCIAL_MEDIA_LINKS.github} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "github"]} />
-        </Link>
-        <Link href={SOCIAL_MEDIA_LINKS.twitter} target="_blank" rel="noopener noreferrer">
+        </LinkComponent>
+        <LinkComponent href={SOCIAL_MEDIA_LINKS.twitter} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "twitter"]} />
-        </Link>
+        </LinkComponent>
     </LinksContainer>
 ;
 

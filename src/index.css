@@ -29,3 +29,8 @@ body {
         transform: translateX(-32px);
     }
 }
+
+#root {
+    /* Makes the footer work easily */
+    min-height: 100vh;
+}

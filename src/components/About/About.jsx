@@ -11,6 +11,7 @@ import about_bg_6x1_mirror from "assets/about_bg_6x1_mirror.svg";
 
 import Navbar from "components/Navbar";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
+import Footer from "components/Footer";
 
 const AboutColor1 = "#8dcadf";
 const AboutColor2 = "#f38a63";
@@ -151,6 +152,7 @@ const About = () => (
         <MailingList />
         <ClubImagesCarousel />
         <Sponsors />
+        <Footer />
     </>
 );
 
