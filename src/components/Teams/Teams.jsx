@@ -7,12 +7,14 @@ import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
 import BackToTop from "./BackToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footer from "components/Footer.jsx";
 
 const SubteamCardsDiv = styled.div`
     padding: 0 2rem;
 `;
 
 const SidebarWrapper = styled.div`
+    z-index: 9;
     box-shadow: 0px 9.38461px 93.8461px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF;
     ${devices.desktop`
@@ -102,6 +104,7 @@ const TeamIcon = styled.div`
 `;
 
 const CollapseContainer = styled.div`
+    z-index: 10;
     position: fixed;
     left: calc(300px - 1.25rem);
     transition: left 0.25s;
@@ -249,6 +252,7 @@ const Teams = () => {
                 )}
             </SubteamCardsDiv>
             <BackToTop />
+            <Footer />
         </>
     );
 };
