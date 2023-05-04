@@ -219,25 +219,38 @@ export const darkTheme = {
     icon: darkColors.white,
 
     home: {
+        heading: darkColors.white,
         text: darkColors.white,
         link: darkColors.white,
+        linkHover: darkColors.offBlack,
+        linkActive: darkColors.offBlack,
         icon: darkColors.white,
     },
 
     navbar: {
+        background: darkColors.hackerOrange,
         text: darkColors.white,
         link: darkColors.white,
+        logo: darkColors.white,
+        logoHover: darkColors.offBlack,
         linkActive: darkColors.offBlack,
-        linkHover: darkColors.secondary,
+        linkHover: darkColors.offBlack,
+        border: darkColors.white,
     },
 
     about: {
-        svg: {
-            headingBackground: darkColors.primaryLight,
-        },
         mission: {
             heading: darkColors.white,
             text: darkColors.white,
+            background: darkColors.secondary,
+            backgroundAlt: darkColors.primaryLightest,
+            svg: {
+                headingBackground: darkColors.secondary,
+                background2: darkColors.primaryLight,
+                background3: darkColors.primaryDarker,
+                background4: darkColors.primaryDark,
+                background5: darkColors.primaryLightest,
+            },
         },
 
         sponsors: {
@@ -247,48 +260,94 @@ export const darkTheme = {
     },
 
     leadership: {
+        heading: darkColors.white,
         text: darkColors.white,
-        icon: darkColors.white,
 
         tab: {
-            backgroundActive: darkColors.primaryLight,
-            backgroundHidden: darkColors.secondaryLight,
+            background: darkColors.primaryLight,
+            backgroundAlt: darkColors.secondary,
         },
 
-        lead: {
-            background: darkColors.primary,
+        leads: {
+            icon: darkColors.white,
+            background: darkColors.primaryLight,
+            linkHover: darkColors.offBlack,
+            border: darkColors.white,
         },
     },
 
     teams: {
-        background1: darkColors.primaryLight,
-        background2: darkColors.secondaryLight,
-        text: darkColors.white,
+        icon: darkColors.white,
+        backToTop: {
+            background: darkColors.primaryLight,
+        },
+        cards: {
+            heading: darkColors.white,
+            text: darkColors.white,
+            link: darkColors.offBlack,
+            background: darkColors.primaryLight,
+            backgroundAlt: darkColors.secondaryLight,
+        },
         sidebar: {
-            background: darkColors.gray,
-            heading: darkColors.offBlack,
-            text: darkColors.black,
+            background: darkColors.lightGray,
+            heading: darkColors.black,
+            link: darkColors.black,
+            linkHover: darkColors.gray,
+            backgroundHover: darkColors.gray,
         },
     },
 
     events: {
-        heading: darkColors.primary,
+        heading: darkColors.primaryDark,
         calendar: {
             heading: darkColors.black,
+            text: darkColors.white,
+            background: darkColors.primaryDark,
         },
     },
 
     contact: {
         links: {
             background: darkColors.secondaryBright,
+            heading: darkColors.white,
             text: darkColors.white,
+            icon: darkColors.white,
+            iconHover: darkColors.offBlack,
+        },
+        details: {
+            heading: darkColors.white,
+            svg: {
+                icon: darkColors.white,
+                background1: darkColors.primaryLightest,
+                background2: darkColors.secondaryLight,
+                background3: darkColors.primaryDark,
+                background4: darkColors.primary,
+
+                background5: darkColors.secondaryLight,
+                background6: darkColors.primaryLightest,
+                background7: darkColors.primary,
+                background8: darkColors.secondaryBright,
+            },
         },
     },
 
     faq: {
-        text: darkColors.black,
-        // icon showing open state of question
-        opener: darkColors.primary,
-        border: darkColors.black,
+        heading: darkColors.primaryDark,
+        question: {
+            heading: darkColors.black,
+            text: darkColors.black,
+            // icon showing open state of question
+            svg: {
+                background: darkColors.primaryDark,
+                icon: darkColors.white,
+            },
+            opener: darkColors.primary,
+            border: darkColors.offBlack,
+        },
     },
+
+    pageNotFound: {
+        textAlt: darkColors.primaryDark,
+        heading: darkColors.primaryDark,
+    }
 };
