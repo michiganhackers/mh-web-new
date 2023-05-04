@@ -2,8 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
 /**
- * Context with the current theme name and a function to switch to the next theme
- * @type {React.Context<!{theme: string, cycleTheme: function}>}
+ * Context with the current theme name, available themes, and a setter
+ * @type {React.Context<!{theme: string, themeNames: string[], setTheme: function}>}
  */
 const ThemeNameContext = createContext(null);
 
@@ -24,31 +24,53 @@ function Theme({ themes, children }) {
         themes.map((theme) => [theme.name, theme])
     );
     const themeNames = themes.map((theme) => theme.name);
-    // use the first theme as the default
-    const [theme, setTheme] = useState(themes[0].name);
+    // use the first theme as the default unless the user has a dark theme
+    const [theme, setTheme] = useState(() => {
+        if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)")
+        ) {
+            return "dark";
+        }
+        return themes[0].name;
+    });
+    // track whether the user has changed the theme, otherwise sync with system theme
+    const [hasUserSetTheme, setHasUserSetTheme] = useState(false);
     // load the initial value of theme from localstorage
     useEffect(() => {
         const savedTheme = window.localStorage.getItem("theme");
         if (savedTheme !== theme && Object.hasOwn(themeMap, savedTheme)) {
             setTheme(savedTheme);
+            setHasUserSetTheme(true);
         }
     }, []);
-    // every time the theme changes, save it to localstorage
+    // sync light vs dark mode with system theme only if the user has not set the theme
     useEffect(() => {
-        window.localStorage.setItem("theme", theme);
-    }, [theme]);
+        if (!hasUserSetTheme && window.matchMedia) {
+            const handlePrefChange = (event) =>
+                event.matches ? setTheme("dark") : setTheme("light");
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", handlePrefChange);
+            return window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .removeEventListener("change", handlePrefChange);
+        }
+    }, [hasUserSetTheme]);
+    const userSetTheme = (name) => {
+        if (themeNames.includes(name)) {
+            // only save theme if the user intentionally sets it
+            window.localStorage.setItem("theme", name);
+            setTheme(name);
+            setHasUserSetTheme(true);
+        }
+    };
     return (
         <ThemeNameContext.Provider
             value={{
                 theme,
-                cycleTheme: () =>
-                    setTheme(
-                        (prevTheme) =>
-                            themeNames[
-                                (themeNames.indexOf(prevTheme) + 1) %
-                                    themeNames.length
-                            ]
-                    ),
+                themeNames,
+                setTheme: userSetTheme,
             }}
         >
             <ThemeProvider theme={themeMap[theme]}>{children}</ThemeProvider>
@@ -79,7 +101,9 @@ function SubTheme({ name, children }) {
         if (Object.hasOwn(outerTheme, name)) {
             Object.assign(newTheme, outerTheme[name]);
         } else {
-            console.warn(`Group ${name} does not exist on theme ${outerTheme.name}`);
+            console.warn(
+                `Group ${name} does not exist on theme ${outerTheme.name}`
+            );
         }
         return newTheme;
     };
