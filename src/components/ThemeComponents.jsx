@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { ThemeProvider, useTheme } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
 /**
  * Context with the current theme name and a function to switch to the next theme
