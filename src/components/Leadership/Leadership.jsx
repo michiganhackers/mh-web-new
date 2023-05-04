@@ -5,7 +5,7 @@ import Navbar from "components/Navbar.jsx";
 import { NavLink, useLocation } from "react-router-dom";
 import CardContainer from "./CardContainer.jsx";
 import devices from "utility/MediaQueries.js";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 import leadership from "leadership.json";
 

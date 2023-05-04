@@ -32,7 +32,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 import { darkTheme, lightTheme } from "./utility/theme.js";
-import { Theme } from "./ThemeComponents.jsx";
+import { Theme } from "./components/ThemeComponents.jsx";
 
 library.add(
     faGithub,

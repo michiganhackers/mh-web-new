@@ -7,7 +7,7 @@ import SubteamCard from "components/Teams/SubteamCard.jsx";
 import devices from "utility/MediaQueries.js";
 import BackToTop from "./BackToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const SubteamCardsDiv = styled.div`
     padding: 0 1rem;

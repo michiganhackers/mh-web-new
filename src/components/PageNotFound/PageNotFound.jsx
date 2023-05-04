@@ -7,7 +7,7 @@ import { ROUTES } from "utility/constants";
 import { OSADistance } from "utility/EditDistance";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const MessageContainer = styled.div`
     width: 80%;

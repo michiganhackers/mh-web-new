@@ -5,7 +5,7 @@ import devices from "utility/MediaQueries.js";
 import SpecialNavbar from "components/SpecialNavbar.jsx";
 import logoUrl from "assets/logo-orange-cropped.png";
 import NewPolygonCanvas from "components/NewPolygonCanvas.jsx";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const HomeBackgroundOuter = styled.div`
     position: relative;

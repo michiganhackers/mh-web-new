@@ -6,7 +6,7 @@ import MailingList from "components/MailingList/MailingList.jsx";
 import devices from "utility/MediaQueries.js";
 import Navbar from "components/Navbar.jsx";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 import { Background2x1, Background6x1 } from "./AboutSVGBackgrounds.jsx";
 
 const AboutWrapper = styled.main`

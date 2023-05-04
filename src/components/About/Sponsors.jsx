@@ -13,7 +13,7 @@ import NitsLogo from "assets/nits.png";
 import OracleLogo from "assets/oracle.png";
 import SusquehannaLogo from "assets/susquehanna.png";
 import Sponsor from "./Sponsor.jsx";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const Wrapper = styled.div`
     width: 100%;

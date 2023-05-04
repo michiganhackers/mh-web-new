@@ -5,7 +5,7 @@ import styled, { useTheme } from "styled-components";
 import ContactLinks from "components/Contact/ContactLinks";
 import devices from "utility/MediaQueries.js";
 import MailingList from "components/MailingList/MailingList.jsx";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 import { ForStudents, ForCompanies } from "./ContactSVGBackgrounds.jsx";
 
 const Outer = styled.div`

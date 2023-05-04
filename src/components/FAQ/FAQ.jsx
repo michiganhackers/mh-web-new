@@ -4,7 +4,7 @@ import SubpageOuter from "components/SubpageOuter/SubpageOuter.jsx";
 import Question from "components/FAQ/Question.jsx";
 
 import Navbar from "components/Navbar.jsx";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const FAQ = () => (
     <>

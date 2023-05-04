@@ -3,7 +3,7 @@ import "utility/fonts.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SubTheme } from "ThemeComponents.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const ButtonWrapper = styled.a`
     display: none;
