@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import $ from "jquery";
 import FSS from "utility/geometryangle.js";
+import { useTheme } from "styled-components";
 
 /**
  * Get window size and rerender on size changes
@@ -23,6 +24,7 @@ function useWindowSize() {
 function NewPolygonCanvas() {
     const divRef = useRef(null);
     const [windowWidth, windowHeight] = useWindowSize();
+    const {geometry: geometryTheme} = useTheme();
     useEffect(() => {
         // remove existing canvas elements so they can be garbage collected
         for (const child of divRef.current.children) {
@@ -53,9 +55,9 @@ function NewPolygonCanvas() {
                 xRange: 0.8,
                 yRange: 0.4,
                 zRange: 3.0,
-                ambient: "rgb(255, 140, 0)",
-                diffuse: "rgb(255, 255, 0)",
-                background: "rgb(255, 0, 0)",
+                ambient: geometryTheme.ambient,
+                diffuse: geometryTheme.diffuse,
+                background: geometryTheme.background,
                 speed: 0.0002,
                 fluctuationSpeed: 0.2,
                 fluctuationIntensity: 0,

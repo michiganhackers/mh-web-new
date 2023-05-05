@@ -55,6 +55,11 @@ export const lightTheme = {
         linkHover: lightColors.offBlack,
         linkActive: lightColors.offBlack,
         icon: lightColors.white,
+        geometry: {
+            ambient: "rgb(255, 140, 0)",
+            diffuse: "rgb(255, 255, 0)",
+            background: "rgb(255, 0, 0)",
+        }
     },
 
     navbar: {
@@ -183,26 +188,28 @@ export const lightTheme = {
 };
 
 const darkColors = {
-    hackerOrange,
-    primary: "#ff774a",
+    hackerOrange: "#c74421",
+    primary: "#c74421",
 
-    primaryDark: "#ee5f30",
-    primaryDarker: "#c74421",
+    primaryDark: "#9b341a",
+    primaryDarker: "#852d15",
 
-    primaryLight: "#ed8246",
-    primaryLighter: "#f18048",
-    primaryLightest: "#f38a63",
-    primaryPale: "#ffaf92",
+    primaryLight: "#c75739",
+    primaryLighter: "#d06448",
+    primaryLightest: "#d36e53",
+    primaryPale: "#c58978",
 
-    secondary: "#8dcadf",
-    secondaryBright: "#59caf1",
-    secondaryLight: "#a9d2de",
-    secondaryLighter: "#c8e4dd",
+    secondary: "#174e75",
+    secondaryBright: "#307aa8",
+    secondaryLight: "#406388",
+    secondaryLighter: "#7093be",
 
-    gray: "#d9d9d9",
+    gray: "#595959",
+    lightGray: "#7c7c7c",
+    darkGray: "#3b3b3b",
     white: "#fff",
     black: "#000",
-    offBlack: "#212529",
+    offBlack: "#252020",
 };
 
 /**
@@ -212,7 +219,7 @@ const darkColors = {
  */
 export const darkTheme = {
     name: "dark",
-    background: darkColors.black,
+    background: darkColors.offBlack,
     text: darkColors.white,
     heading: darkColors.white,
     link: darkColors.secondaryBright,
@@ -225,6 +232,11 @@ export const darkTheme = {
         linkHover: darkColors.offBlack,
         linkActive: darkColors.offBlack,
         icon: darkColors.white,
+        geometry: {
+            ambient: "rgb(66,37,0)",
+            diffuse: "rgb(168,168,4)",
+            background: "rgb(140,4,4)",
+        }
     },
 
     navbar: {
@@ -255,6 +267,7 @@ export const darkTheme = {
 
         sponsors: {
             background: darkColors.secondary,
+            backgroundAlt: "#c3d1d7",
             border: darkColors.white,
         },
     },
@@ -289,11 +302,11 @@ export const darkTheme = {
             backgroundAlt: darkColors.secondaryLight,
         },
         sidebar: {
-            background: darkColors.lightGray,
-            heading: darkColors.black,
-            link: darkColors.black,
-            linkHover: darkColors.gray,
-            backgroundHover: darkColors.gray,
+            background: darkColors.darkGray,
+            heading: darkColors.white,
+            link: darkColors.white,
+            linkHover: darkColors.white,
+            backgroundHover: darkColors.lightGray,
         },
     },
 
@@ -334,15 +347,15 @@ export const darkTheme = {
     faq: {
         heading: darkColors.primaryDark,
         question: {
-            heading: darkColors.black,
-            text: darkColors.black,
+            heading: darkColors.white,
+            text: darkColors.white,
             // icon showing open state of question
             svg: {
                 background: darkColors.primaryDark,
                 icon: darkColors.white,
             },
             opener: darkColors.primary,
-            border: darkColors.offBlack,
+            border: darkColors.white,
         },
     },
 
