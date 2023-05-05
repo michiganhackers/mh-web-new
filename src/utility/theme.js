@@ -88,6 +88,15 @@ export const lightTheme = {
             },
         },
 
+        mailing: {
+            text: lightColors.black,
+            textAlt: lightColors.white,
+            background: lightColors.white,
+            backgroundAlt: lightColors.primaryLight,
+            backgroundAltHover: lightColors.primaryDark,
+            border: lightColors.black,
+        },
+
         sponsors: {
             background: lightColors.secondary,
             border: lightColors.white,
@@ -148,6 +157,15 @@ export const lightTheme = {
             text: lightColors.white,
             icon: lightColors.white,
             iconHover: lightColors.offBlack,
+
+            mailing: {
+                text: lightColors.black,
+                textAlt: lightColors.white,
+                background: lightColors.white,
+                backgroundAlt: lightColors.primaryLight,
+                backgroundAltHover: lightColors.primaryDark,
+                border: lightColors.black,
+            },
         },
         details: {
             heading: lightColors.white,
@@ -265,6 +283,15 @@ export const darkTheme = {
             },
         },
 
+        mailing: {
+            text: darkColors.white,
+            textAlt: darkColors.white,
+            background: darkColors.black,
+            backgroundAlt: darkColors.primaryLight,
+            backgroundAltHover: darkColors.primaryDark,
+            border: darkColors.white,
+        },
+
         sponsors: {
             background: darkColors.secondary,
             backgroundAlt: "#c3d1d7",
@@ -326,6 +353,15 @@ export const darkTheme = {
             text: darkColors.white,
             icon: darkColors.white,
             iconHover: darkColors.offBlack,
+
+            mailing: {
+                text: darkColors.white,
+                textAlt: darkColors.white,
+                background: darkColors.black,
+                backgroundAlt: darkColors.primaryLight,
+                backgroundAltHover: darkColors.primary,
+                border: darkColors.white,
+            },
         },
         details: {
             heading: darkColors.white,

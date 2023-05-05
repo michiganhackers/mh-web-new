@@ -154,7 +154,9 @@ const Contact = () => (
                         updates from us detailing upcoming events, tech talks,
                         hackathons, and news.
                     </ConnectWithUsBody>
-                    <MailingList />
+                    <SubTheme name="mailing">
+                        <MailingList />
+                    </SubTheme>
                 </ConnectWithUsOuter>
             </SubTheme>
             <Outer>

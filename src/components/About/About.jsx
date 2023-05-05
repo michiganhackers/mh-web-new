@@ -172,7 +172,9 @@ const About = () => (
                     from us detailing upcoming events, tech talks, hackathons,
                     and news.
                 </MailingListText>
-                <MailingList />
+                <SubTheme name="mailing">
+                    <MailingList />
+                </SubTheme>
                 <ClubImagesCarousel />
                 <Sponsors />
             </AboutWrapper>
