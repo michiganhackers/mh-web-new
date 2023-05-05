@@ -1,16 +1,27 @@
 import React from "react";
 import { mount } from "enzyme";
 import Question from "./Question";
-import { CopyP } from "../../utility/ContentStyles";
+import { CopyP } from "utility/ContentStyles";
+import { ThemeProvider } from "styled-components";
 
 describe("<Question />", () => {
     it("renders without crashing", () => {
-        mount(<Question question="do I crash?" answer={"hopefully not"} />);
+        mount(
+            <ThemeProvider theme={{ svg: {} }}>
+                <Question
+                    question="do I crash?"
+                    answer={"hopefully not"}
+                    theme={{ svg: {} }}
+                />
+            </ThemeProvider>
+        );
     });
 
     it("renders a question", () => {
         const wrapper = mount(
-            <Question question="do I work?" answer={"hopefully yes"} />
+            <ThemeProvider theme={{ svg: {} }}>
+                <Question question="do I work?" answer={"hopefully yes"} />
+            </ThemeProvider>
         );
         expect(
             wrapper.containsMatchingElement(<summary>do I work?</summary>)
@@ -22,10 +33,12 @@ describe("<Question />", () => {
 
     it("renders a multiline q/a", () => {
         const wrapper = mount(
-            <Question
-                question="do I work?"
-                answer={"hopefully yes\n or else\n someone will be unhappy"}
-            />
+            <ThemeProvider theme={{ svg: {} }}>
+                <Question
+                    question="do I work?"
+                    answer={"hopefully yes\n or else\n someone will be unhappy"}
+                />
+            </ThemeProvider>
         );
         expect(
             wrapper.containsMatchingElement(<summary>do I work?</summary>)

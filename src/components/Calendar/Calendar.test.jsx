@@ -8,5 +8,5 @@ it("fetches correctly", () => {
 });
 
 it("renders without crashing", () => {
-    mount(<Calendar />);
+    mount(<Calendar theme={{}} />);
 });
