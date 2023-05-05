@@ -42,6 +42,7 @@ export const lightTheme = {
     // default colors for this theme
     //  all unset values in subgroups will default to these
     name: "light",
+    nameIcon: "sun",
     background: lightColors.white,
     text: lightColors.black,
     heading: lightColors.black,
@@ -237,6 +238,7 @@ const darkColors = {
  */
 export const darkTheme = {
     name: "dark",
+    nameIcon: "moon",
     background: darkColors.offBlack,
     text: darkColors.white,
     heading: darkColors.white,

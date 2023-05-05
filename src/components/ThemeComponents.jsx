@@ -58,11 +58,21 @@ function Theme({ themes, children }) {
                 .removeEventListener("change", handlePrefChange);
         }
     }, [hasUserSetTheme]);
+    // when the theme changes, update the body background and set up the transition reset
+    //  so we get a cool transition effect
     useEffect(() => {
+        const removeGlobalTransition = setTimeout(
+            () => document.body.classList.remove("transition-all"),
+            2000
+        );
         document.body.style.backgroundColor = themeMap[theme].background;
-        return () => document.body.style.backgroundColor = null;
+        return () => {
+            document.body.style.backgroundColor = null;
+            window.clearTimeout(removeGlobalTransition);
+        };
     }, [theme]);
     const userSetTheme = (name) => {
+        document.body.classList.add("transition-all");
         if (themeNames.includes(name)) {
             // only save theme if the user intentionally sets it
             window.localStorage.setItem("theme", name);

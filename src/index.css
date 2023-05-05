@@ -29,3 +29,11 @@ body {
         transform: translateX(-32px);
     }
 }
+
+.transition-all {
+    transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
+}
+
+.transition-all * {
+    transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
+}

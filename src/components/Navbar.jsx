@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext, useEffect } from "react";
+import styled, { useTheme } from "styled-components";
 import { NavLink } from "react-router-dom";
 import devices from "../utility/MediaQueries.js";
 import logoUrl from "assets/logo-orange-cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
-import { SubTheme } from "components/ThemeComponents.jsx";
+import { SubTheme, ThemeNameContext } from "components/ThemeComponents.jsx";
 
 const FlexWrapper = styled.div`
     height: 80px;
@@ -23,7 +23,7 @@ const FlexWrapper = styled.div`
         transition: border-bottom-color 1.3s ease-in-out;
         border-bottom: dashed transparent 2px;
         :has(~div > #hamburger:checked) {
-            border-bottom: dashed ${props => props.theme.border} 2px;
+            border-bottom: dashed ${(props) => props.theme.border} 2px;
             transition: border-bottom-color 0.7s ease-in-out;
         }
         
@@ -55,7 +55,7 @@ const HeaderAnchor = styled.header`
 
 const Hamburger = styled.label`
     font-size: 24px;
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
     display: none;
     flex: auto;
     grid-column: 3 / 4;
@@ -69,7 +69,7 @@ const Hamburger = styled.label`
     }
 
     &:hover {
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
         cursor: pointer;
     }
 
@@ -156,21 +156,21 @@ const HeaderNavLink = styled(NavLink)`
         font-size: 24px;
         padding: 2px 4px;
     `}
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
     text-decoration: none;
     text-transform: capitalize;
     transition: all 0.3s;
 
     &:hover {
         text-decoration: underline;
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
     }
 
     // styles for the current active navlink
     &.active {
         text-decoration: none;
         font-weight: bold;
-        color: ${props => props.theme.linkActive};
+        color: ${(props) => props.theme.linkActive};
         cursor: default;
     }
 `;
@@ -180,20 +180,20 @@ const LogoNavLink = styled(NavLink)`
     justify-content: left;
     font-size: 22px;
     padding: 2px 20px;
-    color: ${props => props.theme.link};
-    
+    color: ${(props) => props.theme.link};
+
     // contains the masked logo
     div {
-        background-color: ${props => props.theme.logo};
+        background-color: ${(props) => props.theme.logo};
         transition: color 0.3s, background-color 0.3s;
     }
     align-items: center;
 
     &:hover {
         text-decoration: none;
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
         div {
-            background-color: ${props => props.theme.logoHover};
+            background-color: ${(props) => props.theme.logoHover};
         }
     }
 
@@ -220,7 +220,7 @@ const LogoNavLink = styled(NavLink)`
     }
 `;
 
-const GithubLink = styled.a`
+const ThemeCycleButton = styled.button`
     font-size: 24px;
     order: 1;
 
@@ -228,11 +228,13 @@ const GithubLink = styled.a`
         display: none;
     `}
     &:hover {
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
     }
 
     transition: color 0.3s;
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
+    background: unset;
+    border: unset;
     padding: 8px 0;
     width: 64px;
     flex: 0 0 auto;
@@ -247,36 +249,46 @@ const links = ["about", "leadership", "teams", "events", "contact", "faq"].map(
     )
 );
 
-const Navbar = () => (
-
-
-    <SubTheme name="navbar">
-        <HeaderAnchor>
-            <FlexWrapper>
-                <LogoNavLink to="/">
-                    <Logo />
-                    <span>Michigan Hackers</span>
-                </LogoNavLink>
-                <DesktopNavContainer>{links}</DesktopNavContainer>
-                <GithubLink target="_blank" href={SOCIAL_MEDIA_LINKS.github}>
-                    <FontAwesomeIcon icon={["fab", "github"]} />
-                </GithubLink>
-                <Hamburger htmlFor="hamburger">
-                    <span>Menu</span>
-                    <FontAwesomeIcon icon="bars" />
-                </Hamburger>
-            </FlexWrapper>
-            {/*fix tab indexing*/}
-            <MobileNavBlock>
-                <input
-                    type="checkbox"
-                    id="hamburger"
-                    style={{ display: "none" }}
-                />
-                <MobileNavContainer>{links}</MobileNavContainer>
-            </MobileNavBlock>
-        </HeaderAnchor>
-    </SubTheme>
-);
+function Navbar() {
+    const { setTheme, themeNames, theme } = useContext(ThemeNameContext);
+    const themeData = useTheme();
+    useEffect(() => {
+        return ;
+    }, [theme]);
+    const handleThemeCycle = () => {
+        setTheme(
+            themeNames[(themeNames.indexOf(theme) + 1) % themeNames.length]
+        );
+    };
+    return (
+        <SubTheme name="navbar">
+            <HeaderAnchor>
+                <FlexWrapper>
+                    <LogoNavLink to="/">
+                        <Logo />
+                        <span>Michigan Hackers</span>
+                    </LogoNavLink>
+                    <DesktopNavContainer>{links}</DesktopNavContainer>
+                    <ThemeCycleButton onClick={handleThemeCycle}>
+                        <FontAwesomeIcon icon={["fa", themeData.nameIcon]} />
+                    </ThemeCycleButton>
+                    <Hamburger htmlFor="hamburger">
+                        <span>Menu</span>
+                        <FontAwesomeIcon icon="bars" />
+                    </Hamburger>
+                </FlexWrapper>
+                {/*fix tab indexing*/}
+                <MobileNavBlock>
+                    <input
+                        type="checkbox"
+                        id="hamburger"
+                        style={{ display: "none" }}
+                    />
+                    <MobileNavContainer>{links}</MobileNavContainer>
+                </MobileNavBlock>
+            </HeaderAnchor>
+        </SubTheme>
+    );
+}
 
 export default Navbar;

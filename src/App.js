@@ -29,6 +29,8 @@ import {
     faAngleUp,
     faCaretRight,
     faCaretDown,
+    faSun,
+    faMoon,
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 import { darkTheme, lightTheme } from "./utility/theme.js";
@@ -50,7 +52,9 @@ library.add(
     faBars,
     faAngleUp,
     faCaretRight,
-    faCaretDown
+    faCaretDown,
+    faMoon,
+    faSun
 );
 
 const App = () => (
