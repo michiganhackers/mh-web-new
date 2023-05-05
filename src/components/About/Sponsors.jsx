@@ -34,6 +34,7 @@ const SponsorTier = styled.section`
 
 const SponsorTierList = styled.div`
     display: flex;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: space-evenly;
     ${devices.small`

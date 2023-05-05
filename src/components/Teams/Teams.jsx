@@ -36,6 +36,7 @@ const Sidebar = styled.nav`
 `;
 
 const PageLayout = styled.div`
+    background-color: ${props => props.theme.background};
     display: grid;
     grid-template-columns: 300px 1fr;
     ${devices.desktop`
@@ -54,7 +55,7 @@ const SidebarLink = styled.a`
     &:hover {
         background-color: ${props => props.theme.backgroundHover};
         cursor: pointer;
-        color: ${props => props.theme.link};
+        color: ${props => props.theme.linkHover};
         text-decoration: none;
     }
 `;

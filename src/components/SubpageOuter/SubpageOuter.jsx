@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 const Outer = styled.div`
     width: 100%;
-    margin-top: 24px;
+    padding-top: 24px;
     align-items: center;
 `;
 

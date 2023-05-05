@@ -114,7 +114,7 @@ const MobileNavContainer = styled.nav`
         display: flex;
         flex-direction: column;
         
-        background: rgb(241, 93, 36);
+        background: ${(props) => props.theme.background};
         box-shadow: 0 2px 4px rgb(0, 0, 0, 0.5);
         position: sticky;
         // works because already is on top of everything thanks to sticky
