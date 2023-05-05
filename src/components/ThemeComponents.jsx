@@ -43,6 +43,7 @@ function Theme({ themes, children }) {
             setTheme(savedTheme);
             setHasUserSetTheme(true);
         }
+        document.body.style.backgroundColor = themeMap[theme].background;
     }, []);
     // sync light vs dark mode with system theme only if the user has not set the theme
     useEffect(() => {
@@ -57,6 +58,10 @@ function Theme({ themes, children }) {
                 .removeEventListener("change", handlePrefChange);
         }
     }, [hasUserSetTheme]);
+    useEffect(() => {
+        document.body.style.backgroundColor = themeMap[theme].background;
+        return () => document.body.style.backgroundColor = null;
+    }, [theme]);
     const userSetTheme = (name) => {
         if (themeNames.includes(name)) {
             // only save theme if the user intentionally sets it
