@@ -18,9 +18,6 @@ const SidebarWrapper = styled.div`
     z-index: 9;
     box-shadow: 0px 9.38461px 93.8461px rgba(0, 0, 0, 0.15);
     background-color: ${(props) => props.theme.background};
-    ${devices.desktop`
-        background-color: #EEEEEE;
-    `}
     position: fixed;
     left: 0;
     transition: left 0.25s;
@@ -52,16 +49,12 @@ const SidebarLink = styled.a`
     border-radius: 10px;
     transition: background-color 0.25s;
     &:hover {
-        background-color: ${(props) => props.theme.backgroundHover};
-        cursor: pointer;
         color: ${(props) => props.theme.linkHover};
+        background-color: ${props => props.theme.linkBackground};
         text-decoration: none;
     }
     &:nth-child(odd):hover {
-        background-color: #8dcadf;
-    }
-    &:nth-child(even):hover {
-        background-color: #ed8246;
+        background-color: ${props => props.theme.linkBackgroundAlt};
     }
 `;
 
@@ -99,6 +92,7 @@ const ToggleWrapper = styled.div`
 `;
 
 const TeamIcon = styled.div`
+    color: ${props => props.theme.icon};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,8 +115,8 @@ const CollapseIcon = styled.div`
     height: 2.5rem;
     font-size: 1.25rem;
     border-radius: 50%;
-    background-color: #ffffff;
-    border: 1px solid #a3a3a3;
+    background-color: ${props => props.theme.collapseBackground};
+    color: ${props => props.theme.collapse};
     display: flex;
     justify-content: center;
     align-items: center;

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SubTheme } from "components/ThemeComponents.jsx";
 
 const ButtonWrapper = styled.a`
+    z-index: 9;
     display: none;
     bottom: 1.5rem;
     right: 1.5rem;

@@ -78,7 +78,7 @@ export const lightTheme = {
         background: lightColors.hackerOrange,
         text: lightColors.white,
         icon: lightColors.white,
-        iconHover: lightColors.gray,
+        iconHover: lightColors.black,
     },
 
     about: {
@@ -130,22 +130,27 @@ export const lightTheme = {
 
     teams: {
         icon: lightColors.white,
+        iconBackground: lightColors.offBlack,
         backToTop: {
             background: lightColors.primaryLight,
         },
         cards: {
             heading: lightColors.white,
             text: lightColors.white,
-            link: lightColors.offBlack,
+            link: lightColors.white,
             background: lightColors.primaryLight,
-            backgroundAlt: lightColors.secondaryLight,
+            backgroundAlt: lightColors.secondary,
         },
         sidebar: {
             background: lightColors.lightGray,
             heading: lightColors.black,
+            icon: lightColors.black,
             link: lightColors.black,
-            linkHover: lightColors.gray,
-            backgroundHover: lightColors.gray,
+            linkHover: lightColors.black,
+            linkBackground: lightColors.primaryLight,
+            linkBackgroundAlt: lightColors.secondary,
+            collapse: lightColors.white,
+            collapseBackground: lightColors.black,
         },
     },
 
@@ -279,7 +284,7 @@ export const darkTheme = {
 
     footer: {
         background: darkColors.hackerOrange,
-        iconHover: lightColors.gray,
+        iconHover: lightColors.black,
     },
 
     about: {
@@ -287,7 +292,7 @@ export const darkTheme = {
             heading: darkColors.white,
             text: darkColors.white,
             background: darkColors.secondary,
-            backgroundAlt: darkColors.primaryLightest,
+            backgroundAlt: darkColors.primaryDark,
             svg: {
                 headingBackground: darkColors.secondary,
                 background2: darkColors.primaryLight,
@@ -331,23 +336,28 @@ export const darkTheme = {
     },
 
     teams: {
-        icon: darkColors.white,
+        icon: darkColors.black,
         backToTop: {
+            icon: darkColors.white,
             background: darkColors.primaryLight,
         },
         cards: {
             heading: darkColors.white,
             text: darkColors.white,
-            link: darkColors.offBlack,
+            link: darkColors.white,
             background: darkColors.primaryLight,
             backgroundAlt: darkColors.secondaryLight,
         },
         sidebar: {
             background: darkColors.darkGray,
             heading: darkColors.white,
+            icon: darkColors.white,
             link: darkColors.white,
             linkHover: darkColors.white,
-            backgroundHover: darkColors.lightGray,
+            linkBackground: darkColors.primaryLight,
+            linkBackgroundAlt: darkColors.secondary,
+            collapse: darkColors.black,
+            collapseBackground: darkColors.white,
         },
     },
 
