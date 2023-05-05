@@ -35,7 +35,8 @@ body {
     transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
 }
 
-.transition-all * {
+/* Apply to all nodes, but don't layer several onto the same icon, otherwise it goes slowly*/
+.transition-all *:not(svg, svg *) {
     transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
 }
 
