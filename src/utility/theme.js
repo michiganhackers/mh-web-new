@@ -74,6 +74,13 @@ export const lightTheme = {
         border: lightColors.white,
     },
 
+    footer: {
+        background: lightColors.hackerOrange,
+        text: lightColors.white,
+        icon: lightColors.white,
+        iconHover: lightColors.gray,
+    },
+
     about: {
         mission: {
             heading: lightColors.white,
@@ -268,6 +275,11 @@ export const darkTheme = {
         linkActive: darkColors.offBlack,
         linkHover: darkColors.offBlack,
         border: darkColors.white,
+    },
+
+    footer: {
+        background: darkColors.hackerOrange,
+        iconHover: lightColors.gray,
     },
 
     about: {

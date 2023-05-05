@@ -30,10 +30,16 @@ body {
     }
 }
 
+/* Classes applied to body to make a nice transition effect when changing themes */
 .transition-all {
     transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
 }
 
 .transition-all * {
     transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
+}
+
+#root {
+    /* Makes the footer work easily */
+    min-height: 100vh;
 }

@@ -8,6 +8,7 @@ import Navbar from "components/Navbar.jsx";
 import ClubImagesCarousel from "components/ClubImagesCarousel.jsx";
 import { SubTheme } from "components/ThemeComponents.jsx";
 import { Background2x1, Background6x1 } from "./AboutSVGBackgrounds.jsx";
+import Footer from "components/Footer";
 
 const AboutWrapper = styled.main`
     width: 100%;
@@ -148,7 +149,6 @@ const About = () => (
                             </MissionBody>
                         </MissionWidthWrapper>
                     </MissionStatement>
-
                     <MissionStatement>
                         <MissionWidthWrapper>
                             <MissionTitle alignment="right">
@@ -179,6 +179,7 @@ const About = () => (
                 <Sponsors />
             </AboutWrapper>
         </SubTheme>
+      <Footer />
     </>
 );
 

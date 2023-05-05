@@ -7,6 +7,7 @@ import devices from "utility/MediaQueries.js";
 import MailingList from "components/MailingList/MailingList.jsx";
 import { SubTheme } from "components/ThemeComponents.jsx";
 import { ForStudents, ForCompanies } from "./ContactSVGBackgrounds.jsx";
+import Footer from "components/Footer";
 
 const Outer = styled.div`
     background-color: ${(props) => props.theme.background};
@@ -192,6 +193,7 @@ const Contact = () => (
                 </SubTheme>
             </Outer>
         </SubTheme>
+<Footer />
     </>
 );
 

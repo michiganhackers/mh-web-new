@@ -8,6 +8,7 @@ import devices from "utility/MediaQueries.js";
 import { SubTheme } from "components/ThemeComponents.jsx";
 
 import leadership from "leadership.json";
+import Footer from "components/Footer";
 
 const LeadershipWrapper = styled.main`
     width: 100%;
@@ -182,6 +183,7 @@ function Leadership() {
                     </SubTheme>
                 </LeadershipWrapper>
             </SubTheme>
+            <Footer />
         </>
     );
 }

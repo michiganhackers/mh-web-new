@@ -8,6 +8,7 @@ import { OSADistance } from "utility/EditDistance";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { SubTheme } from "components/ThemeComponents.jsx";
+import Footer from "components/Footer.jsx";
 
 const MessageContainer = styled.div`
     width: 80%;
@@ -67,6 +68,7 @@ const PageNotFound = () => {
                     ) : null}
                 </MessageContainer>
             </SubTheme>
+            <Footer />
         </>
     );
 };
