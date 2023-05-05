@@ -9,7 +9,11 @@ const EmailForm = styled.form`
 `;
 const EmailInputBox = styled.input`
     min-width: 250px;
-    border: 2px solid #555;
+    color: ${props => props.theme.text};
+    background-color: ${props => props.theme.background};
+    border-color: ${props => props.theme.border};
+    border-width: 2px;
+    border-style: solid;
     border-right: 0;
     height: 50px;
     border-top-left-radius: 10px;
@@ -17,20 +21,23 @@ const EmailInputBox = styled.input`
     padding: 0 16px;
 `;
 const EmailSubmitButton = styled.input`
-    color: white;
-    border: 2px solid #555;
+    color: ${props => props.theme.textAlt};
+    border-color: ${props => props.theme.border};
+    border-width: 2px;
+    border-style: solid;
     border-left: 0;
     text-decoration: none;
     padding-top: 3px;
     padding-bottom: 3px;
     cursor: pointer;
-    background: rgb(239, 133, 62);
+    background-color: ${props => props.theme.backgroundAlt};
     width: 60px;
     height: 50px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    transition: background-color 0.3s;
     &:hover {
-      background: rgb(222, 103, 63);
+      background-color: ${props => props.theme.backgroundAltHover};
     }
 `;
 

@@ -3,8 +3,10 @@ import "utility/fonts.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SubTheme } from "components/ThemeComponents.jsx";
 
 const ButtonWrapper = styled.a`
+    z-index: 9;
     display: none;
     bottom: 1.5rem;
     right: 1.5rem;
@@ -18,7 +20,7 @@ const ButtonWrapper = styled.a`
     &:focus {
         outline: none;
     }
-    background-color: #ED8246;
+    background-color: ${(props) => props.theme.background};
     border-radius: 999px;
     ${devices.desktop`
         ${props => props.visible && "display: flex;"}
@@ -30,7 +32,7 @@ const ButtonIcon = styled.p`
     margin: 0;
     padding: 0;
     font-size: 3rem;
-    color: white;
+    color: ${(props) => props.theme.icon};
 `;
 
 const BackToTop = () => {
@@ -53,11 +55,18 @@ const BackToTop = () => {
     }, []);
 
     return (
-        <ButtonWrapper onClick={onButtonClick} href="/teams" title="Back to top" visible={visible}>
-            <ButtonIcon>
-                <FontAwesomeIcon icon={["fas", "angle-up"]}/>
-            </ButtonIcon>
-        </ButtonWrapper>
+        <SubTheme name="backToTop">
+            <ButtonWrapper
+                onClick={onButtonClick}
+                href="/teams"
+                title="Back to top"
+                visible={visible}
+            >
+                <ButtonIcon>
+                    <FontAwesomeIcon icon={["fas", "angle-up"]} />
+                </ButtonIcon>
+            </ButtonWrapper>
+        </SubTheme>
     );
 };
 

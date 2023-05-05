@@ -32,6 +32,8 @@ import {
     faAngleUp,
     faCaretRight,
     faCaretDown,
+    faSun,
+    faMoon,
     faChartLine,
     faBrain,
     faLock,
@@ -45,6 +47,8 @@ import {
     faBook
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
+import { darkTheme, lightTheme } from "./utility/theme.js";
+import { Theme } from "./components/ThemeComponents.jsx";
 
 library.add(
     faGithub,
@@ -63,6 +67,8 @@ library.add(
     faAngleUp,
     faCaretRight,
     faCaretDown,
+    faMoon,
+    faSun,
     faChartLine,
     faBrain,
     faLock,
@@ -80,19 +86,21 @@ library.add(
 );
 
 const App = () => (
-    <Router>
-        <ScrollToTop />
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/events" component={Events} />
-            <Route path="/about" component={About} />
-            <Route path="/leadership" component={Leadership} />
-            <Route path="/teams" component={Teams} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/faq" component={FAQ} />
-            <Route path="*" component={PageNotFound} />
-        </Switch>
-    </Router>
+    <Theme themes={[lightTheme, darkTheme]}>
+        <Router>
+            <ScrollToTop />
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/events" component={Events} />
+                <Route path="/about" component={About} />
+                <Route path="/leadership" component={Leadership} />
+                <Route path="/teams" component={Teams} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/faq" component={FAQ} />
+                <Route path="*" component={PageNotFound} />
+            </Switch>
+        </Router>
+    </Theme>
 );
 
 export default App;

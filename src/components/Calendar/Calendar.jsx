@@ -4,8 +4,8 @@ import Moment from "moment";
 import FullCalendar from "fullcalendar-reactwrapper";
 import "fullcalendar-reactwrapper/dist/css/fullcalendar.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styled from "styled-components";
-import { calendarFetch } from "./CalendarFetch";
+import styled, { withTheme } from "styled-components";
+import { calendarFetch } from "./CalendarFetch.js";
 
 import EventWindow from "./EventWindow.jsx";
 import PropTypes from "prop-types";
@@ -162,7 +162,7 @@ class Calendar extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 <FullCalendar
                     height={"auto"}
                     header={{
@@ -179,8 +179,8 @@ class Calendar extends React.Component {
                     )}
                     navLinks={true} // can click day/week names to navigate views
                     events={this.state.events}
-                    eventColor={this.props.calendarStyle.color}
-                    eventTextColor={this.props.calendarStyle.textColor}
+                    eventColor={this.props.theme.background}
+                    eventTextColor={this.props.theme.text}
                     eventClick={this.handleEventClick}
                     customButtons={{
                         customNext: {
@@ -231,7 +231,7 @@ class Calendar extends React.Component {
                     hidden={this.state.eventHidden}
                     closeWindow={this.closeEventWindow}
                 />
-            </React.Fragment>
+            </>
         );
     }
 }
@@ -247,4 +247,4 @@ Calendar.propTypes = {
     calendarStyle: PropTypes.objectOf(PropTypes.string),
 };
 
-export default Calendar;
+export default withTheme(Calendar);

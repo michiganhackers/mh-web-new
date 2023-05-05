@@ -1,0 +1,26 @@
+function Opener(theme) {
+    return (
+        "data:image/svg+xml;base64," +
+        window.btoa(`<svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g transform="translate(-888.31 -392.05)" fill="none">
+                <g transform="matrix(-.38095 0 0 -.38095 904.31 408.05)">
+                    <circle transform="matrix(1,0,0,-1,21,21)" r="21" fill="${theme.background}"/>
+                </g>
+                <g transform="translate(0 1.3004)" stroke-width="5.25">
+                    <g transform="matrix(-.38095 0 0 -.38095 900.83 404.39)">
+                        <line transform="matrix(.50715 -.86186 -.43058 -.90255 .24023 19.449)" x1="1.5" x2="21.18" y1="-1.5" y2="-1.5" stroke="${theme.icon}" stroke-linecap="round" stroke-width="5.7667"/>
+                    </g>
+                    <g transform="matrix(-.38095 0 0 -.38095 896.81 404.16)">
+                        <line transform="matrix(.50715 .86186 .43058 -.90255 .98438 -.71094)" x1="1.5" x2="22.02" y1="-1.5" y2="-1.5" stroke="${theme.icon}" stroke-linecap="round" stroke-width="5.7667"/>
+                    </g>
+                </g>
+            </g>
+        </svg>`)
+    );
+}
+export { Opener };

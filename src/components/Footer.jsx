@@ -3,6 +3,7 @@ import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
 import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SubTheme } from "./ThemeComponents";
 
 const FooterOuter = styled.footer`
     // Used with min-height: 100vh in #root to make this work
@@ -10,7 +11,7 @@ const FooterOuter = styled.footer`
     position: sticky;
     top: 100%;
 
-    background-color: #f15d24;
+    background-color: ${props => props.theme.background};
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@ const FooterOuter = styled.footer`
 `;
 
 const ConnectWithUsText = styled.p`
-    color: white;
+    color: ${props => props.theme.text};
     font-family: "Roboto Condensed";
     text-align: center;
     font-weight: bold;
@@ -40,16 +41,19 @@ const LinksContainer = styled.div`
 `;
 
 const FooterLink = styled.a`
-    color: white;
+    transition: color 0.3s ease;
+    color: ${props => props.theme.icon};
     font-size: 2rem;
     display: block;
     &:hover {
-        color: #eee;
+        color: ${props => props.theme.iconHover};
     }
     padding: 0 8px;
 `;
 
 const Footer = () => (
+  <SubTheme name="footer">
+
     <FooterOuter>
         <ConnectWithUsText>CONNECT WITH US</ConnectWithUsText>
         <LinksContainer>
@@ -90,6 +94,7 @@ const Footer = () => (
             </FooterLink>
         </LinksContainer>
     </FooterOuter>
+  </SubTheme>
 );
 
 export default Footer;

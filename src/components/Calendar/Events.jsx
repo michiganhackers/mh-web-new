@@ -1,8 +1,9 @@
 import React from "react";
-import "../../utility/fonts.css";
-import SubpageOuter from "../SubpageOuter/SubpageOuter.jsx";
+import "utility/fonts.css";
+import SubpageOuter from "components/SubpageOuter/SubpageOuter.jsx";
 import Calendar from "./Calendar.jsx";
-import Navbar from "../Navbar.jsx";
+import Navbar from "components/Navbar.jsx";
+import { SubTheme } from "components/ThemeComponents.jsx";
 import Footer from "components/Footer.jsx";
 import styled from "styled-components";
 
@@ -19,13 +20,17 @@ const ExportLink = styled.a`
 const Events = () => (
     <React.Fragment>
         <Navbar />
-        <SubpageOuter header="calendar">
-            <Calendar calendarStyle={CalendarStyle} />
-            <ExportLink href="https://calendar.google.com/calendar?cid=OG44dTU4c3NyaWMxaG1tODRqdmt2bDlkNjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+        <SubTheme name="events">
+            <SubpageOuter header="calendar">
+                <SubTheme name="calendar">
+                    <Calendar calendarStyle={CalendarStyle} />
+                </SubTheme>
+              <ExportLink href="https://calendar.google.com/calendar?cid=OG44dTU4c3NyaWMxaG1tODRqdmt2bDlkNjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
                 Export/add our calendar!
-            </ExportLink>
-        </SubpageOuter>
-        <Footer />
+              </ExportLink>
+            </SubpageOuter>
+        </SubTheme>
+<Footer />
     </React.Fragment>
 );
 

@@ -22,6 +22,9 @@ const SponsorWrapper = styled.div.attrs((props) => ({
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+    
+    background-color: ${props => props.theme.backgroundAlt};
+    border-radius: 10px;
 
     padding: 15px 30px;
     ${devices.tablet`
