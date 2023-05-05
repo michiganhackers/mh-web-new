@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import devices from "../utility/MediaQueries.js";
 import logoUrl from "assets/logo-orange-cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 import { SubTheme, ThemeNameContext } from "components/ThemeComponents.jsx";
 
 const FlexWrapper = styled.div`
