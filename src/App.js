@@ -42,7 +42,11 @@ import {
     faPencilRuler,
     faServer,
     faArrowLeft,
-    faBook
+    faBook,
+    faSpinner,
+    faPaperPlane,
+    faCheck,
+    faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 
@@ -76,7 +80,11 @@ library.add(
     faApple,
     faArrowLeft,
     faGoogleDrive,
-    faBook
+    faBook,
+    faSpinner,
+    faPaperPlane,
+    faCheck,
+    faTimes
 );
 
 const App = () => (
