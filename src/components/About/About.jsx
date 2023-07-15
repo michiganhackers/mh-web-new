@@ -179,7 +179,7 @@ const About = () => (
                 <Sponsors />
             </AboutWrapper>
         </SubTheme>
-      <Footer />
+        <Footer />
     </>
 );
 

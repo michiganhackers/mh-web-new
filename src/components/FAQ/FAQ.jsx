@@ -65,7 +65,7 @@ const FAQ = () => (
                 </SubTheme>
             </SubpageOuter>
         </SubTheme>
-<Footer />
+        <Footer />
     </>
 );
 

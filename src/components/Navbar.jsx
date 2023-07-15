@@ -252,7 +252,7 @@ function Navbar() {
     const { setTheme, themeNames, theme } = useContext(ThemeNameContext);
     const themeData = useTheme();
     useEffect(() => {
-        return ;
+        return;
     }, [theme]);
     const handleThemeCycle = () => {
         setTheme(

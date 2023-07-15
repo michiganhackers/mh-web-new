@@ -12,7 +12,7 @@ const Leadership = styled.img`
     object-fit: cover;
     border-radius: 100%;
     box-sizing: border-box;
-    border: 7px solid ${props => props.theme.border};
+    border: 7px solid ${(props) => props.theme.border};
     margin: 0 auto;
     ${devices.small`
       height: 150px;
@@ -21,7 +21,7 @@ const Leadership = styled.img`
 `;
 
 const Card = styled.article`
-    background-color: ${props => props.theme.background};
+    background-color: ${(props) => props.theme.background};
     width: 300px;
     height: 550px;
     text-align: center;
@@ -43,7 +43,7 @@ const MemberName = styled.h2`
     font-size: 1.2em;
     margin-top: 10px;
     font-weight: 500;
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     ${devices.small`
       font-size: 20px;
     font-size: 1.1em;
@@ -51,7 +51,7 @@ const MemberName = styled.h2`
 `;
 
 const Title = styled.p`
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     font-weight: 600;
     font-size: 1.1em;
     ${devices.small`
@@ -76,30 +76,30 @@ const DetailGroup = styled.div`
 
 const Detail = styled.dt`
     display: inline;
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     padding: 0;
     margin-bottom: 0;
 `;
 
 const DetailDescription = styled.dd`
     display: inline;
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     text-align: left;
 `;
 
 const IconLink = styled.a`
-    color: ${props => props.theme.icon};
+    color: ${(props) => props.theme.icon};
     text-decoration: none;
     font-size: 2em;
     transition: color 0.3s;
     &:hover {
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
     }
 `;
 
 const Links = styled.ul`
     display: inline-block;
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
     // remove default list styling
     padding-left: 0;
     ${devices.small`

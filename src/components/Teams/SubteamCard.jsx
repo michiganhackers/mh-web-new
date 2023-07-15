@@ -5,9 +5,10 @@ import devices from "utility/MediaQueries.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardDiv = styled.div`
-    background-color: ${props => props.even ? props.theme.backgroundAlt : props.theme.background};
+    background-color: ${(props) =>
+        props.even ? props.theme.backgroundAlt : props.theme.background};
     display: flex;
-    flex-direction: ${props => props.even ? "row" : "row-reverse"};
+    flex-direction: ${(props) => (props.even ? "row" : "row-reverse")};
     margin: 1rem 0;
     border-radius: 10px;
     max-width: 1000px;
@@ -17,16 +18,15 @@ const CardDiv = styled.div`
         flex-direction: column;
         max-width: 500px;
     `}
-
 `;
 
 const TeamName = styled.h3`
-    color: ${props => props.theme.heading};
+    color: ${(props) => props.theme.heading};
     font-weight: bold;
 `;
 
 const TeamDescription = styled.p`
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     white-space: pre-line;
 `;
 
@@ -52,7 +52,7 @@ const TeamPhotoDiv = styled.div`
 `;
 
 const TeamInfoDiv = styled.div`
-    margin-${props => props.even ? "left" : "right"}: 1rem;
+    margin-${(props) => (props.even ? "left" : "right")}: 1rem;
     ${devices.tablet`
         margin: 0;
     `}
@@ -69,7 +69,7 @@ const TeamLinksLi = styled.li`
 `;
 
 const TeamLink = styled.a`
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
 `;
 
 const CardWrapper = styled.article`
@@ -81,9 +81,11 @@ const CardWrapper = styled.article`
 `;
 
 const CardBorder = styled.div`
-    border-top: 3px solid ${props => props.even ? props.theme.background : props.theme.backgroundAlt};
+    border-top: 3px solid
+        ${(props) =>
+            props.even ? props.theme.background : props.theme.backgroundAlt};
 
-    ${props => props.first && 'border-top: none;'}
+    ${(props) => props.first && "border-top: none;"}
 `;
 
 const SubteamCard = (props) => {
@@ -101,19 +103,18 @@ const SubteamCard = (props) => {
                         <TeamName>{name}</TeamName>
                         <TeamDescription>{description}</TeamDescription>
                         <TeamLinksUl>
-                            {links.map((linkObj, i) => 
+                            {links.map((linkObj, i) => (
                                 <TeamLinksLi key={i}>
                                     <TeamLink
                                         href={linkObj.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <FontAwesomeIcon icon={linkObj.icon} />
-                                        {' '}
+                                        <FontAwesomeIcon icon={linkObj.icon} />{" "}
                                         {linkObj.title}
                                     </TeamLink>
                                 </TeamLinksLi>
-                            )}
+                            ))}
                         </TeamLinksUl>
                     </TeamInfoDiv>
                 </CardDiv>

@@ -22,10 +22,13 @@ const images = [
     { url: PaintTheRock, description: "Painting the Rock 2022" },
     { url: CrowdstrikeEvent, description: "Crowdstrike Sponsor Event 2022" },
     { url: HackHersCasinoNight, description: "Hack Hers Casino Night 2023" },
-    { url: ExecAtPinballPetes, description: "Pinball Pete's Social Night 2021" },
+    {
+        url: ExecAtPinballPetes,
+        description: "Pinball Pete's Social Night 2021",
+    },
     { url: LeadsIceCreamSocial, description: "Leads Ice Cream Social 2022" },
     { url: BowlingHKN, description: "Bowling Night With HKN 2022" },
-    { url: Festifall, description: "Michigan Hackers at Festifall 2022" }
+    { url: Festifall, description: "Michigan Hackers at Festifall 2022" },
 ];
 
 const ClubImagesCarousel = () => {

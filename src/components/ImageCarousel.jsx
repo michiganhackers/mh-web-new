@@ -8,12 +8,12 @@ import devices from "utility/MediaQueries.js";
 const CarouselContainer = styled.div`
     width: 45%;
     height: auto;
-  margin: auto;
+    margin: auto;
 
-  ${devices.giant`
+    ${devices.giant`
       width: 60%;
     `}
-  ${devices.tablet`
+    ${devices.tablet`
       width: 70%;
     `}
     ${devices.small`

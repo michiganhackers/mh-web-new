@@ -25,12 +25,12 @@ const Events = () => (
                 <SubTheme name="calendar">
                     <Calendar calendarStyle={CalendarStyle} />
                 </SubTheme>
-              <ExportLink href="https://calendar.google.com/calendar?cid=OG44dTU4c3NyaWMxaG1tODRqdmt2bDlkNjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
-                Export/add our calendar!
-              </ExportLink>
+                <ExportLink href="https://calendar.google.com/calendar?cid=OG44dTU4c3NyaWMxaG1tODRqdmt2bDlkNjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+                    Export/add our calendar!
+                </ExportLink>
             </SubpageOuter>
         </SubTheme>
-<Footer />
+        <Footer />
     </React.Fragment>
 );
 

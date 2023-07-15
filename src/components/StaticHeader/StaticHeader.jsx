@@ -7,7 +7,7 @@ const Header = styled.h1`
     font-family: "Roboto Condensed";
     font-weight: 900;
     line-height: 0.8;
-    color: ${props => props.theme.heading};
+    color: ${(props) => props.theme.heading};
     display: block;
     text-align: center;
     font-size: 8vh;
@@ -21,10 +21,7 @@ const Header = styled.h1`
     padding-top: 16px;
 `;
 
-
-const StaticHeader = (props) => (
-        <Header>{props.children}</Header>
-);
+const StaticHeader = (props) => <Header>{props.children}</Header>;
 
 StaticHeader.defaultProps = {
     children: "",

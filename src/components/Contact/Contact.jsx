@@ -193,7 +193,7 @@ const Contact = () => (
                 </SubTheme>
             </Outer>
         </SubTheme>
-<Footer />
+        <Footer />
     </>
 );
 

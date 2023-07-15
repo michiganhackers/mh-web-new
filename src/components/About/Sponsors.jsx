@@ -17,7 +17,7 @@ import { SubTheme } from "components/ThemeComponents.jsx";
 
 const Wrapper = styled.div`
     width: 100%;
-    background-color: ${props => props.theme.background};
+    background-color: ${(props) => props.theme.background};
 `;
 
 const SponsorTier = styled.section`
@@ -25,7 +25,7 @@ const SponsorTier = styled.section`
     margin: auto;
     padding-bottom: 12px;
     &:not(:last-of-type) {
-        border-bottom: dashed ${props => props.theme.border};
+        border-bottom: dashed ${(props) => props.theme.border};
     }
     ${devices.tablet`
       width: 95%;
@@ -46,7 +46,7 @@ const SponsorTierList = styled.div`
 const TierHeaderTag = styled.h2.attrs((props) => ({
     tier: props.tier,
 }))`
-    color: ${props => props.theme.heading};
+    color: ${(props) => props.theme.heading};
     text-align: center;
     font-size: ${(props) => {
         switch (props.tier) {
@@ -92,45 +92,53 @@ const TierHeader = ({ tier }) => (
 );
 
 const Sponsors = () => (
-  <SubTheme name={"sponsors"}>
-    <Wrapper>
-        <SponsorTier>
-            <TierHeader tier="1" />
-            <SponsorTierList>
-                <Sponsor tier="1" url={CrowdstrikeLogo} name={"Crowdstrike"} />
-                <Sponsor tier="1" url={GraingerLogo} name={"Grainger"} />
-            </SponsorTierList>
-        </SponsorTier>
+    <SubTheme name={"sponsors"}>
+        <Wrapper>
+            <SponsorTier>
+                <TierHeader tier="1" />
+                <SponsorTierList>
+                    <Sponsor
+                        tier="1"
+                        url={CrowdstrikeLogo}
+                        name={"Crowdstrike"}
+                    />
+                    <Sponsor tier="1" url={GraingerLogo} name={"Grainger"} />
+                </SponsorTierList>
+            </SponsorTier>
 
-        <SponsorTier>
-            <TierHeader tier="2" />
-            <SponsorTierList>
-                <Sponsor tier="2" url={NitsLogo} name={"Nits Solutions"} />
-            </SponsorTierList>
-        </SponsorTier>
+            <SponsorTier>
+                <TierHeader tier="2" />
+                <SponsorTierList>
+                    <Sponsor tier="2" url={NitsLogo} name={"Nits Solutions"} />
+                </SponsorTierList>
+            </SponsorTier>
 
-        <SponsorTier>
-            <TierHeader tier="3" />
-            <SponsorTierList>
-                <Sponsor tier="3" url={MetaLogo} name={"Meta"} />
-                <Sponsor tier="3" url={CapitalOneLogo} name={"Capital One"} />
-                <Sponsor tier="3" url={OracleLogo} name={"Oracle"} />
-            </SponsorTierList>
-        </SponsorTier>
+            <SponsorTier>
+                <TierHeader tier="3" />
+                <SponsorTierList>
+                    <Sponsor tier="3" url={MetaLogo} name={"Meta"} />
+                    <Sponsor
+                        tier="3"
+                        url={CapitalOneLogo}
+                        name={"Capital One"}
+                    />
+                    <Sponsor tier="3" url={OracleLogo} name={"Oracle"} />
+                </SponsorTierList>
+            </SponsorTier>
 
-        <SponsorTier>
-            <TierHeader tier="4" />
-            <SponsorTierList>
-                <Sponsor tier="4" url={CitadelLogo} name={"Citadel"} />
-                <Sponsor
-                    tier="4"
-                    url={SusquehannaLogo}
-                    name={"Susquehanna International Group"}
-                />
-            </SponsorTierList>
-        </SponsorTier>
-    </Wrapper>
-  </SubTheme>
+            <SponsorTier>
+                <TierHeader tier="4" />
+                <SponsorTierList>
+                    <Sponsor tier="4" url={CitadelLogo} name={"Citadel"} />
+                    <Sponsor
+                        tier="4"
+                        url={SusquehannaLogo}
+                        name={"Susquehanna International Group"}
+                    />
+                </SponsorTierList>
+            </SponsorTier>
+        </Wrapper>
+    </SubTheme>
 );
 
 export default Sponsors;

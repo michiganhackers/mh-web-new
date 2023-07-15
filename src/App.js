@@ -20,7 +20,7 @@ import {
     faLinkedin,
     faAndroid,
     faApple,
-    faGoogleDrive
+    faGoogleDrive,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -44,7 +44,7 @@ import {
     faPencilRuler,
     faServer,
     faArrowLeft,
-    faBook
+    faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 import { darkTheme, lightTheme } from "./utility/theme.js";

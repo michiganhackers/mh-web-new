@@ -24,7 +24,7 @@ function useWindowSize() {
 function NewPolygonCanvas() {
     const divRef = useRef(null);
     const [windowWidth, windowHeight] = useWindowSize();
-    const {geometry: geometryTheme} = useTheme();
+    const { geometry: geometryTheme } = useTheme();
     useEffect(() => {
         // remove existing canvas elements so they can be garbage collected
         for (const child of divRef.current.children) {

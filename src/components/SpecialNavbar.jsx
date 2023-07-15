@@ -47,7 +47,7 @@ const HeaderAnchor = styled.header`
 
 const Hamburger = styled.label`
     font-size: 24px;
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
     display: none;
     text-align: right;
     margin: auto 10px auto 0;
@@ -60,7 +60,7 @@ const Hamburger = styled.label`
     }
 
     &:hover {
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
         cursor: pointer;
     }
 
@@ -118,21 +118,21 @@ const HeaderNavLink = styled(NavLink)`
         font-size: 24px;
         padding: 2px 4px 2px 8px
     `}
-    color: ${props => props.theme.link};
+    color: ${(props) => props.theme.link};
     text-decoration: none;
     text-transform: capitalize;
     transition: all 0.3s;
 
     &:hover {
         text-decoration: underline;
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
     }
 
     // styles for the current active navlink
     &.active {
         text-decoration: none;
         font-weight: bold;
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
         cursor: default;
     }
 `;
@@ -142,11 +142,11 @@ const SocialNavLink = styled.a`
     order: 1;
 
     &:hover {
-        color: ${props => props.theme.linkHover};
+        color: ${(props) => props.theme.linkHover};
     }
 
     transition: color 0.3s;
-    color: ${props => props.theme.icon};
+    color: ${(props) => props.theme.icon};
     padding: 8px 20px;
     text-align: center;
     ${devices.tablet`

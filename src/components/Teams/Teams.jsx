@@ -50,11 +50,11 @@ const SidebarLink = styled.a`
     transition: background-color 0.25s;
     &:hover {
         color: ${(props) => props.theme.linkHover};
-        background-color: ${props => props.theme.linkBackground};
+        background-color: ${(props) => props.theme.linkBackground};
         text-decoration: none;
     }
     &:nth-child(odd):hover {
-        background-color: ${props => props.theme.linkBackgroundAlt};
+        background-color: ${(props) => props.theme.linkBackgroundAlt};
     }
 `;
 
@@ -92,7 +92,7 @@ const ToggleWrapper = styled.div`
 `;
 
 const TeamIcon = styled.div`
-    color: ${props => props.theme.icon};
+    color: ${(props) => props.theme.icon};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,8 +115,8 @@ const CollapseIcon = styled.div`
     height: 2.5rem;
     font-size: 1.25rem;
     border-radius: 50%;
-    background-color: ${props => props.theme.collapseBackground};
-    color: ${props => props.theme.collapse};
+    background-color: ${(props) => props.theme.collapseBackground};
+    color: ${(props) => props.theme.collapse};
     display: flex;
     justify-content: center;
     align-items: center;

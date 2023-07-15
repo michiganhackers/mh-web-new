@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "utility/fonts.css";
 import styled from "styled-components";
 import devices from "utility/MediaQueries.js";
@@ -23,7 +23,7 @@ const ButtonWrapper = styled.a`
     background-color: ${(props) => props.theme.background};
     border-radius: 999px;
     ${devices.desktop`
-        ${props => props.visible && "display: flex;"}
+        ${(props) => props.visible && "display: flex;"}
     `}
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 `;
@@ -38,13 +38,16 @@ const ButtonIcon = styled.p`
 const BackToTop = () => {
     const [visible, setVisible] = useState(true);
 
-
-    const onButtonClick = e => {
+    const onButtonClick = (e) => {
         e.preventDefault();
-        window.scrollTo({top: 0, behavior: 'smooth'});
-        window.history.replaceState(null, "", window.location.href.split("#")[0]);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.replaceState(
+            null,
+            "",
+            window.location.href.split("#")[0]
+        );
     };
-    
+
     const onScroll = () => {
         setVisible(window.scrollY > 0);
     };

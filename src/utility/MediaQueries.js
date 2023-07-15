@@ -36,5 +36,5 @@ export default {
             @media (max-width: 1500px) {
                 ${css(...args)};
             }
-        `
+        `,
 };

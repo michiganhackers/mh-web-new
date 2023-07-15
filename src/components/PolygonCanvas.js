@@ -3,11 +3,10 @@ import $ from "jquery";
 import FSS from "../utility/geometryangle.js";
 
 class PolygonCanvas extends Component {
-
     constructor() {
         super();
         this.state = {
-            geometry: null
+            geometry: null,
         };
     }
 
@@ -127,7 +126,7 @@ class PolygonCanvas extends Component {
             },
         });
         // $(".fss-output").css("z-index", "100");
-        this.setState({geometry});
+        this.setState({ geometry });
     }
 
     componentWillUnmount() {

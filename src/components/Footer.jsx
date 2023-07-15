@@ -11,7 +11,7 @@ const FooterOuter = styled.footer`
     position: sticky;
     top: 100%;
 
-    background-color: ${props => props.theme.background};
+    background-color: ${(props) => props.theme.background};
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ const FooterOuter = styled.footer`
 `;
 
 const ConnectWithUsText = styled.p`
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     font-family: "Roboto Condensed";
     text-align: center;
     font-weight: bold;
@@ -42,59 +42,58 @@ const LinksContainer = styled.div`
 
 const FooterLink = styled.a`
     transition: color 0.3s ease;
-    color: ${props => props.theme.icon};
+    color: ${(props) => props.theme.icon};
     font-size: 2rem;
     display: block;
     &:hover {
-        color: ${props => props.theme.iconHover};
+        color: ${(props) => props.theme.iconHover};
     }
     padding: 0 8px;
 `;
 
 const Footer = () => (
-  <SubTheme name="footer">
-
-    <FooterOuter>
-        <ConnectWithUsText>CONNECT WITH US</ConnectWithUsText>
-        <LinksContainer>
-            <FooterLink
-                href={SOCIAL_MEDIA_LINKS.slack}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FontAwesomeIcon icon={["fab", "slack"]} />
-            </FooterLink>
-            <FooterLink
-                href={SOCIAL_MEDIA_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FontAwesomeIcon icon={["fab", "instagram"]} />
-            </FooterLink>
-            <FooterLink
-                href={SOCIAL_MEDIA_LINKS.email}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FontAwesomeIcon icon={["far", "envelope"]} />
-            </FooterLink>
-            <FooterLink
-                href={SOCIAL_MEDIA_LINKS.github}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FontAwesomeIcon icon={["fab", "github"]} />
-            </FooterLink>
-            <FooterLink
-                href={SOCIAL_MEDIA_LINKS.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FontAwesomeIcon icon={["fab", "twitter"]} />
-            </FooterLink>
-        </LinksContainer>
-    </FooterOuter>
-  </SubTheme>
+    <SubTheme name="footer">
+        <FooterOuter>
+            <ConnectWithUsText>CONNECT WITH US</ConnectWithUsText>
+            <LinksContainer>
+                <FooterLink
+                    href={SOCIAL_MEDIA_LINKS.slack}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FontAwesomeIcon icon={["fab", "slack"]} />
+                </FooterLink>
+                <FooterLink
+                    href={SOCIAL_MEDIA_LINKS.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FontAwesomeIcon icon={["fab", "instagram"]} />
+                </FooterLink>
+                <FooterLink
+                    href={SOCIAL_MEDIA_LINKS.email}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FontAwesomeIcon icon={["far", "envelope"]} />
+                </FooterLink>
+                <FooterLink
+                    href={SOCIAL_MEDIA_LINKS.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FontAwesomeIcon icon={["fab", "github"]} />
+                </FooterLink>
+                <FooterLink
+                    href={SOCIAL_MEDIA_LINKS.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FontAwesomeIcon icon={["fab", "twitter"]} />
+                </FooterLink>
+            </LinksContainer>
+        </FooterOuter>
+    </SubTheme>
 );
 
 export default Footer;

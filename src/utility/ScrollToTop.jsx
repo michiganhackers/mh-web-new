@@ -19,6 +19,6 @@ function ScrollToTop() {
 // See https://github.com/michiganhackers/mh-web-new/issues/94
 //  `window.scrollTo` isn't going to be added anytime soon
 const disableIfTesting = (canvas) =>
-  process.env.NODE_ENV === "test" ? () => null : canvas;
+    process.env.NODE_ENV === "test" ? () => null : canvas;
 
 export default disableIfTesting(ScrollToTop);

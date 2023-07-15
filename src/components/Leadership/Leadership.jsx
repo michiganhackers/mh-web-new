@@ -68,13 +68,13 @@ const TabInfo = styled.div`
 const TabName = styled.h1`
     font-size: 2em;
     text-align: center;
-    color: ${props => props.theme.heading};
+    color: ${(props) => props.theme.heading};
 `;
 
 const TabDescription = styled.p`
     width: 50%;
     margin: auto;
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
 `;
 
 const tabNavigationActions = {

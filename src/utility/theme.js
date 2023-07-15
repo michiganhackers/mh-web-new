@@ -60,7 +60,7 @@ export const lightTheme = {
             ambient: "rgb(255, 140, 0)",
             diffuse: "rgb(255, 255, 0)",
             background: "rgb(255, 0, 0)",
-        }
+        },
     },
 
     navbar: {
@@ -215,7 +215,7 @@ export const lightTheme = {
     pageNotFound: {
         textAlt: lightColors.primaryDark,
         heading: lightColors.primaryDark,
-    }
+    },
 };
 
 const darkColors = {
@@ -268,7 +268,7 @@ export const darkTheme = {
             ambient: "rgb(66,37,0)",
             diffuse: "rgb(168,168,4)",
             background: "rgb(140,4,4)",
-        }
+        },
     },
 
     navbar: {
@@ -422,5 +422,5 @@ export const darkTheme = {
     pageNotFound: {
         textAlt: darkColors.primaryDark,
         heading: darkColors.primaryDark,
-    }
+    },
 };
