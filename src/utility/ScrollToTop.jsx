@@ -7,18 +7,18 @@ import { useLocation } from "react-router-dom";
  * @constructor
  */
 function ScrollToTop() {
-    const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-    useEffect(() => {
-        window?.scrollTo(0, 0);
-    }, [pathname]);
+  useEffect(() => {
+    window?.scrollTo(0, 0);
+  }, [pathname]);
 
-    return null;
+  return null;
 }
 
 // See https://github.com/michiganhackers/mh-web-new/issues/94
 //  `window.scrollTo` isn't going to be added anytime soon
 const disableIfTesting = (canvas) =>
-    process.env.NODE_ENV === "test" ? () => null : canvas;
+  process.env.NODE_ENV === "test" ? () => null : canvas;
 
 export default disableIfTesting(ScrollToTop);

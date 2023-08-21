@@ -12,95 +12,95 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-    faGithub,
-    faInstagram,
-    faSlack,
-    faTwitter,
-    faFacebook,
-    faLinkedin,
-    faAndroid,
-    faApple,
-    faGoogleDrive,
+  faGithub,
+  faInstagram,
+  faSlack,
+  faTwitter,
+  faFacebook,
+  faLinkedin,
+  faAndroid,
+  faApple,
+  faGoogleDrive,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
-    faListUl,
-    faLink,
-    faMapMarkerAlt,
-    faClock,
-    faBars,
-    faAngleUp,
-    faCaretRight,
-    faCaretDown,
-    faSun,
-    faMoon,
-    faChartLine,
-    faBrain,
-    faLock,
-    faUserTie,
-    faCodeBranch,
-    faGlobe,
-    faMicrochip,
-    faPencilRuler,
-    faServer,
-    faArrowLeft,
-    faBook,
+  faListUl,
+  faLink,
+  faMapMarkerAlt,
+  faClock,
+  faBars,
+  faAngleUp,
+  faCaretRight,
+  faCaretDown,
+  faSun,
+  faMoon,
+  faChartLine,
+  faBrain,
+  faLock,
+  faUserTie,
+  faCodeBranch,
+  faGlobe,
+  faMicrochip,
+  faPencilRuler,
+  faServer,
+  faArrowLeft,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import ScrollToTop from "./utility/ScrollToTop";
 import { darkTheme, lightTheme } from "./utility/theme.js";
 import { Theme } from "./components/ThemeComponents.jsx";
 
 library.add(
-    faGithub,
-    faInstagram,
-    faSlack,
-    faTwitter,
-    faFacebook,
-    faLinkedin,
-    faEnvelope,
-    faUser,
-    faListUl,
-    faLink,
-    faMapMarkerAlt,
-    faClock,
-    faBars,
-    faAngleUp,
-    faCaretRight,
-    faCaretDown,
-    faMoon,
-    faSun,
-    faChartLine,
-    faBrain,
-    faLock,
-    faUserTie,
-    faCodeBranch,
-    faGlobe,
-    faMicrochip,
-    faPencilRuler,
-    faServer,
-    faAndroid,
-    faApple,
-    faArrowLeft,
-    faGoogleDrive,
-    faBook
+  faGithub,
+  faInstagram,
+  faSlack,
+  faTwitter,
+  faFacebook,
+  faLinkedin,
+  faEnvelope,
+  faUser,
+  faListUl,
+  faLink,
+  faMapMarkerAlt,
+  faClock,
+  faBars,
+  faAngleUp,
+  faCaretRight,
+  faCaretDown,
+  faMoon,
+  faSun,
+  faChartLine,
+  faBrain,
+  faLock,
+  faUserTie,
+  faCodeBranch,
+  faGlobe,
+  faMicrochip,
+  faPencilRuler,
+  faServer,
+  faAndroid,
+  faApple,
+  faArrowLeft,
+  faGoogleDrive,
+  faBook
 );
 
 const App = () => (
-    <Theme themes={[lightTheme, darkTheme]}>
-        <Router>
-            <ScrollToTop />
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/events" component={Events} />
-                <Route path="/about" component={About} />
-                <Route path="/leadership" component={Leadership} />
-                <Route path="/teams" component={Teams} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/faq" component={FAQ} />
-                <Route path="*" component={PageNotFound} />
-            </Switch>
-        </Router>
-    </Theme>
+  <Theme themes={[lightTheme, darkTheme]}>
+    <Router>
+      <ScrollToTop />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/events" component={Events} />
+        <Route path="/about" component={About} />
+        <Route path="/leadership" component={Leadership} />
+        <Route path="/teams" component={Teams} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/faq" component={FAQ} />
+        <Route path="*" component={PageNotFound} />
+      </Switch>
+    </Router>
+  </Theme>
 );
 
 export default App;

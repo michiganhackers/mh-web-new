@@ -1,7 +1,7 @@
 function ForStudents(theme) {
-    return (
-        "data:image/svg+xml;base64," +
-        window.btoa(`<svg
+  return (
+    "data:image/svg+xml;base64," +
+    window.btoa(`<svg
                 id="Layer_1"
                 xmlns="http://www.w3.org/2000/svg"
                 x="0"
@@ -59,13 +59,13 @@ function ForStudents(theme) {
                 <path class="st7" d="M166.5 175v-8" />
                 <circle class="st6" cx="166.5" cy="176.5" r="2.5" />
             </svg>`)
-    );
+  );
 }
 
 function ForCompanies(theme) {
-    return (
-        "data:image/svg+xml;base64," +
-        window.btoa(`
+  return (
+    "data:image/svg+xml;base64," +
+    window.btoa(`
 <svg
     enable-background="new 0 0 687.5 550"
     viewBox="0 0 687.5 550"
@@ -116,6 +116,6 @@ function ForCompanies(theme) {
     </g>
 </svg>
 `)
-    );
+  );
 }
 export { ForStudents, ForCompanies };

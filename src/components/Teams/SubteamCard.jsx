@@ -5,50 +5,50 @@ import devices from "utility/MediaQueries.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardDiv = styled.div`
-    background-color: ${(props) =>
-        props.even ? props.theme.backgroundAlt : props.theme.background};
-    display: flex;
-    flex-direction: ${(props) => (props.even ? "row" : "row-reverse")};
-    margin: 1rem 0;
-    border-radius: 10px;
-    max-width: 1000px;
-    padding: 2rem;
-    min-height: 200px;
-    ${devices.tablet`
+  background-color: ${(props) =>
+    props.even ? props.theme.backgroundAlt : props.theme.background};
+  display: flex;
+  flex-direction: ${(props) => (props.even ? "row" : "row-reverse")};
+  margin: 1rem 0;
+  border-radius: 10px;
+  max-width: 1000px;
+  padding: 2rem;
+  min-height: 200px;
+  ${devices.tablet`
         flex-direction: column;
         max-width: 500px;
     `}
 `;
 
 const TeamName = styled.h3`
-    color: ${(props) => props.theme.heading};
-    font-weight: bold;
+  color: ${(props) => props.theme.heading};
+  font-weight: bold;
 `;
 
 const TeamDescription = styled.p`
-    color: ${(props) => props.theme.text};
-    white-space: pre-line;
+  color: ${(props) => props.theme.text};
+  white-space: pre-line;
 `;
 
 const TeamPhoto = styled.img`
-    width: clamp(100px, 100%, 300px);
-    ${devices.tablet`
+  width: clamp(100px, 100%, 300px);
+  ${devices.tablet`
         width: 100%;
         margin-bottom: 1rem;
     `}
-    object-fit: contain;
+  object-fit: contain;
 `;
 
 const TeamPhotoDiv = styled.div`
-    flex: 0 0 300px;
-    ${devices.tablet`
+  flex: 0 0 300px;
+  ${devices.tablet`
         flex: 0 0 200px;
     `}
-    ${devices.tiny`
+  ${devices.tiny`
         flex: 0 0 auto;
     `}
     display: flex;
-    justify-content: center;
+  justify-content: center;
 `;
 
 const TeamInfoDiv = styled.div`
@@ -60,67 +60,66 @@ const TeamInfoDiv = styled.div`
 `;
 
 const TeamLinksUl = styled.ul`
-    padding-left: 0;
-    margin-bottom: 0;
+  padding-left: 0;
+  margin-bottom: 0;
 `;
 
 const TeamLinksLi = styled.li`
-    list-style: none;
+  list-style: none;
 `;
 
 const TeamLink = styled.a`
-    color: ${(props) => props.theme.link};
+  color: ${(props) => props.theme.link};
 `;
 
 const CardWrapper = styled.article`
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    height: min-content;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: min-content;
 `;
 
 const CardBorder = styled.div`
-    border-top: 3px solid
-        ${(props) =>
-            props.even ? props.theme.background : props.theme.backgroundAlt};
+  border-top: 3px solid
+    ${(props) =>
+      props.even ? props.theme.background : props.theme.backgroundAlt};
 
-    ${(props) => props.first && "border-top: none;"}
+  ${(props) => props.first && "border-top: none;"}
 `;
 
 const SubteamCard = (props) => {
-    const { team, innerRef, even, first, teamId } = props;
-    const { name, description, photoUrl, links } = team;
+  const { team, innerRef, even, first, teamId } = props;
+  const { name, description, photoUrl, links } = team;
 
-    return (
-        <CardWrapper>
-            <CardBorder first={first} even={even}>
-                <CardDiv ref={innerRef} even={even} id={teamId}>
-                    <TeamPhotoDiv>
-                        <TeamPhoto src={photoUrl} />
-                    </TeamPhotoDiv>
-                    <TeamInfoDiv even={even}>
-                        <TeamName>{name}</TeamName>
-                        <TeamDescription>{description}</TeamDescription>
-                        <TeamLinksUl>
-                            {links.map((linkObj, i) => (
-                                <TeamLinksLi key={i}>
-                                    <TeamLink
-                                        href={linkObj.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <FontAwesomeIcon icon={linkObj.icon} />{" "}
-                                        {linkObj.title}
-                                    </TeamLink>
-                                </TeamLinksLi>
-                            ))}
-                        </TeamLinksUl>
-                    </TeamInfoDiv>
-                </CardDiv>
-            </CardBorder>
-        </CardWrapper>
-    );
+  return (
+    <CardWrapper>
+      <CardBorder first={first} even={even}>
+        <CardDiv ref={innerRef} even={even} id={teamId}>
+          <TeamPhotoDiv>
+            <TeamPhoto src={photoUrl} />
+          </TeamPhotoDiv>
+          <TeamInfoDiv even={even}>
+            <TeamName>{name}</TeamName>
+            <TeamDescription>{description}</TeamDescription>
+            <TeamLinksUl>
+              {links.map((linkObj, i) => (
+                <TeamLinksLi key={i}>
+                  <TeamLink
+                    href={linkObj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={linkObj.icon} /> {linkObj.title}
+                  </TeamLink>
+                </TeamLinksLi>
+              ))}
+            </TeamLinksUl>
+          </TeamInfoDiv>
+        </CardDiv>
+      </CardBorder>
+    </CardWrapper>
+  );
 };
 
 export default SubteamCard;

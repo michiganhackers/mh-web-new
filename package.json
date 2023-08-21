@@ -1,54 +1,54 @@
 {
-    "name": "mh-web-new",
-    "version": "0.1.0",
-    "private": true,
-    "homepage": "https://michhackers.com",
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.36",
-        "@fortawesome/free-brands-svg-icons": "^5.7.2",
-        "@fortawesome/free-regular-svg-icons": "^6.2.0",
-        "@fortawesome/free-solid-svg-icons": "^5.15.4",
-        "@fortawesome/react-fontawesome": "^0.1.16",
-        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
-        "bootstrap": "^4.1.3",
-        "fullcalendar-reactwrapper": "^1.0.7",
-        "jquery": "^3.5.0",
-        "moment": "^2.22.2",
-        "react": "^17",
-        "react-dom": "^17",
-        "react-responsive-carousel": "^3.1.51",
-        "react-router-dom": "^5",
-        "react-scripts": "^5",
-        "styled-components": "^5.3.3"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts test --watchAll=false --env=jsdom; react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "lint": "eslint --ext .jsx,.js src",
-        "lint-fix": "eslint --fix --ext .jsx,.js src",
-        "style-check": "npx prettier --check .",
-        "style-fix": "npx prettier --write .",
-        "get-leadership": "node bin/collectTeamData.js",
-        "deploy": "./bin/deploy.sh"
-    },
-    "devDependencies": {
-        "@babel/eslint-parser": "^7.16.5",
-        "@babel/eslint-plugin": "^7.16.5",
-        "@googleapis/sheets": "^0.3.0",
-        "cross-fetch": "^3.1.4",
-        "dotenv": "^10.0.0",
-        "enzyme": "^3.11.0",
-        "eslint": "^8.7.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-jsx-a11y": "^6.5.1",
-        "eslint-plugin-react": "^7.28.0",
-        "jest-styled-components": "^7.0.8",
-        "prettier": "2.5.1",
-        "sharp": "^0.31.3"
-    },
-    "browserslist": [
-        "defaults"
-    ]
+  "name": "mh-web-new",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://michhackers.com",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "bootstrap": "^4.1.3",
+    "fullcalendar-reactwrapper": "^1.0.7",
+    "jquery": "^3.5.0",
+    "moment": "^2.22.2",
+    "react": "^17",
+    "react-dom": "^17",
+    "react-responsive-carousel": "^3.1.51",
+    "react-router-dom": "^5",
+    "react-scripts": "^5",
+    "styled-components": "^5.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts test --watchAll=false --env=jsdom; react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .jsx,.js src",
+    "lint-fix": "eslint --fix --ext .jsx,.js src",
+    "style-check": "npx prettier --check .",
+    "style-fix": "npx prettier --write .",
+    "get-leadership": "node bin/collectTeamData.js",
+    "deploy": "./bin/deploy.sh"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-plugin": "^7.16.5",
+    "@googleapis/sheets": "^0.3.0",
+    "cross-fetch": "^3.1.4",
+    "dotenv": "^10.0.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "jest-styled-components": "^7.0.8",
+    "prettier": "2.5.1",
+    "sharp": "^0.31.3"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

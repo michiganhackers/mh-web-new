@@ -15,24 +15,24 @@ import Festifall from "assets/carousel_new/11_F22_Festifall.jpg";
 
 // List of club images to include in the image carousel
 const images = [
-    { url: LastHackNight, description: "Last Hack Night of 2022" },
-    { url: MassMeeting, description: "Mass Meeting Winter 2023" },
-    { url: SIGEvent, description: "SIG Sponsor Event 2022" },
-    { url: ExecAtWinterfest, description: "Exec at Winterfest 2023" },
-    { url: PaintTheRock, description: "Painting the Rock 2022" },
-    { url: CrowdstrikeEvent, description: "Crowdstrike Sponsor Event 2022" },
-    { url: HackHersCasinoNight, description: "Hack Hers Casino Night 2023" },
-    {
-        url: ExecAtPinballPetes,
-        description: "Pinball Pete's Social Night 2021",
-    },
-    { url: LeadsIceCreamSocial, description: "Leads Ice Cream Social 2022" },
-    { url: BowlingHKN, description: "Bowling Night With HKN 2022" },
-    { url: Festifall, description: "Michigan Hackers at Festifall 2022" },
+  { url: LastHackNight, description: "Last Hack Night of 2022" },
+  { url: MassMeeting, description: "Mass Meeting Winter 2023" },
+  { url: SIGEvent, description: "SIG Sponsor Event 2022" },
+  { url: ExecAtWinterfest, description: "Exec at Winterfest 2023" },
+  { url: PaintTheRock, description: "Painting the Rock 2022" },
+  { url: CrowdstrikeEvent, description: "Crowdstrike Sponsor Event 2022" },
+  { url: HackHersCasinoNight, description: "Hack Hers Casino Night 2023" },
+  {
+    url: ExecAtPinballPetes,
+    description: "Pinball Pete's Social Night 2021",
+  },
+  { url: LeadsIceCreamSocial, description: "Leads Ice Cream Social 2022" },
+  { url: BowlingHKN, description: "Bowling Night With HKN 2022" },
+  { url: Festifall, description: "Michigan Hackers at Festifall 2022" },
 ];
 
 const ClubImagesCarousel = () => {
-    return <ImageCarousel images={images} />;
+  return <ImageCarousel images={images} />;
 };
 
 export default ClubImagesCarousel;

@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SOCIAL_MEDIA_LINKS } from "utility/constants.js";
 
 const FlexWrapper = styled.div`
-    height: 80px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    ${devices.tablet`
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  ${devices.tablet`
         justify-content: flex-end;
         position: static;
         
@@ -26,49 +26,49 @@ const FlexWrapper = styled.div`
           transition: transform 0.6s ease-out;
         }
     `}
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
 `;
 
 const HeaderAnchor = styled.header`
-    position: fixed;
-    // we don't want this to take any space on the page
-    // It serves as an anchor for the rest of the header
-    height: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9;
-    ${devices.tablet`
+  position: fixed;
+  // we don't want this to take any space on the page
+  // It serves as an anchor for the rest of the header
+  height: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  ${devices.tablet`
         bottom: 80px;
     `}
 `;
 
 const Hamburger = styled.label`
-    font-size: 24px;
-    color: ${(props) => props.theme.link};
-    display: none;
-    text-align: right;
-    margin: auto 10px auto 0;
-    transition: color 0.3s;
-    // needs to be above the mobile nav menu, which is up first so the whole thing is clickable
-    z-index: 3;
+  font-size: 24px;
+  color: ${(props) => props.theme.link};
+  display: none;
+  text-align: right;
+  margin: auto 10px auto 0;
+  transition: color 0.3s;
+  // needs to be above the mobile nav menu, which is up first so the whole thing is clickable
+  z-index: 3;
 
-    span {
-        margin-right: 8px;
-    }
+  span {
+    margin-right: 8px;
+  }
 
-    &:hover {
-        color: ${(props) => props.theme.linkHover};
-        cursor: pointer;
-    }
+  &:hover {
+    color: ${(props) => props.theme.linkHover};
+    cursor: pointer;
+  }
 
-    ${devices.tablet`
+  ${devices.tablet`
         display: flex;
         align-items: center;
     `}
-    ${devices.small`
+  ${devices.small`
         font-size: 28px;
     `}
     ${devices.tiny`
@@ -77,10 +77,10 @@ const Hamburger = styled.label`
 `;
 
 const MobileNavContainer = styled.nav`
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    ${devices.tablet`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  ${devices.tablet`
         flex-direction: column;
         position: sticky;
         // works because already is on top of everything thanks to sticky
@@ -97,59 +97,59 @@ const MobileNavContainer = styled.nav`
 `;
 
 const DesktopNavContainer = styled.nav`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 1 / 4;
-    flex: auto;
-    ${devices.tablet`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / 4;
+  flex: auto;
+  ${devices.tablet`
         display:none;
     `}
 `;
 
 const HeaderNavLink = styled(NavLink)`
-    font-size: 24px;
-    padding: 2px 10px;
-    ${devices.small`
+  font-size: 24px;
+  padding: 2px 10px;
+  ${devices.small`
         font-size: 28px;
         padding: 2px 6px 2px 10px
     `}
-    ${devices.tiny`
+  ${devices.tiny`
         font-size: 24px;
         padding: 2px 4px 2px 8px
     `}
     color: ${(props) => props.theme.link};
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${(props) => props.theme.linkHover};
+  }
+
+  // styles for the current active navlink
+  &.active {
     text-decoration: none;
-    text-transform: capitalize;
-    transition: all 0.3s;
-
-    &:hover {
-        text-decoration: underline;
-        color: ${(props) => props.theme.linkHover};
-    }
-
-    // styles for the current active navlink
-    &.active {
-        text-decoration: none;
-        font-weight: bold;
-        color: ${(props) => props.theme.linkHover};
-        cursor: default;
-    }
+    font-weight: bold;
+    color: ${(props) => props.theme.linkHover};
+    cursor: default;
+  }
 `;
 
 const SocialNavLink = styled.a`
-    font-size: 24px;
-    order: 1;
+  font-size: 24px;
+  order: 1;
 
-    &:hover {
-        color: ${(props) => props.theme.linkHover};
-    }
+  &:hover {
+    color: ${(props) => props.theme.linkHover};
+  }
 
-    transition: color 0.3s;
-    color: ${(props) => props.theme.icon};
-    padding: 8px 20px;
-    text-align: center;
-    ${devices.tablet`
+  transition: color 0.3s;
+  color: ${(props) => props.theme.icon};
+  padding: 8px 20px;
+  text-align: center;
+  ${devices.tablet`
         &:first-of-type {
             padding-left: 10px;
         }
@@ -157,15 +157,15 @@ const SocialNavLink = styled.a`
 `;
 
 const SocialLinkContainer = styled.nav`
-    display: flex;
+  display: flex;
 `;
 
 const links = ["about", "leadership", "teams", "events", "contact", "faq"].map(
-    (name) => (
-        <HeaderNavLink to={`/${name}`} key={name}>
-            {name !== "faq" ? name : "FAQ"}
-        </HeaderNavLink>
-    )
+  (name) => (
+    <HeaderNavLink to={`/${name}`} key={name}>
+      {name !== "faq" ? name : "FAQ"}
+    </HeaderNavLink>
+  )
 );
 
 /**
@@ -173,37 +173,35 @@ const links = ["about", "leadership", "teams", "events", "contact", "faq"].map(
  * @type {{string: string}} FontAwesome icon name: target URL
  */
 const social_mappings = Object.fromEntries(
-    ["github", "instagram", "slack", "twitter"].map((key) => [
-        key,
-        SOCIAL_MEDIA_LINKS[key],
-    ])
+  ["github", "instagram", "slack", "twitter"].map((key) => [
+    key,
+    SOCIAL_MEDIA_LINKS[key],
+  ])
 );
 const social_link_group = (
-    <SocialLinkContainer key={"social_group"}>
-        {Object.entries(social_mappings).map(([name, url]) => (
-            <SocialNavLink key={name} target="_blank" href={url}>
-                <FontAwesomeIcon icon={["fab", name]} />
-            </SocialNavLink>
-        ))}
-    </SocialLinkContainer>
+  <SocialLinkContainer key={"social_group"}>
+    {Object.entries(social_mappings).map(([name, url]) => (
+      <SocialNavLink key={name} target="_blank" href={url}>
+        <FontAwesomeIcon icon={["fab", name]} />
+      </SocialNavLink>
+    ))}
+  </SocialLinkContainer>
 );
 
 const SpecialNavbar = () => (
-    <HeaderAnchor>
-        <input type="checkbox" id="hamburger" style={{ display: "none" }} />
-        <FlexWrapper>
-            <DesktopNavContainer>
-                {[...links, social_link_group]}
-            </DesktopNavContainer>
-            <Hamburger htmlFor="hamburger">
-                <span>Menu</span>
-                <FontAwesomeIcon icon="bars" />
-            </Hamburger>
-        </FlexWrapper>
-        {/*fix tab indexing*/}
+  <HeaderAnchor>
+    <input type="checkbox" id="hamburger" style={{ display: "none" }} />
+    <FlexWrapper>
+      <DesktopNavContainer>{[...links, social_link_group]}</DesktopNavContainer>
+      <Hamburger htmlFor="hamburger">
+        <span>Menu</span>
+        <FontAwesomeIcon icon="bars" />
+      </Hamburger>
+    </FlexWrapper>
+    {/*fix tab indexing*/}
 
-        <MobileNavContainer>{[...links, social_link_group]}</MobileNavContainer>
-    </HeaderAnchor>
+    <MobileNavContainer>{[...links, social_link_group]}</MobileNavContainer>
+  </HeaderAnchor>
 );
 
 export default SpecialNavbar;

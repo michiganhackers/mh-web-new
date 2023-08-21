@@ -5,8 +5,8 @@
  * @return {string} Slugified string
  */
 export function slugify(str) {
-    return str
-        .toLowerCase()
-        .replaceAll(/ /g, "-")
-        .replaceAll(/[^a-z0-9-]/g, "");
+  return str
+    .toLowerCase()
+    .replaceAll(/ /g, "-")
+    .replaceAll(/[^a-z0-9-]/g, "");
 }

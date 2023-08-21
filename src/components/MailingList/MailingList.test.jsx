@@ -7,18 +7,18 @@ import { healthFetch } from "./MailingListFetch";
 const MH_BACKEND_TIMEOUT_TIME = 15000;
 
 it(
-    "renders without crashing",
-    () => {
-        mount(<MailingList />);
-    },
-    MH_BACKEND_TIMEOUT_TIME
+  "renders without crashing",
+  () => {
+    mount(<MailingList />);
+  },
+  MH_BACKEND_TIMEOUT_TIME
 );
 
 // TODO: better unit testing here and pretty much everywhere else.
 it.skip(
-    "can talk to the backend",
-    () => {
-        return expect(healthFetch()).resolves.not.toThrow();
-    },
-    MH_BACKEND_TIMEOUT_TIME
+  "can talk to the backend",
+  () => {
+    return expect(healthFetch()).resolves.not.toThrow();
+  },
+  MH_BACKEND_TIMEOUT_TIME
 );

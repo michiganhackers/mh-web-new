@@ -1,7 +1,7 @@
 function Opener(theme) {
-    return (
-        "data:image/svg+xml;base64," +
-        window.btoa(`<svg
+  return (
+    "data:image/svg+xml;base64," +
+    window.btoa(`<svg
             width="16"
             height="16"
             viewBox="0 0 16 16"
@@ -21,6 +21,6 @@ function Opener(theme) {
                 </g>
             </g>
         </svg>`)
-    );
+  );
 }
 export { Opener };

@@ -8,21 +8,21 @@ import Footer from "components/Footer.jsx";
 import styled from "styled-components";
 
 export default function Events() {
-    return (
-        <React.Fragment>
-            <Navbar />
-            <SubTheme name="events">
-                <Content>
-                    <h1>Calendar</h1>
-                    <Calendar />
-                </Content>
-            </SubTheme>
-            <Footer />
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <Navbar />
+      <SubTheme name="events">
+        <Content>
+          <h1>Calendar</h1>
+          <Calendar />
+        </Content>
+      </SubTheme>
+      <Footer />
+    </React.Fragment>
+  );
 }
 
 const Content = styled.div`
-    color: #fff;
-    text-align: center;
+  color: #fff;
+  text-align: center;
 `;

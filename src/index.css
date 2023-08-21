@@ -1,46 +1,46 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 .fc {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 @keyframes details-open {
-    0% {
-        opacity: 0;
-        transform: translateX(-32px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes details-close {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-32px);
-    }
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
 }
 
 /* Classes applied to body to make a nice transition effect when changing themes */
 .transition-all {
-    transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
+  transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
 }
 
 /* Apply to all nodes, but don't layer several onto the same icon, otherwise it goes slowly*/
 .transition-all *:not(svg, svg *) {
-    transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
+  transition: color 2s ease, background-color 2s ease, border-color 2s ease !important;
 }
 
 #root {
-    /* Makes the footer work easily */
-    min-height: 100vh;
+  /* Makes the footer work easily */
+  min-height: 100vh;
 }

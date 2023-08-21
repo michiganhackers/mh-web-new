@@ -1,267 +1,267 @@
 {
-    "Executive Team": {
-        "slug": "executive-team",
-        "description": "The Executive Team is responsible for overseeing the club as a whole. Their work includes organizing club activities, maintaining corporate partnerships, managing core teams, handling member relations, and defining club vision. The team currently consists of the President, Vice President of External, and Vice President of Internal.",
-        "imageUrl": "leadership/category-executive-team.jpg",
-        "people": [
-            {
-                "name": "Abhik Mazumder",
-                "uniqname": "abhikmaz",
-                "title": "President",
-                "gradYear": "2023",
-                "interests": "Soccer, Basketball, Volleyball, Boba, Singing, Attack on Titan",
-                "funFact": "Was left-handed by birth and is now right-handed",
-                "linkedinUrl": "https://www.linkedin.com/in/abhikmaz/",
-                "githubUrl": "https://github.com/abhiktech",
-                "facebookUrl": "https://www.facebook.com/abhik.mazumder.9/",
-                "instagramUrl": "https://www.instagram.com/abhik.mazumder/",
-                "imageUrl": "leadership/abhikmaz.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Aryan Seth",
-                "uniqname": "aryans",
-                "title": "VP of External Affairs",
-                "gradYear": "2023",
-                "interests": "Running, video games, building emulators, cars",
-                "funFact": "Can do a J-turn in a car",
-                "linkedinUrl": "https://www.linkedin.com/in/aryan-seth/",
-                "instagramUrl": "https://www.instagram.com/aryan_seth_/",
-                "imageUrl": "leadership/aryans.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Frank Wang",
-                "uniqname": "frnkwang",
-                "title": "VP of Internal Affairs",
-                "gradYear": "2024",
-                "interests": "Biking, video games, classical music, sleeping",
-                "funFact": "Loves making dumplings from scratch",
-                "linkedinUrl": "https://www.linkedin.com/in/frank-wang-b68a411b6/",
-                "githubUrl": "https://github.com/frnkwang",
-                "instagramUrl": "https://www.instagram.com/frank_wang09/",
-                "imageUrl": "leadership/frnkwang.jpg",
-                "display": "Y"
-            }
-        ]
-    },
-    "Leadership": {
-        "slug": "leadership",
-        "description": "Team Leads are responsible for administering their core teams. Their work includes developing core team content, running meetings during hack nights, managing team members, and representing the club in general. The different teams are - ML, Android, iOS, Web, Security, Quant, Open Source, Embedded Systems, Interviewing, and Design.",
-        "imageUrl": "leadership/category-leadership.jpg",
-        "people": [
-            {
-                "name": "Ondrej Kovarik",
-                "uniqname": "ondrejk",
-                "title": "Web Team Lead",
-                "gradYear": "2023",
-                "interests": "Reading, cooking, volleyball, piccolo/flute, parkour",
-                "funFact": "Has 3 citizenships",
-                "imageUrl": "leadership/ondrejk.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Adam Gunn",
-                "uniqname": "asgunn",
-                "title": "Web Team Lead",
-                "gradYear": "2024",
-                "interests": "Water polo, web dev, movies, music, exploring new places",
-                "funFact": "Has 2 cats",
-                "linkedinUrl": "https://www.linkedin.com/in/a-gunn/",
-                "githubUrl": "https://github.com/adamgunn",
-                "imageUrl": "leadership/asgunn.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Keshav Gurushankar",
-                "uniqname": "keshavg",
-                "title": "Web Team Lead",
-                "gradYear": "2023",
-                "interests": "Cooking/Baking, coffee, taekwondo ",
-                "funFact": "Dangerously high caffeine tolerance",
-                "linkedinUrl": "https://www.linkedin.com/in/keshav-gurushankar/",
-                "githubUrl": "https://github.com/kgurushankar",
-                "imageUrl": "leadership/keshavg.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Viroshan Narayan",
-                "uniqname": "vnaray",
-                "title": "Interviewing Team Lead",
-                "gradYear": "2023",
-                "interests": "Biking, basketball, movies, ping pong, cars",
-                "funFact": "Prefers driving manual",
-                "linkedinUrl": "https://www.linkedin.com/in/viroshan-narayan",
-                "githubUrl": "https://github.com/ViroNaray",
-                "imageUrl": "leadership/vnaray.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Caleb Gifford",
-                "uniqname": "calebgif",
-                "title": "Android Team Lead",
-                "gradYear": "2023",
-                "interests": "Running, reading, biking, video games",
-                "funFact": "Biked 128 Miles in the Upper Peninsula!",
-                "githubUrl": "https://github.com/calebgif",
-                "imageUrl": "leadership/calebgif.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Caleb Qiu",
-                "uniqname": "calebqiu",
-                "title": "iOS Team Lead",
-                "gradYear": "2024",
-                "interests": "Tennis, food, hiking, sleeping",
-                "funFact": "Is trilingual-ish",
-                "linkedinUrl": "www.linkedin.com/in/caleb-qiu-464307224",
-                "githubUrl": "https://github.com/Qiucj",
-                "imageUrl": "leadership/calebqiu.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Andrew Scheffer",
-                "uniqname": "drewskis",
-                "title": "iOS Team Lead",
-                "gradYear": "2024",
-                "interests": "Bonsai taming, ukulele, ham radio",
-                "funFact": "Drinks apple juice out of wine glasses",
-                "linkedinUrl": "https://www.linkedin.com/in/andrew-scheffer-b5bb091b2/",
-                "githubUrl": "https://github.com/schefferac2020",
-                "imageUrl": "leadership/drewskis.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Morgan VanderLeest",
-                "uniqname": "vandermo",
-                "title": "Security Team Lead",
-                "gradYear": "2025",
-                "interests": "Reading, writing, working out",
-                "funFact": "Has gotten a concussion from running",
-                "linkedinUrl": "https://www.linkedin.com/in/morgan-vanderleest-109bb5204/",
-                "imageUrl": "leadership/vandermo.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Anisha Aggarwal",
-                "uniqname": "anishaag",
-                "title": "Security Team Lead",
-                "gradYear": "2023",
-                "interests": "Piano, volleyball, dancing, card tricks/games, Marvel",
-                "funFact": "Likes to eat pizza with ranch",
-                "linkedinUrl": "www.linkedin.com/in/anishaaggarwal/",
-                "githubUrl": "https://github.com/anisha2442",
-                "imageUrl": "leadership/anishaag.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Anthony Li",
-                "uniqname": "lianth",
-                "title": "Open-Source Development Lead",
-                "gradYear": "2024",
-                "interests": "Baking, Games (Tabletop or Video), Philosophy, Reading, Writing",
-                "funFact": "Uses philosophical tangents to deflect questions",
-                "imageUrl": "leadership/lianth.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Chris Xiao",
-                "uniqname": "chrisx",
-                "title": "Open-Source Development Lead",
-                "gradYear": "2024",
-                "interests": "Food, photography, home automation, web, Linux",
-                "funFact": "He **hates** JavaScript",
-                "linkedinUrl": "https://www.linkedin.com/in/chris-xiao",
-                "githubUrl": "https://github.com/chrisx8",
-                "personalUrl": "https://chrisx.xyz ",
-                "imageUrl": "leadership/chrisx.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Tate Fisher",
-                "uniqname": "tatefish",
-                "title": "Embedded Systems Co-Lead",
-                "gradYear": "2023",
-                "interests": "Music, biking, tabletop games, electronics, modular synths ",
-                "funFact": "Can recite the first few lines of the Aeneid",
-                "imageUrl": "leadership/tatefish.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Ian Birley",
-                "uniqname": "ibirley",
-                "title": "Embedded Systems Co-Lead",
-                "gradYear": "2023",
-                "interests": "Biking, Music, Gaming, Language, Movies",
-                "funFact": "Likes cold-brew coffee",
-                "linkedinUrl": "https://www.linkedin.com/in/ian-birley",
-                "imageUrl": "leadership/ibirley.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Abhimanyu Deshpande",
-                "uniqname": "abhimany",
-                "title": "Quant Lead",
-                "gradYear": "2023",
-                "interests": "Electric guitar, movies, card games, travelling",
-                "funFact": "Likes pineapple on pizza",
-                "linkedinUrl": "https://www.linkedin.com/in/adeshp01/",
-                "imageUrl": "leadership/DEFAULT.png",
-                "display": "Y"
-            },
-            {
-                "name": "Siddharth Nagamangala",
-                "uniqname": "sidnaga",
-                "title": "Android Team Lead",
-                "gradYear": "2023",
-                "interests": "Basketball, Tennis, Travelling, Movies/TV Shows, Piano",
-                "funFact": "Has rode a toy bike down his basement stairs",
-                "display": "Y",
-                "imageUrl": "leadership/DEFAULT.png"
-            },
-            {
-                "name": "Omkar Yadav",
-                "uniqname": "oyadav",
-                "title": "ML Team Lead",
-                "gradYear": "2025",
-                "interests": "Spikeball, Basketball, Watching Football, Chess",
-                "funFact": "Has moved 6 times",
-                "display": "Y",
-                "imageUrl": "leadership/DEFAULT.png"
-            }
-        ]
-    },
-    "Senior Advisors": {
-        "slug": "senior-advisors",
-        "description": "Senior Advisors are former Executive Team and Leadership Team members. Their work includes mentoring current leadership and organizing events with members.",
-        "imageUrl": "leadership/category-senior-advisors.jpg",
-        "people": [
-            {
-                "name": "Peter Wu",
-                "uniqname": "weirongw",
-                "title": "Senior Advisor",
-                "gradYear": "2023",
-                "interests": "Reading, design, running, cooking, magic",
-                "funFact": "Can run a 4:50 mile",
-                "linkedinUrl": "https://www.linkedin.com/in/weirongw/",
-                "githubUrl": "https://github.com/weirongw23",
-                "facebookUrl": "https://www.facebook.com/profile.php?id=100007462180089",
-                "instagramUrl": "https://www.instagram.com/weirongw/saved/",
-                "imageUrl": "leadership/weirongw.jpg",
-                "display": "Y"
-            },
-            {
-                "name": "Yatharth Chhabra",
-                "uniqname": "ychhabra",
-                "title": "Senior Advisor",
-                "gradYear": "2022",
-                "interests": "Taekwondo, ultimate frisbee, cricket, memes, fingerstyle guitar",
-                "funFact": "Fingertips are dead from playing fingerstyle guitar",
-                "linkedinUrl": "http://www.linkedin.com/in/yatharth-chhabra",
-                "githubUrl": "https://github.com/yatharthchhabra",
-                "imageUrl": "leadership/ychhabra.jpg",
-                "display": "Y"
-            }
-        ]
-    }
+  "Executive Team": {
+    "slug": "executive-team",
+    "description": "The Executive Team is responsible for overseeing the club as a whole. Their work includes organizing club activities, maintaining corporate partnerships, managing core teams, handling member relations, and defining club vision. The team currently consists of the President, Vice President of External, and Vice President of Internal.",
+    "imageUrl": "leadership/category-executive-team.jpg",
+    "people": [
+      {
+        "name": "Abhik Mazumder",
+        "uniqname": "abhikmaz",
+        "title": "President",
+        "gradYear": "2023",
+        "interests": "Soccer, Basketball, Volleyball, Boba, Singing, Attack on Titan",
+        "funFact": "Was left-handed by birth and is now right-handed",
+        "linkedinUrl": "https://www.linkedin.com/in/abhikmaz/",
+        "githubUrl": "https://github.com/abhiktech",
+        "facebookUrl": "https://www.facebook.com/abhik.mazumder.9/",
+        "instagramUrl": "https://www.instagram.com/abhik.mazumder/",
+        "imageUrl": "leadership/abhikmaz.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Aryan Seth",
+        "uniqname": "aryans",
+        "title": "VP of External Affairs",
+        "gradYear": "2023",
+        "interests": "Running, video games, building emulators, cars",
+        "funFact": "Can do a J-turn in a car",
+        "linkedinUrl": "https://www.linkedin.com/in/aryan-seth/",
+        "instagramUrl": "https://www.instagram.com/aryan_seth_/",
+        "imageUrl": "leadership/aryans.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Frank Wang",
+        "uniqname": "frnkwang",
+        "title": "VP of Internal Affairs",
+        "gradYear": "2024",
+        "interests": "Biking, video games, classical music, sleeping",
+        "funFact": "Loves making dumplings from scratch",
+        "linkedinUrl": "https://www.linkedin.com/in/frank-wang-b68a411b6/",
+        "githubUrl": "https://github.com/frnkwang",
+        "instagramUrl": "https://www.instagram.com/frank_wang09/",
+        "imageUrl": "leadership/frnkwang.jpg",
+        "display": "Y"
+      }
+    ]
+  },
+  "Leadership": {
+    "slug": "leadership",
+    "description": "Team Leads are responsible for administering their core teams. Their work includes developing core team content, running meetings during hack nights, managing team members, and representing the club in general. The different teams are - ML, Android, iOS, Web, Security, Quant, Open Source, Embedded Systems, Interviewing, and Design.",
+    "imageUrl": "leadership/category-leadership.jpg",
+    "people": [
+      {
+        "name": "Ondrej Kovarik",
+        "uniqname": "ondrejk",
+        "title": "Web Team Lead",
+        "gradYear": "2023",
+        "interests": "Reading, cooking, volleyball, piccolo/flute, parkour",
+        "funFact": "Has 3 citizenships",
+        "imageUrl": "leadership/ondrejk.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Adam Gunn",
+        "uniqname": "asgunn",
+        "title": "Web Team Lead",
+        "gradYear": "2024",
+        "interests": "Water polo, web dev, movies, music, exploring new places",
+        "funFact": "Has 2 cats",
+        "linkedinUrl": "https://www.linkedin.com/in/a-gunn/",
+        "githubUrl": "https://github.com/adamgunn",
+        "imageUrl": "leadership/asgunn.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Keshav Gurushankar",
+        "uniqname": "keshavg",
+        "title": "Web Team Lead",
+        "gradYear": "2023",
+        "interests": "Cooking/Baking, coffee, taekwondo ",
+        "funFact": "Dangerously high caffeine tolerance",
+        "linkedinUrl": "https://www.linkedin.com/in/keshav-gurushankar/",
+        "githubUrl": "https://github.com/kgurushankar",
+        "imageUrl": "leadership/keshavg.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Viroshan Narayan",
+        "uniqname": "vnaray",
+        "title": "Interviewing Team Lead",
+        "gradYear": "2023",
+        "interests": "Biking, basketball, movies, ping pong, cars",
+        "funFact": "Prefers driving manual",
+        "linkedinUrl": "https://www.linkedin.com/in/viroshan-narayan",
+        "githubUrl": "https://github.com/ViroNaray",
+        "imageUrl": "leadership/vnaray.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Caleb Gifford",
+        "uniqname": "calebgif",
+        "title": "Android Team Lead",
+        "gradYear": "2023",
+        "interests": "Running, reading, biking, video games",
+        "funFact": "Biked 128 Miles in the Upper Peninsula!",
+        "githubUrl": "https://github.com/calebgif",
+        "imageUrl": "leadership/calebgif.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Caleb Qiu",
+        "uniqname": "calebqiu",
+        "title": "iOS Team Lead",
+        "gradYear": "2024",
+        "interests": "Tennis, food, hiking, sleeping",
+        "funFact": "Is trilingual-ish",
+        "linkedinUrl": "www.linkedin.com/in/caleb-qiu-464307224",
+        "githubUrl": "https://github.com/Qiucj",
+        "imageUrl": "leadership/calebqiu.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Andrew Scheffer",
+        "uniqname": "drewskis",
+        "title": "iOS Team Lead",
+        "gradYear": "2024",
+        "interests": "Bonsai taming, ukulele, ham radio",
+        "funFact": "Drinks apple juice out of wine glasses",
+        "linkedinUrl": "https://www.linkedin.com/in/andrew-scheffer-b5bb091b2/",
+        "githubUrl": "https://github.com/schefferac2020",
+        "imageUrl": "leadership/drewskis.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Morgan VanderLeest",
+        "uniqname": "vandermo",
+        "title": "Security Team Lead",
+        "gradYear": "2025",
+        "interests": "Reading, writing, working out",
+        "funFact": "Has gotten a concussion from running",
+        "linkedinUrl": "https://www.linkedin.com/in/morgan-vanderleest-109bb5204/",
+        "imageUrl": "leadership/vandermo.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Anisha Aggarwal",
+        "uniqname": "anishaag",
+        "title": "Security Team Lead",
+        "gradYear": "2023",
+        "interests": "Piano, volleyball, dancing, card tricks/games, Marvel",
+        "funFact": "Likes to eat pizza with ranch",
+        "linkedinUrl": "www.linkedin.com/in/anishaaggarwal/",
+        "githubUrl": "https://github.com/anisha2442",
+        "imageUrl": "leadership/anishaag.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Anthony Li",
+        "uniqname": "lianth",
+        "title": "Open-Source Development Lead",
+        "gradYear": "2024",
+        "interests": "Baking, Games (Tabletop or Video), Philosophy, Reading, Writing",
+        "funFact": "Uses philosophical tangents to deflect questions",
+        "imageUrl": "leadership/lianth.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Chris Xiao",
+        "uniqname": "chrisx",
+        "title": "Open-Source Development Lead",
+        "gradYear": "2024",
+        "interests": "Food, photography, home automation, web, Linux",
+        "funFact": "He **hates** JavaScript",
+        "linkedinUrl": "https://www.linkedin.com/in/chris-xiao",
+        "githubUrl": "https://github.com/chrisx8",
+        "personalUrl": "https://chrisx.xyz ",
+        "imageUrl": "leadership/chrisx.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Tate Fisher",
+        "uniqname": "tatefish",
+        "title": "Embedded Systems Co-Lead",
+        "gradYear": "2023",
+        "interests": "Music, biking, tabletop games, electronics, modular synths ",
+        "funFact": "Can recite the first few lines of the Aeneid",
+        "imageUrl": "leadership/tatefish.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Ian Birley",
+        "uniqname": "ibirley",
+        "title": "Embedded Systems Co-Lead",
+        "gradYear": "2023",
+        "interests": "Biking, Music, Gaming, Language, Movies",
+        "funFact": "Likes cold-brew coffee",
+        "linkedinUrl": "https://www.linkedin.com/in/ian-birley",
+        "imageUrl": "leadership/ibirley.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Abhimanyu Deshpande",
+        "uniqname": "abhimany",
+        "title": "Quant Lead",
+        "gradYear": "2023",
+        "interests": "Electric guitar, movies, card games, travelling",
+        "funFact": "Likes pineapple on pizza",
+        "linkedinUrl": "https://www.linkedin.com/in/adeshp01/",
+        "imageUrl": "leadership/DEFAULT.png",
+        "display": "Y"
+      },
+      {
+        "name": "Siddharth Nagamangala",
+        "uniqname": "sidnaga",
+        "title": "Android Team Lead",
+        "gradYear": "2023",
+        "interests": "Basketball, Tennis, Travelling, Movies/TV Shows, Piano",
+        "funFact": "Has rode a toy bike down his basement stairs",
+        "display": "Y",
+        "imageUrl": "leadership/DEFAULT.png"
+      },
+      {
+        "name": "Omkar Yadav",
+        "uniqname": "oyadav",
+        "title": "ML Team Lead",
+        "gradYear": "2025",
+        "interests": "Spikeball, Basketball, Watching Football, Chess",
+        "funFact": "Has moved 6 times",
+        "display": "Y",
+        "imageUrl": "leadership/DEFAULT.png"
+      }
+    ]
+  },
+  "Senior Advisors": {
+    "slug": "senior-advisors",
+    "description": "Senior Advisors are former Executive Team and Leadership Team members. Their work includes mentoring current leadership and organizing events with members.",
+    "imageUrl": "leadership/category-senior-advisors.jpg",
+    "people": [
+      {
+        "name": "Peter Wu",
+        "uniqname": "weirongw",
+        "title": "Senior Advisor",
+        "gradYear": "2023",
+        "interests": "Reading, design, running, cooking, magic",
+        "funFact": "Can run a 4:50 mile",
+        "linkedinUrl": "https://www.linkedin.com/in/weirongw/",
+        "githubUrl": "https://github.com/weirongw23",
+        "facebookUrl": "https://www.facebook.com/profile.php?id=100007462180089",
+        "instagramUrl": "https://www.instagram.com/weirongw/saved/",
+        "imageUrl": "leadership/weirongw.jpg",
+        "display": "Y"
+      },
+      {
+        "name": "Yatharth Chhabra",
+        "uniqname": "ychhabra",
+        "title": "Senior Advisor",
+        "gradYear": "2022",
+        "interests": "Taekwondo, ultimate frisbee, cricket, memes, fingerstyle guitar",
+        "funFact": "Fingertips are dead from playing fingerstyle guitar",
+        "linkedinUrl": "http://www.linkedin.com/in/yatharth-chhabra",
+        "githubUrl": "https://github.com/yatharthchhabra",
+        "imageUrl": "leadership/ychhabra.jpg",
+        "display": "Y"
+      }
+    ]
+  }
 }
