@@ -63,6 +63,7 @@ const Details = styled.dl`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color: ${(props) => props.theme.text};
 `;
 
 const DetailGroup = styled.div`
@@ -72,19 +73,6 @@ const DetailGroup = styled.div`
   &:last-of-type {
     margin-bottom: 0;
   }
-`;
-
-const Detail = styled.dt`
-  display: inline;
-  color: ${(props) => props.theme.text};
-  padding: 0;
-  margin-bottom: 0;
-`;
-
-const DetailDescription = styled.dd`
-  display: inline;
-  color: ${(props) => props.theme.text};
-  text-align: left;
 `;
 
 const IconLink = styled.a`
@@ -171,16 +159,16 @@ const MemberCard = (props) => {
       <Title>{props.title}</Title>
       <Details>
         <DetailGroup>
-          <Detail>Grad Year: </Detail>
-          <DetailDescription>{props.gradYear}</DetailDescription>
+          <b>Grad Year: </b>
+          {props.gradYear}
         </DetailGroup>
         <DetailGroup>
-          <Detail>Interests: </Detail>
-          <DetailDescription>{props.interests}</DetailDescription>
+          <b>Interests: </b>
+          {props.interests}
         </DetailGroup>
         <DetailGroup>
-          <Detail>Fun fact: </Detail>
-          <DetailDescription>{props.funFact}</DetailDescription>
+          <b>Fun fact: </b>
+          {props.funFact}
         </DetailGroup>
       </Details>
       <Links>{personalUrls()}</Links>
