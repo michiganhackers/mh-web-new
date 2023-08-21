@@ -30,7 +30,8 @@
         "lint-fix": "eslint --fix --ext .jsx,.js src",
         "style-check": "npx prettier --check .",
         "style-fix": "npx prettier --write .",
-        "get-leadership": "node bin/collectTeamData.js"
+        "get-leadership": "node bin/collectTeamData.js",
+        "deploy": "./bin/deploy.sh"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.16.5",
