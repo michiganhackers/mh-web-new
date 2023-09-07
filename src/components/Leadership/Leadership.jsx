@@ -118,6 +118,8 @@ function Leadership() {
     setCurrentTabIndex(hashIndex !== -1 ? hashIndex : 0);
   }, [location]);
 
+  const group_name = TAB_NAMES[currentTabIndex];
+
   return (
     <>
       <Navbar />
@@ -161,15 +163,11 @@ function Leadership() {
             </TabInfo>
           </SubTheme>
           <SubTheme name="leads">
-            {TAB_NAMES.map((group_name, i) => (
-              <CardContainer
-                key={group_name}
-                aria-labelledby={`tab-${group_name}`}
-                role="tabpanel"
-                people={leadership[group_name].people}
-                hidden={currentTabIndex !== i}
-              />
-            ))}
+            <CardContainer
+              aria-labelledby={`tab-${group_name}`}
+              role="tabpanel"
+              people={leadership[group_name].people}
+            />
           </SubTheme>
         </LeadershipWrapper>
       </SubTheme>
